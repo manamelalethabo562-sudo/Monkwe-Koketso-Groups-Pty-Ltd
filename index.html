@@ -3,486 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monkwe Koketso Groups | Takedi Modern Printers</title>
-    <!-- Font Awesome for modern icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Takedi Printers | Digital Printing & Branding Solutions</title>
     <style>
-        /* --- CSS VARIABLES --- */
-        :root {
-            --primary-navy: #3E4095;
-            --accent-orange: #F58634;
-            --highlight-cyan: #00AFEF;
-            --bg-white: #FEFEFE;
-            --text-dark: #333;
-            --text-light: #f4f4f4;
-            --light-gray: #f9f9f9;
-        }
-        /* --- ANIMATION KEYFRAME --- */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* --- GLOBAL STYLES --- */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-white);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-        h1, h2, h3, h4 {
-            color: var(--primary-navy);
-            margin-bottom: 10px;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-        a { text-decoration: none; }
-        ul { list-style-position: inside; }
+        body { margin: 0; font-family: 'Arial', sans-serif; background: #FEFEFE; color: #333; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        h1, h2, h3 { font-weight: bold; }
+        ul { padding-left: 20px; }
 
-        /* --- SIDEBAR NAVIGATION (LEFT SIDE, HOVER EXPAND/COLLAPSE) --- */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -220px; /* Shows ~60px strip with icons when collapsed */
-            width: 280px;
-            height: 100vh;
-            background-color: var(--primary-navy);
-            transition: left 0.5s ease;
-            z-index: 1000;
+        /* Colors */
+        :root {
+            --primary-blue: #3E4095;
+            --accent-orange: #F58634;
+            --light-blue: #00AFEF;
+            --white: #FEFEFE;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--accent-orange), var(--primary-blue));
+            color: var(--white);
+            padding: 100px 20px 60px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
-        .sidebar:hover {
-            left: 0; /* Fully expands on hover */
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--white);
+            border-radius: 50% 50% 0 0;
         }
-        .sidebar-logo {
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        .logo { font-size: 48px; font-weight: bold; color: var(--light-blue); margin-bottom: 10px; }
+        .tagline { font-size: 24px; margin: 20px 0; }
+        nav {
+            background: var(--primary-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .sidebar-logo .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-        }
-        .sidebar-logo .logo span {
-            color: var(--accent-orange);
-        }
-        .sidebar-menu {
+        nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
-        }
-        .sidebar-menu li a {
             display: flex;
-            align-items: center;
-            padding: 18px 24px;
-            color: #fff;
-            font-weight: 600;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li { margin: 0 15px; }
+        nav ul li a {
+            color: var(--white);
+            font-weight: bold;
+            padding: 10px 15px;
             transition: background 0.3s;
         }
-        .sidebar-menu li a:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        .sidebar-menu li a:hover i {
-            color: var(--accent-orange);
-        }
-        .sidebar-menu i {
-            font-size: 1.6rem;
-            min-width: 60px;
-            text-align: center;
-            color: #fff;
-            transition: color 0.3s;
-        }
-        .sidebar-menu span {
-            white-space: nowrap;
-        }
+        nav ul li a:hover { background: var(--accent-orange); border-radius: 5px; }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            background: linear-gradient(rgba(62, 64, 149, 0.9), rgba(62, 64, 149, 0.8)), url('print-bg.jpg');
+        /* Sections */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .section-title {
+            color: var(--accent-orange);
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .curve-top {
+            position: relative;
+            margin-top: -50px;
+            padding-top: 100px;
+        }
+        .curve-top::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: inherit;
+            border-radius: 0 0 50% 50%;
+        }
+        .bg-blue { background: var(--primary-blue); color: var(--white); }
+        .bg-orange { background: var(--accent-orange); color: var(--white); }
+        .bg-image {
             background-size: cover;
-            color: var(--bg-white);
-            text-align: center;
-            padding: 100px 20px;
+            background-position: center;
+            color: var(--white);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
-        .hero h1 {
-            color: var(--bg-white);
-            font-size: 3rem;
-            margin-bottom: 10px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
-        }
-        .btn-primary {
-            background-color: var(--accent-orange);
-            color: var(--bg-white);
-        }
-        .btn-primary:hover { background-color: var(--highlight-cyan); }
 
-        /* --- SECTION STYLES --- */
-        section { padding: 60px 0; }
-        .bg-light { background-color: var(--light-gray); }
+        /* Hero */
+        #hero {
+            background: url('https://www.momnet.com/wp-content/uploads/2024/01/AdobeStock_264640342.jpeg') center/cover no-repeat;
+        }
 
-        /* --- MODERN CARD BASE STYLES --- */
-        .value-box,
-        .strategy-card,
-        .service-card {
-            background: var(--bg-white);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        .value-box:hover,
-        .strategy-card:hover,
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-        /* --- CARD HEADINGS (ORANGE) --- */
-        .value-box h3,
-        .strategy-card h3,
-        .service-card h3 {
-            color: var(--accent-orange);
-            margin-bottom: 15px;
-        }
-        /* --- VALUES GRID --- */
-        .values-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .value-box {
-            padding: 30px;
-            flex: 1 1 300px;
-            border-top: 5px solid var(--accent-orange);
-        }
-        .values-grid .value-box:nth-child(1) { animation-delay: 0.2s; }
-        .values-grid .value-box:nth-child(2) { animation-delay: 0.4s; }
-        .values-grid .value-box:nth-child(3) { animation-delay: 0.6s; }
-        /* --- STRATEGY GRID --- */
-        .strategy-grid {
+        /* Grid */
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px;
         }
-        .strategy-card {
-            padding: 30px;
-            border-top: 5px solid var(--accent-orange);
-        }
-        .strategy-grid .strategy-card:nth-child(1) { animation-delay: 0.2s; }
-        .strategy-grid .strategy-card:nth-child(2) { animation-delay: 0.4s; }
-        .strategy-grid .strategy-card:nth-child(3) { animation-delay: 0.6s; }
-        .list-clean { list-style: none; padding: 0; }
-        .list-clean li {
-            margin-bottom: 12px;
-            padding-left: 15px;
-            border-left: 3px solid var(--accent-orange);
-            transition: border-color 0.3s;
-        }
-        /* --- SERVICES GRID --- */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .service-card {
-            padding: 30px;
-            border-top: 5px solid var(--accent-orange);
-        }
-        .service-grid .service-card:nth-child(1) { animation-delay: 0.2s; }
-        .service-grid .service-card:nth-child(2) { animation-delay: 0.4s; }
-        .service-grid .service-card:nth-child(3) { animation-delay: 0.6s; }
-        .service-grid .service-card:nth-child(4) { animation-delay: 0.8s; }
-        /* --- CLIENT LIST (MODERN CARD STYLE) --- */
-        .client-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 30px;
-        }
-        .client-list li {
-            background: var(--bg-white);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        .client-list li:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-        .client-list li:nth-child(1) { animation-delay: 0.2s; }
-        .client-list li:nth-child(2) { animation-delay: 0.4s; }
-        .client-list li:nth-child(3) { animation-delay: 0.6s; }
-        .client-list li:nth-child(4) { animation-delay: 0.8s; }
-        .client-list li:nth-child(5) { animation-delay: 1.0s; }
-        /* --- CONTACT --- */
-        .contact {
-            background-color: var(--primary-navy);
-            color: var(--bg-white);
-            text-align: center;
-        }
-        .contact h2 { color: var(--bg-white); }
-        .contact a { color: var(--accent-orange); }
-        /* --- FOOTER --- */
-        footer {
-            background-color: #222;
-            color: #aaa;
-            text-align: center;
+        .card {
+            background: rgba(255,255,255,0.95);
             padding: 20px;
-            font-size: 0.9rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        /* Organogram */
+        .organogram {
+            text-align: center;
+            font-size: 18px;
+        }
+        .organogram .director { font-size: 24px; font-weight: bold; margin: 20px 0; }
+        .organogram .team { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+
+        /* Portfolio */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .portfolio-item img { width: 100%; border-radius: 10px; }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .section-title { font-size: 28px; }
+            header { padding: 80px 20px 40px; }
         }
     </style>
 </head>
 <body>
-    <!-- Left Sidebar Navigation (collapses to icon strip, expands on hover) -->
-    <div class="sidebar">
-        <div class="sidebar-logo">
-            <div class="logo">MK <span>Groups</span></div>
-        </div>
-        <ul class="sidebar-menu">
-            <li><a href="#home"><i class="fas fa-house"></i><span>Home</span></a></li>
-            <li><a href="#about"><i class="fas fa-circle-info"></i><span>About</span></a></li>
-            <li><a href="#strategy"><i class="fas fa-bullseye"></i><span>Strategy</span></a></li>
-            <li><a href="#services"><i class="fas fa-print"></i><span>Services</span></a></li>
-            <li><a href="#projects"><i class="fas fa-images"></i><span>Work</span></a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-        </ul>
-    </div>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>We Give Creative Solutions</h1>
-            <p>Your leading digital printing partner specializing in high-quality solutions for businesses and individuals.</p>
-            <a href="#contact" class="btn btn-primary">Get a Quote</a>
-        </div>
-    </section>
-    <section id="about" class="bg-light">
-        <div class="container">
-            <h2>About Monkwe Koketso Groups</h2>
-            <p><strong>Monkwe Koketso Groups (Pty) Ltd</strong> is a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. With a passion for delivering exceptional customer service and a commitment to sustainability, we strive to exceed our customers' expectations with every project [cite: 36-37].</p>
-           
-            <h3>Our History</h3>
-            <p>Monkwe Koketso Groups was founded in 2022 by Monkwe Koketso, with a vision to provide innovative digital printing solutions that combine quality, speed, and affordability. Over the years, we have grown and evolved, investing in the latest technology and expanding our services to meet the changing needs of our customers [cite: 39-40].</p>
-           
-            <div class="values-grid" style="margin-top: 30px;">
-                <div class="value-box">
-                    <h3>Mission</h3>
-                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality[cite: 52].</p>
-                </div>
-                <div class="value-box">
-                    <h3>Vision</h3>
-                    <p>To be the leading digital printing company in the industry, recognized for our exceptional quality, innovative solutions, and commitment to sustainability[cite: 54].</p>
-                </div>
-                <div class="value-box">
-                    <h3>Core Values</h3>
-                    <ul style="padding-left: 20px; font-size: 0.9em;">
-                        <li><strong>Customer Focus:</strong> Exceed expectations.</li>
-                        <li><strong>Quality Excellence:</strong> Highest standards.</li>
-                        <li><strong>Innovation:</strong> Continuous improvement.</li>
-                        <li><strong>Sustainability:</strong> Minimize ecological footprint.</li>
-                        <li><strong>Integrity:</strong> Honesty and transparency.</li>
-                        <li><strong>Teamwork:</strong> Collaborative environment [cite: 56-61].</li>
-                    </ul>
-                </div>
+    <!-- Hero Header -->
+    <header id="hero">
+        <div class="logo">TAKEDI PRINTERS</div>
+        <div class="tagline">Fast, Reliable & Cost-Effective Digital Printing Solutions</div>
+        <p style="font-size:20px; max-width:800px; margin:20px auto;">
+            High-quality signage, vehicle branding, large-format printing and more – delivered with excellence in Mokopane and beyond.
+        </p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#organogram">Organogram</a></li>
+            <li><a href="#mission">Mission & Vision</a></li>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#pledge">Service Pledge</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#principles">Principles</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Us -->
+    <section id="about" class="bg-orange curve-top">
+        <h2 class="section-title">About Us</h2>
+        <div class="grid">
+            <div>
+                <p>Takedi Printers is a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. With a passion for delivering exceptional customer service and a commitment to sustainability, we strive to exceed our customers' expectations with every project.</p>
+                <h3>Our History</h3>
+                <p>Founded in 2022 by Monkwe Koketso, with a vision to provide innovative digital printing solutions that combine quality, speed, and affordability. Over the years, we have grown and evolved, investing in the latest technology and expanding our services to meet the changing needs of our customers.</p>
             </div>
-            <br>
-            <h3>Our Team (Organogram)</h3>
-            <ul>
-                <li><strong>Director & Designer:</strong> Monkwe Koketso</li>
-                <li><strong>Receptionist:</strong> Moshi Mapula</li>
-                <li><strong>Applicator:</strong> Seshoka Johannes [cite: 41-45]</li>
-            </ul>
+            <div><img src="https://www.printbigmiami.com/wp-content/uploads/2025/03/Printing-services-in-Miami.jpeg" alt="Printing workshop" style="border-radius:10px; width:100%;"></div>
         </div>
     </section>
-    <section id="strategy">
-        <div class="container">
-            <h2>Company Strategy & Imperatives</h2>
-           
-            <div class="strategy-grid">
-                <div class="strategy-card">
-                    <h3>Goals & Objectives</h3>
-                    <h4>Short-Term (12 Months)</h4>
-                    <ul class="list-clean">
-                        <li><strong>Increase Revenue:</strong> By 15% through acquisition & retention.</li>
-                        <li><strong>Improve Efficiency:</strong> Reduce production time by 20%.</li>
-                        <li><strong>Customer Satisfaction:</strong> Achieve 95% rating.</li>
-                        <li><strong>Expand Offerings:</strong> Large-format & variable data printing [cite: 66-69].</li>
-                    </ul>
-                    <h4>Long-Term (3-5 Years)</h4>
-                    <ul class="list-clean">
-                        <li><strong>Market Leadership:</strong> Become the regional leader.</li>
-                        <li><strong>Sustainability:</strong> Achieve carbon neutrality.</li>
-                        <li><strong>Innovation:</strong> Invest in latest technologies [cite: 71-73].</li>
-                    </ul>
-                </div>
-                <div class="strategy-card">
-                    <h3>Strategic Imperatives</h3>
-                    <ul class="list-clean">
-                        <li><strong>Accelerate Growth:</strong> Entry into new markets.</li>
-                        <li><strong>Drive Innovation:</strong> R&D investment.</li>
-                        <li><strong>Enhance Customer Experience:</strong> Responsive communication & timely delivery [cite: 203-205].</li>
-                    </ul>
-                    <h4 style="margin-top:20px;">Operational Imperatives</h4>
-                    <ul class="list-clean">
-                        <li><strong>Optimize Efficiency:</strong> Streamline processes.</li>
-                        <li><strong>Ensure Quality:</strong> Regular checks & training.</li>
-                        <li><strong>Foster Positive Culture:</strong> Respect & inclusivity [cite: 207-209].</li>
-                    </ul>
-                </div>
-                <div class="strategy-card">
-                    <h3>Company Principles</h3>
-                    <p>We adhere to strict principles to ensure business success:</p>
-                    <ul class="list-clean">
-                        <li>Service Level Agreement (SLA)</li>
-                        <li>Profitability</li>
-                        <li>Customer Relations Management (CRM) [cite: 200]</li>
-                    </ul>
-                    <h4 style="margin-top:20px;">Financial Objectives</h4>
-                    <ul class="list-clean">
-                        <li>Increase revenue by 10% annually.</li>
-                        <li>Maintain gross margin of 25% or higher [cite: 83-84].</li>
-                    </ul>
-                </div>
+
+    <!-- Organogram -->
+    <section id="organogram">
+        <h2 class="section-title">Organogram</h2>
+        <div class="organogram">
+            <div class="director">DIRECTOR<br>MONKWE KOKETSO</div>
+            <div class="team">
+                <div>RECEPTIONIST<br>MOSHI MAPULA</div>
+                <div>DESIGNER<br>MONKWE KOKETSO</div>
+                <div>APPLICATOR<br>SESHOKA JOHANNES</div>
             </div>
         </div>
     </section>
-    <section id="services" class="bg-light">
-        <div class="container">
-            <h2>Our Services</h2>
-            <p>We provide a wide range of branding and printing solutions [cite: 112-141].</p>
-            <div class="service-grid" style="margin-top: 30px;">
-                <div class="service-card">
-                    <h3>Large Format & Signage</h3>
-                    <p>Chromadeck Boards, Lightboxes, PVC Banners, Teardrop Flags, Telescopic Flags, Wall Banners, Correx Boards.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Vehicle & Outdoor</h3>
-                    <p>Vehicle Branding, Fleet Stickers, Car Magnetics, Gazebos, Shop Branding, Window Frosting/Film.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Corporate & Safety</h3>
-                    <p>Safety Signage, Mine Signage (Reflective/Non-reflective), PPE, Name Tags, Rubber Stamps.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Marketing Materials</h3>
-                    <p>Business Cards, Flyers, Label Stickers, Canvas Printing, T-Shirt Printing & Embroidery, Bottle Stickers.</p>
-                </div>
+
+    <!-- Mission, Vision & Values -->
+    <section id="mission" class="bg-blue">
+        <h2 class="section-title">Our Mission, Vision and Values</h2>
+        <div class="grid">
+            <div>
+                <h3>Mission Statement</h3>
+                <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and customer service.</p>
+            </div>
+            <div>
+                <h3>Vision Statement</h3>
+                <p>To be the leading digital printing company in the industry, recognized for our exceptional quality, innovative solutions, and commitment to customer satisfaction and sustainability.</p>
+            </div>
+            <div>
+                <h3>Values Statement</h3>
+                <ul>
+                    <li><strong>Customer Focus:</strong> We prioritize our customers' needs and strive to exceed their expectations.</li>
+                    <li><strong>Quality Excellence:</strong> We are committed to delivering high-quality products and services.</li>
+                    <li><strong>Innovation:</strong> We encourage creativity, innovation, and continuous improvement.</li>
+                    <li><strong>Sustainability:</strong> We prioritize environmental sustainability and minimize our ecological footprint.</li>
+                    <li><strong>Integrity:</strong> We operate with integrity, transparency, and honesty.</li>
+                    <li><strong>Teamwork:</strong> We foster a collaborative and inclusive work environment.</li>
+                </ul>
             </div>
         </div>
     </section>
-    <section id="projects">
-        <div class="container">
-            <h2>Work Completions & References</h2>
-            <p>We have successfully delivered quality work for various clients [cite: 164-182].</p>
-           
-            <ul class="client-list">
-                <li>
-                    <div><strong>Kgwatlhele Primary School</strong><br><small>Signage board design, fabrication, and installation</small></div>
-                    <span style="color:var(--accent-orange); font-weight:bold;">2024</span>
-                </li>
-                <li>
-                    <div><strong>The Joint Civils (Pty) Ltd</strong><br><small>Vehicle Branding</small></div>
-                    <span style="color:var(--accent-orange); font-weight:bold;">Sept 2024</span>
-                </li>
-                <li>
-                    <div><strong>Rockafella Royalfarewell</strong><br><small>Branding services</small></div>
-                    <span style="color:var(--accent-orange); font-weight:bold;">Oct 2024</span>
-                </li>
-                <li>
-                    <div><strong>Dr. Kgomo Dental Care</strong><br><small>Signage board and Door branding</small></div>
-                    <span style="color:var(--accent-orange); font-weight:bold;">Completed</span>
-                </li>
-                <li>
-                    <div><strong>Bakone Construction</strong><br><small>Branding Services</small></div>
-                    <span style="color:var(--accent-orange); font-weight:bold;">Oct 2024</span>
-                </li>
-            </ul>
-            <div style="margin-top: 40px;">
-                <h3>Client References</h3>
-                <div class="service-grid">
-                    <div class="service-card">
-                        <strong>Rockafella Royalfarewell</strong><br>
-                        Mr. Seletela: 066 386 6400<br>
-                        info@rockafellaroyalfarewell.co.za [cite: 184]
-                    </div>
-                    <div class="service-card">
-                        <strong>Kgwatlhele Primary School</strong><br>
-                        Mr. A. Kwakwa: 079 187 1480<br>
-                        kgwatlheleprimary@gmail.com [cite: 186]
-                    </div>
-                    <div class="service-card">
-                        <strong>Dr Kgomo Dental Care</strong><br>
-                        Mrs. T.R Kgomo: 072 082 1799<br>
-                        44 Ruiter Rd, Mokopane [cite: 190]
-                    </div>
-                </div>
+
+    <!-- Goals & Objectives -->
+    <section id="goals">
+        <h2 class="section-title">Goals and Objectives</h2>
+        <div class="grid">
+            <div>
+                <h3>Short-Term Goals (Next 12 Months)</h3>
+                <ol>
+                    <li>Increase annual revenue by 15% through new customer acquisition and retention.</li>
+                    <li>Reduce production time by 20% through process improvements and equipment upgrades.</li>
+                    <li>Achieve a customer satisfaction rating of 95% or higher.</li>
+                    <li>Introduce new services such as large-format or variable data printing.</li>
+                </ol>
+            </div>
+            <div>
+                <h3>Long-Term Goals (Next 3-5 Years)</h3>
+                <ol>
+                    <li>Become the leading printing company in the region.</li>
+                    <li>Achieve carbon neutrality through sustainable practices.</li>
+                    <li>Invest in the latest printing technologies.</li>
+                    <li>Establish strategic partnerships for efficiency and cost reduction.</li>
+                </ol>
             </div>
         </div>
     </section>
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p><strong>We value your business and appreciate the opportunity to serve you! [cite: 109]</strong></p>
-           
-            <div style="margin-top: 30px; font-size: 1.1em;">
-                <p><strong>Address:</strong> 15 Nelson Mandela Street, Mokopane, 0601 [cite: 108]</p>
-                <p><strong>Phone:</strong> <a href="tel:+27607118356">060 711 8356</a> / <a href="tel:+27150040179">015 004 0179</a> [cite: 106]</p>
-                <p><strong>Email:</strong> <a href="mailto:info@takedi.co.za">info@takedi.co.za</a> [cite: 107]</p>
-            </div>
-            <div style="margin-top: 50px; border: 2px solid var(--highlight-cyan); padding: 30px; display: inline-block; max-width: 800px; background: rgba(255,255,255,0.1);">
-                <h3 style="color: var(--accent-orange);">Our Service Pledge</h3>
-                <div style="text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <p>1. <strong>Respond Promptly:</strong> Within 2 hours during business hours.</p>
-                    <p>2. <strong>Accurate Quotes:</strong> Detailed costs and timelines.</p>
-                    <p>3. <strong>Meet Deadlines:</strong> Diligent work to be on time.</p>
-                    <p>4. <strong>Ensure Quality:</strong> Strict review standards.</p>
-                    <p>5. <strong>Communicate:</strong> Regular updates from order to delivery.</p>
-                    <p>6. <strong>Confidentiality:</strong> Protect your information.</p>
-                </div>
-                <p style="margin-top: 20px; font-style: italic;">"We promise to deliver exceptional service, quality products, and value to our customers."</p>
-            </div>
+
+    <!-- Service Pledge -->
+    <section id="pledge" class="bg-orange">
+        <h2 class="section-title">Our Service Pledge</h2>
+        <p style="text-align:center; max-width:900px; margin:0 auto 30px;">At Takedi Printers, we are committed to delivering exceptional service and quality products.</p>
+        <ol style="max-width:900px; margin:0 auto;">
+            <li>Respond promptly within 2 hours during business hours.</li>
+            <li>Provide accurate quotes with timelines and costs.</li>
+            <li>Meet all deadlines.</li>
+            <li>Ensure highest quality standards.</li>
+            <li>Communicate effectively throughout the process.</li>
+            <li>Respect confidentiality.</li>
+            <li>Offer flexible solutions to meet unique needs and budgets.</li>
+        </ol>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid">
+            <div class="card"><img src="https://a.storyblok.com/f/165154/1280x720/0a30e26489/01_digital-printing-overview.jpg/m/" alt="Digital Printing"><h3>Large Format & Digital Printing</h3><p>Banners, posters, business cards, flyers and more.</p></div>
+            <div class="card"><img src="https://expressprint.co.za/wp-content/uploads/2021/12/Express-Print-104.jpg" alt="Signage"><h3>Signage Design, Print & Installation</h3><p>Chromadek boards, outdoor/indoor signage.</p></div>
+            <div class="card"><img src="https://www.craftsmenind.com/hs-fs/hubfs/vinyl-car-wrap.jpg?width=699&name=vinyl-car-wrap.jpg" alt="Vehicle Branding"><h3>Vehicle Branding</h3><p>Full wraps and professional vehicle graphics.</p></div>
+            <div class="card"><img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png?fit=1099%2C733&ssl=1" alt="Window Branding"><h3>Window & Door Branding</h3><p>Frosted graphics, indoor/outdoor branding.</p></div>
         </div>
     </section>
-    <footer>
-        <p>&copy; 2024 Monkwe Koketso Groups (Pty) Ltd. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="bg-blue">
+        <h2 class="section-title">Recent Work Completions</h2>
+        <ul style="max-width:900px; margin:0 auto 40px;">
+            <li>Kgwatlhele Primary School – Signage board design, print, fabrication and installation (2024)</li>
+            <li>The Joint Civils (Pty) Ltd – Vehicle branding (September 2024)</li>
+            <li>Rockafella Royalfarewell – Vehicle branding (October 2024)</li>
+            <li>Bakone Construction – Vehicle branding (October 2024)</li>
+            <li>Takedi Modern Printers – Window branding (indoor/outdoor, October 2024)</li>
+            <li>Dr Kgomo Dental Care – Signage board and door branding</li>
+            <li>Vutomi Traditional Herbal Healthcare – Signage board</li>
+        </ul>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="https://expressprint.co.za/wp-content/uploads/2021/12/Express-Print-104.jpg" alt="Signage example"></div>
+            <div class="portfolio-item"><img src="https://www.craftsmenind.com/hs-fs/hubfs/vinyl-car-wrap.jpg?width=699&name=vinyl-car-wrap.jpg" alt="Vehicle branding example"></div>
+            <div class="portfolio-item"><img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png?fit=1099%2C733&ssl=1" alt="Window branding example"></div>
+            <div class="portfolio-item"><img src="https://thumbs.dreamstime.com/b/modern-printing-press-producing-vibrant-color-sheets-high-tech-facility-symbolizing-precision-innovation-efficiency-418658578.jpg" alt="Printing example"></div>
+        </div>
+    </section>
+
+    <!-- References -->
+    <section id="references">
+        <h2 class="section-title">References</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Rockafella Royalfarewell</h3>
+                <p>Mr Seletela<br>066 386 6400<br>
