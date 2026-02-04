@@ -53,10 +53,14 @@
         nav .nav-logo {
             display: flex;
             align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
         }
-        nav .nav-logo img {
-            height: 60px;
-            width: auto;
+        nav .nav-logo i {
+            font-size: 40px;
+            color: var(--light);
         }
         nav ul {
             list-style: none;
@@ -83,7 +87,7 @@
             font-size: 22px;
         }
 
-        /* Hero Header - Only business name, slogan, and mining truck */
+        /* Hero Header - Only company name, slogan, and mining truck */
         header {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://thumbs.dreamstime.com/b/large-yellow-dump-truck-seen-open-pit-mining-site-transporting-coal-anthracite-amid-rocky-cloudy-environment-422156946.jpg') center/cover no-repeat;
             color: white;
@@ -177,7 +181,7 @@
             .company-name { font-size: 42px; }
             .slogan { font-size: 26px; }
             nav .nav-container { justify-content: center; }
-            nav .nav-logo img { height: 50px; }
+            nav .nav-logo { position: static; margin-bottom: 10px; }
             nav ul { gap: 15px; }
             nav ul li a { font-size: 14px; }
         }
@@ -189,8 +193,8 @@
     <nav>
         <div class="nav-container">
             <div class="nav-logo">
-                <!-- Save the uploaded logo image as "logo.png" in the same folder as index.html -->
-                <img src="logo.png" alt="Monkwe Koketso Groups Logo">
+                <i class="fas fa-print"></i>
+                <span>Mk Groups PTY LTD</span>
             </div>
             <ul>
                 <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
