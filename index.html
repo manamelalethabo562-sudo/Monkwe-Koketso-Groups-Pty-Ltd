@@ -29,30 +29,30 @@
             --transition: all 0.4s ease;
         }
 
-        /* Modern Top Navigation */
+        /* Floating Navigation Bar */
         nav {
-            background: rgba(62, 64, 149, 0.92);
-            backdrop-filter: blur(12px);
-            padding: 18px 0;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(62, 64, 149, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 12px 30px;
             z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: var(--transition);
-        }
-        nav.scrolled {
-            padding: 12px 0;
-            background: rgba(62, 64, 149, 0.98);
-        }
-        nav .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        nav.scrolled {
+            padding: 8px 30px;
+            background: rgba(62, 64, 149, 0.98);
+            width: 85%;
         }
         nav .nav-logo {
             display: flex;
@@ -60,37 +60,34 @@
             gap: 12px;
             color: white;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
         }
-        nav .nav-logo i { font-size: 32px; color: var(--light); }
+        nav .nav-logo i { font-size: 28px; color: var(--light); }
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 25px;
+            gap: 20px;
         }
         nav ul li a {
             color: white;
             font-weight: 500;
             font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             padding: 8px 15px;
             border-radius: 50px;
             transition: var(--transition);
         }
-        nav ul li a:hover { background: rgba(245,134,52,0.25); transform: translateY(-2px); }
+        nav ul li a:hover { background: rgba(245,134,52,0.3); }
 
-        /* Hero Header - Updated with Mining Truck and Straight Edges */
+        /* Hero Header - Mining Truck with Straight Edges */
         header {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1591114136437-975979c093a3?q=80&w=2070') center/cover no-repeat fixed;
             color: white;
             text-align: center;
-            padding: 260px 20px 160px;
+            padding: 280px 20px 180px;
             position: relative;
-            border-radius: 0; /* Straight edges */
+            border-radius: 0; /* Requested: Straight edges */
         }
         .company-name {
             font-size: 58px;
@@ -117,7 +114,7 @@
         }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        /* Straight edges for Orange headers */
+        /* Straight edges for specific containers */
         .orange-header { 
             background: linear-gradient(135deg, var(--accent), #e07a2a); 
             color: white; 
@@ -125,18 +122,19 @@
             text-align: center; 
             font-size: 36px; 
             margin-bottom: 50px; 
-            border-radius: 0; /* Straight edges */
+            border-radius: 0; /* Requested: Straight edges */
             box-shadow: 0 15px 40px rgba(245,134,52,0.3);
         }
 
         .blue-bg { 
             background: linear-gradient(135deg, var(--primary), #2c3078); 
             color: white; 
-            border-radius: 0; /* Standardized to straight edges as per theme update */
+            border-radius: 0; 
             padding: 80px 40px;
             box-shadow: 0 20px 50px rgba(62,64,149,0.2);
         }
 
+        /* Rounded Cards */
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -144,8 +142,8 @@
         }
         .card { 
             background: white; 
-            padding: 30px; 
-            border-radius: 10px; 
+            padding: 40px; 
+            border-radius: 30px; /* Requested: Rounded edges */
             box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
             transition: var(--transition);
             color: #333;
@@ -158,7 +156,7 @@
             text-align: center;
             background: rgba(255,255,255,0.95);
             padding: 50px;
-            border-radius: 10px;
+            border-radius: 30px;
             margin-top: 50px;
             color: #333;
         }
@@ -174,13 +172,11 @@
         }
         .line { border-top: 3px solid var(--primary); width: 100px; display: inline-block; margin: 15px 0; }
 
-        /* Footer */
         footer {
             background: linear-gradient(135deg, var(--primary), #2c3078);
             color: white;
             padding: 100px 5% 50px;
             margin-top: 100px;
-            position: relative;
         }
         .footer-grid {
             display: grid;
@@ -189,9 +185,6 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-        .footer-column h3 { color: var(--accent); margin-bottom: 25px; }
-        .footer-column p { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
-        .footer-column i { color: var(--light); }
         .copyright {
             text-align: center;
             margin-top: 60px;
@@ -203,28 +196,27 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 768px) {
-            .company-name { font-size: 36px; }
+        @media (max-width: 992px) {
+            nav { width: 95%; padding: 10px 20px; }
             nav ul { display: none; }
+            .company-name { font-size: 36px; }
         }
     </style>
 </head>
 <body>
 
     <nav id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-fill-drip"></i>
-                <span>MONKWE KOKETSO GROUPS</span>
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="nav-logo">
+            <i class="fas fa-fill-drip"></i>
+            <span>MK GROUPS PTY LTD</span>
         </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <header id="home">
@@ -235,7 +227,7 @@
     <main>
         <section id="about" style="background: var(--accent); color:white; margin-top:0; border-radius: 0;">
             <div class="orange-header" style="background:transparent; box-shadow:none; padding-top: 0;">About Our Company</div>
-            <div class="card" style="max-width:1000px; margin:0 auto; border-radius: 0;">
+            <div class="card" style="max-width:1000px; margin:0 auto;">
                 <p><strong>Welcome to Monkwe Koketso Groups (Pty) Ltd</strong></p>
                 <p>We are a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. Since our founding in 2022 by <strong>Monkwe Koketso</strong>, we have been driven by a passion for quality, speed, and affordability.</p>
                 <p>Our commitment to sustainability and innovation ensures that we stay ahead of the competition, providing eco-friendly inks and reduced energy consumption while delivering exceptional results across mining, industrial, and commercial sectors.</p>
@@ -320,12 +312,12 @@
         <section id="pledge" class="blue-bg">
             <h2 style="color:var(--accent); text-align:center;">Our Service Pledge</h2>
             <div class="grid">
-                <div style="background:rgba(255,255,255,0.1); padding:30px; border-radius:10px;">
+                <div class="card" style="background:rgba(255,255,255,0.1); color:white;">
                     <p><i class="fas fa-clock"></i> 2-Hour response time for all inquiries.</p>
                     <p><i class="fas fa-file-invoice-dollar"></i> Detailed and accurate quoting.</p>
                     <p><i class="fas fa-calendar-check"></i> Diligent adherence to all deadlines.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.1); padding:30px; border-radius:10px;">
+                <div class="card" style="background:rgba(255,255,255,0.1); color:white;">
                     <p><i class="fas fa-check-circle"></i> High-standard quality reviews.</p>
                     <p><i class="fas fa-comments"></i> Effective communication throughout the process.</p>
                     <p><i class="fas fa-handshake"></i> Flexible solutions tailored to your budget.</p>
@@ -359,22 +351,21 @@
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-column">
-                <h3>Contact Details</h3>
+                <h3 style="color:var(--accent);">Contact Details</h3>
                 <p><i class="fas fa-phone"></i> 060 711 8356 / 015 004 0179</p>
                 <p><i class="fas fa-envelope"></i> info@takedi.co.za</p>
                 <p><i class="fas fa-map-marker-alt"></i> 15 Nelson Mandela Street, Mokopane, 0601</p>
             </div>
             <div class="footer-column">
-                <h3>Quick Links</h3>
-                <p><a href="#about">Company History</a></p>
-                <p><a href="#services">Our Printing Services</a></p>
-                <p><a href="#portfolio">View Portfolio</a></p>
+                <h3 style="color:var(--accent);">Quick Links</h3>
+                <p><a href="#about" style="color:white;">Company History</a></p>
+                <p><a href="#services" style="color:white;">Printing Services</a></p>
+                <p><a href="#portfolio" style="color:white;">View Portfolio</a></p>
             </div>
             <div class="footer-column">
-                <h3>Business Hours</h3>
+                <h3 style="color:var(--accent);">Business Hours</h3>
                 <p>Monday - Friday: 08:00 - 17:00</p>
                 <p>Saturday: 09:00 - 13:00</p>
-                <p>Sunday: Closed</p>
             </div>
         </div>
         <div class="copyright">
@@ -398,7 +389,7 @@
         sections.forEach(section => observer.observe(section));
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
