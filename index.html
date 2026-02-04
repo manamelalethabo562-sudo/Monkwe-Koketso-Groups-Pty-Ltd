@@ -126,6 +126,54 @@
         }
         .line { border-top: 3px solid var(--primary); width: 100px; display: inline-block; }
 
+        /* Expandable service cards */
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .service-toggle {
+            display: none;
+        }
+        .service-label {
+            cursor: pointer;
+            display: block;
+        }
+        .service-label img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+        .service-label h3 {
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+            position: relative;
+        }
+        .service-label h3::after {
+            content: '\f078'; /* chevron-down */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s;
+        }
+        .service-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            background: #f8f8f8;
+        }
+        .service-toggle:checked ~ .service-content {
+            max-height: 600px;
+            padding: 25px 20px;
+        }
+        .service-toggle:checked ~ .service-label h3::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
         /* Professional Footer */
         footer {
             background: var(--primary);
@@ -236,14 +284,53 @@
             </div>
         </section>
 
-        <!-- Our Services -->
+        <!-- Our Services - Clickable expandable cards -->
         <section id="services">
             <h2 class="orange-header">Our Services</h2>
             <div class="grid">
-                <div class="card"><img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads/sites/84/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage" style="width:100%; border-radius:10px;"><h3>Signage Design, Print, Fabrication & Installation</h3></div>
-                <div class="card"><img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding" style="width:100%; border-radius:10px;"><h3>Vehicle Branding</h3></div>
-                <div class="card"><img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Branding" style="width:100%; border-radius:10px;"><h3>Window & Door Branding</h3></div>
-                <div class="card"><img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Digital Printing" style="width:100%; border-radius:10px;"><h3>Large Format & Digital Printing</h3></div>
+                <div class="service-card">
+                    <input type="checkbox" id="service1" class="service-toggle">
+                    <label for="service1" class="service-label">
+                        <img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads/sites/84/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage">
+                        <h3>Signage Design, Print, Fabrication & Installation</h3>
+                    </label>
+                    <div class="service-content">
+                        <p>We provide end-to-end signage solutions: custom graphic design, high-quality digital printing, durable fabrication (including chromadek boards), and professional on-site installation. Ideal for schools, businesses, events, and outdoor advertising. Fast turnaround and weather-resistant materials guaranteed.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <input type="checkbox" id="service2" class="service-toggle">
+                    <label for="service2" class="service-label">
+                        <img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding">
+                        <h3>Vehicle Branding</h3>
+                    </label>
+                    <div class="service-content">
+                        <p>Transform your fleet into mobile billboards with premium vehicle wraps, partial branding, and decals. Using high-grade vinyl for vibrant, long-lasting graphics that withstand harsh weather. Full design, print, and application service for cars, vans, trucks, and trailers.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <input type="checkbox" id="service3" class="service-toggle">
+                    <label for="service3" class="service-label">
+                        <img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Branding">
+                        <h3>Window & Door Branding</h3>
+                    </label>
+                    <div class="service-content">
+                        <p>Enhance privacy and promote your brand with custom window and door graphics. Options include frosted vinyl, one-way vision perforations, and full-color prints. Perfect for offices, retail stores, and vehicles – professional installation included.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <input type="checkbox" id="service4" class="service-toggle">
+                    <label for="service4" class="service-label">
+                        <img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Digital Printing">
+                        <h3>Large Format & Digital Printing</h3>
+                    </label>
+                    <div class="service-content">
+                        <p>State-of-the-art large format and digital printing for banners, posters, roll-ups, flyers, business cards, and more. High-resolution output with eco-friendly inks, fast production, and competitive pricing. We handle everything from design to delivery.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
