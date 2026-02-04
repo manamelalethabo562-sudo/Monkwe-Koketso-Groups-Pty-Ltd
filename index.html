@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monkwe Koketso Groups | Takedi Modern Printers</title>
+    <!-- Font Awesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* --- CSS VARIABLES BASED ON PDF [cite: 3-6] --- */
+        /* --- CSS VARIABLES --- */
         :root {
             --primary-navy: #3E4095;
             --accent-orange: #F58634;
@@ -15,7 +17,17 @@
             --text-light: #f4f4f4;
             --light-gray: #f9f9f9;
         }
-
+        /* --- ANIMATION KEYFRAME --- */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         /* --- GLOBAL STYLES --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,82 +37,110 @@
             color: var(--text-dark);
             line-height: 1.6;
         }
-
         h1, h2, h3, h4 {
             color: var(--primary-navy);
             margin-bottom: 10px;
         }
-
         .container {
             width: 90%;
             max-width: 1200px;
             margin: auto;
             padding: 20px;
         }
-
         a { text-decoration: none; }
         ul { list-style-position: inside; }
 
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            background-color: var(--bg-white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
+        /* --- SIDEBAR NAVIGATION (LEFT SIDE, HOVER EXPAND/COLLAPSE) --- */
+        .sidebar {
+            position: fixed;
             top: 0;
+            left: -220px; /* Shows ~60px strip with icons when collapsed */
+            width: 280px;
+            height: 100vh;
+            background-color: var(--primary-navy);
+            transition: left 0.5s ease;
             z-index: 1000;
+            overflow: hidden;
         }
-
-        .nav-container {
+        .sidebar:hover {
+            left: 0; /* Fully expands on hover */
+        }
+        .sidebar-logo {
+            height: 120px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-
-        .logo {
-            font-size: 24px;
+        .sidebar-logo .logo {
+            font-size: 28px;
             font-weight: bold;
-            color: var(--primary-navy);
+            color: #fff;
             text-transform: uppercase;
         }
-
-        .logo span { color: var(--accent-orange); }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            padding: 0;
+        .sidebar-logo .logo span {
+            color: var(--accent-orange);
         }
-
-        nav a {
-            color: var(--primary-navy);
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            padding: 18px 24px;
+            color: #fff;
             font-weight: 600;
+            transition: background 0.3s;
+        }
+        .sidebar-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        .sidebar-menu li a:hover i {
+            color: var(--accent-orange);
+        }
+        .sidebar-menu i {
+            font-size: 1.6rem;
+            min-width: 60px;
+            text-align: center;
+            color: #fff;
             transition: color 0.3s;
         }
-
-        nav a:hover { color: var(--highlight-cyan); }
+        .sidebar-menu span {
+            white-space: nowrap;
+        }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(62, 64, 149, 0.9), rgba(62, 64, 149, 0.8)), url('print-bg.jpg'); /* Placeholder */
+            background: linear-gradient(rgba(62, 64, 149, 0.9), rgba(62, 64, 149, 0.8)), url('print-bg.jpg');
             background-size: cover;
             color: var(--bg-white);
             text-align: center;
             padding: 100px 20px;
         }
-
-        .hero h1 { color: var(--bg-white); font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
-
+        .hero h1 {
+            color: var(--bg-white);
+            font-size: 3rem;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
         .btn {
             display: inline-block;
             padding: 12px 30px;
             border-radius: 5px;
             font-weight: bold;
             transition: 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
         }
-
         .btn-primary {
             background-color: var(--accent-orange);
             color: var(--bg-white);
@@ -111,72 +151,108 @@
         section { padding: 60px 0; }
         .bg-light { background-color: var(--light-gray); }
 
-        /* --- ABOUT & VALUES --- */
+        /* --- MODERN CARD BASE STYLES --- */
+        .value-box,
+        .strategy-card,
+        .service-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .value-box:hover,
+        .strategy-card:hover,
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        /* --- CARD HEADINGS (ORANGE) --- */
+        .value-box h3,
+        .strategy-card h3,
+        .service-card h3 {
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+        }
+        /* --- VALUES GRID --- */
         .values-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
-
         .value-box {
-            background: var(--bg-white);
-            padding: 20px;
+            padding: 30px;
             flex: 1 1 300px;
-            border-left: 5px solid var(--primary-navy);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--accent-orange);
         }
-
-        /* --- STRATEGY & GOALS (New Section) --- */
+        .values-grid .value-box:nth-child(1) { animation-delay: 0.2s; }
+        .values-grid .value-box:nth-child(2) { animation-delay: 0.4s; }
+        .values-grid .value-box:nth-child(3) { animation-delay: 0.6s; }
+        /* --- STRATEGY GRID --- */
         .strategy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
-
         .strategy-card {
-            background: var(--bg-white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--accent-orange);
+            padding: 30px;
+            border-top: 5px solid var(--accent-orange);
         }
-        
-        .strategy-card h3 { color: var(--highlight-cyan); }
-        
+        .strategy-grid .strategy-card:nth-child(1) { animation-delay: 0.2s; }
+        .strategy-grid .strategy-card:nth-child(2) { animation-delay: 0.4s; }
+        .strategy-grid .strategy-card:nth-child(3) { animation-delay: 0.6s; }
         .list-clean { list-style: none; padding: 0; }
-        .list-clean li { 
-            margin-bottom: 12px; 
-            padding-left: 15px; 
-            border-left: 3px solid #ddd; 
+        .list-clean li {
+            margin-bottom: 12px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-orange);
+            transition: border-color 0.3s;
         }
-
         /* --- SERVICES GRID --- */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-
         .service-card {
-            background: #fff;
-            padding: 20px;
-            border-top: 4px solid var(--highlight-cyan);
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 30px;
+            border-top: 5px solid var(--accent-orange);
         }
-
-        /* --- PORTFOLIO LIST --- */
+        .service-grid .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-grid .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-grid .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-grid .service-card:nth-child(4) { animation-delay: 0.8s; }
+        /* --- CLIENT LIST (MODERN CARD STYLE) --- */
+        .client-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
         .client-list li {
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-            padding: 15px;
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
         }
-
+        .client-list li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        .client-list li:nth-child(1) { animation-delay: 0.2s; }
+        .client-list li:nth-child(2) { animation-delay: 0.4s; }
+        .client-list li:nth-child(3) { animation-delay: 0.6s; }
+        .client-list li:nth-child(4) { animation-delay: 0.8s; }
+        .client-list li:nth-child(5) { animation-delay: 1.0s; }
         /* --- CONTACT --- */
         .contact {
             background-color: var(--primary-navy);
@@ -185,7 +261,6 @@
         }
         .contact h2 { color: var(--bg-white); }
         .contact a { color: var(--accent-orange); }
-
         /* --- FOOTER --- */
         footer {
             background-color: #222;
@@ -197,22 +272,20 @@
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="nav-container">
+    <!-- Left Sidebar Navigation (collapses to icon strip, expands on hover) -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
             <div class="logo">MK <span>Groups</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#strategy">Strategy</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
-    </header>
+        <ul class="sidebar-menu">
+            <li><a href="#home"><i class="fas fa-house"></i><span>Home</span></a></li>
+            <li><a href="#about"><i class="fas fa-circle-info"></i><span>About</span></a></li>
+            <li><a href="#strategy"><i class="fas fa-bullseye"></i><span>Strategy</span></a></li>
+            <li><a href="#services"><i class="fas fa-print"></i><span>Services</span></a></li>
+            <li><a href="#projects"><i class="fas fa-images"></i><span>Work</span></a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+        </ul>
+    </div>
 
     <section id="home" class="hero">
         <div class="container">
@@ -221,15 +294,14 @@
             <a href="#contact" class="btn btn-primary">Get a Quote</a>
         </div>
     </section>
-
     <section id="about" class="bg-light">
         <div class="container">
             <h2>About Monkwe Koketso Groups</h2>
             <p><strong>Monkwe Koketso Groups (Pty) Ltd</strong> is a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. With a passion for delivering exceptional customer service and a commitment to sustainability, we strive to exceed our customers' expectations with every project [cite: 36-37].</p>
-            
+           
             <h3>Our History</h3>
             <p>Monkwe Koketso Groups was founded in 2022 by Monkwe Koketso, with a vision to provide innovative digital printing solutions that combine quality, speed, and affordability. Over the years, we have grown and evolved, investing in the latest technology and expanding our services to meet the changing needs of our customers [cite: 39-40].</p>
-            
+           
             <div class="values-grid" style="margin-top: 30px;">
                 <div class="value-box">
                     <h3>Mission</h3>
@@ -251,7 +323,6 @@
                     </ul>
                 </div>
             </div>
-
             <br>
             <h3>Our Team (Organogram)</h3>
             <ul>
@@ -261,11 +332,10 @@
             </ul>
         </div>
     </section>
-
     <section id="strategy">
         <div class="container">
             <h2>Company Strategy & Imperatives</h2>
-            
+           
             <div class="strategy-grid">
                 <div class="strategy-card">
                     <h3>Goals & Objectives</h3>
@@ -283,7 +353,6 @@
                         <li><strong>Innovation:</strong> Invest in latest technologies [cite: 71-73].</li>
                     </ul>
                 </div>
-
                 <div class="strategy-card">
                     <h3>Strategic Imperatives</h3>
                     <ul class="list-clean">
@@ -298,7 +367,6 @@
                         <li><strong>Foster Positive Culture:</strong> Respect & inclusivity [cite: 207-209].</li>
                     </ul>
                 </div>
-
                 <div class="strategy-card">
                     <h3>Company Principles</h3>
                     <p>We adhere to strict principles to ensure business success:</p>
@@ -316,7 +384,6 @@
             </div>
         </div>
     </section>
-
     <section id="services" class="bg-light">
         <div class="container">
             <h2>Our Services</h2>
@@ -341,13 +408,12 @@
             </div>
         </div>
     </section>
-
     <section id="projects">
         <div class="container">
             <h2>Work Completions & References</h2>
             <p>We have successfully delivered quality work for various clients [cite: 164-182].</p>
-            
-            <ul class="client-list" style="margin-top: 30px; padding:0; list-style:none;">
+           
+            <ul class="client-list">
                 <li>
                     <div><strong>Kgwatlhele Primary School</strong><br><small>Signage board design, fabrication, and installation</small></div>
                     <span style="color:var(--accent-orange); font-weight:bold;">2024</span>
@@ -369,7 +435,6 @@
                     <span style="color:var(--accent-orange); font-weight:bold;">Oct 2024</span>
                 </li>
             </ul>
-
             <div style="margin-top: 40px;">
                 <h3>Client References</h3>
                 <div class="service-grid">
@@ -392,18 +457,16 @@
             </div>
         </div>
     </section>
-
     <section id="contact" class="contact">
         <div class="container">
             <h2>Contact Us</h2>
             <p><strong>We value your business and appreciate the opportunity to serve you! [cite: 109]</strong></p>
-            
+           
             <div style="margin-top: 30px; font-size: 1.1em;">
                 <p><strong>Address:</strong> 15 Nelson Mandela Street, Mokopane, 0601 [cite: 108]</p>
                 <p><strong>Phone:</strong> <a href="tel:+27607118356">060 711 8356</a> / <a href="tel:+27150040179">015 004 0179</a> [cite: 106]</p>
                 <p><strong>Email:</strong> <a href="mailto:info@takedi.co.za">info@takedi.co.za</a> [cite: 107]</p>
             </div>
-
             <div style="margin-top: 50px; border: 2px solid var(--highlight-cyan); padding: 30px; display: inline-block; max-width: 800px; background: rgba(255,255,255,0.1);">
                 <h3 style="color: var(--accent-orange);">Our Service Pledge</h3>
                 <div style="text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -418,10 +481,8 @@
             </div>
         </div>
     </section>
-
     <footer>
         <p>&copy; 2024 Monkwe Koketso Groups (Pty) Ltd. All Rights Reserved.</p>
     </footer>
-
 </body>
 </html>
