@@ -29,9 +29,9 @@
             border-radius: 50% 50% 0 0;
         }
 
-        /* Top Header Navigation - Fully mobile responsive with hamburger */
+        /* Top Header Navigation - Fixed overlay */
         nav {
-            background: rgba(62, 64, 149, 0.9);
+            background: rgba(62, 64, 149, 0.8);
             padding: 15px 0;
             position: fixed;
             top: 0;
@@ -46,6 +46,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
             padding: 0 20px;
         }
         nav .nav-logo {
@@ -56,44 +58,13 @@
             height: 60px;
             width: auto;
         }
-
-        /* Hamburger menu */
-        .nav-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 28px;
-            color: white;
-        }
-        .nav-toggle-label {
-            display: none;
-            cursor: pointer;
-        }
-        .nav-toggle-label span,
-        .nav-toggle-label span::before,
-        .nav-toggle-label span::after {
-            display: block;
-            background: white;
-            height: 3px;
-            width: 30px;
-            border-radius: 2px;
-            position: relative;
-            transition: all 0.3s;
-        }
-        .nav-toggle-label span::before,
-        .nav-toggle-label span::after {
-            content: '';
-            position: absolute;
-        }
-        .nav-toggle-label span::before { top: -10px; }
-        .nav-toggle-label span::after { bottom: -10px; }
-
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
+            flex-wrap: wrap;
             gap: 30px;
-            transition: all 0.3s ease;
         }
         nav ul li a {
             color: white;
@@ -104,7 +75,6 @@
             padding: 8px 15px;
             border-radius: 5px;
             transition: background 0.3s;
-            white-space: nowrap;
         }
         nav ul li a:hover {
             background: rgba(245,134,52,0.4);
@@ -113,48 +83,12 @@
             font-size: 22px;
         }
 
-        /* Mobile styles */
-        @media (max-width: 992px) {
-            .nav-toggle-label {
-                display: block;
-            }
-            nav ul {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--primary);
-                flex-direction: column;
-                gap: 0;
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                transition: max-height 0.4s ease, opacity 0.4s ease;
-            }
-            .nav-toggle:checked ~ ul {
-                max-height: 500px;
-                opacity: 1;
-            }
-            nav ul li {
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-            nav ul li a {
-                padding: 15px;
-                justify-content: center;
-            }
-            nav .nav-logo img {
-                height: 50px;
-            }
-        }
-
         /* Hero Header - Only business name, slogan, and mining truck */
         header {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://thumbs.dreamstime.com/b/large-yellow-dump-truck-seen-open-pit-mining-site-transporting-coal-anthracite-amid-rocky-cloudy-environment-422156946.jpg') center/cover no-repeat;
             color: white;
             text-align: center;
-            padding: 220px 20px 140px;
+            padding: 220px 20px 140px; /* Extra padding to clear fixed nav */
             position: relative;
         }
         .company-name {
@@ -242,24 +176,22 @@
         @media (max-width: 992px) {
             .company-name { font-size: 42px; }
             .slogan { font-size: 26px; }
+            nav .nav-container { justify-content: center; }
+            nav .nav-logo img { height: 50px; }
+            nav ul { gap: 15px; }
+            nav ul li a { font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Header Navigation - Mobile responsive with hamburger -->
+    <!-- Top Header Navigation - Fixed overlay -->
     <nav>
         <div class="nav-container">
             <div class="nav-logo">
-                <!-- Save your logo as logo.png in the same folder -->
+                <!-- Save the uploaded logo image as "logo.png" in the same folder as index.html -->
                 <img src="logo.png" alt="Monkwe Koketso Groups Logo">
             </div>
-
-            <input type="checkbox" id="nav-toggle" class="nav-toggle">
-            <label for="nav-toggle" class="nav-toggle-label">
-                <span></span>
-            </label>
-
             <ul>
                 <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#services"><i class="fas fa-print"></i> Services</a></li>
