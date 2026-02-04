@@ -29,76 +29,62 @@
             border-radius: 50% 50% 0 0;
         }
 
-        /* Modern Left Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 70px;
+        /* Top Header Navigation (moved from sidebar) */
+        nav {
             background: var(--primary);
-            transition: width 0.4s ease;
-            overflow: hidden;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
             z-index: 1000;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .sidebar:hover {
-            width: 260px;
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        .sidebar-header {
-            padding: 30px 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        nav .nav-logo {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
         }
-        .sidebar-header i {
+        nav .nav-logo i {
             font-size: 40px;
             color: var(--light);
         }
-        .sidebar-header span {
-            display: block;
-            margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        .sidebar:hover .sidebar-header span {
-            opacity: 1;
-        }
-        .sidebar ul {
+        nav ul {
             list-style: none;
-            padding: 20px 0;
+            padding: 0;
             margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
         }
-        .sidebar ul li:hover {
-            background: rgba(245,134,52,0.3);
-        }
-        .sidebar ul li a {
+        nav ul li a {
+            color: white;
+            font-weight: bold;
             display: flex;
             align-items: center;
-            padding: 15px 20px;
-            color: white;
-            text-decoration: none;
-            white-space: nowrap;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 5px;
             transition: background 0.3s;
         }
-        .sidebar ul li a i {
-            font-size: 24px;
-            min-width: 30px;
-            text-align: center;
+        nav ul li a:hover {
+            background: rgba(245,134,52,0.3);
         }
-        .sidebar ul li a span {
-            margin-left: 20px;
-            opacity: 0;
-            transition: opacity 0.3s 0.1s;
-        }
-        .sidebar:hover ul li a span {
-            opacity: 1;
-        }
-
-        main {
-            padding-left: 70px;
+        nav ul li a i {
+            font-size: 22px;
         }
 
         /* Hero Header - Mining truck background */
@@ -192,35 +178,15 @@
         }
 
         @media (max-width: 992px) {
-            .sidebar { width: 260px; }
-            .sidebar span { opacity: 1; }
-            main { padding-left: 0; }
             .logo-top { font-size: 30px; }
             .company-name { font-size: 38px; }
+            nav .nav-logo { position: static; margin-bottom: 15px; }
+            nav ul { gap: 15px; }
+            nav ul li a { font-size: 14px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Left Sidebar Navigation -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <i class="fas fa-print"></i>
-            <span>Monkwe Koketso Groups</span>
-        </div>
-        <ul>
-            <li><a href="#about"><i class="fas fa-info-circle"></i><span>About</span></a></li>
-            <li><a href="#organogram"><i class="fas fa-sitemap"></i><span>Organogram</span></a></li>
-            <li><a href="#services"><i class="fas fa-print"></i><span>Our Services</span></a></li>
-            <li><a href="#mission"><i class="fas fa-eye"></i><span>Mission & Vision</span></a></li>
-            <li><a href="#goals"><i class="fas fa-bullseye"></i><span>Goals & Objectives</span></a></li>
-            <li><a href="#pledge"><i class="fas fa-handshake"></i><span>Service Pledge</span></a></li>
-            <li><a href="#portfolio"><i class="fas fa-images"></i><span>Work Completions</span></a></li>
-            <li><a href="#references"><i class="fas fa-address-book"></i><span>References</span></a></li>
-            <li><a href="#principles"><i class="fas fa-balance-scale"></i><span>Principles & Imperatives</span></a></li>
-            <li><a href="#footer"><i class="fas fa-phone"></i><span>Contact</span></a></li>
-        </ul>
-    </aside>
 
     <!-- Hero Header - Mining truck background -->
     <header>
@@ -231,6 +197,28 @@
             <img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Printer Icon">
         </div>
     </header>
+
+    <!-- Top Header Navigation (sidebar moved here) -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-print"></i>
+                <span>Monkwe Koketso Groups</span>
+            </div>
+            <ul>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#organogram"><i class="fas fa-sitemap"></i> Organogram</a></li>
+                <li><a href="#services"><i class="fas fa-print"></i> Our Services</a></li>
+                <li><a href="#mission"><i class="fas fa-eye"></i> Mission & Vision</a></li>
+                <li><a href="#goals"><i class="fas fa-bullseye"></i> Goals & Objectives</a></li>
+                <li><a href="#pledge"><i class="fas fa-handshake"></i> Service Pledge</a></li>
+                <li><a href="#portfolio"><i class="fas fa-images"></i> Work Completions</a></li>
+                <li><a href="#references"><i class="fas fa-address-book"></i> References</a></li>
+                <li><a href="#principles"><i class="fas fa-balance-scale"></i> Principles & Imperatives</a></li>
+                <li><a href="#footer"><i class="fas fa-phone"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main>
@@ -343,7 +331,7 @@
             <p style="max-width:900px; margin:40px auto 0;">Our Promise: We promise to deliver exceptional service, quality products, and value to our customers. If we fail to meet our service pledge, we will work with our customers to resolve the issue promptly and fairly.</p>
         </section>
 
-        <!-- Portfolio - ALL IMAGES REMOVED -->
+        <!-- Portfolio - No images -->
         <section id="portfolio" class="blue-bg">
             <h2 class="orange-header">Work Completions</h2>
             <ul style="max-width:900px; margin:0 auto 40px; color:white; font-size:18px;">
