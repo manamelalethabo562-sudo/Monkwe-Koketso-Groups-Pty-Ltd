@@ -8,319 +8,367 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
-        body { 
-            margin: 0; 
-            font-family: 'Poppins', sans-serif; 
-            background: #F8F9FA; 
-            color: #333; 
-            line-height: 1.7; 
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #FEFEFE;
+            color: #333;
+            line-height: 1.7;
             overflow-x: hidden;
         }
         h1, h2, h3 { color: #3E4095; font-weight: 600; }
         ul { list-style: disc; padding-left: 30px; }
-        a { text-decoration: none; transition: var(--transition); }
-
+        a { color: #F58634; text-decoration: none; transition: color 0.3s; }
+        a:hover { color: #d96f20; }
         :root {
             --primary: #3E4095;
             --accent: #F58634;
             --light: #00AFEF;
+            --bg: #FEFEFE;
             --transition: all 0.4s ease;
         }
-
         /* Floating Navigation Bar */
         nav {
             position: fixed;
-            top: 15px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 95%;
-            max-width: 1300px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px 25px;
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(62, 64, 149, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 12px 30px;
             z-index: 1000;
             border-radius: 100px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         nav.scrolled {
-            top: 10px;
-            padding: 8px 25px;
-            background: #ffffff;
+            padding: 8px 30px;
+            background: rgba(62, 64, 149, 0.98);
+            width: 85%;
         }
-        .nav-left {
+        nav .nav-logo {
             display: flex;
             align-items: center;
             gap: 12px;
-        }
-        .nav-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
-        }
-        .nav-logo-text {
-            color: var(--primary);
+            color: white;
             font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 0.5px;
+            font-size: 18px;
         }
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
+        nav .nav-logo i { font-size: 28px; color: var(--light); }
         nav ul {
             list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             gap: 20px;
-            margin: 0;
-            padding: 0;
         }
         nav ul li a {
-            color: #555;
+            color: white;
             font-weight: 500;
             font-size: 14px;
-        }
-        nav ul li a:hover { color: var(--accent); }
-        
-        .nav-cta {
-            background: var(--accent);
-            color: white !important;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 4px 15px rgba(245,134,52,0.3);
-        }
-
-        /* Hero Header - Straight Edges */
-        header {
-            background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1591114136437-975979c093a3?q=80&w=2070') center/cover no-repeat;
-            color: white;
-            padding: 250px 10% 150px;
-            position: relative;
-            border-radius: 0; /* Straight Edges */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-        }
-        .company-name {
-            font-size: 48px;
-            font-weight: 800;
-            margin: 0;
-            max-width: 600px;
-            line-height: 1.1;
-            text-transform: uppercase;
-        }
-        .slogan {
-            font-size: 24px;
-            color: var(--accent);
-            margin-top: 15px;
-            font-weight: 400;
-        }
-
-        /* Content Styling */
-        section { 
-            padding: 80px 8%; 
-            max-width: 1400px; 
-            margin: 0 auto; 
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-        section.visible { opacity: 1; transform: translateY(0); }
-
-        .orange-header { 
-            background: var(--accent); 
-            color: white; 
-            padding: 20px 40px; 
-            display: inline-block;
-            font-size: 28px; 
-            margin-bottom: 40px; 
-            border-radius: 0; /* Straight Edges */
-            box-shadow: 10px 10px 0px var(--primary);
-        }
-
-        /* Rounded Cards per request */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-        }
-        .card { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 25px; /* Rounded Edges */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
             transition: var(--transition);
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        /* Organogram Section matching image style */
-        .organogram-card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
+        nav ul li a:hover { background: rgba(245,134,52,0.3); }
+        /* Hero Header - Mining Truck with Straight Edges */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1625508288084-b45fb9a0c2d6?q=80&w=2070') center/cover no-repeat fixed;
+            color: white;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-top: 40px;
+            padding: 280px 20px 180px;
+            position: relative;
+            border-radius: 0; /* Requested: Straight edges */
         }
-        .org-box {
-            background: var(--accent);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 12px;
-            display: inline-block;
-            font-weight: 600;
-            margin: 10px;
+        .company-name {
+            font-size: 58px;
+            font-weight: 800;
+            margin: 0 0 20px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease;
         }
-
-        footer {
-            background: var(--primary);
+        .slogan {
+            font-size: 32px;
+            font-weight: 500;
+            text-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        section.visible { opacity: 1; transform: translateY(0); }
+        /* Straight edges for specific containers */
+        .orange-header {
+            background: linear-gradient(135deg, var(--accent), #e07a2a);
             color: white;
-            padding: 80px 10% 40px;
+            padding: 30px;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            border-radius: 0; /* Requested: Straight edges */
+            box-shadow: 0 15px 40px rgba(245,134,52,0.3);
+        }
+        .blue-bg {
+            background: linear-gradient(135deg, var(--primary), #2c3078);
+            color: white;
             border-radius: 0;
+            padding: 80px 40px;
+            box-shadow: 0 20px 50px rgba(62,64,149,0.2);
+        }
+        /* Rounded Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px; /* Requested: Rounded edges */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            color: #333;
+        }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 25px 60px rgba(0,0,0,0.15); }
+        .card h3 { color: var(--primary); margin-top: 0; }
+        /* Organogram */
+        .organogram {
+            text-align: center;
+            background: rgba(255,255,255,0.95);
+            padding: 50px;
+            border-radius: 30px;
+            margin-top: 50px;
+            color: #333;
+        }
+        .organogram .box {
+            background: linear-gradient(135deg, var(--accent), #e07a2a);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            margin: 10px;
+            display: inline-block;
+            min-width: 200px;
+            font-weight: 600;
+        }
+        .line { border-top: 3px solid var(--primary); width: 100px; display: inline-block; margin: 15px 0; }
+        footer {
+            background: linear-gradient(135deg, var(--primary), #2c3078);
+            color: white;
+            padding: 100px 5% 50px;
+            margin-top: 100px;
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         .copyright {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
+            margin-top: 60px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 13px;
-            opacity: 0.8;
+            font-size: 14px;
         }
-
-        @media (max-width: 768px) {
-            nav { width: 95%; padding: 10px 15px; border-radius: 20px; }
-            .nav-right ul { display: none; }
-            .company-name { font-size: 32px; }
-            header { padding-top: 180px; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 992px) {
+            nav { width: 95%; padding: 10px 20px; }
+            nav ul { display: none; }
+            .company-name { font-size: 36px; }
         }
     </style>
 </head>
 <body>
-
     <nav id="navbar">
-        <div class="nav-left">
-            <img src="https://r.jina.ai/i/9e01366014ba488295a6f958866164d1" alt="Avatar" class="nav-avatar">
-            <div class="nav-logo-text">MK GROUPS (PTY) LTD</div>
+        <div class="nav-logo">
+            <i class="fas fa-fill-drip"></i>
+            <span>MK GROUPS PTY LTD</span>
         </div>
-        <div class="nav-right">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Work</a></li>
-            </ul>
-            <a href="#contact" class="nav-cta">CONTACT US</a>
-        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
-
     <header id="home">
-        <h1 class="company-name">Monkwe Koketso Groups (Pty) Ltd</h1>
-        <div class="slogan">We Give Creative Solutions</div>
+        <div class="company-name">MONKWE KOKETSO GROUPS (PTY) LTD</div>
+        <div class="slogan">"We Give Creative Solutions"</div>
     </header>
-
     <main>
-        <section id="about" style="padding-top: 100px;">
-            <div class="orange-header">About Us</div>
-            <div class="card">
+        <section id="about" style="background: var(--accent); color:white; margin-top:0; border-radius: 0;">
+            <div class="orange-header" style="background:transparent; box-shadow:none; padding-top: 0;">About Our Company</div>
+            <div class="card" style="max-width:1000px; margin:0 auto;">
                 <p><strong>Welcome to Monkwe Koketso Groups (Pty) Ltd</strong></p>
-                <p>Since our founding in 2022 by <b>Monkwe Koketso</b>, we have been a leading digital printing company specializing in high-quality solutions for mining, industrial, and commercial sectors. Our passion is quality, speed, and affordability.</p>
+                <p>We are a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. Since our founding in 2022 by <strong>Monkwe Koketso</strong>, we have been driven by a passion for quality, speed, and affordability.</p>
+                <p>Our commitment to sustainability and innovation ensures that we stay ahead of the competition, providing eco-friendly inks and reduced energy consumption while delivering exceptional results across mining, industrial, and commercial sectors.</p>
             </div>
-            
-            <div class="organogram-card">
-                <h3>Our Leadership</h3>
-                <div class="org-box">DIRECTOR<br>Monkwe Koketso</div>
-                <div style="margin: 20px 0;"><i class="fas fa-chevron-down" style="color: var(--primary);"></i></div>
-                <div>
-                    <div class="org-box" style="background: var(--primary);">RECEPTIONIST<br>Moshi Mapula</div>
-                    <div class="org-box" style="background: var(--primary);">APPLICATOR<br>Seshoka Johannes</div>
+            <div class="organogram">
+                <h2 style="margin-bottom:30px;">Our Leadership Structure</h2>
+                <div class="box">DIRECTOR & DESIGNER<br>Monkwe Koketso</div>
+                <br><div class="line"></div><br>
+                <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+                    <div class="box">RECEPTIONIST<br>Moshi Mapula</div>
+                    <div class="box">APPLICATOR<br>Seshoka Johannes</div>
                 </div>
             </div>
         </section>
-
         <section id="services">
-            <div class="orange-header">Service Name</div>
+            <h2 class="orange-header">Professional Services</h2>
+           
             <div class="grid">
                 <div class="card">
-                    <i class="fas fa-layer-group fa-2x" style="color:var(--accent); margin-bottom:15px;"></i>
-                    <h3>Large Format</h3>
-                    <p>Signage boards, Chromadeck, and Lightboxes for all mine and safety requirements.</p>
+                    <i class="fas fa-layer-group fa-3x" style="color:var(--light); margin-bottom:20px;"></i>
+                    <h3>Large Format & Signage</h3>
+                    <ul>
+                        <li>Signage boards (Reflective/Non-reflective)</li>
+                        <li>Chromadeck boards & Lightboxes</li>
+                        <li>Safety and Mine signage</li>
+                    </ul>
                 </div>
                 <div class="card">
-                    <i class="fas fa-car fa-2x" style="color:var(--accent); margin-bottom:15px;"></i>
-                    <h3>Branding</h3>
-                    <p>Full vehicle branding and shop front installations with premium finishes.</p>
+                    <i class="fas fa-car fa-3x" style="color:var(--light); margin-bottom:20px;"></i>
+                    <h3>Branding Solutions</h3>
+                    <ul>
+                        <li>Full Vehicle Branding</li>
+                        <li>Shop Front & Window Branding</li>
+                        <li>Fleet Stickers & Wallpapers</li>
+                    </ul>
                 </div>
                 <div class="card">
-                    <i class="fas fa-tshirt fa-2x" style="color:var(--accent); margin-bottom:15px;"></i>
-                    <h3>Apparel</h3>
-                    <p>High-quality T-shirt printing, Embroidery, and PPE supply.</p>
+                    <i class="fas fa-tshirt fa-3x" style="color:var(--light); margin-bottom:20px;"></i>
+                    <h3>Apparel & PPE</h3>
+                    <ul>
+                        <li>T-shirt printing & Embroidery</li>
+                        <li>Personal Protective Equipment (PPE)</li>
+                        <li>Pull-up Banners & Gazebos</li>
+                    </ul>
                 </div>
             </div>
         </section>
-
-        <section id="contact" style="background: #fff; border-radius: 0;">
-            <div class="orange-header">Contact Us</div>
+        <section id="vision" class="blue-bg">
+            <div class="grid" style="color:white;">
+                <div>
+                    <h3 style="color:var(--accent);">Our Mission Statement</h3>
+                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and service.</p>
+                </div>
+                <div>
+                    <h3 style="color:var(--accent);">Our Vision Statement</h3>
+                    <p>To be the leading digital printing company in the industry, recognized for our exceptional quality, innovative solutions, and commitment to sustainability.</p>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+            <h2 class="orange-header">Work Completions</h2>
             <div class="grid">
-                <div class="card" style="background: var(--primary); color: white;">
-                    <h3 style="color: white;">Get In Touch</h3>
-                    <p><i class="fas fa-phone"></i> 060 711 8356</p>
-                    <p><i class="fas fa-envelope"></i> info@takedi.co.za</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 15 Nelson Mandela St, Mokopane</p>
+                <div class="card">
+                    <h4>Kgwatlhele Primary School</h4>
+                    <p>Signage board design, fabrication, and installation completed in 4 days (2024).</p>
                 </div>
                 <div class="card">
-                    <h3>Working Hours</h3>
-                    <p>Monday - Friday: 08:00 - 17:00</p>
-                    <p>Saturday: 09:00 - 13:00</p>
+                    <h4>The Joint Civils (Pty) Ltd</h4>
+                    <p>Professional vehicle branding project executed in September 2024.</p>
+                </div>
+                <div class="card">
+                    <h4>Dr Kgomo Dental Care</h4>
+                    <p>Full signage board and professional door branding solutions.</p>
+                </div>
+            </div>
+        </section>
+        <section id="pledge" class="blue-bg">
+            <h2 style="color:var(--accent); text-align:center;">Our Service Pledge</h2>
+            <div class="grid">
+                <div class="card" style="background:rgba(255,255,255,0.1); color:white;">
+                    <p><i class="fas fa-clock"></i> 2-Hour response time for all inquiries.</p>
+                    <p><i class="fas fa-file-invoice-dollar"></i> Detailed and accurate quoting.</p>
+                    <p><i class="fas fa-calendar-check"></i> Diligent adherence to all deadlines.</p>
+                </div>
+                <div class="card" style="background:rgba(255,255,255,0.1); color:white;">
+                    <p><i class="fas fa-check-circle"></i> High-standard quality reviews.</p>
+                    <p><i class="fas fa-comments"></i> Effective communication throughout the process.</p>
+                    <p><i class="fas fa-handshake"></i> Flexible solutions tailored to your budget.</p>
+                </div>
+            </div>
+        </section>
+        <section id="principles">
+            <h2 class="orange-header">Company Imperatives</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Strategic Goals</h3>
+                    <ul>
+                        <li>Accelerate Growth (15% annual revenue increase)</li>
+                        <li>Drive Innovation through R&D</li>
+                        <li>Achieve Carbon Neutrality within 5 years</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Operational Objectives</h3>
+                    <ul>
+                        <li>Reduce production time by 20%</li>
+                        <li>Maintain 95% customer satisfaction rating</li>
+                        <li>Achieve ISO 9001 certification</li>
+                    </ul>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer>
+    <footer id="contact">
         <div class="footer-grid">
-            <div>
-                <h4 style="color: var(--accent);">MK GROUPS</h4>
-                <p>Leading the way in digital printing and creative branding solutions.</p>
+            <div class="footer-column">
+                <h3 style="color:var(--accent);">Contact Details</h3>
+                <p><i class="fas fa-phone"></i> 060 711 8356 / 015 004 0179</p>
+                <p><i class="fas fa-envelope"></i> info@takedi.co.za</p>
+                <p><i class="fas fa-map-marker-alt"></i> 15 Nelson Mandela Street, Mokopane, 0601</p>
             </div>
-            <div>
-                <h4 style="color: var(--accent);">Quick Links</h4>
-                <p><a href="#about" style="color: white;">Our Story</a></p>
-                <p><a href="#services" style="color: white;">Services</a></p>
+            <div class="footer-column">
+                <h3 style="color:var(--accent);">Quick Links</h3>
+                <p><a href="#about" style="color:white;">Company History</a></p>
+                <p><a href="#services" style="color:white;">Printing Services</a></p>
+                <p><a href="#portfolio" style="color:white;">View Portfolio</a></p>
+            </div>
+            <div class="footer-column">
+                <h3 style="color:var(--accent);">Business Hours</h3>
+                <p>Monday - Friday: 08:00 - 17:00</p>
+                <p>Saturday: 09:00 - 13:00</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Monkwe Koketso Groups (Pty) Ltd. Takedi Modern Printers.
+            <p>&copy; 2026 Monkwe Koketso Groups (Pty) Ltd. All Rights Reserved.</p>
+            <p>Takedi Modern Printers & Supply</p>
         </div>
     </footer>
-
     <script>
+        const sections = document.querySelectorAll('section');
+        const nav = document.getElementById('navbar');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
-
+        sections.forEach(section => observer.observe(section));
         window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
