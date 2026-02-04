@@ -28,15 +28,8 @@
             background: inherit;
             border-radius: 50% 50% 0 0;
         }
-        .curve-bottom::after {
-            content: '';
-            position: absolute;
-            bottom: -50px; left: 0; width: 100%; height: 100px;
-            background: var(--bg);
-            border-radius: 50% 50% 0 0;
-        }
 
-        /* Modern Left Sidebar - Collapsed by default, expands on hover */
+        /* Modern Left Sidebar */
         .sidebar {
             position: fixed;
             top: 0;
@@ -104,12 +97,11 @@
             opacity: 1;
         }
 
-        /* Main content offset for collapsed sidebar */
         main {
             padding-left: 70px;
         }
 
-        /* Header Hero */
+        /* Hero Header - Mining truck background restored */
         header {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://thumbs.dreamstime.com/b/large-yellow-dump-truck-seen-open-pit-mining-site-transporting-coal-anthracite-amid-rocky-cloudy-environment-422156946.jpg') center/cover no-repeat;
             color: white;
@@ -117,8 +109,9 @@
             padding: 150px 20px 100px;
             position: relative;
         }
-        .logo-top { font-size: 50px; font-weight: bold; color: #00AFEF; }
-        .company-name { font-size: 40px; margin: 20px 0; }
+        .logo-top { font-size: 36px; font-weight: bold; color: var(--light); margin-bottom: 10px; }
+        .company-name { font-size: 48px; margin: 20px 0; }
+        .tagline { font-size: 24px; }
         .printer-circle {
             position: absolute;
             bottom: -80px; left: 50%; transform: translateX(-50%);
@@ -147,16 +140,63 @@
         }
         .line { border-top: 3px solid var(--primary); width: 100px; display: inline-block; }
 
+        /* Professional Footer */
         footer {
-            background: var(--primary); color: white; text-align: center; padding: 40px; margin-top: 50px;
+            background: var(--primary);
+            color: white;
+            padding: 80px 5% 40px;
+            margin-top: 100px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-column h3 {
+            color: var(--accent);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            color: rgba(255,255,255,0.8);
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        .footer-column p, .footer-column a {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-column i {
+            color: var(--light);
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 992px) {
             .sidebar { width: 260px; }
             .sidebar span { opacity: 1; }
             main { padding-left: 0; }
-            .sidebar:hover { width: 260px; }
+            .logo-top { font-size: 30px; }
+            .company-name { font-size: 38px; }
         }
     </style>
 </head>
@@ -171,22 +211,22 @@
         <ul>
             <li><a href="#about"><i class="fas fa-info-circle"></i><span>About</span></a></li>
             <li><a href="#organogram"><i class="fas fa-sitemap"></i><span>Organogram</span></a></li>
+            <li><a href="#services"><i class="fas fa-print"></i><span>Our Services</span></a></li>
             <li><a href="#mission"><i class="fas fa-eye"></i><span>Mission & Vision</span></a></li>
             <li><a href="#goals"><i class="fas fa-bullseye"></i><span>Goals & Objectives</span></a></li>
             <li><a href="#pledge"><i class="fas fa-handshake"></i><span>Service Pledge</span></a></li>
-            <li><a href="#services"><i class="fas fa-print"></i><span>Our Services</span></a></li>
             <li><a href="#portfolio"><i class="fas fa-images"></i><span>Work Completions</span></a></li>
             <li><a href="#references"><i class="fas fa-address-book"></i><span>References</span></a></li>
             <li><a href="#principles"><i class="fas fa-balance-scale"></i><span>Principles & Imperatives</span></a></li>
-            <li><a href="#contact"><i class="fas fa-phone"></i><span>Contact</span></a></li>
+            <li><a href="#footer"><i class="fas fa-phone"></i><span>Contact</span></a></li>
         </ul>
     </aside>
 
-    <!-- Hero Header -->
+    <!-- Hero Header - Mining truck restored -->
     <header>
-        <div class="logo-top">MK GROUPS PTY LTD</div>
+        <div class="logo-top">MONKWE KOKETSO GROUPS (PTY) LTD</div>
         <div class="company-name">MONKWE KOKETSO GROUPS (PTY) LTD</div>
-        <p style="font-size:24px;">Fast, Reliable Digital Printing & Branding Solutions</p>
+        <div class="tagline">Fast, Reliable Digital Printing & Branding Solutions</div>
         <div class="printer-circle">
             <img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Printer Icon">
         </div>
@@ -213,6 +253,17 @@
                     <div class="box">DESIGNER<br>MONKWE KOKETSO</div>
                     <div class="box">APPLICATOR<br>SESHOKA JOHANNES</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Our Services -->
+        <section id="services">
+            <h2 class="orange-header">Our Services</h2>
+            <div class="grid">
+                <div class="card"><img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads/sites/84/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage" style="width:100%; border-radius:10px;"><h3>Signage Design, Print, Fabrication & Installation</h3></div>
+                <div class="card"><img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding" style="width:100%; border-radius:10px;"><h3>Vehicle Branding</h3></div>
+                <div class="card"><img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Branding" style="width:100%; border-radius:10px;"><h3>Window & Door Branding</h3></div>
+                <div class="card"><img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Digital Printing" style="width:100%; border-radius:10px;"><h3>Large Format & Digital Printing</h3></div>
             </div>
         </section>
 
@@ -292,17 +343,6 @@
             <p style="max-width:900px; margin:40px auto 0;">Our Promise: We promise to deliver exceptional service, quality products, and value to our customers. If we fail to meet our service pledge, we will work with our customers to resolve the issue promptly and fairly.</p>
         </section>
 
-        <!-- Services -->
-        <section id="services">
-            <h2 class="orange-header">Our Services</h2>
-            <div class="grid">
-                <div class="card"><img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads/sites/84/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage" style="width:100%; border-radius:10px;"><h3>Signage Design, Print, Fabrication & Installation</h3></div>
-                <div class="card"><img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding" style="width:100%; border-radius:10px;"><h3>Vehicle Branding</h3></div>
-                <div class="card"><img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Branding" style="width:100%; border-radius:10px;"><h3>Window & Door Branding</h3></div>
-                <div class="card"><img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Digital Printing" style="width:100%; border-radius:10px;"><h3>Large Format & Digital Printing</h3></div>
-            </div>
-        </section>
-
         <!-- Portfolio -->
         <section id="portfolio" class="blue-bg">
             <h2 class="orange-header">Work Completions</h2>
@@ -369,21 +409,38 @@
             </div>
         </section>
 
-        <!-- Contact -->
-        <section id="contact">
-            <h2 class="orange-header">Contact Us</h2>
-            <p style="text-align:center; font-size:20px; max-width:800px; margin:0 auto;">
-                Phone: 060 711 8356 / (+27) 15 004 0179<br>
-                Email: info@takedi.co.za<br>
-                Address: 15 Nelson Mandela Street, Mokopane, 0601<br><br>
-                We value your business and appreciate the opportunity to serve you!
-            </p>
-        </section>
-
     </main>
 
-    <footer>
-        <p>&copy; 2026 Monkwe Koketso Groups (Pty) Ltd. All rights reserved. | Takedi Modern Printers & Supply</p>
+    <!-- Professional Business Footer (Contact) -->
+    <footer id="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Monkwe Koketso Groups (Pty) Ltd</h3>
+                <p>Takedi Modern Printers & Supply</p>
+                <p>Delivering fast, reliable, and cost-effective digital printing & branding solutions with exceptional quality and customer service.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#portfolio">Work Completions</a></li>
+                    <li><a href="#pledge">Service Pledge</a></li>
+                    <li><a href="#references">References</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> 060 711 8356</p>
+                <p><i class="fas fa-phone"></i> (+27) 15 004 0179</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@takedi.co.za">info@takedi.co.za</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> 15 Nelson Mandela Street, Mokopane, 0601</p>
+                <p style="margin-top:20px;">We value your business and appreciate the opportunity to serve you!</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Monkwe Koketso Groups (Pty) Ltd. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
