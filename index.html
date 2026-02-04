@@ -29,17 +29,6 @@
             --transition: all 0.4s ease;
         }
 
-        /* Curved section divider */
-        .curve { position: relative; }
-        .curve::before {
-            content: '';
-            position: absolute;
-            top: -60px; left: 0; width: 100%; height: 120px;
-            background: inherit;
-            border-radius: 50% 50% 0 0;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
-        }
-
         /* Modern Top Navigation */
         nav {
             background: rgba(62, 64, 149, 0.92);
@@ -94,13 +83,14 @@
         }
         nav ul li a:hover { background: rgba(245,134,52,0.25); transform: translateY(-2px); }
 
-        /* Hero Header */
+        /* Hero Header - Updated with Mining Truck and Straight Edges */
         header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071') center/cover no-repeat fixed;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1591114136437-975979c093a3?q=80&w=2070') center/cover no-repeat fixed;
             color: white;
             text-align: center;
             padding: 260px 20px 160px;
             position: relative;
+            border-radius: 0; /* Straight edges */
         }
         .company-name {
             font-size: 58px;
@@ -127,6 +117,7 @@
         }
         section.visible { opacity: 1; transform: translateY(0); }
 
+        /* Straight edges for Orange headers */
         .orange-header { 
             background: linear-gradient(135deg, var(--accent), #e07a2a); 
             color: white; 
@@ -134,16 +125,18 @@
             text-align: center; 
             font-size: 36px; 
             margin-bottom: 50px; 
-            border-radius: 20px;
+            border-radius: 0; /* Straight edges */
             box-shadow: 0 15px 40px rgba(245,134,52,0.3);
         }
+
         .blue-bg { 
             background: linear-gradient(135deg, var(--primary), #2c3078); 
             color: white; 
-            border-radius: 20px;
+            border-radius: 0; /* Standardized to straight edges as per theme update */
             padding: 80px 40px;
             box-shadow: 0 20px 50px rgba(62,64,149,0.2);
         }
+
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -152,7 +145,7 @@
         .card { 
             background: white; 
             padding: 30px; 
-            border-radius: 20px; 
+            border-radius: 10px; 
             box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
             transition: var(--transition);
             color: #333;
@@ -165,7 +158,7 @@
             text-align: center;
             background: rgba(255,255,255,0.95);
             padding: 50px;
-            border-radius: 25px;
+            border-radius: 10px;
             margin-top: 50px;
             color: #333;
         }
@@ -240,12 +233,12 @@
     </header>
 
     <main>
-        <section id="about" class="curve" style="background: var(--accent); color:white; margin-top:80px;">
-            <div class="orange-header" style="background:transparent; box-shadow:none;">About Our Company</div>
-            <div class="card" style="max-width:1000px; margin:0 auto;">
+        <section id="about" style="background: var(--accent); color:white; margin-top:0; border-radius: 0;">
+            <div class="orange-header" style="background:transparent; box-shadow:none; padding-top: 0;">About Our Company</div>
+            <div class="card" style="max-width:1000px; margin:0 auto; border-radius: 0;">
                 <p><strong>Welcome to Monkwe Koketso Groups (Pty) Ltd</strong></p>
                 <p>We are a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. Since our founding in 2022 by <strong>Monkwe Koketso</strong>, we have been driven by a passion for quality, speed, and affordability.</p>
-                <p>Our commitment to sustainability and innovation ensures that we stay ahead of the competition, providing eco-friendly inks and reduced energy consumption while delivering exceptional results.</p>
+                <p>Our commitment to sustainability and innovation ensures that we stay ahead of the competition, providing eco-friendly inks and reduced energy consumption while delivering exceptional results across mining, industrial, and commercial sectors.</p>
             </div>
 
             <div class="organogram">
@@ -261,6 +254,7 @@
 
         <section id="services">
             <h2 class="orange-header">Professional Services</h2>
+            
             <div class="grid">
                 <div class="card">
                     <i class="fas fa-layer-group fa-3x" style="color:var(--light); margin-bottom:20px;"></i>
@@ -295,22 +289,22 @@
         <section id="vision" class="blue-bg">
             <div class="grid" style="color:white;">
                 <div>
-                    <h3 style="color:var(--accent);">Our Mission</h3>
+                    <h3 style="color:var(--accent);">Our Mission Statement</h3>
                     <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and service.</p>
                 </div>
                 <div>
-                    <h3 style="color:var(--accent);">Our Vision</h3>
+                    <h3 style="color:var(--accent);">Our Vision Statement</h3>
                     <p>To be the leading digital printing company in the industry, recognized for our exceptional quality, innovative solutions, and commitment to sustainability.</p>
                 </div>
             </div>
         </section>
 
         <section id="portfolio">
-            <h2 class="orange-header">Recent Work Completions</h2>
+            <h2 class="orange-header">Work Completions</h2>
             <div class="grid">
                 <div class="card">
                     <h4>Kgwatlhele Primary School</h4>
-                    <p>Signage board design, fabrication, and installation completed in 4 days.</p>
+                    <p>Signage board design, fabrication, and installation completed in 4 days (2024).</p>
                 </div>
                 <div class="card">
                     <h4>The Joint Civils (Pty) Ltd</h4>
@@ -321,18 +315,17 @@
                     <p>Full signage board and professional door branding solutions.</p>
                 </div>
             </div>
-            
         </section>
 
         <section id="pledge" class="blue-bg">
             <h2 style="color:var(--accent); text-align:center;">Our Service Pledge</h2>
             <div class="grid">
-                <div style="background:rgba(255,255,255,0.1); padding:30px; border-radius:15px;">
+                <div style="background:rgba(255,255,255,0.1); padding:30px; border-radius:10px;">
                     <p><i class="fas fa-clock"></i> 2-Hour response time for all inquiries.</p>
                     <p><i class="fas fa-file-invoice-dollar"></i> Detailed and accurate quoting.</p>
                     <p><i class="fas fa-calendar-check"></i> Diligent adherence to all deadlines.</p>
                 </div>
-                <div style="background:rgba(255,255,255,0.1); padding:30px; border-radius:15px;">
+                <div style="background:rgba(255,255,255,0.1); padding:30px; border-radius:10px;">
                     <p><i class="fas fa-check-circle"></i> High-standard quality reviews.</p>
                     <p><i class="fas fa-comments"></i> Effective communication throughout the process.</p>
                     <p><i class="fas fa-handshake"></i> Flexible solutions tailored to your budget.</p>
@@ -360,7 +353,6 @@
                     </ul>
                 </div>
             </div>
-            
         </section>
     </main>
 
