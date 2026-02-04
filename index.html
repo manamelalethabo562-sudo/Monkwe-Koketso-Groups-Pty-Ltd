@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monkwe Koketso Groups (Pty) Ltd | Digital Printing & Branding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        html { scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Arial', sans-serif; background: #FEFEFE; color: #333; line-height: 1.6; }
         h1, h2, h3 { color: #3E4095; }
         ul { list-style: disc; padding-left: 30px; }
@@ -34,7 +36,80 @@
             border-radius: 50% 50% 0 0;
         }
 
-        /* Header Hero - Mimicking cover page */
+        /* Modern Left Sidebar - Collapsed by default, expands on hover */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 70px;
+            background: var(--primary);
+            transition: width 0.4s ease;
+            overflow: hidden;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+        }
+        .sidebar:hover {
+            width: 260px;
+        }
+        .sidebar-header {
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-header i {
+            font-size: 40px;
+            color: var(--light);
+        }
+        .sidebar-header span {
+            display: block;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .sidebar:hover .sidebar-header span {
+            opacity: 1;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+        }
+        .sidebar ul li:hover {
+            background: rgba(245,134,52,0.3);
+        }
+        .sidebar ul li a {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.3s;
+        }
+        .sidebar ul li a i {
+            font-size: 24px;
+            min-width: 30px;
+            text-align: center;
+        }
+        .sidebar ul li a span {
+            margin-left: 20px;
+            opacity: 0;
+            transition: opacity 0.3s 0.1s;
+        }
+        .sidebar:hover ul li a span {
+            opacity: 1;
+        }
+
+        /* Main content offset for collapsed sidebar */
+        main {
+            padding-left: 70px;
+        }
+
+        /* Header Hero */
         header {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://thumbs.dreamstime.com/b/large-yellow-dump-truck-seen-open-pit-mining-site-transporting-coal-anthracite-amid-rocky-cloudy-environment-422156946.jpg') center/cover no-repeat;
             color: white;
@@ -54,15 +129,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .printer-circle img { width: 100%; height: 100%; object-fit: contain; }
-
-        nav {
-            background: var(--primary);
-            padding: 20px 0;
-            text-align: center;
-        }
-        nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
-        nav a { color: white; font-weight: bold; padding: 10px 15px; border-radius: 5px; transition: background 0.3s; }
-        nav a:hover { background: var(--accent); }
 
         section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
         .orange-header { background: var(--accent); color: white; padding: 30px; text-align: center; font-size: 36px; margin-bottom: 40px; }
@@ -84,11 +150,39 @@
         footer {
             background: var(--primary); color: white; text-align: center; padding: 40px; margin-top: 50px;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .sidebar { width: 260px; }
+            .sidebar span { opacity: 1; }
+            main { padding-left: 0; }
+            .sidebar:hover { width: 260px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Hero Cover -->
+    <!-- Left Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-print"></i>
+            <span>Monkwe Koketso Groups</span>
+        </div>
+        <ul>
+            <li><a href="#about"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+            <li><a href="#organogram"><i class="fas fa-sitemap"></i><span>Organogram</span></a></li>
+            <li><a href="#mission"><i class="fas fa-eye"></i><span>Mission & Vision</span></a></li>
+            <li><a href="#goals"><i class="fas fa-bullseye"></i><span>Goals & Objectives</span></a></li>
+            <li><a href="#pledge"><i class="fas fa-handshake"></i><span>Service Pledge</span></a></li>
+            <li><a href="#services"><i class="fas fa-print"></i><span>Our Services</span></a></li>
+            <li><a href="#portfolio"><i class="fas fa-images"></i><span>Work Completions</span></a></li>
+            <li><a href="#references"><i class="fas fa-address-book"></i><span>References</span></a></li>
+            <li><a href="#principles"><i class="fas fa-balance-scale"></i><span>Principles & Imperatives</span></a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i><span>Contact</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- Hero Header -->
     <header>
         <div class="logo-top">MK GROUPS PTY LTD</div>
         <div class="company-name">MONKWE KOKETSO GROUPS (PTY) LTD</div>
@@ -98,206 +192,195 @@
         </div>
     </header>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#organogram">Organogram</a></li>
-            <li><a href="#mission">Mission & Vision</a></li>
-            <li><a href="#goals">Goals & Objectives</a></li>
-            <li><a href="#pledge">Service Pledge</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Work Completions</a></li>
-            <li><a href="#references">References</a></li>
-            <li><a href="#principles">Principles & Imperatives</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Main Content -->
+    <main>
 
-    <!-- About Us -->
-    <section id="about" class="curve" style="background: var(--accent); color:white; margin-top:80px;">
-        <div class="orange-header" style="background:transparent;">About Us</div>
-        <div style="max-width:900px; margin:0 auto; background:rgba(255,255,255,0.95); color:#333; padding:40px; border-radius:15px;">
-            <p><strong>Welcome to Monkwe Koketso Groups (Pty) Ltd</strong></p>
-            <p>Monkwe Koketso Groups (Pty) Ltd is a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. With a passion for delivering exceptional customer service and a commitment to sustainability, we strive to exceed our customers' expectations with every project.</p>
-            <p><strong>Our History</strong></p>
-            <p>Monkwe Koketso Groups was founded in 2022 by Monkwe Koketso, with a vision to provide innovative digital printing solutions that combine quality, speed, and affordability. Over the years, we have grown and evolved, investing in the latest technology and expanding our services to meet the changing needs of our customers.</p>
-        </div>
-        <div class="organogram" id="organogram">
-            <h2>Organogram</h2>
-            <div class="box">DIRECTOR<br>MONKWE KOKETSO</div>
-            <br><div class="line"></div><br>
-            <div style="display:flex; justify-content:center; gap:50px; flex-wrap:wrap;">
-                <div class="box">RECEPTIONIST<br>MOSHI MAPULA</div>
-                <div class="box">DESIGNER<br>MONKWE KOKETSO</div>
-                <div class="box">APPLICATOR<br>SESHOKA JOHANNES</div>
+        <!-- About Us -->
+        <section id="about" class="curve" style="background: var(--accent); color:white; margin-top:80px;">
+            <div class="orange-header" style="background:transparent;">About Us</div>
+            <div style="max-width:900px; margin:0 auto; background:rgba(255,255,255,0.95); color:#333; padding:40px; border-radius:15px;">
+                <p><strong>Welcome to Monkwe Koketso Groups (Pty) Ltd</strong></p>
+                <p>Monkwe Koketso Groups (Pty) Ltd is a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. With a passion for delivering exceptional customer service and a commitment to sustainability, we strive to exceed our customers' expectations with every project.</p>
+                <p><strong>Our History</strong></p>
+                <p>Monkwe Koketso Groups was founded in 2022 by Monkwe Koketso, with a vision to provide innovative digital printing solutions that combine quality, speed, and affordability. Over the years, we have grown and evolved, investing in the latest technology and expanding our services to meet the changing needs of our customers.</p>
             </div>
-        </div>
-    </section>
+            <div class="organogram" id="organogram">
+                <h2>Organogram</h2>
+                <div class="box">DIRECTOR<br>MONKWE KOKETSO</div>
+                <br><div class="line"></div><br>
+                <div style="display:flex; justify-content:center; gap:50px; flex-wrap:wrap;">
+                    <div class="box">RECEPTIONIST<br>MOSHI MAPULA</div>
+                    <div class="box">DESIGNER<br>MONKWE KOKETSO</div>
+                    <div class="box">APPLICATOR<br>SESHOKA JOHANNES</div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Mission, Vision & Values -->
-    <section id="mission" style="background: url('https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg') center/cover no-repeat;">
-        <div style="background: rgba(62,64,149,0.9); padding:60px 20px;">
-            <h2 class="orange-header">Our Mission, Vision and Values Statement</h2>
-            <div class="grid" style="color:white;">
+        <!-- Mission, Vision & Values -->
+        <section id="mission" style="background: url('https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg') center/cover no-repeat;">
+            <div style="background: rgba(62,64,149,0.9); padding:60px 20px;">
+                <h2 class="orange-header">Our Mission, Vision and Values Statement</h2>
+                <div class="grid" style="color:white;">
+                    <div>
+                        <h3>Mission Statement</h3>
+                        <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and customer service.</p>
+                    </div>
+                    <div>
+                        <h3>Vision Statement</h3>
+                        <p>To be the leading digital printing company in industry, recognized for our exceptional quality, innovative solutions, and commitment to customer satisfaction and sustainability.</p>
+                    </div>
+                    <div>
+                        <h3>Values Statement</h3>
+                        <ul>
+                            <li><strong>Customer Focus:</strong> We prioritize our customers' needs and strive to exceed their expectations.</li>
+                            <li><strong>Quality Excellence:</strong> We are committed to delivering high-quality products and services that meet the highest standards.</li>
+                            <li><strong>Innovation:</strong> We encourage creativity, innovation, and continuous improvement in all aspects of our business.</li>
+                            <li><strong>Sustainability:</strong> We prioritize environmental sustainability and strive to minimize our ecological footprint.</li>
+                            <li><strong>Integrity:</strong> We operate with integrity, transparency, and honesty in all our interactions with customers, employees, and partners.</li>
+                            <li><strong>Teamwork:</strong> We foster a collaborative and inclusive work environment that values diversity, creativity, and open communication.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals & Objectives -->
+        <section id="goals">
+            <h2 class="orange-header">Goals and Objectives</h2>
+            <div class="grid">
                 <div>
-                    <h3>Mission Statement</h3>
-                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and customer service.</p>
+                    <h3>Short-Term Goals (Next 12 Months)</h3>
+                    <ol>
+                        <li>Increase annual revenue by 15% through new customer acquisition and existing customer retention.</li>
+                        <li>Reduce production time by 20% through process improvements and equipment upgrades.</li>
+                        <li>Achieve a customer satisfaction rating of 95% or higher through improved quality and service.</li>
+                        <li>Introduce new printing services, such as large-format printing or variable data printing.</li>
+                    </ol>
+                    <h3>Long-Term Goals (Next 3-5 Years)</h3>
+                    <ol>
+                        <li>Become the leading printing company in the region, recognized for exceptional quality and customer service.</li>
+                        <li>Achieve carbon neutrality through sustainable practices, such as using eco-friendly inks and reducing energy consumption.</li>
+                        <li>Stay ahead of the competition by investing in the latest printing technologies and techniques.</li>
+                        <li>Establish partnerships with key suppliers and industry partners to improve supply chain efficiency and reduce costs.</li>
+                    </ol>
                 </div>
                 <div>
-                    <h3>Vision Statement</h3>
-                    <p>To be the leading digital printing company in industry, recognized for our exceptional quality, innovative solutions, and commitment to customer satisfaction and sustainability.</p>
+                    <h3>Objectives</h3>
+                    <ol>
+                        <li><strong>Quality Objectives:</strong> Reduce defect rate to 1% or lower. Achieve ISO 9001 certification.</li>
+                        <li><strong>Customer Objectives:</strong> Increase customer retention rate to 90% or higher. Achieve an average customer satisfaction rating of 95% or higher.</li>
+                        <li><strong>Financial Objectives:</strong> Increase revenue by 10% annually. Maintain a gross margin of 25% or higher.</li>
+                        <li><strong>Operational Objectives:</strong> Reduce production time by 15% annually. Improve equipment uptime to 95% or higher.</li>
+                    </ol>
                 </div>
+            </div>
+        </section>
+
+        <!-- Service Pledge -->
+        <section id="pledge" class="blue-bg">
+            <h2 class="orange-header">Our Service Pledge</h2>
+            <p style="max-width:900px; margin:0 auto 30px;">At Monkwe Koketso Groups (Pty) Ltd, we are committed to delivering exceptional service and quality products to our customers. We pledge to:</p>
+            <ol style="max-width:900px; margin:0 auto;">
+                <li>Respond promptly: We will respond to all inquiries and requests within 2 hours during business hours.</li>
+                <li>Provide accurate quotes: We will provide detailed and accurate quotes for all printing projects, including timelines and costs.</li>
+                <li>Meet deadlines: We will work diligently to meet all deadlines and deliver projects on time.</li>
+                <li>Ensure quality: We will carefully review all projects to ensure they meet our high standards of quality.</li>
+                <li>Communicate effectively: We will keep our customers informed throughout the printing process, from receipt of order to delivery.</li>
+                <li>Respect confidentiality: We will maintain the confidentiality of our customers' projects and information.</li>
+                <li>Offer flexible solutions: We will work with our customers to find flexible solutions that meet their unique needs and budgets.</li>
+            </ol>
+            <p style="max-width:900px; margin:40px auto 0;">Our Promise: We promise to deliver exceptional service, quality products, and value to our customers. If we fail to meet our service pledge, we will work with our customers to resolve the issue promptly and fairly.</p>
+        </section>
+
+        <!-- Services -->
+        <section id="services">
+            <h2 class="orange-header">Our Services</h2>
+            <div class="grid">
+                <div class="card"><img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads/sites/84/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage" style="width:100%; border-radius:10px;"><h3>Signage Design, Print, Fabrication & Installation</h3></div>
+                <div class="card"><img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding" style="width:100%; border-radius:10px;"><h3>Vehicle Branding</h3></div>
+                <div class="card"><img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Branding" style="width:100%; border-radius:10px;"><h3>Window & Door Branding</h3></div>
+                <div class="card"><img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Digital Printing" style="width:100%; border-radius:10px;"><h3>Large Format & Digital Printing</h3></div>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section id="portfolio" class="blue-bg">
+            <h2 class="orange-header">Work Completions</h2>
+            <ul style="max-width:900px; margin:0 auto 40px; color:white;">
+                <li>Kgwatlhele Primary School – Signage board design, print, fabrication and installation (2024)</li>
+                <li>The Joint Civils (Pty) Ltd – Vehicle branding (September 2024)</li>
+                <li>Rockafella Royalfarewell – Vehicle branding (October 2024)</li>
+                <li>Bakone Construction – Vehicle branding (October 2024)</li>
+                <li>Takedi Modern printers – Window branding outdoor and indoor (October 2024)</li>
+                <li>Dr Kgomo Dental Care – Signage board and Door branding</li>
+                <li>Vutomi Traditional Herbal Healthcare – Signage board</li>
+            </ul>
+            <div class="grid">
+                <img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding" style="border-radius:10px;">
+                <img src="https://www.acmegraphic.com/wp-content/uploads/2021/05/Incredible-Vehicle-Wraps.jpg" alt="Creative Wrap" style="border-radius:10px;">
+                <img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads/sites/84/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage" style="border-radius:10px;">
+                <img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Graphics" style="border-radius:10px;">
+            </div>
+        </section>
+
+        <!-- References -->
+        <section id="references">
+            <h2 class="orange-header">References</h2>
+            <div class="grid">
+                <div class="card"><h3>Rockafella Royalfarewell</h3><p>Mr Seletela<br>066 386 6400<br>info@rockafellaroyalfarewell.co.za</p></div>
+                <div class="card"><h3>Kgwatlhele Primary School</h3><p>Mr A. Kwakwa<br>079 187 1480<br>kgwatlheleprimary@gmail.com</p></div>
+                <div class="card"><h3>Dr Kgomo Dental Care</h3><p>Mrs T.R Kgomo<br>072 082 1799<br>44 Ruiter Rd, Mokopane, 0601</p></div>
+                <div class="card"><h3>Point B Supplier</h3><p>Mr Maake<br>064 527 7537<br>16B Nelson Mandela Drive, Mokopane</p></div>
+            </div>
+        </section>
+
+        <!-- Principles & Imperatives -->
+        <section id="principles" class="blue-bg">
+            <h2 class="orange-header">Company Principles & Imperatives</h2>
+            <div class="grid">
                 <div>
-                    <h3>Values Statement</h3>
+                    <h3 style="color:var(--accent);">Strategic Imperatives</h3>
                     <ul>
-                        <li><strong>Customer Focus:</strong> We prioritize our customers' needs and strive to exceed their expectations.</li>
-                        <li><strong>Quality Excellence:</strong> We are committed to delivering high-quality products and services that meet the highest standards.</li>
-                        <li><strong>Innovation:</strong> We encourage creativity, innovation, and continuous improvement in all aspects of our business.</li>
-                        <li><strong>Sustainability:</strong> We prioritize environmental sustainability and strive to minimize our ecological footprint.</li>
-                        <li><strong>Integrity:</strong> We operate with integrity, transparency, and honesty in all our interactions with customers, employees, and partners.</li>
-                        <li><strong>Teamwork:</strong> We foster a collaborative and inclusive work environment that values diversity, creativity, and open communication.</li>
+                        <li>Accelerate Growth: Achieve revenue growth of 15% annually through expansion of services, entry into new markets, and acquisition of new customers.</li>
+                        <li>Drive Innovation: Invest in research and development to stay ahead of the competition and identify new opportunities for growth.</li>
+                        <li>Enhance Customer Experience: Deliver exceptional customer service through responsive communication, timely delivery, and high-quality products.</li>
+                    </ul>
+                    <h3 style="color:var(--accent);">Operational Imperatives</h3>
+                    <ul>
+                        <li>Optimize Efficiency: Streamline processes and invest in technology to reduce waste, improve productivity, and increase efficiency.</li>
+                        <li>Ensure Quality: Maintain high-quality standards through regular quality checks, employee training, and continuous improvement.</li>
+                        <li>Foster a Positive Work Culture: Promote a culture of respect, inclusivity, and open communication to attract and retain top talent.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color:var(--accent);">Financial Imperatives</h3>
+                    <ul>
+                        <li>Maintain Profitability: Achieve and maintain a gross margin of 25% or higher through efficient operations and effective pricing strategies.</li>
+                        <li>Manage Cash Flow: Maintain a cash reserve to ensure liquidity and invest in growth opportunities.</li>
+                        <li>Invest in Growth: Allocate resources to support strategic growth initiatives, such as expansion into new markets or development of new services.</li>
+                    </ul>
+                    <h3 style="color:var(--accent);">Sustainability Imperatives</h3>
+                    <ul>
+                        <li>Reduce Environmental Impact: Implement sustainable practices to minimize waste, reduce energy consumption, and promote environmental responsibility.</li>
+                        <li>Promote Social Responsibility: Foster a culture of social responsibility through community involvement, charitable giving, and support for local initiatives.</li>
+                        <li>Ensure Compliance: Maintain compliance with all relevant laws, regulations, and industry standards.</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Goals & Objectives -->
-    <section id="goals">
-        <h2 class="orange-header">Goals and Objectives</h2>
-        <div class="grid">
-            <div>
-                <h3>Short-Term Goals (Next 12 Months)</h3>
-                <ol>
-                    <li>Increase annual revenue by 15% through new customer acquisition and existing customer retention.</li>
-                    <li>Reduce production time by 20% through process improvements and equipment upgrades.</li>
-                    <li>Achieve a customer satisfaction rating of 95% or higher through improved quality and service.</li>
-                    <li>Introduce new printing services, such as large-format printing or variable data printing.</li>
-                </ol>
-                <h3>Long-Term Goals (Next 3-5 Years)</h3>
-                <ol>
-                    <li>Become the leading printing company in the region, recognized for exceptional quality and customer service.</li>
-                    <li>Achieve carbon neutrality through sustainable practices, such as using eco-friendly inks and reducing energy consumption.</li>
-                    <li>Stay ahead of the competition by investing in the latest printing technologies and techniques.</li>
-                    <li>Establish partnerships with key suppliers and industry partners to improve supply chain efficiency and reduce costs.</li>
-                </ol>
-            </div>
-            <div>
-                <h3>Objectives</h3>
-                <ol>
-                    <li><strong>Quality Objectives:</strong> Reduce defect rate to 1% or lower. Achieve ISO 9001 certification.</li>
-                    <li><strong>Customer Objectives:</strong> Increase customer retention rate to 90% or higher. Achieve an average customer satisfaction rating of 95% or higher.</li>
-                    <li><strong>Financial Objectives:</strong> Increase revenue by 10% annually. Maintain a gross margin of 25% or higher.</li>
-                    <li><strong>Operational Objectives:</strong> Reduce production time by 15% annually. Improve equipment uptime to 95% or higher.</li>
-                </ol>
-            </div>
-        </div>
-    </section>
+        <!-- Contact -->
+        <section id="contact">
+            <h2 class="orange-header">Contact Us</h2>
+            <p style="text-align:center; font-size:20px; max-width:800px; margin:0 auto;">
+                Phone: 060 711 8356 / (+27) 15 004 0179<br>
+                Email: info@takedi.co.za<br>
+                Address: 15 Nelson Mandela Street, Mokopane, 0601<br><br>
+                We value your business and appreciate the opportunity to serve you!
+            </p>
+        </section>
 
-    <!-- Service Pledge -->
-    <section id="pledge" class="blue-bg">
-        <h2 class="orange-header">Our Service Pledge</h2>
-        <p style="max-width:900px; margin:0 auto 30px;">At Monkwe Koketso Groups (Pty) Ltd, we are committed to delivering exceptional service and quality products to our customers. We pledge to:</p>
-        <ol style="max-width:900px; margin:0 auto;">
-            <li>Respond promptly: We will respond to all inquiries and requests within 2 hours during business hours.</li>
-            <li>Provide accurate quotes: We will provide detailed and accurate quotes for all printing projects, including timelines and costs.</li>
-            <li>Meet deadlines: We will work diligently to meet all deadlines and deliver projects on time.</li>
-            <li>Ensure quality: We will carefully review all projects to ensure they meet our high standards of quality.</li>
-            <li>Communicate effectively: We will keep our customers informed throughout the printing process, from receipt of order to <delivery.</li>
-            <li>Respect confidentiality: We will maintain the confidentiality of our customers' projects and information.</li>
-            <li>Offer flexible solutions: We will work with our customers to find flexible solutions that meet their unique needs and budgets.</li>
-        </ol>
-        <p style="max-width:900px; margin:40px auto 0;">Our Promise: We promise to deliver exceptional service, quality products, and value to our customers. If we fail to meet our service pledge, we will work with our customers to resolve the issue promptly and fairly.</p>
-    </section>
-
-    <!-- Services (inferred from portfolio) -->
-    <section id="services">
-        <h2 class="orange-header">Our Services</h2>
-        <div class="grid">
-            <div class="card"><img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads Latitude/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage" style="width:100%; border-radius:10px;"><h3>Signage Design, Print, Fabrication & Installation</h3></div>
-            <div class="card"><img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding" style="width:100%; border-radius:10px;"><h3>Vehicle Branding</h3></div>
-            <div class="card"><img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Branding" style="width:100%; border-radius:10px;"><h3>Window & Door Branding</h3></div>
-            <div class="card"><img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Digital Printing" style="width:100%; border-radius:10px;"><h3>Large Format & Digital Printing</h3></div>
-        </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="blue-bg">
-        <h2 class="orange-header">Work Completions</h2>
-        <ul style="max-width:900px; margin:0 auto 40px; color:white;">
-            <li>Kgwatlhele Primary School – Signage board design, print, fabrication and installation (2024)</li>
-            <li>The Joint Civils (Pty) Ltd – Vehicle branding (September 2024)</li>
-            <li>Rockafella Royalfarewell – Vehicle branding (October 2024)</li>
-            <li>Bakone Construction – Vehicle branding (October 2024)</li>
-            <li>Takedi Modern printers – Window branding outdoor and indoor (October 2024)</li>
-            <li>Dr Kgomo Dental Care – Signage board and Door branding</li>
-            <li>Vutomi Traditional Herbal Healthcare – Signage board</li>
-        </ul>
-        <div class="grid">
-            <img src="https://images.squarespace-cdn.com/content/v1/540b5a0ee4b0faf3641f967d/fa55f420-c81b-402b-a2b0-b0120040e064/Quincy+Van+Wrap.jpg" alt="Vehicle Branding" style="border-radius:10px;">
-            <img src="https://www.acmegraphic.com/wp-content/uploads/2021/05/Incredible-Vehicle-Wraps.jpg" alt="Creative Wrap" style="border-radius:10px;">
-            <img src="https://www.speedpro.com/nw-raleigh/wp-content/uploads/sites/84/2020/08/Event-Signage-Outdoor-Displays-A-Frame-Signs-The-Carolinian-on-Glenwood-Speedpro-NW-Raleigh-1-mp-4x3-1.jpg" alt="Signage" style="border-radius:10px;">
-            <img src="https://i0.wp.com/www.speedpro.com/wp-content/uploads/2022/08/privacy-glass-for-conference-rooms.png" alt="Window Graphics" style="border-radius:10px;">
-        </div>
-    </section>
-
-    <!-- References -->
-    <section id="references">
-        <h2 class="orange-header">References</h2>
-        <div class="grid">
-            <div class="card"><h3>Rockafella Royalfarewell</h3><p>Mr Seletela<br>066 386 6400<br>info@rockafellaroyalfarewell.co.za</p></div>
-            <div class="card"><h3>Kgwatlhele Primary School</h3><p>Mr A. Kwakwa<br>079 187 1480<br>kgwatlheleprimary@gmail.com</p></div>
-            <div class="card"><h3>Dr Kgomo Dental Care</h3><p>Mrs T.R Kgomo<br>072 082 1799<br>44 Ruiter Rd, Mokopane, 0601</p></div>
-            <div class="card"><h3>Point B Supplier</h3><p>Mr Maake<br>064 527 7537<br>16B Nelson Mandela Drive, Mokopane</p></div>
-        </div>
-    </section>
-
-    <!-- Principles & Imperatives -->
-    <section id="principles" class="blue-bg">
-        <h2 class="orange-header">Company Principles & Imperatives</h2>
-        <div class="grid">
-            <div>
-                <h3 style="color:var(--accent);">Strategic Imperatives</h3>
-                <ul>
-                    <li>Accelerate Growth: Achieve revenue growth of 15% annually through expansion of services, entry into new markets, and acquisition of new customers.</li>
-                    <li>Drive Innovation: Invest in research and development to stay ahead of the competition and identify new opportunities for growth.</li>
-                    <li>Enhance Customer Experience: Deliver exceptional customer service through responsive communication, timely delivery, and high-quality products.</li>
-                </ul>
-                <h3 style="color:var(--accent);">Operational Imperatives</h3>
-                <ul>
-                    <li>Optimize Efficiency: Streamline processes and invest in technology to reduce waste, improve productivity, and increase efficiency.</li>
-                    <li>Ensure Quality: Maintain high-quality standards through regular quality checks, employee training, and continuous improvement.</li>
-                    <li>Foster a Positive Work Culture: Promote a culture of respect, inclusivity, and open communication to attract and retain top talent.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 style="color:var(--accent);">Financial Imperatives</h3>
-                <ul>
-                    <li>Maintain Profitability: Achieve and maintain a gross margin of 25% or higher through efficient operations and effective pricing strategies.</li>
-                    <li>Manage Cash Flow: Maintain a cash reserve to ensure liquidity and invest in growth opportunities.</li>
-                    <li>Invest in Growth: Allocate resources to support strategic growth initiatives, such as expansion into new markets or development of new services.</li>
-                </ul>
-                <h3 style="color:var(--accent);">Sustainability Imperatives</h3>
-                <ul>
-                    <li>Reduce Environmental Impact: Implement sustainable practices to minimize waste, reduce energy consumption, and promote environmental responsibility.</li>
-                    <li>Promote Social Responsibility: Foster a culture of social responsibility through community involvement, charitable giving, and support for local initiatives.</li>
-                    <li>Ensure Compliance: Maintain compliance with all relevant laws, regulations, and industry standards.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <h2 class="orange-header">Contact Us</h2>
-        <p style="text-align:center; font-size:20px; max-width:800px; margin:0 auto;">
-            Phone: 060 711 8356 / (+27) 15 004 0179<br>
-            Email: info@takedi.co.za<br>
-            Address: 15 Nelson Mandela Street, Mokopane, 0601<br><br>
-            We value your business and appreciate the opportunity to serve you!
-        </p>
-    </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 Monkwe Koketso Groups (Pty) Ltd. All rights reserved. | Takedi Modern Printers & Supply</p>
