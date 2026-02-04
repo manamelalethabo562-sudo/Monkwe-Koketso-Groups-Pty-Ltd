@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkwe Koketso Groups | Takedi Modern Printers</title>
+    <style>
+        /* --- CSS VARIABLES BASED ON PDF [cite: 222-227] --- */
+        :root {
+            --primary-navy: #3E4095;
+            --accent-orange: #F58634;
+            --highlight-cyan: #00AFEF;
+            --bg-white: #FEFEFE;
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+        }
+
+        /* --- GLOBAL STYLES --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-navy);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        a { text-decoration: none; }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent-orange); }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--primary-navy);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--highlight-cyan); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(62, 64, 149, 0.9), rgba(62, 64, 149, 0.8)), url('print-bg.jpg'); /* Placeholder image */
+            background-size: cover;
+            color: var(--bg-white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            color: var(--bg-white);
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--highlight-cyan);
+        }
+
+        /* --- SERVICES GRID --- */
+        .services {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-top: 4px solid var(--highlight-cyan);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* --- ABOUT & VALUES --- */
+        .about-section {
+            background-color: #f4f4f4;
+            padding: 60px 0;
+        }
+
+        .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .value-box {
+            background: var(--bg-white);
+            padding: 20px;
+            flex: 1 1 300px;
+            border-left: 5px solid var(--primary-navy);
+        }
+
+        /* --- PORTFOLIO LIST --- */
+        .portfolio {
+            padding: 60px 0;
+        }
+        
+        .client-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .client-list li {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            background-color: var(--primary-navy);
+            color: var(--bg-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact h2 { color: var(--bg-white); }
+        .contact a { color: var(--accent-orange); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">MK <span>Groups</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Our Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>We Give Creative Solutions</h1>
+            <p>Your leading digital printing partner specializing in high-quality solutions for businesses and individuals.</p>
+            <a href="#contact" class="btn btn-primary">Get a Quote</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Monkwe Koketso Groups</h2>
+            <p><strong>Monkwe Koketso Groups (Pty) Ltd</strong>, trading as Takedi Modern Printers & Supply, was founded in 2022 with a vision to provide innovative digital printing solutions that combine quality, speed, and affordability[cite: 33].</p>
+            
+            <div class="values-grid">
+                <div class="value-box">
+                    <h3>Our Mission</h3>
+                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality[cite: 46].</p>
+                </div>
+                <div class="value-box">
+                    <h3>Our Vision</h3>
+                    <p>To be the leading digital printing company in the industry, recognized for our exceptional quality, innovative solutions, and commitment to sustainability[cite: 48].</p>
+                </div>
+            </div>
+
+            <br>
+            <h3>Our Team</h3>
+            <ul>
+                <li><strong>Director & Designer:</strong> Monkwe Koketso </li>
+                <li><strong>Receptionist:</strong> Moshi Mapula </li>
+                <li><strong>Applicator:</strong> Seshoka Johannes </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>We provide a wide range of branding and printing solutions [cite: 106-135].</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Large Format & Signage</h3>
+                    <p>Chromadeck Boards, Lightboxes, PVC Banners, Teardrop Flags, Telescopic Flags, Wall Banners.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Vehicle & Outdoor</h3>
+                    <p>Vehicle Branding, Fleet Stickers, Car Magnetics, Gazebos, Shop Branding, Window Frosting.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Corporate & Safety</h3>
+                    <p>Safety Signage, Mine Signage (Reflective/Non-reflective), PPE, Name Tags, Rubber Stamps.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Marketing Materials</h3>
+                    <p>Business Cards, Flyers, Label Stickers, Canvas Printing, T-Shirt Printing & Embroidery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="portfolio">
+        <div class="container">
+            <h2>Recent Projects & References</h2>
+            <p>We have successfully delivered quality work for various clients [cite: 164-176].</p>
+            
+            <ul class="client-list">
+                <li>
+                    <span><strong>Kgwatlhele Primary School</strong> - Signage board design, fabrication, and installation.</span>
+                    <span style="color:var(--highlight-cyan)">2024</span>
+                </li>
+                <li>
+                    <span><strong>The Joint Civils (Pty) Ltd</strong> - Vehicle Branding.</span>
+                    <span style="color:var(--highlight-cyan)">Sept 2024</span>
+                </li>
+                <li>
+                    <span><strong>Rockafella Royalfarewell</strong> - Branding services.</span>
+                    <span style="color:var(--highlight-cyan)">Oct 2024</span>
+                </li>
+                <li>
+                    <span><strong>Dr. Kgomo Dental Care</strong> - Signage board and Door branding.</span>
+                    <span style="color:var(--highlight-cyan)">Completed</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p><strong>We value your business and appreciate the opportunity to serve you! [cite: 103]</strong></p>
+            
+            <div style="margin-top: 30px;">
+                <p><strong>Address:</strong> 15 Nelson Mandela Street, Mokopane, 0601 </p>
+                <p><strong>Phone:</strong> <a href="tel:+27607118356">060 711 8356</a> / <a href="tel:+27150040179">015 004 0179</a> [cite: 12, 100]</p>
+                <p><strong>Email:</strong> <a href="mailto:info@takedi.co.za">info@takedi.co.za</a> [cite: 101]</p>
+            </div>
+
+            <div style="margin-top: 30px; border: 1px solid #fff; padding: 20px; display: inline-block;">
+                <h3>Our Service Pledge</h3>
+                <p>We respond to all inquiries within 2 hours during business hours. [cite: 87]</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Monkwe Koketso Groups (Pty) Ltd. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
