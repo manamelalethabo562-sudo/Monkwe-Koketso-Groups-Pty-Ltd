@@ -29,33 +29,34 @@
             border-radius: 50% 50% 0 0;
         }
 
-        /* Top Header Navigation (moved from sidebar) */
+        /* Top Header Navigation - Now overlaid on hero */
         nav {
-            background: var(--primary);
-            padding: 20px 0;
-            position: sticky;
+            background: rgba(62, 64, 149, 0.8);
+            padding: 15px 0;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         nav .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
+            padding: 0 20px;
         }
         nav .nav-logo {
-            position: absolute;
-            left: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
             color: white;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 22px;
         }
         nav .nav-logo i {
             font-size: 40px;
@@ -67,8 +68,7 @@
             margin: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
+            gap: 30px;
         }
         nav ul li a {
             color: white;
@@ -76,12 +76,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 12px;
+            padding: 8px 15px;
             border-radius: 5px;
             transition: background 0.3s;
         }
         nav ul li a:hover {
-            background: rgba(245,134,52,0.3);
+            background: rgba(245,134,52,0.4);
         }
         nav ul li a i {
             font-size: 22px;
@@ -92,7 +92,7 @@
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://thumbs.dreamstime.com/b/large-yellow-dump-truck-seen-open-pit-mining-site-transporting-coal-anthracite-amid-rocky-cloudy-environment-422156946.jpg') center/cover no-repeat;
             color: white;
             text-align: center;
-            padding: 150px 20px 100px;
+            padding: 180px 20px 100px; /* Increased top padding to account for fixed nav overlay */
             position: relative;
         }
         .logo-top { font-size: 36px; font-weight: bold; color: var(--light); margin-bottom: 10px; }
@@ -180,13 +180,31 @@
         @media (max-width: 992px) {
             .logo-top { font-size: 30px; }
             .company-name { font-size: 38px; }
-            nav .nav-logo { position: static; margin-bottom: 15px; }
+            nav .nav-container { justify-content: center; }
+            nav .nav-logo { position: static; margin-bottom: 10px; }
             nav ul { gap: 15px; }
             nav ul li a { font-size: 14px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Top Header Navigation - Now fixed and overlaid on top of hero -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-print"></i>
+                <span>Monkwe Koketso Groups</span>
+            </div>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#services"><i class="fas fa-print"></i> Services</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#mission"><i class="fas fa-eye"></i> Vision & Mission</a></li>
+                <li><a href="#footer"><i class="fas fa-phone"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Hero Header - Mining truck background -->
     <header>
@@ -197,28 +215,6 @@
             <img src="https://thumbs.dreamstime.com/b/industrial-printing-press-multicolored-ink-rollers-digital-technology-close-up-high-tech-machine-featuring-vibrant-398384935.jpg" alt="Printer Icon">
         </div>
     </header>
-
-    <!-- Top Header Navigation (sidebar moved here) -->
-    <nav>
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-print"></i>
-                <span>Monkwe Koketso Groups</span>
-            </div>
-            <ul>
-                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="#organogram"><i class="fas fa-sitemap"></i> Organogram</a></li>
-                <li><a href="#services"><i class="fas fa-print"></i> Our Services</a></li>
-                <li><a href="#mission"><i class="fas fa-eye"></i> Mission & Vision</a></li>
-                <li><a href="#goals"><i class="fas fa-bullseye"></i> Goals & Objectives</a></li>
-                <li><a href="#pledge"><i class="fas fa-handshake"></i> Service Pledge</a></li>
-                <li><a href="#portfolio"><i class="fas fa-images"></i> Work Completions</a></li>
-                <li><a href="#references"><i class="fas fa-address-book"></i> References</a></li>
-                <li><a href="#principles"><i class="fas fa-balance-scale"></i> Principles & Imperatives</a></li>
-                <li><a href="#footer"><i class="fas fa-phone"></i> Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <!-- Main Content -->
     <main>
