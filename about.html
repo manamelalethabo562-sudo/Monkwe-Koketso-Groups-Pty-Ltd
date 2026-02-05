@@ -74,16 +74,6 @@
             font-size: 18px;
             letter-spacing: 1px;
         }
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
-        .menu-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
         .hamburger {
             display: none;
             cursor: pointer;
@@ -131,8 +121,52 @@
             transform: scale(1.08) translateY(-3px);
             box-shadow: 0 10px 30px rgba(62,64,149,0.3);
         }
+        header {
+            background: linear-gradient(135deg, #2c2e6e 0%, #1a1c4a 100%);
+            color: white;
+            padding: 320px 10% 220px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+        .hero-label {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            font-size: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        .company-name {
+            color: var(--white);
+            font-size: clamp(40px, 7vw, 80px);
+            font-weight: 900;
+            margin: 0;
+            max-width: 1000px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            text-shadow: 3px 6px 20px rgba(0,0,0,0.6);
+        }
+        .slogan {
+            font-size: clamp(20px, 3vw, 32px);
+            color: rgba(255,255,255,0.95);
+            margin-top: 25px;
+            font-weight: 400;
+            max-width: 700px;
+            border-left: 5px solid var(--accent);
+            padding-left: 25px;
+            background: rgba(0,0,0,0.2);
+            padding: 15px 25px;
+            border-radius: 12px;
+        }
         main {
-            padding-top: 180px;
+            padding-top: 0;
         }
         section {
             padding: 140px 8%;
@@ -315,8 +349,14 @@
         </div>
     </nav>
 
+    <header id="about">
+        <div class="hero-label">Excellence in Printing & Branding</div>
+        <h1 class="company-name">TAKEDI</h1>
+        <div class="slogan">Modern printers and supply – Precision, Speed, Durability for Mining, Industrial & Commercial Sectors</div>
+    </header>
+
     <main>
-        <section id="about-intro">
+        <section id="intro">
             <div class="orange-header">Who We Are</div>
             <div class="about-intro">
                 <h1>Precision Printing & Branding <span class="highlight">Since 2022</span></h1>
