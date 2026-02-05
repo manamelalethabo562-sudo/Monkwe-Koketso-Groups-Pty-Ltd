@@ -28,6 +28,7 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; }
         a { text-decoration: none; transition: var(--transition); }
+
         /* Floating Navigation Bar */
         nav {
             position: fixed;
@@ -48,6 +49,7 @@
             justify-content: space-between;
             border: 1px solid rgba(255, 255, 255, 0.3);
             transition: var(--transition);
+            overflow: hidden;
         }
         nav.scrolled {
             top: 0;
@@ -56,10 +58,12 @@
             padding: 10px 5%;
             background: rgba(255, 255, 255, 0.98);
         }
+
         .nav-left {
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-shrink: 0;
         }
         .nav-avatar {
             width: 42px;
@@ -74,22 +78,26 @@
             font-size: 15px;
             letter-spacing: 0.5px;
         }
+
         .nav-right {
             display: flex;
             align-items: center;
             gap: 30px;
         }
+
         .menu-wrapper {
             display: flex;
             align-items: center;
             gap: 30px;
         }
+
         .hamburger {
             display: none;
             cursor: pointer;
             font-size: 28px;
             color: #222;
         }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -97,6 +105,7 @@
             margin: 0;
             padding: 0;
         }
+
         nav ul li a {
             color: #222;
             font-weight: 600;
@@ -115,7 +124,7 @@
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
-      
+
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -130,6 +139,7 @@
             background: var(--primary);
             transform: scale(1.05);
         }
+
         /* Hero Header - Modernized */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4)),
@@ -151,14 +161,14 @@
             font-size: 14px;
         }
         .company-name {
-            color: var(--white); /* Changed from Blue to White */
-            font-size: clamp(32px, 6vw, 68px); /* Responsive sizing */
+            color: var(--white);
+            font-size: clamp(32px, 6vw, 68px);
             font-weight: 800;
             margin: 0;
             max-width: 900px;
             line-height: 1.1;
             text-transform: uppercase;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.5); /* Enhanced visibility */
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
         }
         .slogan {
             font-size: clamp(18px, 2.5vw, 28px);
@@ -169,6 +179,7 @@
             border-left: 4px solid var(--accent);
             padding-left: 20px;
         }
+
         /* Content Sections */
         section {
             padding: 120px 8%;
@@ -190,7 +201,6 @@
             position: relative;
             box-shadow: 10px 10px 0px var(--primary);
         }
-        /* Modern Grid & Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -212,7 +222,6 @@
             margin-top: 15px;
             font-size: 22px;
         }
-        /* Organogram */
         .organogram-card {
             background: white;
             border-radius: 30px;
@@ -233,7 +242,6 @@
             box-shadow: 0 8px 20px rgba(245,134,52,0.2);
             font-size: 14px;
         }
-        /* Contact Modernization */
         #contact .card p {
             margin: 15px 0;
             display: flex;
@@ -265,48 +273,71 @@
             font-size: 13px;
             color: #777;
         }
+
         @media (max-width: 991px) {
-            nav { width: 95%; padding: 10px 20px; }
-            .hamburger { display: block; }
-            .menu-wrapper {
-                display: none;
-                opacity: 0;
-                transform: translateY(-20px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
-            }
-            .menu-wrapper.active {
-                display: flex;
+            nav {
+                width: 95%;
+                padding: 12px 20px;
+                border-radius: 16px;
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                align-items: flex-start;
+                transition: height 0.4s ease, border-radius 0.4s ease, padding 0.4s ease;
+                height: 70px;
+                overflow: hidden;
+            }
+
+            nav.expanded {
+                height: auto;
+                border-radius: 16px;
+                padding: 12px 20px 20px;
                 background: rgba(255, 255, 255, 0.85);
                 backdrop-filter: blur(15px);
                 -webkit-backdrop-filter: blur(15px);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                border-top: none;
-                border-radius: 0 0 20px 20px;
-                padding: 20px 0;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                gap: 20px;
+            }
+
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
                 align-items: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .menu-wrapper {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 16px;
+                opacity: 0;
+                visibility: hidden;
+                height: 0;
+                transition: opacity 0.35s ease, visibility 0.35s ease, height 0.4s ease;
+            }
+
+            nav.expanded .menu-wrapper {
                 opacity: 1;
-                transform: translateY(0);
-                animation: slideDown 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                visibility: visible;
+                height: auto;
             }
-            @keyframes slideDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                gap: 16px;
             }
+
+            nav ul li a {
+                padding: 10px 0;
+                font-size: 16px;
+            }
+
             .nav-cta {
-                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+                padding: 14px 24px;
+                font-size: 15px;
             }
         }
     </style>
@@ -314,22 +345,24 @@
 <body>
     <nav id="navbar">
         <div class="nav-left">
-            <img src="https://i.postimg.cc/C1BTWPRz/logo.png" alt="Avatar" class="nav-avatar">
-            <div class="nav-logo-text">MK GROUPS (PTY) LTD</div>
-        </div>
-        <div class="nav-right">
-            <div class="menu-wrapper">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <a href="#contact" class="nav-cta">GET A QUOTE</a>
+            <div class="nav-logo">
+                <img src="https://i.postimg.cc/C1BTWPRz/logo.png" alt="Avatar" class="nav-avatar">
+                <div class="nav-logo-text">MK GROUPS (PTY) LTD</div>
             </div>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         </div>
+
+        <div class="menu-wrapper">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">GET A QUOTE</a>
+        </div>
     </nav>
+
     <header id="home">
         <div class="hero-label">Excellence in Branding</div>
         <h1 class="company-name">MONKWE KOKETSO <br>GROUPS (PTY) LTD</h1>
@@ -409,6 +442,7 @@
             <p>&copy; 2026 Monkwe Koketso Groups (Pty) Ltd. <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
+
     <script>
         // Intersection Observer for Scroll Animations
         const observer = new IntersectionObserver((entries) => {
@@ -419,18 +453,21 @@
             });
         }, { threshold: 0.15 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
+
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
-        // Hamburger Menu Toggle
+
+        // Hamburger Menu - expand whole navbar
         const hamburger = document.getElementById('hamburger');
-        const menuWrapper = document.querySelector('.menu-wrapper');
-        if (hamburger && menuWrapper) {
+        const navbar = document.getElementById('navbar');
+
+        if (hamburger && navbar) {
             hamburger.addEventListener('click', () => {
-                menuWrapper.classList.toggle('active');
+                navbar.classList.toggle('expanded');
                 const icon = hamburger.querySelector('i');
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
