@@ -28,9 +28,7 @@
         ul { list-style: disc; padding-left: 30px; margin: 20px 0; }
         a { text-decoration: none; transition: var(--transition); }
 
-        /* ────────────────────────────────────────────────
-           NAVBAR – EXACTLY the same as your home page
-        ──────────────────────────────────────────────── */
+        /* NAVBAR – unchanged */
         nav {
             position: fixed;
             top: 20px;
@@ -245,7 +243,7 @@
             font-size: 1.3rem;
         }
 
-        /* Gallery – Work Completion Section */
+        /* Gallery */
         .gallery-section {
             margin-top: 100px;
             text-align: center;
@@ -270,11 +268,66 @@
             height: 240px;
             object-fit: cover;
         }
-        .gallery-caption {
-            margin-top: 12px;
+
+        /* References – Animated Horizontal Cards with Scroll Effect */
+        .references-section {
+            margin: 120px 8% 80px;
+            text-align: center;
+        }
+        .references-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        .references-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) #eee;
+        }
+        .references-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .references-container::-webkit-scrollbar-track {
+            background: #eee;
+        }
+        .references-container::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        .reference-card {
+            flex: 0 0 360px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateX(60px);
+        }
+        .reference-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reference-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(62,64,149,0.15);
+        }
+        .reference-card h3 {
+            margin: 0 0 15px;
+            font-size: 22px;
+            color: var(--primary);
+        }
+        .reference-card p {
+            margin: 8px 0;
             font-size: 15px;
             color: #555;
-            line-height: 1.5;
+        }
+        .reference-card strong {
+            color: var(--accent);
         }
 
         /* Contact */
@@ -493,40 +546,45 @@
             </div>
 
             <div class="gallery-section">
-                <h2 style="font-size: 36px; margin-bottom: 25px;">Examples of Our Work – Recent Completions</h2>
-                <p style="max-width: 900px; margin: 0 auto 50px; font-size: 18px; color: #555;">Showcasing real projects delivered with precision, speed, and quality across signage, vehicle branding, window graphics, and more.</p>
+                <h2 style="font-size: 36px; margin-bottom: 25px;">Examples of Our Work</h2>
+                <p style="max-width: 900px; margin: 0 auto 50px; font-size: 18px; color: #555;">Showcasing our precision in large format printing, vehicle branding, safety signage, apparel, and promotional materials.</p>
                 <div class="gallery-grid">
+                    <div class="gallery-item"><img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Product collage"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/3E4095/FFFFFF?text=Vehicle+Wrap+Example" alt="Vehicle branding"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/F58634/FFFFFF?text=Mine+Safety+Signage" alt="Safety Signage"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/00AFEF/FFFFFF?text=Branded+T-Shirts" alt="T-Shirt Printing"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/3E4095/FFFFFF?text=Teardrop+Flag" alt="Teardrop Flag"></div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Rockafella Royalfarewell -->
-                    <div class="gallery-item">
-                        <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Rockafella Royalfarewell signage">
-                        <div class="gallery-caption">Rockafella Royalfarewell<br>Contact: Mr A. Seletela • 086 036 6400<br>Email: info@rockafellaroyalfarewell.co.za</div>
-                    </div>
-
-                    <!-- Kgwathele Primary School -->
-                    <div class="gallery-item">
-                        <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Kgwathele Primary School signage">
-                        <div class="gallery-caption">Kgwathele Primary School<br>Contact: Mr A. Kwakwa • 072 187 1480<br>Email: kgwatheleprimary@gmail.com<br>Signage board design, print, fabrication & installation – 2024</div>
-                    </div>
-
-                    <!-- Dr Kgomo Dental Care -->
-                    <div class="gallery-item">
-                        <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Dr Kgomo Dental Care branding">
-                        <div class="gallery-caption">Dr Kgomo Dental Care<br>Contact: Mrs T.R. Kgomo • 082 082 1799<br>Signage board & door branding – 2024</div>
-                    </div>
-
-                    <!-- Takeni Modern Printers Window Branding -->
-                    <div class="gallery-item">
-                        <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Takeni Modern Printers window branding">
-                        <div class="gallery-caption">Takeni Modern Printers<br>Outdoor & indoor window branding – October 2024</div>
-                    </div>
-
-                    <!-- Vehicle Branding Projects -->
-                    <div class="gallery-item">
-                        <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Vehicle branding examples">
-                        <div class="gallery-caption">Vehicle Branding Projects<br>• The Joint Civils (Pty) Ltd – September 2024<br>• Rockafella Royalfarewell – October 2024<br>• Bakone Construction – October 2024</div>
-                    </div>
-
+        <!-- REFERENCES – Animated horizontal scrolling cards -->
+        <section class="references-section">
+            <h2>References & Completed Projects</h2>
+            <div class="references-container">
+                <div class="reference-card">
+                    <h3>Rockafella Royalfarewell</h3>
+                    <p><strong>Contact Person:</strong> Mr A. Seletela</p>
+                    <p><strong>Tel:</strong> 086 036 6400</p>
+                    <p><strong>Email:</strong> info@rockafellaroyalfarewell.co.za</p>
+                </div>
+                <div class="reference-card">
+                    <h3>Dr Kgomo Dental Care</h3>
+                    <p><strong>Contact Person:</strong> Mrs T.R. Kgomo</p>
+                    <p><strong>Tel:</strong> 082 082 1799</p>
+                    <p><strong>Address:</strong> 44 Ruiter Rd, Mokopane, 0601</p>
+                </div>
+                <div class="reference-card">
+                    <h3>Kgwathele Primary School</h3>
+                    <p><strong>Contact Person:</strong> Mr A. Kwakwa</p>
+                    <p><strong>Tel:</strong> 072 187 1480</p>
+                    <p><strong>Email:</strong> kgwatheleprimary@gmail.com</p>
+                </div>
+                <div class="reference-card">
+                    <h3>Point B Supplier</h3>
+                    <p><strong>Contact Person:</strong> Mr Nelson Maake</p>
+                    <p><strong>Tel:</strong> 064 527 7537</p>
+                    <p><strong>Address:</strong> 16B Nelson Mandela Drive, Mokopane, Limpopo</p>
                 </div>
             </div>
         </section>
@@ -593,6 +651,18 @@
                 icon.classList.toggle('fa-times');
             });
         }
+
+        // Animate reference cards on scroll
+        const refCards = document.querySelectorAll('.reference-card');
+        const refObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        refCards.forEach(card => refObserver.observe(card));
     </script>
 </body>
 </html>
