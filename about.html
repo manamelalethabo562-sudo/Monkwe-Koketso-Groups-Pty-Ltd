@@ -27,7 +27,6 @@
         h1, h2, h3 { color: var(--primary); font-weight: 700; }
         p { color: #555; }
         a { text-decoration: none; transition: var(--transition); }
-
         /* ─── NAVBAR ────────────────────────────────────────────── (exact match to services page) */
         nav {
             position: fixed;
@@ -133,7 +132,6 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-
         /* ─── HERO ──────────────────────────────────────────────── (exact match to services page) */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4));
@@ -171,9 +169,7 @@
             border-left: 5px solid var(--accent);
             padding-left: 25px;
         }
-
         main { padding-top: 0; }
-
         section {
             padding: 140px 8%;
             max-width: 1400px;
@@ -242,13 +238,13 @@
         .org-box.primary {
             background: var(--primary);
         }
-        .values-grid {
+        .values-grid, .mission-vision-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin: 100px 0;
         }
-        .value-card {
+        .value-card, .mission-card {
             background: white;
             border-radius: 24px;
             padding: 50px 35px;
@@ -256,18 +252,44 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.05);
             transition: var(--transition);
         }
-        .value-card:hover {
+        .value-card:hover, .mission-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 25px 60px rgba(62,64,149,0.12);
         }
-        .value-card i {
+        .value-card i, .mission-card i {
             font-size: 3.8rem;
             color: var(--accent);
             margin-bottom: 25px;
         }
-        .value-card h3 {
+        .value-card h3, .mission-card h3 {
             font-size: 26px;
             margin-bottom: 18px;
+        }
+        .mission-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: left;
+        }
+        .mission-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0 0;
+            text-align: left;
+        }
+        .mission-card ul li {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .mission-card ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.3rem;
         }
         footer {
             background: #0B0C1F;
@@ -294,7 +316,6 @@
             font-size: 14px;
             color: #888;
         }
-
         @media (max-width: 991px) {
             nav {
                 width: 95%;
@@ -388,13 +409,11 @@
             <a href="index.html#contact" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
-
     <header id="about">
         <div class="hero-label"></div>
         <h1 class="company-name">ABOUT US</h1>
         <div class="slogan">Modern Printers & Supply</div>
     </header>
-
     <main>
         <section id="intro">
             <div class="orange-header">Who We Are</div>
@@ -405,7 +424,6 @@
                 <p>From our base in <strong>Mokopane</strong>, we proudly serve clients across South Africa — offering <strong>precision, speed, reliability</strong>, and personal service that large corporate printers often cannot match.</p>
             </div>
         </section>
-
         <section id="values">
             <div class="orange-header">Our Core Values</div>
             <div class="values-grid">
@@ -432,6 +450,35 @@
             </div>
         </section>
 
+        <!-- NEW SECTION: Mission, Vision & Values Statement -->
+        <section id="mission-vision">
+            <div class="orange-header">Our Mission, Vision and Values Statement</div>
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Mission Statement</h3>
+                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and customer service.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-binoculars"></i>
+                    <h3>Vision Statement</h3>
+                    <p>To be the leading digital printing company in industry, recognized for our exceptional quality, innovative solutions, and commitment to customer satisfaction and sustainability.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Values Statement</h3>
+                    <ul>
+                        <li><strong>Customer Focus:</strong> We prioritize our customers' needs and strive to exceed their expectations.</li>
+                        <li><strong>Quality Excellence:</strong> We are committed to delivering high-quality products and services that meet the highest standards.</li>
+                        <li><strong>Innovation:</strong> We encourage creativity, innovation, and continuous improvement in all aspects of our business.</li>
+                        <li><strong>Sustainability:</strong> We prioritize environmental sustainability and strive to minimize our ecological footprint.</li>
+                        <li><strong>Integrity:</strong> We operate with integrity, transparency, and honesty in all our interactions with customers, employees, and partners.</li>
+                        <li><strong>Teamwork:</strong> We foster a collaborative and inclusive work environment that values diversity, creativity, and open communication.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="leadership">
             <div class="orange-header">Our Leadership</div>
             <div class="organogram-card">
@@ -448,7 +495,6 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -464,7 +510,6 @@
             <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
-
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -474,13 +519,11 @@
             });
         }, { threshold: 0.2 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
-
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
-
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
         if (hamburger && navbar) {
