@@ -28,7 +28,6 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; }
         a { text-decoration: none; transition: var(--transition); }
-
         /* Floating Navigation Bar */
         nav {
             position: fixed;
@@ -116,7 +115,7 @@
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
-      
+     
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -131,7 +130,6 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-
         /* Hero Header - Modernized */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4)),
@@ -171,7 +169,6 @@
             border-left: 4px solid var(--accent);
             padding-left: 20px;
         }
-
         /* Content Sections */
         section {
             padding: 120px 8%;
@@ -265,7 +262,6 @@
             font-size: 13px;
             color: #777;
         }
-
         /* ────────────────────────────────────────────────
            MOBILE HAMBURGER MENU (enhanced & compact)
         ──────────────────────────────────────────────── */
@@ -280,23 +276,19 @@
                 height: 68px;
                 overflow: hidden;
             }
-
             nav.expanded {
                 height: auto;
                 border-radius: 16px;
                 padding-bottom: 20px;
             }
-
             .nav-left {
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
             }
-
             .hamburger {
                 display: block;
             }
-
             .menu-wrapper {
                 width: 100%;
                 flex-direction: row;
@@ -309,12 +301,10 @@
                 visibility: hidden;
                 transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
-
             nav.expanded .menu-wrapper {
                 opacity: 1;
                 visibility: visible;
             }
-
             nav ul {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -322,20 +312,17 @@
                 gap: 14px 20px;
                 width: auto;
             }
-
             nav ul li a {
                 font-size: 14px;
                 padding: 8px 14px;
                 white-space: nowrap;
             }
-
             .nav-cta {
                 font-size: 13px;
                 padding: 9px 20px;
                 min-width: auto;
                 margin: 0;
             }
-
             /* Smooth staggered animation for menu items */
             nav ul li,
             .nav-cta {
@@ -343,13 +330,11 @@
                 transform: translateY(12px);
                 transition: opacity 0.4s ease, transform 0.4s ease;
             }
-
             nav.expanded ul li,
             nav.expanded .nav-cta {
                 opacity: 1;
                 transform: translateY(0);
             }
-
             nav ul li:nth-child(1) { transition-delay: 0.08s; }
             nav ul li:nth-child(2) { transition-delay: 0.14s; }
             nav ul li:nth-child(3) { transition-delay: 0.20s; }
@@ -365,7 +350,6 @@
             <div class="nav-logo-text">TAKEDI</div>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         </div>
-
         <div class="menu-wrapper">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -376,13 +360,11 @@
             <a href="#contact" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
-
     <header id="home">
         <div class="hero-label">Excellence in Branding</div>
         <h1 class="company-name">TAKEDI <br></h1>
         <div class="slogan">Modern printers and supply</div>
     </header>
-
     <main>
         <section id="about" style="padding-top: 140px;">
             <div class="orange-header">About Company</div>
@@ -390,7 +372,7 @@
                 <p style="font-size: 18px; color: var(--primary);"><strong>Defining Professionalism Since 2022</strong></p>
                 <p>Established by <b>Monkwe Koketso</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
             </div>
-          
+         
             <div class="organogram-card">
                 <h2 style="margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px;">Leadership Organogram</h2>
                 <div class="org-box">DIRECTOR & DESIGNER<br><span style="font-weight: 300; opacity: 0.9;">Monkwe Koketso</span></div>
@@ -401,7 +383,6 @@
                 </div>
             </div>
         </section>
-
         <section id="services">
             <div class="orange-header">Expertise</div>
             <div class="grid">
@@ -422,7 +403,6 @@
                 </div>
             </div>
         </section>
-
         <section id="contact">
             <div class="orange-header">Get In Touch</div>
             <div class="grid">
@@ -438,13 +418,12 @@
                     <p><strong>Saturday:</strong> 09:00 - 13:00</p>
                     <p><strong>Sunday:</strong> Closed</p>
                     <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-                         <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700;">REQUEST A QUOTE &rarr;</a>
+                         <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700;">REQUEST A QUOTE →</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -457,10 +436,9 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Monkwe Koketso Groups (Pty) Ltd. <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
+            <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
-
     <script>
         // Intersection Observer for Scroll Animations
         const observer = new IntersectionObserver((entries) => {
@@ -471,18 +449,15 @@
             });
         }, { threshold: 0.15 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
-
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
-
         // Hamburger Menu - expand whole navbar
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
-
         if (hamburger && navbar) {
             hamburger.addEventListener('click', () => {
                 navbar.classList.toggle('expanded');
