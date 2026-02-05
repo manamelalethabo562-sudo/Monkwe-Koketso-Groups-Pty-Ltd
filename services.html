@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monkwe Koketso Groups (Pty) Ltd | Services</title>
+    <title>Monkwe Koketso Groups (Pty) Ltd | About Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -27,8 +27,8 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; margin: 20px 0; }
         a { text-decoration: none; transition: var(--transition); }
-      
-        /* Floating Navigation Bar */
+     
+        /* Floating Navigation Bar – EXACTLY same as the home page you provided */
         nav {
             position: fixed;
             top: 20px;
@@ -119,7 +119,7 @@
             color: var(--accent);
         }
         nav ul li a.active::after { width: 100%; }
-     
+    
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -135,7 +135,7 @@
             transform: scale(1.05);
         }
 
-        /* Hero & Other Styles (Unchanged) */
+        /* Hero Header */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4));
             color: white;
@@ -146,61 +146,288 @@
             align-items: flex-start;
             text-align: left;
         }
-        .hero-label { color: var(--accent); text-transform: uppercase; letter-spacing: 6px; font-weight: 700; margin-bottom: 15px; font-size: 16px; }
-        .page-title { color: var(--white); font-size: clamp(40px, 7vw, 80px); font-weight: 800; margin: 0; line-height: 1.1; text-transform: uppercase; text-shadow: 2px 4px 15px rgba(0,0,0,0.5); }
-        .slogan { font-size: clamp(20px, 3vw, 32px); color: rgba(255,255,255,0.95); margin-top: 25px; font-weight: 300; max-width: 800px; border-left: 5px solid var(--accent); padding-left: 25px; }
+        .hero-label {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .page-title {
+            color: var(--white);
+            font-size: clamp(40px, 7vw, 80px);
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.1;
+            text-transform: uppercase;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
+        }
+        .slogan {
+            font-size: clamp(20px, 3vw, 32px);
+            color: rgba(255,255,255,0.95);
+            margin-top: 25px;
+            font-weight: 300;
+            max-width: 800px;
+            border-left: 5px solid var(--accent);
+            padding-left: 25px;
+        }
 
-        section { padding: 120px 8%; max-width: 1400px; margin: 0 auto; opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        /* Content Sections */
+        section {
+            padding: 120px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
         section.visible { opacity: 1; transform: translateY(0); }
-        .orange-header { background: var(--accent); color: white; padding: 18px 50px; display: inline-block; font-size: 32px; font-weight: 700; margin-bottom: 70px; box-shadow: 12px 12px 0px var(--primary); }
+        .orange-header {
+            background: var(--accent);
+            color: white;
+            padding: 18px 50px;
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 70px;
+            box-shadow: 12px 12px 0px var(--primary);
+        }
+        .about-content {
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+        }
+        .about-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .about-content p {
+            font-size: 17px;
+            margin: 20px 0;
+        }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 45px; }
-        .service-card { background: white; padding: 55px 45px; border-radius: 28px; box-shadow: 0 12px 45px rgba(0,0,0,0.05); transition: var(--transition); }
-        .service-card:hover { transform: translateY(-18px); box-shadow: 0 30px 70px rgba(62,64,149,0.14); }
-        .service-card i { font-size: 4rem; color: var(--accent); margin-bottom: 30px; }
-        .service-card h3 { margin: 20px 0 25px; font-size: 28px; }
+        /* Organogram */
+        .organogram-card {
+            background: white;
+            border-radius: 30px;
+            padding: 70px 30px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+            margin: 80px 0;
+        }
+        .org-top {
+            background: var(--accent);
+            color: white;
+            padding: 25px 60px;
+            border-radius: 16px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(245,134,52,0.25);
+        }
+        .org-branch {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .org-box {
+            background: var(--primary);
+            color: white;
+            padding: 25px 50px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 17px;
+            min-width: 220px;
+            box-shadow: 0 8px 25px rgba(62,64,149,0.2);
+        }
+        .org-arrow {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.6;
+            margin: 20px 0;
+        }
 
-        .gallery-section { margin-top: 100px; text-align: center; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .gallery-item { border-radius: 20px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.08); transition: var(--transition); }
-        .gallery-item:hover { transform: scale(1.05); }
-        .gallery-item img { width: 100%; height: 240px; object-fit: cover; }
+        /* Mission Vision Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .value-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 24px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .value-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(62,64,149,0.12);
+        }
+        .value-card h3 {
+            color: var(--accent);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-        #contact .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; }
-        #contact .card { padding: 50px; }
-        #contact .card p { margin: 18px 0; display: flex; align-items: center; gap: 18px; font-size: 17px; }
+        /* Goals & Imperatives */
+        .goals-content, .imperatives-content {
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.05);
+        }
+        .goals-content h4, .imperatives-content h4 {
+            color: var(--accent);
+            font-size: 26px;
+            margin: 40px 0 20px;
+        }
+        .goals-content ul, .imperatives-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .goals-content ul li, .imperatives-content ul li {
+            margin: 15px 0;
+            padding-left: 35px;
+            position: relative;
+        }
+        .goals-content ul li::before, .imperatives-content ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+
+        /* Contact */
+        #contact .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+        }
+        #contact .card {
+            padding: 50px;
+        }
+        #contact .card p {
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 17px;
+        }
         #contact i { font-size: 22px; width: 35px; }
 
-        footer { background: #0B0C1F; color: white; padding: 120px 10% 60px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 70px; }
-        .footer-column h4 { font-size: 22px; margin-bottom: 30px; color: var(--accent); }
+        footer {
+            background: #0B0C1F;
+            color: white;
+            padding: 120px 10% 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 70px;
+        }
+        .footer-column h4 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
         .footer-column p { color: #B0B0C0; font-size: 16px; }
-        .copyright { text-align: center; margin-top: 100px; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 14px; color: #888; }
+        .copyright {
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 14px;
+            color: #888;
+        }
 
-        /* ==================== MOBILE HAMBURGER MENU ==================== */
+        /* ────────────────────────────────────────────────
+           MOBILE NAVBAR – EXACTLY MATCHING THE HOME PAGE CODE YOU PROVIDED
+        ──────────────────────────────────────────────── */
         @media (max-width: 991px) {
-            nav { width: 95%; padding: 12px 25px; }
-            .hamburger { display: block; }
-            .menu-wrapper { display: none; }
-            .menu-wrapper.active {
-                display: flex;
+            nav {
+                width: 95%;
+                padding: 12px 20px;
+                border-radius: 16px;
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                padding: 25px 0;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-                gap: 18px;
-                align-items: center;
-                border-radius: 0 0 20px 20px;
+                align-items: flex-start;
+                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
+                height: 68px;
+                overflow: hidden;
             }
-            nav ul { flex-direction: column; gap: 18px; }
-            .nav-cta { margin: 10px 0; }
-            header { padding: 240px 8% 140px; }
-            section { padding: 90px 6%; }
-            .orange-header { font-size: 28px; padding: 15px 40px; }
+            nav.expanded {
+                height: auto;
+                border-radius: 16px;
+                padding-bottom: 20px;
+            }
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .hamburger {
+                display: block;
+            }
+            .menu-wrapper {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 14px 20px;
+                padding: 16px 0 4px;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
+            }
+            nav.expanded .menu-wrapper {
+                opacity: 1;
+                visibility: visible;
+            }
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px 20px;
+                width: auto;
+            }
+            nav ul li a {
+                font-size: 14px;
+                padding: 8px 14px;
+                white-space: nowrap;
+            }
+            .nav-cta {
+                font-size: 13px;
+                padding: 9px 20px;
+                min-width: auto;
+                margin: 0;
+            }
+            /* Smooth staggered animation for menu items */
+            nav ul li,
+            .nav-cta {
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            nav.expanded ul li,
+            nav.expanded .nav-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            nav ul li:nth-child(1) { transition-delay: 0.08s; }
+            nav ul li:nth-child(2) { transition-delay: 0.14s; }
+            nav ul li:nth-child(3) { transition-delay: 0.20s; }
+            nav ul li:nth-child(4) { transition-delay: 0.26s; }
+            .nav-cta { transition-delay: 0.32s; }
         }
     </style>
 </head>
@@ -209,110 +436,131 @@
         <div class="nav-left">
             <img src="https://i.postimg.cc/C1BTWPRz/logo.png" alt="MK Groups Logo" class="nav-avatar">
             <div class="nav-logo-text">MK GROUPS (PTY) LTD</div>
-        </div>
-        <div class="nav-right">
-            <div class="menu-wrapper">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="services.html" class="active">Services</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-                <a href="index.html#contact" class="nav-cta">GET A QUOTE</a>
-            </div>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+
+        <div class="menu-wrapper">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html#contact" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
 
     <header>
-        <div class="hero-label">Our Specialized Services</div>
-        <h1 class="page-title">OUR SERVICES</h1>
-        <div class="slogan">High-impact digital printing, vehicle branding, safety signage, custom PPE & apparel, embroidery, flags, and promotional solutions – tailored for mining, industrial, and commercial excellence in South Africa.</div>
+        <div class="hero-label">Who We Are</div>
+        <h1 class="page-title">ABOUT US</h1>
+        <div class="slogan">A passionate team delivering high-quality digital printing solutions with innovation, speed, affordability, and unwavering commitment to customer satisfaction since 2022.</div>
     </header>
 
     <main>
-        <section id="services">
-            <div class="orange-header">Comprehensive Services</div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-layer-group"></i>
-                    <h3>Large Format Printing</h3>
-                    <p>Durable, high-visibility solutions engineered for tough environments.</p>
-                    <ul>
-                        <li>Signage boards & shop branding</li>
-                        <li>Mine signage (reflective & non-reflective)</li>
-                        <li>Lightboxes, correx boards & canvas</li>
-                        <li>Wallpaper, window film & frosting</li>
-                        <li>Pull-up banners, gazebos & wall banners</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-car-side"></i>
-                    <h3>Vehicle Branding</h3>
-                    <p>Professional wraps and graphics that turn vehicles into powerful marketing tools.</p>
-                    <ul>
-                        <li>Full & partial vehicle wraps</li>
-                        <li>Fleet stickers & magnetic stickers</li>
-                        <li>Custom safety decals & branding</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-hard-hat"></i>
-                    <h3>Safety Signage & PPE</h3>
-                    <p>Compliant, high-visibility signage and protective equipment for industrial safety.</p>
-                    <ul>
-                        <li>Reflective mine & hazard signage</li>
-                        <li>SABS-compliant PPE supply</li>
-                        <li>Custom safety labels & instructions</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-tshirt"></i>
-                    <h3>Apparel & Embroidery</h3>
-                    <p>Custom branded clothing and professional embroidery for corporate identity.</p>
-                    <ul>
-                        <li>T-shirt printing & embroidery</li>
-                        <li>Name tags & corporate workwear</li>
-                        <li>Custom branding on apparel</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-flag"></i>
-                    <h3>Flags & Promotional Items</h3>
-                    <p>Event and retail-ready flags, stickers, and promotional materials.</p>
-                    <ul>
-                        <li>Teardrop & telescopic flags</li>
-                        <li>Label stickers, flyers & business cards</li>
-                        <li>Rubber stamps & bottle labels</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-store-alt"></i>
-                    <h3>Shop & Wall Branding</h3>
-                    <p>Complete interior/exterior branding to enhance business visibility.</p>
-                    <ul>
-                        <li>Shop branding & wall graphics</li>
-                        <li>Wallpaper & large wall banners</li>
-                        <li>Window manifestations & frosting</li>
-                    </ul>
-                </div>
+        <section id="about">
+            <div class="orange-header">Our Story</div>
+            <div class="about-content">
+                <h3>Welcome to Monkwe Koketso Groups (Pty) Ltd</h3>
+                <p>Monkwe Koketso Groups (Pty) Ltd is a leading digital printing company specializing in high-quality printing solutions for businesses, organizations, and individuals. With a passion for delivering exceptional customer service and affordability, we strive to exceed our customers' expectations with every project.</p>
+              
+                <h3>Our History</h3>
+                <p>Monkwe Koketso Groups was founded in 2022 by Monkwe Koketso, with a vision to provide innovative printing solutions that combine quality, speed, and affordability. Over the years, we have grown and evolved, investing in the latest technology and expanding our services to meet the changing needs of our customers.</p>
             </div>
-
-            <div class="gallery-section">
-                <h2 style="font-size: 36px; margin-bottom: 25px;">Examples of Our Work</h2>
-                <p style="max-width: 900px; margin: 0 auto 50px; font-size: 18px; color: #555;">Showcasing our precision in large format printing, vehicle branding, safety signage, apparel, and promotional materials.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Product collage"></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/3E4095/FFFFFF?text=Vehicle+Wrap+Example" alt="Vehicle branding"></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/F58634/FFFFFF?text=Mine+Safety+Signage" alt="Safety Signage"></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/00AFEF/FFFFFF?text=Branded+T-Shirts" alt="T-Shirt Printing"></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/400x240/3E4095/FFFFFF?text=Teardrop+Flag" alt="Teardrop Flag"></div>
+            <div class="organogram-card">
+                <h2 style="margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px;">Leadership Organogram</h2>
+                <div class="org-top">DIRECTOR & DESIGNER<br><span style="font-weight: 300; opacity: 0.9; font-size: 15px;">Monkwe Koketso</span></div>
+                <div class="org-arrow"><i class="fas fa-chevron-down"></i></div>
+                <div class="org-branch">
+                    <div class="org-box">RECEPTIONIST<br><span style="font-weight: 300; opacity: 0.9; font-size: 15px;">Moshi Mapula</span></div>
+                    <div class="org-box">APPLICATOR<br><span style="font-weight: 300; opacity: 0.9; font-size: 15px;">Seshoka Johannes</span></div>
                 </div>
             </div>
         </section>
 
+        <section id="mission">
+            <div class="orange-header">Mission, Vision & Values</div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Mission Statement</h3>
+                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and customer service.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Vision Statement</h3>
+                    <p>To be the leading digital printing company in the industry, recognized for our exceptional quality, innovative solutions, and commitment to customer satisfaction and sustainability.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Values Statement</h3>
+                    <ul>
+                        <li><strong>Customer Focus:</strong> We prioritize our customers' needs and strive to exceed their expectations.</li>
+                        <li><strong>Quality Excellence:</strong> We are committed to delivering high-quality products and services that meet the highest standards.</li>
+                        <li><strong>Innovation:</strong> We encourage creativity, innovation, and continuous improvement in all aspects of our business.</li>
+                        <li><strong>Sustainability:</strong> We prioritize environmental sustainability and strive to minimize our ecological footprint.</li>
+                        <li><strong>Integrity:</strong> We operate with integrity, transparency, and honesty in all our interactions with customers, employees, and partners.</li>
+                        <li><strong>Teamwork:</strong> We foster a collaborative and inclusive work environment that values diversity, creativity, and open communication.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="goals">
+            <div class="orange-header">Goals and Objectives</div>
+            <div class="goals-content">
+                <h4>Short-Term Goals (Next 12 Months)</h4>
+                <ul>
+                    <li>Increase annual revenue by 15% through new customer acquisition and existing customer retention.</li>
+                    <li>Reduce production time by 20% through process improvements and equipment upgrades.</li>
+                    <li>Achieve a customer satisfaction rating of 95% or higher through enhanced service.</li>
+                    <li>Introduce new printing services, such as large-format printing and variable data printing, to increase average order value.</li>
+                </ul>
+                <h4>Long-Term Goals (Next 3-5 Years)</h4>
+                <ul>
+                    <li>Become the leading printing company in the region, recognized for exceptional quality and customer service.</li>
+                    <li>Achieve carbon neutrality through sustainable practices, such as using eco-friendly inks and reducing energy consumption.</li>
+                    <li>Stay ahead of the competition by investing in the latest printing technologies and techniques.</li>
+                    <li>Establish strategic partnerships with key suppliers and industry partners to improve supply chain efficiency and reduce costs.</li>
+                </ul>
+                <h4>Key Objectives</h4>
+                <ul>
+                    <li><strong>Quality:</strong> Reduce defect rate to 1% or lower; Achieve ISO 9001 certification.</li>
+                    <li><strong>Customer:</strong> Increase customer retention rate to 90% or higher; Achieve average customer satisfaction rating of 95% or higher.</li>
+                    <li><strong>Financial:</strong> Increase revenue by 10% annually; Maintain a gross margin of 25% or higher.</li>
+                    <li><strong>Operational:</strong> Increase production margin by 15% annually; Improve equipment uptime to 95% or higher.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="principles">
+            <div class="orange-header">Company Principles & Imperatives</div>
+            <div class="imperatives-content">
+                <p><strong>Core Focus:</strong> Service Level Agreement | Profitability | Customer Relations Management</p>
+                <h4>Strategic Imperatives</h4>
+                <ul>
+                    <li>Accelerate Growth: Achieve revenue growth of 15% annually through expansion of services, entry into new markets, and acquisition of new customers.</li>
+                    <li>Drive Innovation: Invest in research and development to stay ahead of the competition and identify new growth opportunities.</li>
+                    <li>Enhance Customer Experience: Deliver exceptional customer service through responsive communication, timely delivery, and high-quality products.</li>
+                </ul>
+                <h4>Operational Imperatives</h4>
+                <ul>
+                    <li>Optimize Efficiency: Streamline processes and invest in technology to reduce waste, improve productivity, and increase efficiency.</li>
+                    <li>Ensure Quality: Maintain high standards through regular quality checks, employee training, and continuous improvement.</li>
+                    <li>Foster a Positive Work Culture: Promote a culture of respect, inclusivity, and open communication to attract and retain top talent.</li>
+                </ul>
+                <h4>Financial Imperatives</h4>
+                <ul>
+                    <li>Maintain Profitability: Achieve and maintain a gross margin of 25% or higher through efficient operations and effective pricing strategies.</li>
+                    <li>Manage Cash Flow: Maintain a cash reserve to ensure liquidity and invest in growth opportunities.</li>
+                </ul>
+                <h4>Sustainability Imperatives</h4>
+                <ul>
+                    <li>Reduce Environmental Impact: Implement sustainable practices to minimize waste, reduce energy consumption, and promote environmental responsibility.</li>
+                    <li>Promote Social Responsibility: Foster a culture of social responsibility through community involvement, charitable giving, and support for local initiatives.</li>
+                    <li>Ensure Compliance: Maintain compliance with all relevant laws, regulations, and industry standards.</li>
+                </ul>
+            </div>
+        </section>
+
         <section id="contact">
-            <div class="orange-header">Let's Discuss Your Project</div>
+            <div class="orange-header">Get In Touch</div>
             <div class="grid">
                 <div class="card" style="background: var(--primary); color: white;">
                     <h3 style="color: white; margin-bottom: 35px;">Contact Information</h3>
@@ -326,7 +574,7 @@
                     <p><strong>Saturday:</strong> 09:00 - 13:00</p>
                     <p><strong>Sunday:</strong> Closed</p>
                     <div style="margin-top: 45px;">
-                        <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px;">REQUEST A QUOTE →</a>
+                        <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px; display: inline-block;">REQUEST A QUOTE →</a>
                     </div>
                 </div>
             </div>
@@ -337,7 +585,7 @@
         <div class="footer-grid">
             <div class="footer-column">
                 <h4>MK GROUPS (PTY) LTD</h4>
-                <p>Fast, reliable, and high-quality digital printing and branding services throughout South Africa.</p>
+                <p>Fast, reliable, and high-quality digital printing and branding services throughout South Africa. Precision craftsmanship for every project.</p>
             </div>
             <div class="footer-column">
                 <h4>Our Commitment</h4>
@@ -350,27 +598,31 @@
     </footer>
 
     <script>
-        // Scroll animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => entry.target.classList.add('visible'));
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
         });
 
-        // Hamburger Menu
+        // Hamburger Menu Toggle – identical to home page
         const hamburger = document.getElementById('hamburger');
-        const menuWrapper = document.querySelector('.menu-wrapper');
+        const navbar = document.getElementById('navbar');
 
-        hamburger.addEventListener('click', () => {
-            menuWrapper.classList.toggle('active');
-            const icon = hamburger.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
+        if (hamburger && navbar) {
+            hamburger.addEventListener('click', () => {
+                navbar.classList.toggle('expanded');
+                const icon = hamburger.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
     </script>
 </body>
 </html>
