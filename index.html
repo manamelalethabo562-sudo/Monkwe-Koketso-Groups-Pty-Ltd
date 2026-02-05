@@ -49,7 +49,6 @@
             justify-content: space-between;
             border: 1px solid rgba(255, 255, 255, 0.3);
             transition: var(--transition);
-            overflow: hidden;
         }
         nav.scrolled {
             top: 0;
@@ -58,12 +57,10 @@
             padding: 10px 5%;
             background: rgba(255, 255, 255, 0.98);
         }
-
         .nav-left {
             display: flex;
             align-items: center;
             gap: 12px;
-            flex-shrink: 0;
         }
         .nav-avatar {
             width: 42px;
@@ -78,26 +75,22 @@
             font-size: 15px;
             letter-spacing: 0.5px;
         }
-
         .nav-right {
             display: flex;
             align-items: center;
             gap: 30px;
         }
-
         .menu-wrapper {
             display: flex;
             align-items: center;
             gap: 30px;
         }
-
         .hamburger {
             display: none;
             cursor: pointer;
             font-size: 28px;
             color: #222;
         }
-
         nav ul {
             list-style: none;
             display: flex;
@@ -105,7 +98,6 @@
             margin: 0;
             padding: 0;
         }
-
         nav ul li a {
             color: #222;
             font-weight: 600;
@@ -124,7 +116,7 @@
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
-
+      
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -274,6 +266,9 @@
             color: #777;
         }
 
+        /* ────────────────────────────────────────────────
+           MOBILE HAMBURGER MENU (enhanced & compact)
+        ──────────────────────────────────────────────── */
         @media (max-width: 991px) {
             nav {
                 width: 95%;
@@ -281,18 +276,15 @@
                 border-radius: 16px;
                 flex-direction: column;
                 align-items: flex-start;
-                transition: height 0.4s ease, border-radius 0.4s ease, padding 0.4s ease;
-                height: 70px;
+                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
+                height: 68px;
                 overflow: hidden;
             }
 
             nav.expanded {
                 height: auto;
                 border-radius: 16px;
-                padding: 12px 20px 20px;
-                background: rgba(255, 255, 255, 0.85);
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
+                padding-bottom: 20px;
             }
 
             .nav-left {
@@ -307,48 +299,70 @@
 
             .menu-wrapper {
                 width: 100%;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 16px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 14px 20px;
+                padding: 16px 0 4px;
                 opacity: 0;
                 visibility: hidden;
-                height: 0;
-                transition: opacity 0.35s ease, visibility 0.35s ease, height 0.4s ease;
+                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
 
             nav.expanded .menu-wrapper {
                 opacity: 1;
                 visibility: visible;
-                height: auto;
             }
 
             nav ul {
-                flex-direction: column;
-                width: 100%;
-                gap: 16px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px 20px;
+                width: auto;
             }
 
             nav ul li a {
-                padding: 10px 0;
-                font-size: 16px;
+                font-size: 14px;
+                padding: 8px 14px;
+                white-space: nowrap;
             }
 
             .nav-cta {
-                width: 100%;
-                text-align: center;
-                padding: 14px 24px;
-                font-size: 15px;
+                font-size: 13px;
+                padding: 9px 20px;
+                min-width: auto;
+                margin: 0;
             }
+
+            /* Smooth staggered animation for menu items */
+            nav ul li,
+            .nav-cta {
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+
+            nav.expanded ul li,
+            nav.expanded .nav-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            nav ul li:nth-child(1) { transition-delay: 0.08s; }
+            nav ul li:nth-child(2) { transition-delay: 0.14s; }
+            nav ul li:nth-child(3) { transition-delay: 0.20s; }
+            nav ul li:nth-child(4) { transition-delay: 0.26s; }
+            .nav-cta { transition-delay: 0.32s; }
         }
     </style>
 </head>
 <body>
     <nav id="navbar">
         <div class="nav-left">
-            <div class="nav-logo">
-                <img src="https://i.postimg.cc/C1BTWPRz/logo.png" alt="Avatar" class="nav-avatar">
-                <div class="nav-logo-text">MK GROUPS (PTY) LTD</div>
-            </div>
+            <img src="https://i.postimg.cc/C1BTWPRz/logo.png" alt="Avatar" class="nav-avatar">
+            <div class="nav-logo-text">MK GROUPS (PTY) LTD</div>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         </div>
 
@@ -368,6 +382,7 @@
         <h1 class="company-name">MONKWE KOKETSO <br>GROUPS (PTY) LTD</h1>
         <div class="slogan">Premium Creative Solutions for Industry Leaders</div>
     </header>
+
     <main>
         <section id="about" style="padding-top: 140px;">
             <div class="orange-header">About Company</div>
@@ -386,6 +401,7 @@
                 </div>
             </div>
         </section>
+
         <section id="services">
             <div class="orange-header">Expertise</div>
             <div class="grid">
@@ -406,6 +422,7 @@
                 </div>
             </div>
         </section>
+
         <section id="contact">
             <div class="orange-header">Get In Touch</div>
             <div class="grid">
@@ -427,6 +444,7 @@
             </div>
         </section>
     </main>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
