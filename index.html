@@ -28,7 +28,7 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; }
         a { text-decoration: none; transition: var(--transition); }
-        /* Floating Navigation Bar - Revamped with shadow and hover effects */
+
         nav {
             position: fixed;
             top: 20px;
@@ -133,7 +133,7 @@
             transform: scale(1.08) translateY(-3px);
             box-shadow: 0 10px 30px rgba(62,64,149,0.3);
         }
-        /* Hero Header - Revamped with better overlay and text shadow */
+
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
                         url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
@@ -186,7 +186,7 @@
             padding: 15px 25px;
             border-radius: 12px;
         }
-        /* Content Sections - Revamped spacing and visibility */
+
         section {
             padding: 140px 8%;
             max-width: 1400px;
@@ -215,14 +215,18 @@
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 50px;
         }
+
+        /* ─── FIXED CARDS ──────────────────────────────────────── */
         .card {
             background: white;
-            padding: 0;
             border-radius: 28px;
             box-shadow: 0 12px 50px rgba(0,0,0,0.06);
             border: 1px solid rgba(0,0,0,0.04);
             transition: var(--transition);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;          /* Ensures enough space for text */
         }
         .card:hover {
             transform: translateY(-20px);
@@ -233,19 +237,41 @@
             height: 220px;
             object-fit: cover;
             border-bottom: 4px solid var(--accent);
+            flex-shrink: 0;
         }
         .card-content {
-            padding: 40px 35px;
+            padding: 30px 28px;         /* Reduced padding slightly for better fit */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         .card h3 {
-            margin: 0 0 15px;
+            margin: 0 0 12px;
             font-size: 24px;
+        }
+        .card p {
+            margin: 0;
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
         }
         .card i {
             font-size: 3.5rem;
             color: var(--accent);
             margin-bottom: 20px;
         }
+
+        #portfolio .grid .card img {
+            height: 280px;
+        }
+        #portfolio .card {
+            min-height: 480px;          /* Adjusted for taller portfolio images */
+        }
+        #portfolio .card-content {
+            padding: 25px 28px;
+            text-align: center;
+        }
+
         .organogram-card {
             background: white;
             border-radius: 36px;
@@ -266,22 +292,27 @@
             box-shadow: 0 10px 25px rgba(245,134,52,0.25);
             font-size: 16px;
         }
+
+        /* ─── FIXED CONTACT & HOURS CARDS ──────────────────────── */
+        #contact .card {
+            padding: 35px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        #contact .card h3 {
+            margin-bottom: 30px;
+        }
         #contact .card p {
-            margin: 18px 0;
+            margin: 16px 0;
             display: flex;
             align-items: center;
             gap: 18px;
             font-size: 16px;
         }
         #contact i { font-size: 22px; width: 30px; }
-        /* New Portfolio Section */
-        #portfolio .grid .card img {
-            height: 280px;
-        }
-        #portfolio .card-content {
-            padding: 30px;
-            text-align: center;
-        }
+
         footer {
             background: #0B0C1F;
             color: white;
@@ -307,7 +338,7 @@
             font-size: 14px;
             color: #888;
         }
-        /* Mobile Responsive */
+
         @media (max-width: 991px) {
             nav {
                 width: 95%;
@@ -344,6 +375,9 @@
                 align-items: center;
             }
             .nav-cta { width: fit-content; margin: 0 auto; }
+
+            .card { min-height: auto; }
+            .card-content { padding: 25px 20px; }
         }
     </style>
 </head>
@@ -382,7 +416,7 @@
                     <p>Established by <b>TAKEDI</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
                 </div>
             </div>
-         
+        
             <div class="organogram-card">
                 <h2 style="margin-bottom: 60px; text-transform: uppercase; letter-spacing: 3px;">Leadership Organogram</h2>
                 <div class="org-box">DIRECTOR & DESIGNER<br><span style="font-weight: 300; opacity: 0.9;">TAKEDI</span></div>
@@ -472,18 +506,18 @@
         <section id="contact">
             <div class="orange-header">Get In Touch</div>
             <div class="grid">
-                <div class="card" style="background: var(--primary); color: white;">
-                    <h3 style="color: white; margin-bottom: 35px;">Contact Details</h3>
+                <div class="card" style="background: var(--primary); color: white; min-height: 340px;">
+                    <h3 style="color: white; margin-bottom: 30px;">Contact Details</h3>
                     <p style="color: #eee;"><i class="fas fa-phone" style="color: var(--accent);"></i> 060 711 8356 / 015 004 0179</p>
                     <p style="color: #eee;"><i class="fas fa-envelope" style="color: var(--accent);"></i> info@takedi.co.za</p>
                     <p style="color: #eee;"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 15 Nelson Mandela Street, Mokopane</p>
                 </div>
-                <div class="card">
+                <div class="card" style="min-height: 340px;">
                     <h3>Business Hours</h3>
                     <p><strong>Monday - Friday:</strong> 08:00 - 17:00</p>
                     <p><strong>Saturday:</strong> 09:00 - 13:00</p>
                     <p><strong>Sunday:</strong> Closed</p>
-                    <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid #eee;">
+                    <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid #eee; margin-top: auto;">
                         <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px;">REQUEST A QUOTE →</a>
                     </div>
                 </div>
@@ -508,7 +542,6 @@
     </footer>
 
     <script>
-        // Intersection Observer for Scroll Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -518,14 +551,12 @@
         }, { threshold: 0.2 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 100) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // Hamburger Menu
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
         if (hamburger && navbar) {
