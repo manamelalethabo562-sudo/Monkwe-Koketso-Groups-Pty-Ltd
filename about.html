@@ -27,6 +27,8 @@
         h1, h2, h3 { color: var(--primary); font-weight: 700; }
         p { color: #555; }
         a { text-decoration: none; transition: var(--transition); }
+
+        /* ─── NAVBAR ────────────────────────────────────────────── (exact match to services page) */
         nav {
             position: fixed;
             top: 20px;
@@ -34,97 +36,109 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 1200px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 14px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 12px 35px;
             z-index: 1000;
-            border-radius: 60px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: var(--transition);
         }
         nav.scrolled {
             top: 0;
             width: 100%;
             border-radius: 0;
-            padding: 12px 6%;
+            padding: 10px 5%;
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
         .nav-avatar {
-            width: 48px;
-            height: 48px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 4px 12px rgba(245,134,52,0.2);
+            border: 2px solid var(--accent);
         }
         .nav-logo-text {
             color: var(--primary);
             font-weight: 800;
-            font-size: 18px;
-            letter-spacing: 1px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .menu-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
         .hamburger {
             display: none;
             cursor: pointer;
-            font-size: 30px;
+            font-size: 28px;
             color: #222;
         }
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 25px;
             margin: 0;
             padding: 0;
         }
         nav ul li a {
             color: #222;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             position: relative;
         }
         nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: -6px;
+            bottom: -5px;
             left: 0;
             width: 0;
-            height: 3px;
+            height: 2px;
             background: var(--accent);
             transition: var(--transition);
         }
         nav ul li a:hover::after { width: 100%; }
-        nav ul li a:hover { color: var(--accent); transform: translateY(-2px); }
+        nav ul li a:hover { color: var(--accent); }
+        nav ul li a.active {
+            color: var(--accent);
+        }
+        nav ul li a.active::after { width: 100%; }
         .nav-cta {
             background: var(--accent);
             color: white !important;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 14px;
-            box-shadow: 0 6px 20px rgba(245,134,52,0.35);
+            font-size: 13px;
+            box-shadow: 0 4px 15px rgba(245,134,52,0.3);
             letter-spacing: 1px;
-            transition: var(--transition);
         }
         .nav-cta:hover {
             background: var(--primary);
-            transform: scale(1.08) translateY(-3px);
-            box-shadow: 0 10px 30px rgba(62,64,149,0.3);
+            transform: scale(1.05);
         }
+
+        /* ─── HERO ──────────────────────────────────────────────── (exact match to services page) */
         header {
-            background: linear-gradient(135deg, #2c2e6e 0%, #1a1c4a 100%);
+            background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4));
             color: white;
-            padding: 320px 10% 220px;
+            padding: 280px 10% 180px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -134,40 +148,32 @@
         .hero-label {
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 5px;
-            font-weight: 800;
-            margin-bottom: 18px;
+            letter-spacing: 6px;
+            font-weight: 700;
+            margin-bottom: 15px;
             font-size: 16px;
-            background: rgba(0,0,0,0.3);
-            padding: 8px 18px;
-            border-radius: 30px;
-            display: inline-block;
         }
         .company-name {
             color: var(--white);
             font-size: clamp(40px, 7vw, 80px);
-            font-weight: 900;
+            font-weight: 800;
             margin: 0;
-            max-width: 1000px;
-            line-height: 1.05;
+            line-height: 1.1;
             text-transform: uppercase;
-            text-shadow: 3px 6px 20px rgba(0,0,0,0.6);
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
         }
         .slogan {
             font-size: clamp(20px, 3vw, 32px);
             color: rgba(255,255,255,0.95);
             margin-top: 25px;
-            font-weight: 400;
-            max-width: 700px;
+            font-weight: 300;
+            max-width: 800px;
             border-left: 5px solid var(--accent);
             padding-left: 25px;
-            background: rgba(0,0,0,0.2);
-            padding: 15px 25px;
-            border-radius: 12px;
         }
-        main {
-            padding-top: 0;
-        }
+
+        main { padding-top: 0; }
+
         section {
             padding: 140px 8%;
             max-width: 1400px;
@@ -288,42 +294,76 @@
             font-size: 14px;
             color: #888;
         }
+
         @media (max-width: 991px) {
             nav {
                 width: 95%;
-                padding: 14px 25px;
-                border-radius: 20px;
+                padding: 12px 20px;
+                border-radius: 16px;
                 flex-direction: column;
                 align-items: flex-start;
-                transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-                height: 75px;
+                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
+                height: 68px;
                 overflow: hidden;
             }
             nav.expanded {
                 height: auto;
-                padding-bottom: 25px;
+                border-radius: 16px;
+                padding-bottom: 20px;
             }
             .nav-left {
                 width: 100%;
                 justify-content: space-between;
+                align-items: center;
             }
             .hamburger { display: block; }
             .menu-wrapper {
                 width: 100%;
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px 0 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 14px 20px;
+                padding: 16px 0 4px;
                 opacity: 0;
                 visibility: hidden;
-                transition: opacity 0.5s ease;
+                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
             nav ul {
-                flex-direction: column;
-                gap: 18px;
-                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px 20px;
+                width: auto;
             }
-            .nav-cta { width: fit-content; margin: 0 auto; }
+            nav ul li a {
+                font-size: 14px;
+                padding: 8px 14px;
+                white-space: nowrap;
+            }
+            .nav-cta {
+                font-size: 13px;
+                padding: 9px 20px;
+                min-width: auto;
+                margin: 0;
+            }
+            nav ul li,
+            .nav-cta {
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            nav.expanded ul li,
+            nav.expanded .nav-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            nav ul li:nth-child(1) { transition-delay: 0.08s; }
+            nav ul li:nth-child(2) { transition-delay: 0.14s; }
+            nav ul li:nth-child(3) { transition-delay: 0.20s; }
+            nav ul li:nth-child(4) { transition-delay: 0.26s; }
+            .nav-cta { transition-delay: 0.32s; }
             section { padding: 100px 6%; }
             .about-intro { padding: 45px 30px; }
             .organogram-card { padding: 60px 25px; }
@@ -340,7 +380,7 @@
         <div class="menu-wrapper">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="active">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="index.html#portfolio">Portfolio</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
@@ -437,7 +477,7 @@
 
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 100) nav.classList.add('scrolled');
+            if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
