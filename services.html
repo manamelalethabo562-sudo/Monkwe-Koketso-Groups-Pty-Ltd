@@ -10,7 +10,6 @@
         :root {
             --primary: #3E4095;
             --accent: #F58634;
-            --light-blue: #00AFEF;
             --white: #FFFFFF;
             --bg-light: #FBFBFF;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -105,7 +104,9 @@
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
-        nav ul li a.active { color: var(--accent); }
+        nav ul li a.active {
+            color: var(--accent);
+        }
         nav ul li a.active::after { width: 100%; }
        
         .nav-cta {
@@ -128,7 +129,7 @@
             background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4)),
                         url('https://i.postimg.cc/9XgwPr25/download-(2).jpg') center/cover no-repeat;
             color: white;
-            padding: 280px 10% 200px;
+            padding: 280px 10% 180px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -138,170 +139,175 @@
         .hero-label {
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             font-weight: 700;
             margin-bottom: 15px;
-            font-size: 14px;
+            font-size: 16px;
         }
-        .company-name {
+        .page-title {
             color: var(--white);
-            font-size: clamp(32px, 6vw, 68px);
+            font-size: clamp(40px, 7vw, 80px);
             font-weight: 800;
             margin: 0;
-            max-width: 900px;
             line-height: 1.1;
             text-transform: uppercase;
             text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
         }
         .slogan {
-            font-size: clamp(18px, 2.5vw, 28px);
-            color: rgba(255,255,255,0.9);
-            margin-top: 20px;
+            font-size: clamp(20px, 3vw, 32px);
+            color: rgba(255,255,255,0.95);
+            margin-top: 25px;
             font-weight: 300;
-            max-width: 700px;
-            border-left: 4px solid var(--accent);
-            padding-left: 20px;
+            max-width: 800px;
+            border-left: 5px solid var(--accent);
+            padding-left: 25px;
         }
 
         /* Content Sections */
         section {
             padding: 120px 8%;
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: all 0.8s ease-out;
         }
         section.visible { opacity: 1; transform: translateY(0); }
         .orange-header {
             background: var(--accent);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 50px;
             display: inline-block;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 60px;
-            position: relative;
-            box-shadow: 10px 10px 0px var(--primary);
+            margin-bottom: 70px;
+            box-shadow: 12px 12px 0px var(--primary);
         }
 
         /* Services Grid */
-        .grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 45px;
         }
-        .card {
+        .service-card {
             background: white;
-            padding: 50px 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.03);
+            padding: 55px 45px;
+            border-radius: 28px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.04);
             transition: var(--transition);
         }
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(62,64,149,0.12);
+        .service-card:hover {
+            transform: translateY(-18px);
+            box-shadow: 0 30px 70px rgba(62,64,149,0.14);
         }
-        .card i {
-            font-size: 3.5rem;
+        .service-card i {
+            font-size: 4rem;
             color: var(--accent);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-        .card h3 {
-            margin: 15px 0 20px;
-            font-size: 26px;
+        .service-card h3 {
+            margin: 20px 0 25px;
+            font-size: 28px;
         }
-        .card ul {
+        .service-card ul {
             list-style: none;
             padding-left: 0;
+            margin: 0;
         }
-        .card ul li {
-            margin: 12px 0;
-            padding-left: 30px;
+        .service-card ul li {
+            margin: 14px 0;
+            padding-left: 35px;
             position: relative;
+            font-size: 16px;
         }
-        .card ul li::before {
+        .service-card ul li::before {
             content: '\f058';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: var(--accent);
             position: absolute;
             left: 0;
-            top: 2px;
+            top: 3px;
+            font-size: 1.3rem;
         }
 
-        /* Gallery Section */
-        .gallery {
-            margin-top: 80px;
+        /* Gallery */
+        .gallery-section {
+            margin-top: 100px;
             text-align: center;
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
         .gallery-item {
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
             transition: var(--transition);
         }
         .gallery-item:hover {
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
         .gallery-item img {
             width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
-            display: block;
         }
 
         /* Contact */
         #contact .grid {
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+        }
+        #contact .card {
+            padding: 50px;
         }
         #contact .card p {
-            margin: 15px 0;
+            margin: 18px 0;
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 16px;
+            gap: 18px;
+            font-size: 17px;
         }
-        #contact i { font-size: 20px; width: 30px; }
+        #contact i { font-size: 22px; width: 35px; }
 
         footer {
             background: #0B0C1F;
             color: white;
-            padding: 100px 10% 50px;
+            padding: 120px 10% 60px;
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 70px;
         }
         .footer-column h4 {
-            font-size: 20px;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            font-size: 22px;
+            margin-bottom: 30px;
             color: var(--accent);
         }
-        .footer-column p { color: #B0B0C0; font-size: 15px; }
+        .footer-column p { color: #B0B0C0; font-size: 16px; }
         .copyright {
             text-align: center;
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 13px;
-            color: #777;
+            margin-top: 100px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 14px;
+            color: #888;
         }
 
         @media (max-width: 991px) {
-            nav { width: 95%; padding: 10px 20px; }
-            .nav-right ul { display: none; }
-            header { padding: 220px 8% 140px; }
-            section { padding: 80px 5%; }
+            nav { width: 95%; padding: 12px 25px; }
+            .nav-right ul { display: none; } /* Mobile menu can be added later if needed */
+            header { padding: 240px 8% 140px; }
+            section { padding: 90px 6%; }
+            .orange-header { font-size: 28px; padding: 15px 40px; }
         }
     </style>
 </head>
@@ -313,136 +319,135 @@
         </div>
         <div class="nav-right">
             <ul>
-                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="#services" class="active">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">GET A QUOTE</a>
+            <a href="index.html#contact" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
 
     <header>
-        <div class="hero-label">Comprehensive Expertise</div>
-        <h1 class="company-name">OUR SERVICES</h1>
-        <div class="slogan">High-quality digital printing, vehicle branding, signage, apparel, and PPE solutions engineered for mining, industrial, and commercial excellence since 2022.</div>
+        <div class="hero-label">Our Core Expertise</div>
+        <h1 class="page-title">SERVICES</h1>
+        <div class="slogan">Specialized digital printing, branding, signage, apparel, and PPE solutions tailored for mining, industrial, and commercial sectors across South Africa.</div>
     </header>
 
     <main>
         <section id="services">
-            <div class="orange-header">Our Full Range of Services</div>
+            <div class="orange-header">Comprehensive Services</div>
             
-            <div class="grid">
-                <!-- Large Format Printing -->
-                <div class="card">
+            <div class="services-grid">
+                <div class="service-card">
                     <i class="fas fa-layer-group"></i>
                     <h3>Large Format Printing</h3>
-                    <p>High-impact visual solutions built for durability in demanding environments.</p>
+                    <p>Durable, high-visibility solutions engineered for tough environments.</p>
                     <ul>
                         <li>Signage boards & shop branding</li>
                         <li>Mine signage (reflective & non-reflective)</li>
-                        <li>Lightboxes & correx boards</li>
-                        <li>Canvas prints & wallpaper</li>
-                        <li>Window film & frosting</li>
-                        <li>Pull-up banners & gazebos</li>
+                        <li>Lightboxes, correx boards & canvas</li>
+                        <li>Wallpaper, window film & frosting</li>
+                        <li>Pull-up banners, gazebos & wall banners</li>
                     </ul>
                 </div>
 
-                <!-- Vehicle Branding -->
-                <div class="card">
-                    <i class="fas fa-car"></i>
+                <div class="service-card">
+                    <i class="fas fa-car-side"></i>
                     <h3>Vehicle Branding</h3>
-                    <p>Transform your fleet into powerful mobile advertising assets with professional finishes.</p>
+                    <p>Professional wraps and graphics that turn vehicles into powerful marketing tools.</p>
                     <ul>
-                        <li>Full vehicle wraps & graphics</li>
-                        <li>Fleet stickers & magnetic car stickers</li>
-                        <li>Custom safety & branding decals</li>
+                        <li>Full & partial vehicle wraps</li>
+                        <li>Fleet stickers & magnetic stickers</li>
+                        <li>Custom safety decals & branding</li>
                     </ul>
                 </div>
 
-                <!-- Apparel, Embroidery & PPE -->
-                <div class="card">
+                <div class="service-card">
+                    <i class="fas fa-hard-hat"></i>
+                    <h3>Safety Signage & PPE</h3>
+                    <p>Compliant, high-visibility signage and protective equipment for industrial safety.</p>
+                    <ul>
+                        <li>Reflective mine & hazard signage</li>
+                        <li>SABS-compliant PPE supply</li>
+                        <li>Custom safety labels & instructions</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
                     <i class="fas fa-tshirt"></i>
-                    <h3>Apparel, Embroidery & PPE</h3>
-                    <p>Custom branded clothing and compliant safety gear tailored to your corporate identity.</p>
+                    <h3>Apparel & Embroidery</h3>
+                    <p>Custom branded clothing and professional embroidery for corporate identity.</p>
                     <ul>
                         <li>T-shirt printing & embroidery</li>
-                        <li>Corporate apparel & name tags</li>
-                        <li>SABS-compliant PPE supply</li>
-                        <li>Custom branding on workwear</li>
+                        <li>Name tags & corporate workwear</li>
+                        <li>Custom branding on apparel</li>
                     </ul>
                 </div>
 
-                <!-- Display & Promotional -->
-                <div class="card">
+                <div class="service-card">
                     <i class="fas fa-flag"></i>
-                    <h3>Flags, Displays & Promotional</h3>
-                    <p>Eye-catching promotional materials for events, retail, and outdoor use.</p>
+                    <h3>Flags & Promotional Items</h3>
+                    <p>Event and retail-ready flags, stickers, and promotional materials.</p>
                     <ul>
-                        <li>Teardrop flags & telescopic flags</li>
-                        <li>Label stickers & flyers / flyers stickers</li>
-                        <li>Business cards & rubber stamps</li>
-                        <li>Bottle labels & correx signage</li>
+                        <li>Teardrop & telescopic flags</li>
+                        <li>Label stickers, flyers & business cards</li>
+                        <li>Rubber stamps & bottle labels</li>
                     </ul>
                 </div>
 
-                <!-- Safety & Industrial Signage -->
-                <div class="card">
-                    <i class="fas fa-hard-hat"></i>
-                    <h3>Safety & Industrial Signage</h3>
-                    <p>Compliant, high-visibility signage designed specifically for mining and industrial sites.</p>
-                    <ul>
-                        <li>Reflective safety signs</li>
-                        <li>Hazard warnings & PPE instructions</li>
-                        <li>Custom industrial branding</li>
-                    </ul>
-                </div>
-
-                <!-- Shop & Wall Branding -->
-                <div class="card">
-                    <i class="fas fa-store"></i>
+                <div class="service-card">
+                    <i class="fas fa-store-alt"></i>
                     <h3>Shop & Wall Branding</h3>
-                    <p>Complete interior and exterior branding solutions to elevate your business presence.</p>
+                    <p>Complete interior/exterior branding to enhance business visibility.</p>
                     <ul>
-                        <li>Shop branding & wall banners</li>
-                        <li>Wallpaper & large wall graphics</li>
-                        <li>Window manifestations</li>
+                        <li>Shop branding & wall graphics</li>
+                        <li>Wallpaper & large wall banners</li>
+                        <li>Window manifestations & frosting</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Gallery of Work (using the provided image collage style) -->
-            <div class="gallery">
-                <h2 style="font-size: 32px; margin-bottom: 20px;">Our Work in Action</h2>
-                <p style="max-width: 800px; margin: 0 auto 40px; color: #666;">Explore examples of our large format prints, vehicle branding, signage, apparel, and more.</p>
+            <div class="gallery-section">
+                <h2 style="font-size: 36px; margin-bottom: 25px;">Examples of Our Work</h2>
+                <p style="max-width: 900px; margin: 0 auto 50px; font-size: 18px; color: #555;">Showcasing our precision in large format printing, vehicle branding, safety signage, apparel, and promotional materials.</p>
                 <div class="gallery-grid">
-                    <!-- Placeholder images based on the collage you provided -->
-                    <div class="gallery-item"><img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Vehicle Branding Example"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/sD7bL0bK/sample-vehicle-wrap.jpg" alt="Fleet Sticker Application"></div> <!-- Replace with actual if available -->
-                    <div class="gallery-item"><img src="https://i.postimg.cc/3wZ0kP9Q/sample-safety-sign.jpg" alt="Mine Signage"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/1XjZ0kP9/sample-tshirt-print.jpg" alt="T-Shirt Printing"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/9X0kP9Q/sample-pullup-banner.jpg" alt="Pull-up Banner"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/3N0kP9Q/sample-teardrop-flag.jpg" alt="Teardrop Flag"></div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Product collage - large format, vehicle branding, signage">
+                    </div>
+                    <!-- Add more real images here if available; placeholders for now -->
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x240/3E4095/FFFFFF?text=Vehicle+Wrap+Example" alt="Vehicle branding example">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x240/F58634/FFFFFF?text=Mine+Safety+Signage" alt="Mine safety signage">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x240/00AFEF/FFFFFF?text=Branded+T-Shirts" alt="Custom t-shirt printing">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x240/3E4095/FFFFFF?text=Teardrop+Flag" alt="Teardrop flag display">
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <div class="orange-header">Ready to Start Your Project?</div>
+            <div class="orange-header">Let's Discuss Your Project</div>
             <div class="grid">
                 <div class="card" style="background: var(--primary); color: white;">
-                    <h3 style="color: white; margin-bottom: 30px;">Contact Details</h3>
+                    <h3 style="color: white; margin-bottom: 35px;">Contact Information</h3>
                     <p style="color: #eee;"><i class="fas fa-phone" style="color: var(--accent);"></i> 060 711 8356 / 015 004 0179</p>
                     <p style="color: #eee;"><i class="fas fa-envelope" style="color: var(--accent);"></i> info@takedi.co.za</p>
                     <p style="color: #eee;"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 15 Nelson Mandela Street, Mokopane</p>
                 </div>
                 <div class="card">
-                    <h3>Business Hours</h3>
+                    <h3>Operating Hours</h3>
                     <p><strong>Monday - Friday:</strong> 08:00 - 17:00</p>
                     <p><strong>Saturday:</strong> 09:00 - 13:00</p>
                     <p><strong>Sunday:</strong> Closed</p>
-                    <div style="margin-top: 40px;">
-                        <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px;">REQUEST A QUOTE →</a>
+                    <div style="margin-top: 45px;">
+                        <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px; display: inline-block;">REQUEST A QUOTE →</a>
                     </div>
                 </div>
             </div>
@@ -452,12 +457,12 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
-                <h4>MK GROUPS</h4>
-                <p>Delivering fast, reliable, and cost-effective digital printing and branding services across South Africa. Precision in every detail.</p>
+                <h4>MK GROUPS (PTY) LTD</h4>
+                <p>Fast, reliable, and high-quality digital printing and branding services throughout South Africa. Precision craftsmanship for every project.</p>
             </div>
             <div class="footer-column">
-                <h4>Our Mission</h4>
-                <p>To lead the printing industry with exceptional quality, sustainable practices, and unwavering commitment to client success and community growth.</p>
+                <h4>Our Commitment</h4>
+                <p>To deliver industry-leading solutions through superior quality, innovation, sustainability, and dedicated client service.</p>
             </div>
         </div>
         <div class="copyright">
@@ -473,14 +478,12 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 80) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
         });
     </script>
 </body>
