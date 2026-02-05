@@ -28,7 +28,7 @@
         ul { list-style: disc; padding-left: 30px; margin: 20px 0; }
         a { text-decoration: none; transition: var(--transition); }
 
-        /* NAVBAR – unchanged from previous version */
+        /* NAVBAR – unchanged */
         nav {
             position: fixed;
             top: 20px;
@@ -243,7 +243,7 @@
             font-size: 1.3rem;
         }
 
-        /* Gallery – Examples of Our Work (unchanged) */
+        /* Gallery */
         .gallery-section {
             margin-top: 100px;
             text-align: center;
@@ -269,17 +269,17 @@
             object-fit: cover;
         }
 
-        /* Work Completion Section – Horizontal Cards with Images */
-        .work-completion {
+        /* References – Animated Horizontal Cards with Scroll Effect */
+        .references-section {
             margin: 120px 8% 80px;
             text-align: center;
         }
-        .work-completion h2 {
+        .references-section h2 {
             font-size: 36px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             color: var(--primary);
         }
-        .work-grid {
+        .references-container {
             display: flex;
             overflow-x: auto;
             gap: 30px;
@@ -288,55 +288,45 @@
             scrollbar-width: thin;
             scrollbar-color: var(--accent) #eee;
         }
-        .work-grid::-webkit-scrollbar {
+        .references-container::-webkit-scrollbar {
             height: 8px;
         }
-        .work-grid::-webkit-scrollbar-track {
+        .references-container::-webkit-scrollbar-track {
             background: #eee;
         }
-        .work-grid::-webkit-scrollbar-thumb {
+        .references-container::-webkit-scrollbar-thumb {
             background: var(--accent);
             border-radius: 4px;
         }
-        .work-card {
-            flex: 0 0 380px;
+        .reference-card {
+            flex: 0 0 360px;
             background: white;
+            padding: 30px;
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.5s ease;
             opacity: 0;
             transform: translateX(60px);
         }
-        .work-card.visible {
+        .reference-card.visible {
             opacity: 1;
             transform: translateX(0);
         }
-        .work-card:hover {
-            transform: translateY(-12px);
+        .reference-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(62,64,149,0.15);
         }
-        .work-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .work-info {
-            padding: 20px;
-            text-align: left;
-        }
-        .work-info h3 {
-            margin: 0 0 12px;
-            font-size: 20px;
+        .reference-card h3 {
+            margin: 0 0 15px;
+            font-size: 22px;
             color: var(--primary);
         }
-        .work-info p {
-            margin: 6px 0;
+        .reference-card p {
+            margin: 8px 0;
             font-size: 15px;
             color: #555;
-            line-height: 1.5;
         }
-        .work-info strong {
+        .reference-card strong {
             color: var(--accent);
         }
 
@@ -383,7 +373,7 @@
             color: #888;
         }
 
-        /* MOBILE NAVBAR – unchanged */
+        /* MOBILE NAVBAR – EXACTLY the same as your home page */
         @media (max-width: 991px) {
             nav {
                 width: 95%;
@@ -442,6 +432,7 @@
                 min-width: auto;
                 margin: 0;
             }
+            /* Smooth staggered animation for menu items */
             nav ul li,
             .nav-cta {
                 opacity: 0;
@@ -567,52 +558,34 @@
             </div>
         </section>
 
-        <!-- WORK COMPLETION SECTION – Horizontal scrollable cards with images -->
-        <section class="work-completion">
-            <h2>Work Completion – Recent Projects</h2>
-            <div class="work-grid">
-
-                <!-- Kgwathele Primary School -->
-                <div class="work-card">
-                    <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Kgwathele Primary School">
-                    <div class="work-info">
-                        <h3>Kgwathele Primary School</h3>
-                        <p>Signage board design, print, fabrication and installation within 4 days</p>
-                        <p><strong>Year:</strong> 2024</p>
-                    </div>
+        <!-- REFERENCES – Animated horizontal scrolling cards -->
+        <section class="references-section">
+            <h2>References & Completed Projects</h2>
+            <div class="references-container">
+                <div class="reference-card">
+                    <h3>Rockafella Royalfarewell</h3>
+                    <p><strong>Contact Person:</strong> Mr A. Seletela</p>
+                    <p><strong>Tel:</strong> 086 036 6400</p>
+                    <p><strong>Email:</strong> info@rockafellaroyalfarewell.co.za</p>
                 </div>
-
-                <!-- Takeni Modern Printers -->
-                <div class="work-card">
-                    <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Takeni Modern Printers">
-                    <div class="work-info">
-                        <h3>Takeni Modern Printers</h3>
-                        <p>Outdoor and indoor window branding</p>
-                        <p><strong>Completed:</strong> October 2024</p>
-                    </div>
+                <div class="reference-card">
+                    <h3>Dr Kgomo Dental Care</h3>
+                    <p><strong>Contact Person:</strong> Mrs T.R. Kgomo</p>
+                    <p><strong>Tel:</strong> 082 082 1799</p>
+                    <p><strong>Address:</strong> 44 Ruiter Rd, Mokopane, 0601</p>
                 </div>
-
-                <!-- Dr Kgomo Dental Care -->
-                <div class="work-card">
-                    <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Dr Kgomo Dental Care">
-                    <div class="work-info">
-                        <h3>Dr Kgomo Dental Care</h3>
-                        <p>Signage board and door branding</p>
-                        <p><strong>Project:</strong> Vutomi Traditional Herbal Healthcare signage board</p>
-                    </div>
+                <div class="reference-card">
+                    <h3>Kgwathele Primary School</h3>
+                    <p><strong>Contact Person:</strong> Mr A. Kwakwa</p>
+                    <p><strong>Tel:</strong> 072 187 1480</p>
+                    <p><strong>Email:</strong> kgwatheleprimary@gmail.com</p>
                 </div>
-
-                <!-- Vehicle Branding Projects -->
-                <div class="work-card">
-                    <img src="https://i.postimg.cc/9XgwPr25/download-(2).jpg" alt="Vehicle Branding">
-                    <div class="work-info">
-                        <h3>Vehicle Branding</h3>
-                        <p><strong>The Joint Civils (Pty) Ltd</strong> – September 2024</p>
-                        <p><strong>Rockafella Royalfarewell</strong> – October 2024</p>
-                        <p><strong>Bakone Construction (Pty)</strong> – October 2024</p>
-                    </div>
+                <div class="reference-card">
+                    <h3>Point B Supplier</h3>
+                    <p><strong>Contact Person:</strong> Mr Nelson Maake</p>
+                    <p><strong>Tel:</strong> 064 527 7537</p>
+                    <p><strong>Address:</strong> 16B Nelson Mandela Drive, Mokopane, Limpopo</p>
                 </div>
-
             </div>
         </section>
 
@@ -666,7 +639,7 @@
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
         });
 
-        // Hamburger Menu – expand whole navbar
+        // Hamburger Menu – expand whole navbar (identical to home page)
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
 
@@ -679,17 +652,17 @@
             });
         }
 
-        // Animate work completion cards on scroll
-        const workCards = document.querySelectorAll('.work-card');
-        const workObserver = new IntersectionObserver((entries) => {
+        // Animate reference cards on scroll
+        const refCards = document.querySelectorAll('.reference-card');
+        const refObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.2 });
 
-        workCards.forEach(card => workObserver.observe(card));
+        refCards.forEach(card => refObserver.observe(card));
     </script>
 </body>
 </html>
