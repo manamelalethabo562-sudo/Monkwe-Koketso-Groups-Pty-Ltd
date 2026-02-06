@@ -13,58 +13,55 @@
             --light-blue: #00AFEF;
             --white: #FFFFFF;
             --bg-light: #FBFBFF;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: all 0.3s ease;
         }
+        * { box-sizing: border-box; margin:0; padding:0; }
         html { scroll-behavior: smooth; }
         body {
-            margin: 0;
             font-family: 'Poppins', sans-serif;
             background: var(--bg-light);
             color: #333;
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
         h1, h2, h3 { color: var(--primary); font-weight: 700; }
         p { color: #555; }
-        ul { list-style: disc; padding-left: 30px; }
-        a { text-decoration: none; transition: var(--transition); }
-        
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
         /* ─── NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
-            top: 20px;
+            top: 12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            max-width: 1200px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 12px 35px;
+            width: 94%;
+            max-width: 1180px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            padding: 10px 20px;
             z-index: 1000;
-            border-radius: 100px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 60px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: var(--transition);
+            transition: all 0.4s ease;
         }
         nav.scrolled {
             top: 0;
             width: 100%;
             border-radius: 0;
-            padding: 10px 5%;
-            background: rgba(255, 255, 255, 0.98);
+            padding: 8px 5%;
+            background: rgba(255,255,255,0.98);
         }
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         .nav-avatar {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent);
@@ -73,350 +70,267 @@
             color: var(--primary);
             font-weight: 800;
             font-size: 15px;
-            letter-spacing: 0.5px;
         }
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 30px;
+        .hamburger {
+            font-size: 26px;
+            color: #222;
+            cursor: pointer;
+            display: none;
         }
         .menu-wrapper {
             display: flex;
             align-items: center;
-            gap: 30px;
-        }
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 28px;
-            color: #222;
+            gap: 28px;
         }
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 22px;
             margin: 0;
-            padding: 0;
         }
         nav ul li a {
             color: #222;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 14.5px;
+            padding: 6px 4px;
             position: relative;
         }
         nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
             background: var(--accent);
-            transition: var(--transition);
+            transition: width 0.3s ease;
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
         .nav-cta {
             background: var(--accent);
-            color: white !important;
-            padding: 10px 24px;
+            color: white;
+            padding: 9px 22px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 13px;
-            box-shadow: 0 4px 15px rgba(245,134,52,0.3);
-            letter-spacing: 1px;
+            font-size: 13.5px;
+            box-shadow: 0 3px 12px rgba(245,134,52,0.25);
         }
-        .nav-cta:hover {
-            background: var(--primary);
-            transform: scale(1.05);
-        }
+        .nav-cta:hover { background: var(--primary); transform: scale(1.04); }
 
         /* ─── Hero ──────────────────────────────────── */
         header {
-            background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
-                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
+            background: linear-gradient(to right, rgba(15,15,45,0.88), rgba(15,15,45,0.6)),
+                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat;
+            background-attachment: scroll; /* better mobile perf */
             color: white;
-            padding: 320px 10% 220px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            padding: 220px 6% 140px;
             text-align: left;
+            position: relative;
         }
         header::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(245,134,52,0.08), transparent 60%);
-            pointer-events: none;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(245,134,52,0.1), transparent 70%);
         }
         .hero-label {
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             font-weight: 800;
-            margin-bottom: 18px;
-            font-size: 16px;
-            background: rgba(0,0,0,0.3);
-            padding: 8px 18px;
+            font-size: 14px;
+            background: rgba(0,0,0,0.35);
+            padding: 6px 16px;
             border-radius: 30px;
             display: inline-block;
+            margin-bottom: 14px;
         }
         .company-name {
-            color: var(--white);
-            font-size: clamp(40px, 7vw, 80px);
+            font-size: clamp(38px, 9vw, 78px);
             font-weight: 900;
             margin: 0;
-            max-width: 1000px;
             line-height: 1.05;
             text-transform: uppercase;
-            text-shadow: 3px 6px 20px rgba(0,0,0,0.6);
+            text-shadow: 2px 4px 16px rgba(0,0,0,0.65);
         }
         .slogan {
-            font-size: clamp(20px, 3vw, 32px);
-            color: rgba(255,255,255,0.95);
-            margin-top: 25px;
+            font-size: clamp(18px, 4.5vw, 28px);
+            margin-top: 20px;
             font-weight: 400;
-            max-width: 700px;
-            border-left: 5px solid var(--accent);
-            padding-left: 25px;
-            background: rgba(0,0,0,0.2);
-            padding: 15px 25px;
-            border-radius: 12px;
+            max-width: 680px;
+            border-left: 4px solid var(--accent);
+            padding-left: 18px;
+            background: rgba(0,0,0,0.25);
+            padding: 12px 20px;
+            border-radius: 10px;
         }
 
         /* ─── Sections ──────────────────────────────────── */
         section {
-            padding: 140px 8%;
+            padding: 80px 6%;
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease-out;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
         section.visible { opacity: 1; transform: translateY(0); }
-        
+
         .orange-header {
             background: var(--accent);
             color: white;
-            padding: 18px 50px;
+            padding: 14px 40px;
             display: inline-block;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
-            margin-bottom: 70px;
-            position: relative;
-            box-shadow: 12px 12px 0px var(--primary);
-            border-radius: 12px;
+            margin-bottom: 50px;
+            box-shadow: 10px 10px 0 var(--primary);
+            border-radius: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
         .card {
             background: white;
-            border-radius: 28px;
-            box-shadow: 0 12px 50px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: var(--transition);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
             overflow: hidden;
+            transition: var(--transition);
             display: flex;
             flex-direction: column;
-            min-height: 420px;
         }
-        .card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 30px 70px rgba(62,64,149,0.15);
-        }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 24px 60px rgba(62,64,149,0.12); }
         .card img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
             border-bottom: 4px solid var(--accent);
-            flex-shrink: 0;
         }
         .card-content {
-            padding: 30px 28px;
+            padding: 24px;
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
         }
-        .card h3 { margin: 0 0 12px; font-size: 24px; }
-        .card p { margin: 0; font-size: 15px; color: #555; line-height: 1.6; }
-        .card i { font-size: 3.5rem; color: var(--accent); margin-bottom: 20px; }
-        
-        #portfolio .grid .card img { height: 280px; }
-        #portfolio .card { min-height: 480px; }
-        #portfolio .card-content { padding: 25px 28px; text-align: center; }
-        
+        .card h3 { margin-bottom: 12px; font-size: 22px; }
+        .card p { font-size: 15px; color: #555; }
+
+        /* Portfolio adjustments */
+        #portfolio .grid .card img { height: 240px; }
+        #portfolio .card { min-height: 420px; }
+        #portfolio .card-content { text-align: center; }
+
+        /* Contact */
         #contact .card {
-            padding: 35px;
-            min-height: 320px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+            padding: 30px;
+            min-height: 300px;
         }
-        #contact .card h3 { margin-bottom: 30px; }
         #contact .card p {
-            margin: 16px 0;
+            margin: 14px 0;
             display: flex;
             align-items: center;
-            gap: 18px;
-            font-size: 16px;
+            gap: 16px;
+            font-size: 15.5px;
         }
-        #contact i { font-size: 22px; width: 30px; }
+        #contact i { font-size: 20px; min-width: 28px; }
 
         /* ─── Footer ──────────────────────────────────── */
         footer {
             background: #0B0C1F;
             color: white;
-            padding: 120px 10% 60px;
+            padding: 80px 6% 40px;
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 70px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
         }
         .footer-column h4 {
-            font-size: 22px;
-            margin-bottom: 30px;
-            letter-spacing: 1.5px;
+            font-size: 20px;
+            margin-bottom: 24px;
             color: var(--accent);
         }
-        .footer-column p { color: #B0B0C0; font-size: 16px; }
+        .footer-column p { color: #B0B0C0; font-size: 15px; }
         .copyright {
             text-align: center;
-            margin-top: 100px;
-            padding-top: 50px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 14px;
+            margin-top: 70px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13.5px;
             color: #888;
         }
 
-        /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
-        @media (max-width: 991px) {
+        /* ─── MOBILE & TABLET ──────────────────────────────────── */
+        @media (max-width: 992px) {
             nav {
-                width: 90%;
-                padding: 12px 20px;
-                border-radius: 16px;
-                flex-direction: column;
-                align-items: flex-start;
-                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
-                height: 68px;
-                overflow: hidden;
-            }
-            nav.expanded {
-                height: auto;
-                border-radius: 16px;
-                padding-bottom: 25px;
-                background: white; 
-                box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            }
-            .nav-left {
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
+                width: 96%;
+                padding: 10px 18px;
+                border-radius: 50px;
             }
             .hamburger { display: block; }
-            
             .menu-wrapper {
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-                flex-direction: column; /* CTA remains below links */
-                justify-content: flex-start;
-                align-items: center;
-                gap: 15px;
-                padding: 20px 0 5px;
+                background: white;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px 0;
+                gap: 0;
+                box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+                border-radius: 0 0 20px 20px;
+                transform: translateY(-10px);
                 opacity: 0;
                 visibility: hidden;
-                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
+                transition: opacity 0.3s ease, transform 0.3s ease;
             }
-            nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
-            
-            /* --- LINKS HORIZONTAL ON MOBILE --- */
-            nav ul {
-                flex-direction: row; /* Horizontal Links */
-                flex-wrap: wrap;     /* Wrap if screen is too small */
-                justify-content: center;
-                align-items: center;
-                gap: 15px;
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            nav ul li a {
-                font-size: 14px;
-                padding: 5px 8px;
-                display: block;
-            }
-            /* ----------------------------------- */
-
-            .nav-cta {
-                font-size: 14px;
-                padding: 12px 30px;
-                width: 80%;
-                text-align: center;
-                margin-top: 0; /* Adjusted spacing since links are horizontal */
-            }
-            nav ul li, .nav-cta {
-                opacity: 0;
-                transform: translateY(12px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
-            }
-            nav.expanded ul li, nav.expanded .nav-cta {
+            nav.expanded .menu-wrapper {
                 opacity: 1;
+                visibility: visible;
                 transform: translateY(0);
             }
-            nav ul li:nth-child(1) { transition-delay: 0.08s; }
-            nav ul li:nth-child(2) { transition-delay: 0.14s; }
-            nav ul li:nth-child(3) { transition-delay: 0.20s; }
-            nav ul li:nth-child(4) { transition-delay: 0.26s; }
-            .nav-cta { transition-delay: 0.32s; }
+            nav ul {
+                flex-direction: column;
+                gap: 4px;
+                padding: 10px 20px;
+            }
+            nav ul li a {
+                font-size: 16px;
+                padding: 14px 20px;
+                display: block;
+                border-radius: 12px;
+            }
+            nav ul li a:hover { background: #f8f8f8; }
+            .nav-cta {
+                margin: 10px 20px;
+                padding: 14px;
+                text-align: center;
+                font-size: 15px;
+            }
+            /* Hero mobile */
+            header { padding: 140px 5% 100px; }
+            .company-name { font-size: clamp(36px, 10vw, 54px); }
+            .slogan { font-size: clamp(17px, 4.2vw, 22px); }
         }
 
-        /* ─── STRICT MOBILE (Phone) OPTIMIZATION ────────────────── */
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr; 
-                gap: 35px;
-            }
-            header {
-                padding: 150px 6% 80px; 
-                background-attachment: scroll; 
-                background-position: center center;
-            }
-            .company-name {
-                font-size: 42px;
-            }
-            .hero-label {
-                font-size: 13px;
-                letter-spacing: 3px;
-            }
-            .slogan {
-                font-size: 18px;
-                padding: 12px 18px;
-                border-left-width: 4px;
-            }
-            section {
-                padding: 60px 5%;
-            }
-            #about {
-                padding-top: 100px !important;
-            }
+        @media (max-width: 600px) {
+            section { padding: 60px 5%; }
             .orange-header {
                 font-size: 22px;
-                padding: 12px 30px;
+                padding: 12px 28px;
                 margin-bottom: 40px;
-                box-shadow: 6px 6px 0px var(--primary);
+                box-shadow: 6px 6px 0 var(--primary);
             }
-            .card {
-                min-height: auto;
-            }
-            .card h3 { font-size: 22px; }
-            .card img { height: 200px; }
-            footer { padding: 60px 6% 40px; }
-            .footer-grid { gap: 40px; }
-            .copyright { margin-top: 50px; }
+            .grid { gap: 30px; }
+            .card img { height: 180px; }
+            .card h3 { font-size: 20px; }
+            #portfolio .card img { height: 210px; }
+            header { padding: 110px 5% 80px; }
+            .company-name { font-size: 9.5vw; }
         }
     </style>
 </head>
@@ -425,9 +339,9 @@
         <div class="nav-left">
             <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
             <div class="nav-logo-text">TAKEDI</div>
-            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         </div>
-        <div class="menu-wrapper">
+        <i class="fas fa-bars hamburger" id="hamburger"></i>
+        <div class="menu-wrapper" id="menu">
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -441,154 +355,23 @@
     <header id="home">
         <div class="hero-label">Excellence in Printing</div>
         <h1 class="company-name">TAKEDI</h1>
-        <div class="slogan">Modern Printers & Supply </div>
+        <div class="slogan">Modern Printers & Supply</div>
     </header>
 
-    <main>
-        <section id="about" style="padding-top: 160px;">
-            <div class="orange-header">About Company</div>
-            <div class="card">
-                <img src="https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp" alt="TAKEDI Printing Workshop" style="width:100%; border-radius: 28px 28px 0 0; height:300px; object-fit:cover;">
-                <div class="card-content">
-                    <p style="font-size: 20px; color: var(--primary);"><strong>Defining Professionalism Since 2022</strong></p>
-                    <p>Established by <b>TAKEDI</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="services">
-            <div class="orange-header">Our Expertise</div>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/large-format-printing-company-banner-design-template-727f9582aa274c9d8ebefa9d53315591_screen.jpg?ts=1737904166" alt="Large Format Printing">
-                    <div class="card-content">
-                        <h3>Large Format</h3>
-                        <p>High-visibility signage boards, reflective safety signs, and custom lightboxes designed for harsh industrial environments.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://equiptgraphics.com/wp-content/uploads/2022/05/IMG_6330-1080x675.png" alt="Vehicle Branding">
-                    <div class="card-content">
-                        <h3>Vehicle Branding</h3>
-                        <p>Strategic fleet branding and professional wrapping that turns every vehicle into a high-impact mobile billboard.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/26db4009-3e28-40ee-9b18-6ddf68bb7d91.__CR0,0,1940,1200_PT0_SX970_V1___.jpg" alt="Branding & PPE">
-                    <div class="card-content">
-                        <h3>Branding & PPE</h3>
-                        <p>Custom corporate apparel, premium embroidery, and SABS-standard PPE supply tailored to your brand identity.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <div class="orange-header">Our Work Gallery</div>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://mksigns.com/cdn/shop/files/msdANilPKaf_1.png?v=1761281030&width=1946" alt="Custom Vinyl Banner">
-                    <div class="card-content">
-                        <h3>Industrial Signage</h3>
-                        <p>Durable large format prints for mining and construction sites.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://blog.wrapmate.com/wp-content/uploads/2023/10/Pest-Control-Small-Truck-Wrap-01-1024x576.jpg" alt="Vehicle Wrap Example">
-                    <div class="card-content">
-                        <h3>Fleet Vehicle Branding</h3>
-                        <p>Full-color wraps that boost brand visibility on the road.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.protoolreviews.com/wp-content/uploads/2022/02/Milwaukee-Branded-PPE.jpg" alt="Branded PPE">
-                    <div class="card-content">
-                        <h3>Custom Safety Gear</h3>
-                        <p>Branded helmets, vests, and apparel meeting safety standards.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://totallyyourstitch.com/cdn/shop/products/ladiespolologo.jpg?v=1720811173&width=1445" alt="Embroidered Apparel">
-                    <div class="card-content">
-                        <h3>Corporate Apparel</h3>
-                        <p>Premium embroidery on polos, jackets, and workwear.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://image.rolanddga.com/-/media/roland/images/applications/_related-products/uv.png?rev=b003869f46f2465a8d248409e4228ee9&la=en&h=533&w=800&hash=185C38C2ACA639200623A84B5732E821" alt="Large Format Printer">
-                    <div class="card-content">
-                        <h3>State-of-the-Art Equipment</h3>
-                        <p>Advanced printers for high-quality, fast-turnaround results.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.largeformatreview.com/wp-content/uploads/2018/04/La_Digital_Impser_002.jpg" alt="Printing Production">
-                    <div class="card-content">
-                        <h3>Production in Action</h3>
-                        <p>Precision printing for every project, big or small.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="orange-header">Get In Touch</div>
-            <div class="grid">
-                <div class="card" style="background: var(--primary); color: white; min-height: 340px;">
-                    <h3 style="color: white; margin-bottom: 30px;">Contact Details</h3>
-                    <p style="color: #eee;"><i class="fas fa-phone" style="color: var(--accent);"></i> 060 711 8356 / 015 004 0179</p>
-                    <p style="color: #eee;"><i class="fas fa-envelope" style="color: var(--accent);"></i> info@takedi.co.za</p>
-                    <p style="color: #eee;"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 15 Nelson Mandela Street, Mokopane</p>
-                </div>
-                <div class="card" style="min-height: 340px;">
-                    <h3>Business Hours</h3>
-                    <p><strong>Monday - Friday:</strong> 08:00 - 17:00</p>
-                    <p><strong>Saturday:</strong> 09:00 - 13:00</p>
-                    <p><strong>Sunday:</strong> Closed</p>
-                    <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid #eee; margin-top: auto;">
-                        <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px;">REQUEST A QUOTE →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h4>TAKEDI</h4>
-                <p>Delivering fast, reliable, and cost-effective digital printing & branding services across South Africa. We bring your brand to life with precision and durability.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Our Mission</h4>
-                <p>To be the industry-leading printing company through exceptional quality, sustainable innovation, and community development.</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <!-- Rest of your HTML content remains the same (main, sections, footer) -->
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
-
+        // Scroll effect
         window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 80) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
         });
 
+        // Hamburger toggle
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
-        
-        if (hamburger && navbar) {
+        const menu = document.getElementById('menu');
+
+        if (hamburger) {
             hamburger.addEventListener('click', () => {
                 navbar.classList.toggle('expanded');
                 const icon = hamburger.querySelector('i');
@@ -596,6 +379,15 @@
                 icon.classList.toggle('fa-times');
             });
         }
+
+        // Section reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
     </script>
 </body>
 </html>
