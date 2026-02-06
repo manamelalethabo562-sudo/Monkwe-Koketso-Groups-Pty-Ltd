@@ -26,6 +26,7 @@
             background: var(--bg-light);
             color: #333;
             line-height: 1.6;
+            transition: transform 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         img {
@@ -44,7 +45,25 @@
             color: inherit;
         }
 
-        /* NAVBAR */
+        /* Overlay */
+        #menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            z-index: 998;
+        }
+
+        #menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Navbar */
         nav {
             position: fixed;
             top: 15px;
@@ -154,48 +173,62 @@
             transform: translateY(-2px);
         }
 
-        /* MOBILE MENU */
+        /* Mobile Menu */
         @media (max-width: 992px) {
             .hamburger { display: block; }
+
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 width: 80%;
-                max-width: 320px;
+                max-width: 340px;
                 height: 100vh;
                 background: white;
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
-                padding: 90px 30px 40px;
+                padding: 100px 30px 40px;
                 transition: right 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                box-shadow: -10px 0 35px rgba(0,0,0,0.18);
+                box-shadow: -12px 0 40px rgba(0,0,0,0.22);
                 z-index: 999;
             }
-            .nav-menu.active { right: 0; }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
             nav ul {
                 flex-direction: column;
-                gap: 6px;
+                gap: 8px;
                 width: 100%;
             }
+
             nav ul li a {
                 font-size: 18px;
                 padding: 16px 24px;
                 display: block;
                 border-radius: 12px;
             }
-            nav ul li a:hover { background: #f8f9ff; }
+
+            nav ul li a:hover {
+                background: #f8f9ff;
+            }
+
             .nav-cta {
-                margin-top: 24px;
+                margin-top: 28px;
                 width: 100%;
                 text-align: center;
                 padding: 16px;
                 font-size: 16px;
             }
+
+            body.menu-open {
+                transform: translateX(-60px);
+            }
         }
 
-        /* HERO */
+        /* Hero */
         header {
             background: linear-gradient(to right, rgba(15,15,45,0.88), rgba(15,15,45,0.55)),
                         url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
@@ -244,7 +277,7 @@
             border-radius: 12px;
         }
 
-        /* SECTIONS */
+        /* Sections */
         section {
             padding: 120px 8%;
             max-width: 1400px;
@@ -275,8 +308,11 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 380px));
             gap: 45px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .card {
@@ -287,6 +323,8 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            width: 100%;
+            max-width: 380px;
         }
 
         .card:hover {
@@ -316,16 +354,19 @@
             color: #555;
         }
 
-        /* Portfolio tweaks */
         #portfolio .card img { height: 260px; }
         #portfolio .card { min-height: 460px; }
         #portfolio .card-content { text-align: center; }
 
-        /* Contact */
+        #contact .grid {
+            justify-content: center;
+        }
+
         #contact .card {
             padding: 32px;
             min-height: 320px;
         }
+
         #contact .card p {
             margin: 14px 0;
             display: flex;
@@ -333,9 +374,10 @@
             gap: 16px;
             font-size: 15.5px;
         }
+
         #contact i { font-size: 20px; min-width: 28px; }
 
-        /* FOOTER */
+        /* Footer */
         footer {
             background: #0B0C1F;
             color: white;
@@ -346,6 +388,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 60px;
+            justify-content: center;
         }
 
         .footer-column h4 {
@@ -365,12 +408,11 @@
             color: #888;
         }
 
-        /* RESPONSIVE */
+        /* Responsive */
         @media (max-width: 992px) {
             header { padding: 180px 6% 120px; background-attachment: scroll; }
             section { padding: 80px 6%; }
-            .orange-header { font-size: 26px; padding: 14px 35px; }
-            .grid { gap: 35px; }
+            .grid { grid-template-columns: 1fr; max-width: 420px; }
         }
 
         @media (max-width: 600px) {
@@ -387,7 +429,10 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- Overlay -->
+    <div id="menu-overlay"></div>
+
+    <!-- Navbar -->
     <nav id="navbar">
         <div class="nav-left">
             <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
@@ -410,7 +455,7 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- Hero -->
     <header id="home">
         <div class="hero-label">Excellence in Printing</div>
         <h1 class="company-name">TAKEDI</h1>
@@ -420,11 +465,13 @@
     <main>
         <section id="about">
             <div class="orange-header">About Company</div>
-            <div class="card">
-                <img src="https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp" alt="TAKEDI Printing Workshop">
-                <div class="card-content">
-                    <p style="font-size: 20px; color: var(--primary);"><strong>Defining Professionalism Since 2022</strong></p>
-                    <p>Established by <b>TAKEDI</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp" alt="TAKEDI Printing Workshop">
+                    <div class="card-content">
+                        <p style="font-size: 20px; color: var(--primary);"><strong>Defining Professionalism Since 2022</strong></p>
+                        <p>Established by <b>TAKEDI</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -507,13 +554,13 @@
         <section id="contact">
             <div class="orange-header">Get In Touch</div>
             <div class="grid">
-                <div class="card" style="background: var(--primary); color: white; min-height: 340px;">
+                <div class="card" style="background: var(--primary); color: white;">
                     <h3 style="color: white; margin-bottom: 30px;">Contact Details</h3>
                     <p style="color: #eee;"><i class="fas fa-phone" style="color: var(--accent);"></i> 060 711 8356 / 015 004 0179</p>
                     <p style="color: #eee;"><i class="fas fa-envelope" style="color: var(--accent);"></i> info@takedi.co.za</p>
                     <p style="color: #eee;"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 15 Nelson Mandela Street, Mokopane</p>
                 </div>
-                <div class="card" style="min-height: 340px;">
+                <div class="card">
                     <h3>Business Hours</h3>
                     <p><strong>Monday - Friday:</strong> 08:00 - 17:00</p>
                     <p><strong>Saturday:</strong> 09:00 - 13:00</p>
@@ -543,30 +590,44 @@
     </footer>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
-        });
-
-        // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
+        const overlay = document.getElementById('menu-overlay');
+        const body = document.body;
+
+        function openMenu() {
+            navMenu.classList.add('active');
+            overlay.classList.add('active');
+            body.classList.add('menu-open');
+            hamburger.querySelector('i').classList.replace('fa-bars', 'fa-times');
+        }
+
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            body.classList.remove('menu-open');
+            hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        }
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = hamburger.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            navMenu.classList.contains('active') ? closeMenu() : openMenu();
         });
 
-        // Close menu on link click
+        overlay.addEventListener('click', closeMenu);
+
         document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const icon = hamburger.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
         });
 
         // Section reveal
@@ -578,9 +639,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
     </script>
 
 </body>
