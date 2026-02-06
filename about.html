@@ -291,6 +291,13 @@
             top: 2px;
             font-size: 1.3rem;
         }
+        /* Changed from grid → flex column for vertical stacking */
+        #mission-vision .mission-vision-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 100px 0;
+        }
         footer {
             background: #0B0C1F;
             color: white;
@@ -403,9 +410,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-            <a href="index.html#contact" class="nav-cta">GET A QUOTE</a>
+            <a href="contact.html" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
     <header id="about">
@@ -448,7 +455,7 @@
                 </div>
             </div>
         </section>
-        <!-- NEW SECTION: Mission, Vision & Values Statement -->
+        <!-- NEW SECTION: Mission, Vision & Values Statement – now vertical -->
         <section id="mission-vision">
             <div class="orange-header">Our Mission, Vision and Values Statement</div>
             <div class="mission-vision-grid">
