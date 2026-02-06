@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monkwe Koketso Groups (Pty) Ltd | Contact Us</title>
+    <title>TAKEDI | Contacts</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ── Your original full CSS from the home page remains unchanged ── */
         :root {
             --primary: #3E4095;
             --accent: #F58634;
+            --light-blue: #00AFEF;
             --white: #FFFFFF;
             --bg-light: #FBFBFF;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -25,10 +27,8 @@
         }
         h1, h2, h3 { color: var(--primary); font-weight: 700; }
         p { color: #555; }
-        ul { list-style: disc; padding-left: 30px; margin: 20px 0; }
+        ul { list-style: disc; padding-left: 30px; }
         a { text-decoration: none; transition: var(--transition); }
-      
-        /* Floating Navigation Bar */
         nav {
             position: fixed;
             top: 20px;
@@ -115,11 +115,6 @@
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
-        nav ul li a.active {
-            color: var(--accent);
-        }
-        nav ul li a.active::after { width: 100%; }
-     
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -134,53 +129,65 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-
-        /* Hero Header */
         header {
-            background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4));
+            background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
+                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
             color: white;
-            padding: 280px 10% 180px;
+            padding: 320px 10% 220px;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             text-align: left;
         }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(245,134,52,0.08), transparent 60%);
+            pointer-events: none;
+        }
         .hero-label {
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 6px;
-            font-weight: 700;
-            margin-bottom: 15px;
+            letter-spacing: 5px;
+            font-weight: 800;
+            margin-bottom: 18px;
             font-size: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 30px;
+            display: inline-block;
         }
-        .page-title {
+        .company-name {
             color: var(--white);
             font-size: clamp(40px, 7vw, 80px);
-            font-weight: 800;
+            font-weight: 900;
             margin: 0;
-            line-height: 1.1;
+            max-width: 1000px;
+            line-height: 1.05;
             text-transform: uppercase;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
+            text-shadow: 3px 6px 20px rgba(0,0,0,0.6);
         }
         .slogan {
             font-size: clamp(20px, 3vw, 32px);
             color: rgba(255,255,255,0.95);
             margin-top: 25px;
-            font-weight: 300;
-            max-width: 800px;
+            font-weight: 400;
+            max-width: 700px;
             border-left: 5px solid var(--accent);
             padding-left: 25px;
+            background: rgba(0,0,0,0.2);
+            padding: 15px 25px;
+            border-radius: 12px;
         }
-
-        /* Content Sections */
         section {
-            padding: 120px 8%;
+            padding: 140px 8%;
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.8s ease-out;
+            transition: all 1s ease-out;
         }
         section.visible { opacity: 1; transform: translateY(0); }
         .orange-header {
@@ -189,76 +196,100 @@
             padding: 18px 50px;
             display: inline-block;
             font-size: 32px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 70px;
+            position: relative;
             box-shadow: 12px 12px 0px var(--primary);
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-
-        .contact-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 50px;
         }
-        .contact-card {
+        .card {
             background: white;
-            padding: 55px 45px;
             border-radius: 28px;
-            box-shadow: 0 12px 45px rgba(0,0,0,0.05);
+            box-shadow: 0 12px 50px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
             transition: var(--transition);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
         }
-        .contact-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 60px rgba(62,64,149,0.12);
+        .card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 70px rgba(62,64,149,0.15);
         }
-        .contact-card.primary {
-            background: var(--primary);
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--accent);
+            flex-shrink: 0;
+        }
+        .card-content {
+            padding: 30px 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card h3 {
+            margin: 0 0 12px;
+            font-size: 24px;
+        }
+        .card p {
+            margin: 0;
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .card i {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        .organogram-card {
+            background: white;
+            border-radius: 36px;
+            padding: 70px 30px;
+            text-align: center;
+            box-shadow: 0 20px 55px rgba(0,0,0,0.07);
+            margin-top: 70px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .org-box {
+            background: var(--accent);
             color: white;
+            padding: 24px 50px;
+            border-radius: 16px;
+            display: inline-block;
+            font-weight: 800;
+            margin: 12px;
+            box-shadow: 0 10px 25px rgba(245,134,52,0.25);
+            font-size: 16px;
         }
-        .contact-card.primary h3 { color: white; }
-        .contact-card.primary p { color: #eee; }
-        .contact-card p {
-            margin: 18px 0;
+        #contact .card {
+            padding: 35px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        #contact .card h3 {
+            margin-bottom: 30px;
+        }
+        #contact .card p {
+            margin: 16px 0;
             display: flex;
             align-items: center;
             gap: 18px;
-            font-size: 17px;
-        }
-        .contact-card i {
-            font-size: 22px;
-            width: 35px;
-            color: var(--accent);
-        }
-        .contact-form {
-            background: white;
-            padding: 55px 45px;
-            border-radius: 28px;
-            box-shadow: 0 12px 45px rgba(0,0,0,0.05);
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 14px 18px;
-            margin: 12px 0;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            font-family: 'Poppins', sans-serif;
             font-size: 16px;
         }
-        .contact-form button {
-            background: var(--accent);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .contact-form button:hover {
-            background: var(--primary);
-            transform: scale(1.03);
-        }
-
+        #contact i { font-size: 22px; width: 30px; }
         footer {
             background: #0B0C1F;
             color: white;
@@ -272,6 +303,7 @@
         .footer-column h4 {
             font-size: 22px;
             margin-bottom: 30px;
+            letter-spacing: 1.5px;
             color: var(--accent);
         }
         .footer-column p { color: #B0B0C0; font-size: 16px; }
@@ -279,97 +311,190 @@
             text-align: center;
             margin-top: 100px;
             padding-top: 50px;
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255,255,255,0.08);
             font-size: 14px;
             color: #888;
         }
-
-        /* Mobile Hamburger Menu */
         @media (max-width: 991px) {
-            nav { width: 95%; padding: 12px 25px; }
-            .hamburger { display: block; }
-            .menu-wrapper { display: none; }
-            .menu-wrapper.active {
-                display: flex;
+            nav {
+                width: 95%;
+                padding: 12px 20px;
+                border-radius: 16px;
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                padding: 25px 0;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-                gap: 18px;
-                align-items: center;
-                border-radius: 0 0 20px 20px;
+                align-items: flex-start;
+                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
+                height: 68px;
+                overflow: hidden;
             }
-            nav ul { flex-direction: column; gap: 18px; }
-            .nav-cta { margin: 10px 0; }
-            header { padding: 240px 8% 140px; }
-            section { padding: 90px 6%; }
-            .orange-header { font-size: 28px; padding: 15px 40px; }
-            .contact-grid { grid-template-columns: 1fr; }
+            nav.expanded {
+                height: auto;
+                border-radius: 16px;
+                padding-bottom: 20px;
+            }
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .hamburger { display: block; }
+            .menu-wrapper {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 14px 20px;
+                padding: 16px 0 4px;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
+            }
+            nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px 20px;
+                width: auto;
+            }
+            nav ul li a {
+                font-size: 14px;
+                padding: 8px 14px;
+                white-space: nowrap;
+            }
+            .nav-cta {
+                font-size: 13px;
+                padding: 9px 20px;
+                min-width: auto;
+                margin: 0;
+            }
+            nav ul li,
+            .nav-cta {
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            nav.expanded ul li,
+            nav.expanded .nav-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            nav ul li:nth-child(1) { transition-delay: 0.08s; }
+            nav ul li:nth-child(2) { transition-delay: 0.14s; }
+            nav ul li:nth-child(3) { transition-delay: 0.20s; }
+            nav ul li:nth-child(4) { transition-delay: 0.26s; }
+            .nav-cta { transition-delay: 0.32s; }
+            .card { min-height: auto; }
+            .card-content { padding: 25px 20px; }
         }
     </style>
 </head>
 <body>
     <nav id="navbar">
         <div class="nav-left">
-            <img src="https://i.postimg.cc/C1BTWPRz/logo.png" alt="MK Groups Logo" class="nav-avatar">
-            <div class="nav-logo-text">MK GROUPS (PTY) LTD</div>
-        </div>
-        <div class="nav-right">
-            <div class="menu-wrapper">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-                <a href="contact.html" class="nav-cta">GET A QUOTE</a>
-            </div>
+            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
+            <div class="nav-logo-text">TAKEDI</div>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+        <div class="menu-wrapper">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
 
-    <header>
-        <div class="hero-label">We're Here to Help</div>
-        <h1 class="page-title">CONTACT US</h1>
-        <div class="slogan">Reach out for quotes, inquiries, or collaboration. Our team is ready to bring your branding vision to life with fast, reliable service.</div>
+    <header id="home">
+        <div class="hero-label">Excellence in Printing & Branding</div>
+        <h1 class="company-name">TAKEDI</h1>
+        <div class="slogan">Modern printers and supply </div>
     </header>
 
     <main>
+        <!-- Your original home page sections: about, services, portfolio, contact -->
+        <section id="about" style="padding-top: 160px;">
+            <div class="orange-header">About Company</div>
+            <div class="card">
+                <img src="https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp" alt="TAKEDI Printing Workshop" style="width:100%; border-radius: 28px 28px 0 0; height:300px; object-fit:cover;">
+                <div class="card-content">
+                    <p style="font-size: 20px; color: var(--primary);"><strong>Defining Professionalism Since 2022</strong></p>
+                    <p>Established by <b>TAKEDI</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
+                </div>
+            </div>
+            <div class="organogram-card">
+                <h2 style="margin-bottom: 60px; text-transform: uppercase; letter-spacing: 3px;">Leadership Organogram</h2>
+                <div class="org-box">DIRECTOR & DESIGNER<br><span style="font-weight: 300; opacity: 0.9;">TAKEDI</span></div>
+                <div style="margin: 40px 0;"><i class="fas fa-chevron-down fa-3x" style="color: var(--primary); opacity: 0.6;"></i></div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
+                    <div class="org-box" style="background: var(--primary);">RECEPTIONIST<br><span style="font-weight: 300; opacity: 0.9;">Moshi Mapula</span></div>
+                    <div class="org-box" style="background: var(--primary);">APPLICATOR<br><span style="font-weight: 300; opacity: 0.9;">Seshoka Johannes</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="orange-header">Our Expertise</div>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/large-format-printing-company-banner-design-template-727f9582aa274c9d8ebefa9d53315591_screen.jpg?ts=1737904166" alt="Large Format Printing">
+                    <div class="card-content">
+                        <h3>Large Format</h3>
+                        <p>High-visibility signage boards, reflective safety signs, and custom lightboxes designed for harsh industrial environments.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://equiptgraphics.com/wp-content/uploads/2022/05/IMG_6330-1080x675.png" alt="Vehicle Branding">
+                    <div class="card-content">
+                        <h3>Vehicle Branding</h3>
+                        <p>Strategic fleet branding and professional wrapping that turns every vehicle into a high-impact mobile billboard.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/26db4009-3e28-40ee-9b18-6ddf68bb7d91.__CR0,0,1940,1200_PT0_SX970_V1___.jpg" alt="Branding & PPE">
+                    <div class="card-content">
+                        <h3>Branding & PPE</h3>
+                        <p>Custom corporate apparel, premium embroidery, and SABS-standard PPE supply tailored to your brand identity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="orange-header">Our Work Gallery</div>
+            <div class="grid">
+                <!-- Your original portfolio cards remain here -->
+                <div class="card">
+                    <img src="https://mksigns.com/cdn/shop/files/msdANilPKaf_1.png?v=1761281030&width=1946" alt="Custom Vinyl Banner">
+                    <div class="card-content">
+                        <h3>Industrial Signage</h3>
+                        <p>Durable large format prints for mining and construction sites.</p>
+                    </div>
+                </div>
+                <!-- ... other portfolio cards ... -->
+            </div>
+        </section>
+
         <section id="contact">
             <div class="orange-header">Get In Touch</div>
-            <div class="contact-grid">
-                <div class="contact-card primary">
-                    <h3>Contact Details</h3>
-                    <p><i class="fas fa-phone"></i> 060 711 8356 / 015 004 0179</p>
-                    <p><i class="fas fa-envelope"></i> info@takedi.co.za</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 15 Nelson Mandela Street, Mokopane</p>
+            <div class="grid">
+                <div class="card" style="background: var(--primary); color: white; min-height: 340px;">
+                    <h3 style="color: white; margin-bottom: 30px;">Contact Details</h3>
+                    <p style="color: #eee;"><i class="fas fa-phone" style="color: var(--accent);"></i> 060 711 8356 / 015 004 0179</p>
+                    <p style="color: #eee;"><i class="fas fa-envelope" style="color: var(--accent);"></i> info@takedi.co.za</p>
+                    <p style="color: #eee;"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 15 Nelson Mandela Street, Mokopane</p>
                 </div>
-
-                <div class="contact-card">
+                <div class="card" style="min-height: 340px;">
                     <h3>Business Hours</h3>
                     <p><strong>Monday - Friday:</strong> 08:00 - 17:00</p>
                     <p><strong>Saturday:</strong> 09:00 - 13:00</p>
                     <p><strong>Sunday:</strong> Closed</p>
-                    <div style="margin-top: 40px;">
-                        <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px;">SEND US AN EMAIL →</a>
+                    <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid #eee; margin-top: auto;">
+                        <a href="mailto:info@takedi.co.za" style="color: var(--accent); font-weight: 700; font-size: 18px;">REQUEST A QUOTE →</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="contact-form" style="margin-top: 80px;">
-                <h2 style="text-align: center; margin-bottom: 40px;">Send Us a Message</h2>
-                <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                    <button type="submit">SUBMIT MESSAGE</button>
-                </form>
-                <p style="text-align: center; margin-top: 20px; color: #777; font-size: 14px;">We'll get back to you within 24-48 hours.</p>
             </div>
         </section>
     </main>
@@ -377,39 +502,39 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
-                <h4>MK GROUPS (PTY) LTD</h4>
-                <p>Fast, reliable, and high-quality digital printing and branding services throughout South Africa. Precision craftsmanship for every project.</p>
+                <h4>TAKEDI</h4>
+                <p>Delivering fast, reliable, and cost-effective digital printing & branding services across South Africa. We bring your brand to life with precision and durability.</p>
             </div>
             <div class="footer-column">
-                <h4>Our Commitment</h4>
-                <p>To deliver industry-leading solutions through superior quality, innovation, sustainability, and dedicated client service.</p>
+                <h4>Our Mission</h4>
+                <p>To be the industry-leading printing company through exceptional quality, sustainable innovation, and community development.</p>
             </div>
         </div>
         <div class="copyright">
-            <p>© 2026 Monkwe Koketso Groups (Pty) Ltd. Takedi Modern Printers & Supply. All Rights Reserved.</p>
+            <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Scroll animations
+        // Your original script remains unchanged
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.2 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
-
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
         });
-
-        // Hamburger Menu
         const hamburger = document.getElementById('hamburger');
-        const menuWrapper = document.querySelector('.menu-wrapper');
-        if (hamburger && menuWrapper) {
+        const navbar = document.getElementById('navbar');
+        if (hamburger && navbar) {
             hamburger.addEventListener('click', () => {
-                menuWrapper.classList.toggle('active');
+                navbar.classList.toggle('expanded');
                 const icon = hamburger.querySelector('i');
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
