@@ -212,7 +212,6 @@
         }
         .grid {
             display: grid;
-            /* Optimized base setting, overridden in media queries for pure mobile */
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 50px;
         }
@@ -312,7 +311,6 @@
                 height: auto;
                 border-radius: 16px;
                 padding-bottom: 25px;
-                /* Ensure background is opaque when expanded for readability */
                 background: white; 
                 box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             }
@@ -322,9 +320,10 @@
                 align-items: center;
             }
             .hamburger { display: block; }
+            
             .menu-wrapper {
                 width: 100%;
-                flex-direction: column;
+                flex-direction: column; /* CTA remains below links */
                 justify-content: flex-start;
                 align-items: center;
                 gap: 15px;
@@ -334,24 +333,30 @@
                 transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
+            
+            /* --- LINKS HORIZONTAL ON MOBILE --- */
             nav ul {
-                flex-direction: column;
+                flex-direction: row; /* Horizontal Links */
+                flex-wrap: wrap;     /* Wrap if screen is too small */
                 justify-content: center;
                 align-items: center;
-                gap: 20px;
+                gap: 15px;
                 width: 100%;
+                margin-bottom: 10px;
             }
             nav ul li a {
-                font-size: 16px; /* Slightly larger for touch */
-                padding: 5px;
+                font-size: 14px;
+                padding: 5px 8px;
                 display: block;
             }
+            /* ----------------------------------- */
+
             .nav-cta {
                 font-size: 14px;
                 padding: 12px 30px;
                 width: 80%;
                 text-align: center;
-                margin-top: 10px;
+                margin-top: 0; /* Adjusted spacing since links are horizontal */
             }
             nav ul li, .nav-cta {
                 opacity: 0;
@@ -371,23 +376,17 @@
 
         /* ─── STRICT MOBILE (Phone) OPTIMIZATION ────────────────── */
         @media (max-width: 768px) {
-            /* Fix Grid Layout for Small Screens */
             .grid {
-                /* Override minmax(340px) to prevent overflow on small phones */
                 grid-template-columns: 1fr; 
                 gap: 35px;
             }
-            
-            /* Fix Hero Spacing & Background */
             header {
-                /* Reduce massive padding from 320px to 150px */
                 padding: 150px 6% 80px; 
-                /* Fixed background causes jitter on mobile, scroll is smoother */
                 background-attachment: scroll; 
                 background-position: center center;
             }
             .company-name {
-                font-size: 42px; /* Ensure it fits */
+                font-size: 42px;
             }
             .hero-label {
                 font-size: 13px;
@@ -398,31 +397,23 @@
                 padding: 12px 18px;
                 border-left-width: 4px;
             }
-
-            /* Reduce Section White Space */
             section {
                 padding: 60px 5%;
             }
             #about {
                 padding-top: 100px !important;
             }
-
-            /* Adjust Headers */
             .orange-header {
                 font-size: 22px;
                 padding: 12px 30px;
                 margin-bottom: 40px;
-                box-shadow: 6px 6px 0px var(--primary); /* Reduced shadow size */
+                box-shadow: 6px 6px 0px var(--primary);
             }
-
-            /* Card Adjustments */
             .card {
-                min-height: auto; /* Remove fixed height constraint */
+                min-height: auto;
             }
             .card h3 { font-size: 22px; }
             .card img { height: 200px; }
-            
-            /* Footer Adjustments */
             footer { padding: 60px 6% 40px; }
             .footer-grid { gap: 40px; }
             .copyright { margin-top: 50px; }
@@ -585,7 +576,7 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 }); /* Lowered threshold for mobile to trigger earlier */
+        }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
 
         window.addEventListener('scroll', () => {
