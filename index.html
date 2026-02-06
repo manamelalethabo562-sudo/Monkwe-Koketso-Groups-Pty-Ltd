@@ -28,7 +28,8 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; }
         a { text-decoration: none; transition: var(--transition); }
-        /* ─── NAVBAR ────────────────────────────────────────────── (exact match to services & about pages) */
+        
+        /* ─── NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
             top: 20px;
@@ -129,7 +130,8 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-        /* ─── Hero (unchanged) ──────────────────────────────────── */
+
+        /* ─── Hero ──────────────────────────────────── */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
                         url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
@@ -182,6 +184,8 @@
             padding: 15px 25px;
             border-radius: 12px;
         }
+
+        /* ─── Sections ──────────────────────────────────── */
         section {
             padding: 140px 8%;
             max-width: 1400px;
@@ -191,6 +195,7 @@
             transition: all 1s ease-out;
         }
         section.visible { opacity: 1; transform: translateY(0); }
+        
         .orange-header {
             background: var(--accent);
             color: white;
@@ -207,6 +212,7 @@
         }
         .grid {
             display: grid;
+            /* Optimized base setting, overridden in media queries for pure mobile */
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 50px;
         }
@@ -238,31 +244,14 @@
             display: flex;
             flex-direction: column;
         }
-        .card h3 {
-            margin: 0 0 12px;
-            font-size: 24px;
-        }
-        .card p {
-            margin: 0;
-            font-size: 15px;
-            color: #555;
-            line-height: 1.6;
-        }
-        .card i {
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-        #portfolio .grid .card img {
-            height: 280px;
-        }
-        #portfolio .card {
-            min-height: 480px;
-        }
-        #portfolio .card-content {
-            padding: 25px 28px;
-            text-align: center;
-        }
+        .card h3 { margin: 0 0 12px; font-size: 24px; }
+        .card p { margin: 0; font-size: 15px; color: #555; line-height: 1.6; }
+        .card i { font-size: 3.5rem; color: var(--accent); margin-bottom: 20px; }
+        
+        #portfolio .grid .card img { height: 280px; }
+        #portfolio .card { min-height: 480px; }
+        #portfolio .card-content { padding: 25px 28px; text-align: center; }
+        
         #contact .card {
             padding: 35px;
             min-height: 320px;
@@ -270,9 +259,7 @@
             flex-direction: column;
             justify-content: flex-start;
         }
-        #contact .card h3 {
-            margin-bottom: 30px;
-        }
+        #contact .card h3 { margin-bottom: 30px; }
         #contact .card p {
             margin: 16px 0;
             display: flex;
@@ -281,6 +268,8 @@
             font-size: 16px;
         }
         #contact i { font-size: 22px; width: 30px; }
+
+        /* ─── Footer ──────────────────────────────────── */
         footer {
             background: #0B0C1F;
             color: white;
@@ -306,9 +295,11 @@
             font-size: 14px;
             color: #888;
         }
+
+        /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
         @media (max-width: 991px) {
             nav {
-                width: 95%;
+                width: 90%;
                 padding: 12px 20px;
                 border-radius: 16px;
                 flex-direction: column;
@@ -320,7 +311,10 @@
             nav.expanded {
                 height: auto;
                 border-radius: 16px;
-                padding-bottom: 20px;
+                padding-bottom: 25px;
+                /* Ensure background is opaque when expanded for readability */
+                background: white; 
+                box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             }
             .nav-left {
                 width: 100%;
@@ -330,43 +324,41 @@
             .hamburger { display: block; }
             .menu-wrapper {
                 width: 100%;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                justify-content: flex-start;
                 align-items: center;
-                gap: 14px 20px;
-                padding: 16px 0 4px;
+                gap: 15px;
+                padding: 20px 0 5px;
                 opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
             nav ul {
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: column;
                 justify-content: center;
-                gap: 14px 20px;
-                width: auto;
+                align-items: center;
+                gap: 20px;
+                width: 100%;
             }
             nav ul li a {
+                font-size: 16px; /* Slightly larger for touch */
+                padding: 5px;
+                display: block;
+            }
+            .nav-cta {
                 font-size: 14px;
-                padding: 8px 14px;
-                white-space: nowrap;
+                padding: 12px 30px;
+                width: 80%;
+                text-align: center;
+                margin-top: 10px;
             }
-            .nav-cta {
-                font-size: 13px;
-                padding: 9px 20px;
-                min-width: auto;
-                margin: 0;
-            }
-            nav ul li,
-            .nav-cta {
+            nav ul li, .nav-cta {
                 opacity: 0;
                 transform: translateY(12px);
                 transition: opacity 0.4s ease, transform 0.4s ease;
             }
-            nav.expanded ul li,
-            nav.expanded .nav-cta {
+            nav.expanded ul li, nav.expanded .nav-cta {
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -375,8 +367,65 @@
             nav ul li:nth-child(3) { transition-delay: 0.20s; }
             nav ul li:nth-child(4) { transition-delay: 0.26s; }
             .nav-cta { transition-delay: 0.32s; }
-            .card { min-height: auto; }
-            .card-content { padding: 25px 20px; }
+        }
+
+        /* ─── STRICT MOBILE (Phone) OPTIMIZATION ────────────────── */
+        @media (max-width: 768px) {
+            /* Fix Grid Layout for Small Screens */
+            .grid {
+                /* Override minmax(340px) to prevent overflow on small phones */
+                grid-template-columns: 1fr; 
+                gap: 35px;
+            }
+            
+            /* Fix Hero Spacing & Background */
+            header {
+                /* Reduce massive padding from 320px to 150px */
+                padding: 150px 6% 80px; 
+                /* Fixed background causes jitter on mobile, scroll is smoother */
+                background-attachment: scroll; 
+                background-position: center center;
+            }
+            .company-name {
+                font-size: 42px; /* Ensure it fits */
+            }
+            .hero-label {
+                font-size: 13px;
+                letter-spacing: 3px;
+            }
+            .slogan {
+                font-size: 18px;
+                padding: 12px 18px;
+                border-left-width: 4px;
+            }
+
+            /* Reduce Section White Space */
+            section {
+                padding: 60px 5%;
+            }
+            #about {
+                padding-top: 100px !important;
+            }
+
+            /* Adjust Headers */
+            .orange-header {
+                font-size: 22px;
+                padding: 12px 30px;
+                margin-bottom: 40px;
+                box-shadow: 6px 6px 0px var(--primary); /* Reduced shadow size */
+            }
+
+            /* Card Adjustments */
+            .card {
+                min-height: auto; /* Remove fixed height constraint */
+            }
+            .card h3 { font-size: 22px; }
+            .card img { height: 200px; }
+            
+            /* Footer Adjustments */
+            footer { padding: 60px 6% 40px; }
+            .footer-grid { gap: 40px; }
+            .copyright { margin-top: 50px; }
         }
     </style>
 </head>
@@ -397,11 +446,13 @@
             <a href="contact.html" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
+
     <header id="home">
-        <div class="hero-label">Excellence in Printing & Branding</div>
+        <div class="hero-label">Excellence in Printing</div>
         <h1 class="company-name">TAKEDI</h1>
         <div class="slogan">Modern Printers & Supply </div>
     </header>
+
     <main>
         <section id="about" style="padding-top: 160px;">
             <div class="orange-header">About Company</div>
@@ -413,6 +464,7 @@
                 </div>
             </div>
         </section>
+
         <section id="services">
             <div class="orange-header">Our Expertise</div>
             <div class="grid">
@@ -439,6 +491,7 @@
                 </div>
             </div>
         </section>
+
         <section id="portfolio">
             <div class="orange-header">Our Work Gallery</div>
             <div class="grid">
@@ -486,6 +539,7 @@
                 </div>
             </div>
         </section>
+
         <section id="contact">
             <div class="orange-header">Get In Touch</div>
             <div class="grid">
@@ -507,6 +561,7 @@
             </div>
         </section>
     </main>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -522,6 +577,7 @@
             <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
+
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -529,15 +585,18 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 }); /* Lowered threshold for mobile to trigger earlier */
         document.querySelectorAll('section').forEach(s => observer.observe(s));
+
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
+
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
+        
         if (hamburger && navbar) {
             hamburger.addEventListener('click', () => {
                 navbar.classList.toggle('expanded');
