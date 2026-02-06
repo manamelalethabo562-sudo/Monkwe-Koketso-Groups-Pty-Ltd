@@ -27,7 +27,8 @@
         h1, h2, h3 { color: var(--primary); font-weight: 700; }
         p { color: #555; }
         a { text-decoration: none; transition: var(--transition); }
-        /* ─── NAVBAR ────────────────────────────────────────────── (exact match to services page) */
+
+        /* ─── NAVBAR ─── */
         nav {
             position: fixed;
             top: 20px;
@@ -114,9 +115,7 @@
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
-        nav ul li a.active {
-            color: var(--accent);
-        }
+        nav ul li a.active { color: var(--accent); }
         nav ul li a.active::after { width: 100%; }
         .nav-cta {
             background: var(--accent);
@@ -132,7 +131,8 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-        /* ─── HERO ──────────────────────────────────────────────── (exact match to services page) */
+
+        /* ─── HERO ─── */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.85), rgba(15, 15, 45, 0.4));
             color: white;
@@ -169,6 +169,8 @@
             border-left: 5px solid var(--accent);
             padding-left: 25px;
         }
+
+        /* ─── SECTIONS ─── */
         main { padding-top: 0; }
         section {
             padding: 140px 8%;
@@ -211,54 +213,14 @@
             line-height: 1.8;
             margin-bottom: 28px;
         }
-        .highlight {
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .organogram-card {
-            background: white;
-            border-radius: 36px;
-            padding: 80px 40px;
-            text-align: center;
-            box-shadow: 0 20px 55px rgba(0,0,0,0.07);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-        .org-box {
-            background: var(--accent);
-            color: white;
-            padding: 24px 50px;
-            border-radius: 16px;
-            display: inline-block;
-            font-weight: 800;
-            margin: 16px;
-            box-shadow: 0 10px 25px rgba(245,134,52,0.25);
-            font-size: 17px;
-            min-width: 240px;
-        }
-        .org-box.primary {
-            background: var(--primary);
-        }
-        .values-grid, .mission-vision-grid {
+        .highlight { color: var(--accent); font-weight: 700; }
+
+        /* ─── VALUES & MISSION ─── */
+        .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin: 100px 0;
-        }
-        /* Core Values cards – force them into one row on larger screens */
-        #values .values-grid {
-            grid-template-columns: repeat(4, 1fr); /* exactly 4 columns */
-            grid-auto-flow: column; /* fill columns first */
-            justify-content: center;
-        }
-        @media (max-width: 1200px) {
-            #values .values-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-            }
-        }
-        @media (max-width: 768px) {
-            #values .values-grid {
-                grid-template-columns: 1fr; /* stack on mobile */
-            }
         }
         .value-card, .mission-card {
             background: white;
@@ -277,21 +239,14 @@
             color: var(--accent);
             margin-bottom: 25px;
         }
-        .value-card h3, .mission-card h3 {
-            font-size: 26px;
-            margin-bottom: 18px;
+        #mission-vision .mission-vision-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin: 100px 0;
         }
-        .mission-card p {
-            font-size: 16px;
-            line-height: 1.7;
-            text-align: left;
-        }
-        .mission-card ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 20px 0 0;
-            text-align: left;
-        }
+        .mission-card p, .mission-card ul { text-align: left; }
+        .mission-card ul { list-style: none; padding-left: 0; }
         .mission-card ul li {
             margin: 12px 0;
             padding-left: 30px;
@@ -305,15 +260,31 @@
             position: absolute;
             left: 0;
             top: 2px;
-            font-size: 1.3rem;
         }
-        /* Mission/Vision/Values cards – now vertical stack */
-        #mission-vision .mission-vision-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            margin: 100px 0;
+
+        /* ─── LEADERSHIP ─── */
+        .organogram-card {
+            background: white;
+            border-radius: 36px;
+            padding: 80px 40px;
+            text-align: center;
+            box-shadow: 0 20px 55px rgba(0,0,0,0.07);
+            border: 1px solid rgba(0,0,0,0.03);
         }
+        .org-box {
+            background: var(--accent);
+            color: white;
+            padding: 24px 50px;
+            border-radius: 16px;
+            display: inline-block;
+            font-weight: 800;
+            margin: 16px;
+            font-size: 17px;
+            min-width: 240px;
+        }
+        .org-box.primary { background: var(--primary); }
+
+        /* ─── FOOTER ─── */
         footer {
             background: #0B0C1F;
             color: white;
@@ -324,93 +295,77 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 70px;
         }
-        .footer-column h4 {
-            font-size: 22px;
-            margin-bottom: 30px;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-        }
-        .footer-column p { color: #B0B0C0; font-size: 16px; }
+        .footer-column h4 { color: var(--accent); margin-bottom: 30px; }
         .copyright {
             text-align: center;
             margin-top: 100px;
             padding-top: 50px;
             border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 14px;
             color: #888;
         }
+
+        /* ─── MOBILE OPTIMIZATION ─── */
         @media (max-width: 991px) {
             nav {
                 width: 95%;
                 padding: 12px 20px;
-                border-radius: 16px;
+                border-radius: 50px;
                 flex-direction: column;
-                align-items: flex-start;
-                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
+                align-items: center;
                 height: 68px;
                 overflow: hidden;
+                transition: height 0.4s ease, border-radius 0.4s ease;
             }
             nav.expanded {
-                height: auto;
-                border-radius: 16px;
-                padding-bottom: 20px;
+                height: 140px; /* Adjusted to fit horizontal links */
+                border-radius: 25px;
             }
             .nav-left {
                 width: 100%;
                 justify-content: space-between;
-                align-items: center;
             }
             .hamburger { display: block; }
+
             .menu-wrapper {
                 width: 100%;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                gap: 14px 20px;
-                padding: 16px 0 4px;
+                flex-direction: column;
+                gap: 15px;
+                padding-top: 15px;
                 opacity: 0;
                 visibility: hidden;
-                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
-            nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
+            nav.expanded .menu-wrapper {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* Force Horizontal Links on Mobile */
             nav ul {
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: row; 
                 justify-content: center;
-                gap: 14px 20px;
-                width: auto;
+                gap: 12px;
+                width: 100%;
             }
             nav ul li a {
-                font-size: 14px;
-                padding: 8px 14px;
+                font-size: 12px;
+                padding: 5px 8px;
                 white-space: nowrap;
             }
             .nav-cta {
-                font-size: 13px;
-                padding: 9px 20px;
-                min-width: auto;
-                margin: 0;
+                font-size: 11px;
+                padding: 8px 18px;
+                letter-spacing: 0.5px;
             }
-            nav ul li,
-            .nav-cta {
-                opacity: 0;
-                transform: translateY(12px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
-            }
-            nav.expanded ul li,
-            nav.expanded .nav-cta {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            nav ul li:nth-child(1) { transition-delay: 0.08s; }
-            nav ul li:nth-child(2) { transition-delay: 0.14s; }
-            nav ul li:nth-child(3) { transition-delay: 0.20s; }
-            nav ul li:nth-child(4) { transition-delay: 0.26s; }
-            .nav-cta { transition-delay: 0.32s; }
-            section { padding: 100px 6%; }
-            .about-intro { padding: 45px 30px; }
-            .organogram-card { padding: 60px 25px; }
+
+            /* Grid Adjustments */
+            .values-grid { grid-template-columns: 1fr; }
+            section { padding: 80px 6%; }
+            .about-intro { padding: 40px 20px; }
+            .orange-header { font-size: 24px; padding: 12px 30px; }
+        }
+
+        @media (max-width: 1200px) and (min-width: 992px) {
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -431,129 +386,120 @@
             <a href="contact.html" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
+
     <header id="about">
-        <div class="hero-label"></div>
+        <div class="hero-label">Precision & Quality</div>
         <h1 class="company-name">ABOUT US</h1>
         <div class="slogan">Modern Printers & Supply</div>
     </header>
+
     <main>
         <section id="intro">
             <div class="orange-header">Who We Are</div>
             <div class="about-intro">
                 <h1>Precision Printing & Branding <span class="highlight">Since 2022</span></h1>
-                <p>TAKEDI Modern Printers & Supply is a proudly South African company founded in 2022 with a clear mission: to deliver <strong>high-quality, durable, and fast-turnaround</strong> digital printing and branding solutions tailored to the demanding needs of the <strong>mining, industrial, and commercial sectors</strong>.</p>
-                <p>We combine cutting-edge technology with hands-on craftsmanship to produce signage, vehicle branding, corporate apparel, PPE, and large-format graphics that withstand harsh environments while powerfully communicating your brand identity.</p>
-                <p>From our base in <strong>Mokopane</strong>, we proudly serve clients across South Africa — offering <strong>precision, speed, reliability</strong>, and personal service that large corporate printers often cannot match.</p>
+                <p>TAKEDI Modern Printers & Supply is a proudly South African company founded in 2022 with a clear mission: to deliver <strong>high-quality, durable, and fast-turnaround</strong> digital printing and branding solutions.</p>
+                <p>We combine cutting-edge technology with hands-on craftsmanship to produce signage, vehicle branding, corporate apparel, and PPE that withstand harsh industrial environments.</p>
+                <p>From our base in <strong>Mokopane</strong>, we serve clients across South Africa with <strong>precision, speed, and reliability</strong>.</p>
             </div>
         </section>
+
         <section id="values">
             <div class="orange-header">Our Core Values</div>
             <div class="values-grid">
                 <div class="value-card">
                     <i class="fas fa-bullseye"></i>
                     <h3>Precision</h3>
-                    <p>Every print, cut, and application is executed with meticulous attention to detail — because in industrial environments, quality is non-negotiable.</p>
+                    <p>Every print is executed with meticulous attention to detail.</p>
                 </div>
                 <div class="value-card">
                     <i class="fas fa-clock"></i>
-                    <h3>Speed Without Compromise</h3>
-                    <p>We understand urgent project timelines in mining and industry. Our streamlined processes deliver fast results while maintaining exceptional standards.</p>
+                    <h3>Speed</h3>
+                    <p>Fast results without compromising on our high standards.</p>
                 </div>
                 <div class="value-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Durability</h3>
-                    <p>Our materials and finishing techniques are chosen to endure dust, UV exposure, weather, abrasion — ensuring your branding lasts.</p>
+                    <p>Materials chosen to endure dust, UV, and weather.</p>
                 </div>
                 <div class="value-card">
                     <i class="fas fa-handshake"></i>
-                    <h3>Client-First Approach</h3>
-                    <p>We build long-term partnerships through honest communication, transparent pricing, and genuine care for each project's success.</p>
+                    <h3>Client-First</h3>
+                    <p>Long-term partnerships through honest communication.</p>
                 </div>
             </div>
         </section>
-        <!-- NEW SECTION: Mission, Vision & Values Statement – now vertical -->
+
         <section id="mission-vision">
-            <div class="orange-header">Our Mission, Vision and Values Statement</div>
+            <div class="orange-header">Commitment</div>
             <div class="mission-vision-grid">
                 <div class="mission-card">
                     <i class="fas fa-rocket"></i>
-                    <h3>Mission Statement</h3>
-                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers, while maintaining the highest standards of quality and customer service.</p>
+                    <h3>Mission</h3>
+                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers.</p>
                 </div>
                 <div class="mission-card">
                     <i class="fas fa-binoculars"></i>
-                    <h3>Vision Statement</h3>
-                    <p>To be the leading digital printing company in industry, recognized for our exceptional quality, innovative solutions, and commitment to customer satisfaction and sustainability.</p>
-                </div>
-                <div class="mission-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Values Statement</h3>
-                    <ul>
-                        <li><strong>Customer Focus:</strong> We prioritize our customers' needs and strive to exceed their expectations.</li>
-                        <li><strong>Quality Excellence:</strong> We are committed to delivering high-quality products and services that meet the highest standards.</li>
-                        <li><strong>Innovation:</strong> We encourage creativity, innovation, and continuous improvement in all aspects of our business.</li>
-                        <li><strong>Sustainability:</strong> We prioritize environmental sustainability and strive to minimize our ecological footprint.</li>
-                        <li><strong>Integrity:</strong> We operate with integrity, transparency, and honesty in all our interactions with customers, employees, and partners.</li>
-                        <li><strong>Teamwork:</strong> We foster a collaborative and inclusive work environment that values diversity, creativity, and open communication.</li>
-                    </ul>
+                    <h3>Vision</h3>
+                    <p>To be the leading digital printing company recognized for exceptional quality and innovation.</p>
                 </div>
             </div>
         </section>
+
         <section id="leadership">
             <div class="orange-header">Our Leadership</div>
             <div class="organogram-card">
-                <h2 style="margin-bottom: 70px; text-transform: uppercase; letter-spacing: 3px;">Leadership Structure</h2>
-                <div class="org-box">DIRECTOR & LEAD DESIGNER<br><span style="font-weight: 300; opacity: 0.9;">TAKEDI</span></div>
-                <div style="margin: 50px 0;"><i class="fas fa-chevron-down fa-4x" style="color: var(--primary); opacity: 0.7;"></i></div>
-                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;">
-                    <div class="org-box primary">RECEPTIONIST & CLIENT RELATIONS<br><span style="font-weight: 300; opacity: 0.9;">Moshi Mapula</span></div>
-                    <div class="org-box primary">PRODUCTION & APPLICATION SPECIALIST<br><span style="font-weight: 300; opacity: 0.9;">Seshoka Johannes</span></div>
+                <div class="org-box">DIRECTOR & LEAD DESIGNER<br><span style="font-weight: 300;">TAKEDI</span></div>
+                <div style="margin: 30px 0;"><i class="fas fa-chevron-down fa-2x" style="color: var(--primary);"></i></div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+                    <div class="org-box primary">CLIENT RELATIONS<br><span style="font-weight: 300;">Moshi Mapula</span></div>
+                    <div class="org-box primary">PRODUCTION SPECIALIST<br><span style="font-weight: 300;">Seshoka Johannes</span></div>
                 </div>
-                <p style="margin-top: 80px; font-size: 17px; color: #555; max-width: 800px; margin-left: auto; margin-right: auto;">
-                    A compact, highly skilled team structure allows us to remain agile, responsive, and personally involved in every project — from initial design concept through to final installation.
-                </p>
             </div>
         </section>
     </main>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
                 <h4>TAKEDI</h4>
-                <p>Delivering fast, reliable, and cost-effective digital printing & branding services across South Africa. We bring your brand to life with precision and durability.</p>
+                <p>Delivering fast, reliable, and cost-effective branding solutions across South Africa.</p>
             </div>
             <div class="footer-column">
-                <h4>Our Mission</h4>
-                <p>To be the industry-leading printing company through exceptional quality, sustainable innovation, and community development.</p>
+                <h4>Contact</h4>
+                <p>Based in Mokopane, Limpopo.</p>
             </div>
         </div>
         <div class="copyright">
-            <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
+            <p>© 2026 TAKEDI Modern Printers & Supply.</p>
         </div>
     </footer>
+
     <script>
+        // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+        // Scroll effect for Navbar
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
+
+        // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
-        if (hamburger && navbar) {
-            hamburger.addEventListener('click', () => {
-                navbar.classList.toggle('expanded');
-                const icon = hamburger.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
-        }
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('expanded');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
     </script>
 </body>
-</html>optimize for all mobile devices, dont chnage anything and give full code
+</html>
