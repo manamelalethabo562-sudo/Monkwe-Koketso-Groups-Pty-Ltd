@@ -244,6 +244,22 @@
             gap: 40px;
             margin: 100px 0;
         }
+        /* Core Values cards – force them into one row on larger screens */
+        #values .values-grid {
+            grid-template-columns: repeat(4, 1fr);           /* exactly 4 columns */
+            grid-auto-flow: column;                         /* fill columns first */
+            justify-content: center;
+        }
+        @media (max-width: 1200px) {
+            #values .values-grid {
+                grid-template-columns: repeat(2, 1fr);      /* 2 columns on medium screens */
+            }
+        }
+        @media (max-width: 768px) {
+            #values .values-grid {
+                grid-template-columns: 1fr;                 /* stack on mobile */
+            }
+        }
         .value-card, .mission-card {
             background: white;
             border-radius: 24px;
@@ -290,13 +306,6 @@
             left: 0;
             top: 2px;
             font-size: 1.3rem;
-        }
-        /* Changed from grid → flex column for vertical stacking */
-        #mission-vision .mission-vision-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin: 100px 0;
         }
         footer {
             background: #0B0C1F;
@@ -455,7 +464,7 @@
                 </div>
             </div>
         </section>
-        <!-- NEW SECTION: Mission, Vision & Values Statement – now vertical -->
+        <!-- NEW SECTION: Mission, Vision & Values Statement -->
         <section id="mission-vision">
             <div class="orange-header">Our Mission, Vision and Values Statement</div>
             <div class="mission-vision-grid">
