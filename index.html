@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TAKEDI | Modern Printers & Supply</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,12 +30,12 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; margin: 1rem 0; }
         a { text-decoration: none; transition: var(--transition); }
-        a, button, .card { touch-action: manipulation; }
+        a, button { touch-action: manipulation; }
 
         /* ─── NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
-            top: 10px;
+            top: 12px;
             left: 50%;
             transform: translateX(-50%);
             width: 94%;
@@ -43,14 +43,14 @@
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            padding: 10px 18px;
+            padding: 10px 20px;
             z-index: 1000;
             border-radius: 60px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             transition: var(--transition);
         }
         nav.scrolled {
@@ -76,7 +76,7 @@
         .nav-logo-text {
             color: var(--primary);
             font-weight: 800;
-            font-size: clamp(13px, 3.5vw, 15px);
+            font-size: 14px;
             letter-spacing: 0.4px;
         }
         .hamburger {
@@ -89,14 +89,14 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 18px;
+            gap: 20px;
             margin: 0;
             padding: 0;
         }
         nav ul li a {
             color: #222;
             font-weight: 600;
-            font-size: clamp(13px, 3.2vw, 14.5px);
+            font-size: 13.5px;
             padding: 6px 10px;
             position: relative;
         }
@@ -116,10 +116,10 @@
         .nav-cta {
             background: var(--accent);
             color: white !important;
-            padding: 9px 18px;
+            padding: 9px 20px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: clamp(12.5px, 3.5vw, 14px);
+            font-size: 13px;
             box-shadow: 0 4px 15px rgba(245,134,52,0.3);
             letter-spacing: 0.5px;
             white-space: nowrap;
@@ -134,7 +134,7 @@
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
                         url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
             color: white;
-            padding: clamp(180px, 40vw, 280px) 6% clamp(120px, 30vw, 200px);
+            padding: 220px 8% 160px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -151,17 +151,17 @@
         .hero-label {
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: clamp(3px, 1vw, 5px);
+            letter-spacing: 4px;
             font-weight: 800;
             margin-bottom: 12px;
-            font-size: clamp(13px, 4vw, 16px);
+            font-size: clamp(13px, 3.5vw, 16px);
             background: rgba(0,0,0,0.4);
             padding: 6px 16px;
             border-radius: 30px;
         }
         .company-name {
             color: var(--white);
-            font-size: clamp(38px, 12vw, 80px);
+            font-size: clamp(38px, 9vw, 76px);
             font-weight: 900;
             margin: 0;
             line-height: 1.05;
@@ -169,7 +169,7 @@
             text-shadow: 2px 5px 18px rgba(0,0,0,0.6);
         }
         .slogan {
-            font-size: clamp(18px, 5vw, 32px);
+            font-size: clamp(18px, 4.5vw, 28px);
             color: rgba(255,255,255,0.95);
             margin-top: 20px;
             font-weight: 400;
@@ -178,9 +178,9 @@
             padding-left: 18px;
         }
 
-        /* ─── SECTIONS & CARDS ──────────────────────────────────── */
+        /* ─── SECTIONS ──────────────────────────────────────────── */
         section {
-            padding: clamp(80px, 12vw, 140px) 6% clamp(90px, 14vw, 140px);
+            padding: 100px 6% 120px;
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
@@ -192,11 +192,11 @@
         .orange-header {
             background: var(--accent);
             color: white;
-            padding: clamp(12px, 4vw, 18px) clamp(30px, 8vw, 50px);
+            padding: 14px 40px;
             display: inline-block;
-            font-size: clamp(22px, 6vw, 32px);
+            font-size: clamp(24px, 5vw, 32px);
             font-weight: 800;
-            margin-bottom: clamp(40px, 8vw, 70px);
+            margin-bottom: 50px;
             box-shadow: 10px 10px 0 var(--primary);
             border-radius: 10px;
             text-transform: uppercase;
@@ -205,8 +205,8 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: clamp(24px, 5vw, 50px);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
         }
 
         .card {
@@ -216,7 +216,7 @@
             border: 1px solid rgba(0,0,0,0.04);
             transition: var(--transition);
             overflow: hidden;
-            min-height: 360px;
+            min-height: 380px;
             display: flex;
             flex-direction: column;
         }
@@ -226,65 +226,65 @@
         }
         .card img {
             width: 100%;
-            height: clamp(180px, 40vw, 220px);
+            height: 200px;
             object-fit: cover;
             border-bottom: 4px solid var(--accent);
         }
         .card-content {
-            padding: clamp(20px, 4vw, 30px);
+            padding: 24px;
             flex-grow: 1;
         }
         .card h3 {
             margin: 0 0 10px;
-            font-size: clamp(20px, 4.5vw, 24px);
+            font-size: 22px;
         }
         .card p {
             margin: 0;
-            font-size: clamp(14px, 3.5vw, 15px);
+            font-size: 14.5px;
             line-height: 1.6;
         }
         .card i {
-            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-size: 3rem;
             color: var(--accent);
             margin-bottom: 18px;
         }
 
         /* Contact section cards */
         #contact .card {
-            padding: clamp(24px, 5vw, 35px);
-            min-height: 280px;
+            padding: 30px;
+            min-height: 300px;
         }
-        #contact .card h3 { margin-bottom: 20px; }
+        #contact .card h3 { margin-bottom: 24px; }
         #contact .card p {
-            margin: 12px 0;
-            font-size: clamp(15px, 3.8vw, 16px);
+            margin: 14px 0;
+            font-size: 15.5px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         footer {
             background: #0B0C1F;
             color: white;
-            padding: clamp(80px, 12vw, 120px) 6% 50px;
+            padding: 90px 6% 50px;
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: clamp(40px, 8vw, 70px);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
         }
         .footer-column h4 {
-            font-size: clamp(18px, 4.5vw, 22px);
-            margin-bottom: 20px;
+            font-size: 20px;
+            margin-bottom: 24px;
             color: var(--accent);
         }
-        .footer-column p { color: #B0B0C0; font-size: clamp(14px, 3.5vw, 16px); }
+        .footer-column p { color: #B0B0C0; font-size: 15px; }
         .copyright {
             text-align: center;
-            margin-top: clamp(60px, 10vw, 100px);
+            margin-top: 80px;
             padding-top: 40px;
             border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: clamp(12px, 3vw, 14px);
+            font-size: 13px;
             color: #888;
         }
 
@@ -297,15 +297,17 @@
                 border-radius: 50px;
                 box-shadow: 0 6px 20px rgba(0,0,0,0.12);
             }
-            nav.scrolled { padding: 8px 5%; }
+            nav.scrolled {
+                padding: 8px 5%;
+            }
             .nav-avatar { width: 36px; height: 36px; }
-            .nav-logo-text { font-size: clamp(12px, 3.2vw, 14px); }
-            .hamburger { display: block; font-size: 24px; padding: 8px; }
+            .nav-logo-text { font-size: 13px; }
+            .hamburger { display: block; font-size: 24px; }
             .menu-wrapper {
                 width: 100%;
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 12px;
                 padding: 12px 0 8px;
                 opacity: 0;
                 visibility: hidden;
@@ -315,11 +317,11 @@
             nav ul {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
+                gap: 10px;
                 width: 100%;
             }
             nav ul li a {
-                font-size: clamp(14px, 4vw, 16px);
+                font-size: 15px;
                 padding: 10px 14px;
                 width: 100%;
             }
@@ -327,37 +329,36 @@
                 width: 100%;
                 text-align: center;
                 padding: 12px;
-                font-size: clamp(14px, 4vw, 16px);
+                font-size: 15px;
             }
 
             header {
-                padding: clamp(140px, 35vw, 220px) 5% clamp(100px, 25vw, 160px);
+                padding: 180px 6% 120px;
             }
-            .company-name { font-size: clamp(36px, 12vw, 68px); }
-            .slogan { font-size: clamp(18px, 5vw, 28px); max-width: 95%; }
+            .company-name { font-size: clamp(36px, 12vw, 64px); }
+            .slogan { font-size: clamp(18px, 5vw, 26px); }
 
-            section { padding: clamp(60px, 10vw, 100px) 5% clamp(70px, 12vw, 120px); }
+            section { padding: 80px 5% 100px; }
             .orange-header {
                 padding: 12px 30px;
                 font-size: clamp(22px, 6vw, 28px);
-                margin-bottom: clamp(30px, 8vw, 50px);
             }
-            .grid { gap: clamp(20px, 5vw, 35px); }
-            .card img { height: clamp(160px, 40vw, 200px); }
-            .card-content { padding: clamp(18px, 4vw, 24px); }
-            .card h3 { font-size: clamp(19px, 4.8vw, 22px); }
-            .card p { font-size: clamp(13.5px, 3.6vw, 15px); }
+            .grid { gap: 30px; }
+            .card { min-height: auto; }
+            .card img { height: 180px; }
+            .card-content { padding: 20px; }
+            .card h3 { font-size: 20px; }
+            .card p { font-size: 14px; }
 
-            footer { padding: clamp(70px, 12vw, 90px) 5% 40px; }
-            .footer-grid { gap: clamp(40px, 8vw, 60px); }
+            footer { padding: 80px 6% 50px; }
+            .footer-grid { gap: 50px; }
         }
 
         @media (max-width: 480px) {
-            header { padding: clamp(120px, 30vw, 160px) 5% clamp(80px, 20vw, 120px); }
-            .company-name { font-size: clamp(32px, 11vw, 54px); }
-            .slogan { font-size: clamp(16px, 4.8vw, 24px); }
-            nav ul li a { font-size: clamp(13.5px, 4vw, 15.5px); padding: 10px; }
-            .nav-cta { padding: 12px; font-size: clamp(14px, 4.2vw, 16px); }
+            header { padding: 140px 5% 100px; }
+            .company-name { font-size: clamp(32px, 11vw, 52px); }
+            .slogan { font-size: clamp(16px, 4.8vw, 22px); }
+            nav ul li a { font-size: 14.5px; padding: 10px; }
         }
     </style>
 </head>
