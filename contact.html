@@ -254,12 +254,92 @@
             color: var(--primary);
         }
 
-        .map-container {
-            margin-top: 80px;
+        /* FORM STYLING */
+        .contact-form {
+            background: white;
             border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 12px 50px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 12px 50px rgba(0,0,0,0.06);
+            padding: 50px;
+            margin-top: 80px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-form h3 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 28px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(245,134,52,0.15);
+        }
+        .form-group textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 17px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            margin: 30px auto 0;
+        }
+        .submit-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(62,64,149,0.25);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20b058;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         footer {
@@ -358,6 +438,13 @@
             nav ul li:nth-child(4) { transition-delay: 0.26s; }
             .nav-cta { transition-delay: 0.32s; }
             section { padding: 100px 6%; }
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 34px;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -428,9 +515,30 @@
 
             </div>
 
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3588.0000000000005!2d23.999999999999996!3d-23.999999999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDU5JzAwLjAiUyAyM8KwNTknMDAuMCJF!5e0!3m2!1sen!2sza!4v1730000000000!5m2!1sen!2sza" width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="060 123 4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project or enquiry..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
+
         </section>
     </main>
 
@@ -449,6 +557,12 @@
             <p>© 2026 TAKEDI<br>Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/27607118356?text=Hi%20TAKEDI%2C%20I%27d%20like%20to%20discuss%20a%20printing%20or%20branding%20project..." 
+       class="whatsapp-float" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
