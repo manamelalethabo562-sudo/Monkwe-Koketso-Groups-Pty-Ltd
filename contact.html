@@ -27,7 +27,6 @@
         h1, h2, h3 { color: var(--primary); font-weight: 700; }
         p { color: #555; }
         a { text-decoration: none; transition: var(--transition); }
-
         /* NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
@@ -133,11 +132,9 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-
-        /* HERO ──────────────────────────────────────────────── */
+        /* HERO ──────────────────────────────────────────────── (background image removed) */
         header {
-            background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
-                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
+            background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55));
             color: white;
             padding: 280px 10% 180px;
             position: relative;
@@ -147,11 +144,8 @@
             text-align: left;
         }
         header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(245,134,52,0.10), transparent 60%);
-            pointer-events: none;
+            /* Removed overlay gradient since no background image */
+            display: none;
         }
         .hero-label {
             color: var(--accent);
@@ -186,7 +180,6 @@
             padding: 15px 25px;
             border-radius: 12px;
         }
-
         /* MAIN CONTENT ──────────────────────────────────────── */
         main { padding-top: 0; }
         section {
@@ -198,7 +191,6 @@
             transition: all 1s ease-out;
         }
         section.visible { opacity: 1; transform: translateY(0); }
-
         .orange-header {
             background: var(--accent);
             color: white;
@@ -213,13 +205,11 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 50px;
         }
-
         .contact-card {
             background: white;
             border-radius: 28px;
@@ -253,7 +243,6 @@
         .contact-card a:hover {
             color: var(--primary);
         }
-
         /* FORM STYLING */
         .contact-form {
             background: white;
@@ -316,7 +305,6 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(62,64,149,0.25);
         }
-
         /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
@@ -341,7 +329,6 @@
             background: #20b058;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-
         footer {
             background: #0B0C1F;
             color: white;
@@ -367,7 +354,6 @@
             font-size: 14px;
             color: #888;
         }
-
         @media (max-width: 991px) {
             nav {
                 width: 95%;
