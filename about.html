@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About TAKEDI | Modern Printers & Supply</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #3E4095;
@@ -117,18 +117,20 @@
         nav ul li a:hover { color: var(--accent); }
         nav ul li a.active { color: var(--accent); }
         nav ul li a.active::after { width: 100%; }
+        
         .nav-cta {
             background: var(--accent);
             color: white !important;
-            padding: 10px 24px;
+            padding: 12px 28px;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 900; /* BOLDED */
             font-size: 13px;
             box-shadow: 0 4px 15px rgba(245,134,52,0.3);
             letter-spacing: 1px;
             border: none;
             cursor: pointer;
             display: inline-block;
+            text-transform: uppercase;
         }
         .nav-cta:hover {
             background: var(--primary);
@@ -491,10 +493,10 @@
 
             .nav-cta {
                 font-size: 14px;
-                padding: 12px 30px;
-                width: 80%;
+                padding: 14px 0;
+                width: 90%; /* OPTIMIZED TO FIT MOBILE SCREEN */
                 text-align: center;
-                margin-top: 0;
+                margin-top: 10px;
             }
             nav ul li, .nav-cta {
                 opacity: 0;
@@ -668,7 +670,7 @@
         openModalBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Disable scroll when modal open
+                document.body.style.overflow = 'hidden'; 
             });
         });
 
@@ -679,7 +681,6 @@
 
         closeModalBtn.addEventListener('click', hideModal);
         
-        // Close on clicking outside the white box
         window.addEventListener('click', (e) => {
             if (e.target === modal) hideModal();
         });
