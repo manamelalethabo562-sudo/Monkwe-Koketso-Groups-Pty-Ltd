@@ -5,6 +5,628 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About TAKEDI | Modern Printers & Supply</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3E4095;
+            --accent: #F58634;
+            --light-blue: #00AFEF;
+            --white: #FFFFFF;
+            --bg-light: #FBFBFF;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            color: #333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { color: var(--primary); font-weight: 700; }
+        p { color: #555; }
+        a { text-decoration: none; transition: var(--transition); }
+
+        /* ─── NAVBAR ────────────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 12px 35px;
+            z-index: 1000;
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+        }
+        nav.scrolled {
+            top: 0;
+            width: 100%;
+            border-radius: 0;
+            padding: 10px 5%;
+            background: rgba(255, 255, 255, 0.98);
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .nav-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
+        .nav-logo-text {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .menu-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 28px;
+            color: #222;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li a {
+            color: #222;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        nav ul li a:hover::after { width: 100%; }
+        nav ul li a:hover { color: var(--accent); }
+        nav ul li a.active { color: var(--accent); }
+        nav ul li a.active::after { width: 100%; }
+        .nav-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 4px 15px rgba(245,134,52,0.3);
+            letter-spacing: 1px;
+        }
+        .nav-cta:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* ─── HERO ──────────────────────────────────── */
+        header {
+            background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
+                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
+            color: white;
+            padding: 320px 10% 220px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(245,134,52,0.08), transparent 60%);
+            pointer-events: none;
+        }
+        .hero-label {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            font-size: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 18px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        .company-name {
+            color: var(--white);
+            font-size: clamp(40px, 7vw, 80px);
+            font-weight: 900;
+            margin: 0;
+            max-width: 1000px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            text-shadow: 3px 6px 20px rgba(0,0,0,0.6);
+        }
+        .slogan {
+            font-size: clamp(20px, 3vw, 32px);
+            color: rgba(255,255,255,0.95);
+            margin-top: 25px;
+            font-weight: 400;
+            max-width: 700px;
+            border-left: 5px solid var(--accent);
+            padding-left: 25px;
+            background: rgba(0,0,0,0.2);
+            padding: 15px 25px;
+            border-radius: 12px;
+        }
+
+        /* ─── SECTIONS ──────────────────────────────────── */
+        main { padding-top: 0; }
+        section {
+            padding: 140px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .orange-header {
+            background: var(--accent);
+            color: white;
+            padding: 18px 50px;
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 70px;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--primary);
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .about-intro {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.06);
+            padding: 60px;
+            margin-bottom: 100px;
+            border: 1px solid rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        .about-intro h1 {
+            font-size: clamp(42px, 6vw, 64px);
+            margin: 0 0 30px;
+            line-height: 1.1;
+            color: var(--primary);
+        }
+        .about-intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            color: #555;
+        }
+        .highlight { color: var(--accent); font-weight: 700; }
+
+        /* ─── VALUES & MISSION ──────────────────────────────────── */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin: 100px 0;
+        }
+        .value-card, .mission-card {
+            background: white;
+            border-radius: 24px;
+            padding: 50px 35px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .value-card:hover, .mission-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(62,64,149,0.12);
+        }
+        .value-card i, .mission-card i {
+            font-size: 3.8rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+        .value-card h3, .mission-card h3 {
+            margin: 0 0 15px;
+            font-size: 24px;
+        }
+        .value-card p, .mission-card p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        #mission-vision .mission-vision-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin: 100px 0;
+        }
+        .mission-card p, .mission-card ul { text-align: left; }
+        .mission-card ul { list-style: none; padding-left: 0; }
+        .mission-card ul li {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .mission-card ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* ─── LEADERSHIP ──────────────────────────────────── */
+        .organogram-card {
+            background: white;
+            border-radius: 36px;
+            padding: 80px 40px;
+            text-align: center;
+            box-shadow: 0 20px 55px rgba(0,0,0,0.07);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+        .organogram-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(62,64,149,0.15);
+        }
+        .org-box {
+            background: var(--accent);
+            color: white;
+            padding: 24px 50px;
+            border-radius: 16px;
+            display: inline-block;
+            font-weight: 800;
+            margin: 16px;
+            font-size: 17px;
+            min-width: 240px;
+            box-shadow: 0 4px 15px rgba(245,134,52,0.3);
+            transition: var(--transition);
+        }
+        .org-box:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+        }
+        .org-box.primary { background: var(--primary); }
+        .org-box.primary:hover { background: var(--accent); }
+
+        /* ─── FOOTER ──────────────────────────────────── */
+        footer {
+            background: #0B0C1F;
+            color: white;
+            padding: 120px 10% 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 70px;
+        }
+        .footer-column h4 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+        }
+        .footer-column p { color: #B0B0C0; font-size: 16px; }
+        .copyright {
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
+        @media (max-width: 991px) {
+            nav {
+                width: 90%;
+                padding: 12px 20px;
+                border-radius: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
+                height: 68px;
+                overflow: hidden;
+            }
+            nav.expanded {
+                height: auto;
+                border-radius: 16px;
+                padding-bottom: 25px;
+                background: white; 
+                box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            }
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .hamburger { display: block; }
+            
+            .menu-wrapper {
+                width: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 15px;
+                padding: 20px 0 5px;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
+            }
+            nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
+            
+            /* --- LINKS HORIZONTAL ON MOBILE --- */
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+                padding: 5px 8px;
+                display: block;
+            }
+
+            .nav-cta {
+                font-size: 14px;
+                padding: 12px 30px;
+                width: 80%;
+                text-align: center;
+                margin-top: 0;
+            }
+            nav ul li, .nav-cta {
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            nav.expanded ul li, nav.expanded .nav-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            nav ul li:nth-child(1) { transition-delay: 0.08s; }
+            nav ul li:nth-child(2) { transition-delay: 0.14s; }
+            nav ul li:nth-child(3) { transition-delay: 0.20s; }
+            nav ul li:nth-child(4) { transition-delay: 0.26s; }
+            .nav-cta { transition-delay: 0.32s; }
+
+            /* Grid Adjustments */
+            .values-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            section { padding: 80px 6%; }
+            .about-intro { padding: 40px 25px; }
+            .orange-header { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
+            .organogram-card { padding: 50px 20px; }
+            .org-box { min-width: 200px; padding: 20px 30px; font-size: 15px; }
+        }
+
+        /* ─── STRICT MOBILE (Phone) OPTIMIZATION ────────────────── */
+        @media (max-width: 768px) {
+            header {
+                padding: 150px 6% 80px; 
+                background-attachment: scroll; 
+                background-position: center center;
+            }
+            .company-name { font-size: 42px; }
+            .hero-label { font-size: 13px; letter-spacing: 3px; }
+            .slogan { font-size: 18px; padding: 12px 18px; border-left-width: 4px; }
+            
+            section { padding: 60px 5%; }
+            .about-intro { padding: 30px 20px; }
+            .about-intro h1 { font-size: 32px; }
+            .about-intro p { font-size: 16px; }
+            
+            .orange-header {
+                font-size: 22px;
+                padding: 12px 30px;
+                margin-bottom: 40px;
+                box-shadow: 6px 6px 0px var(--primary);
+            }
+            
+            .values-grid { grid-template-columns: 1fr; gap: 25px; }
+            .value-card, .mission-card { padding: 35px 25px; }
+            .value-card i, .mission-card i { font-size: 3rem; }
+            
+            .organogram-card { padding: 40px 15px; border-radius: 24px; }
+            .org-box { 
+                min-width: auto; 
+                width: 90%; 
+                padding: 18px 20px; 
+                font-size: 14px;
+                margin: 10px 0;
+            }
+            
+            footer { padding: 60px 6% 40px; }
+            .footer-grid { gap: 40px; }
+            .copyright { margin-top: 50px; padding-top: 30px; }
+        }
+
+        @media (max-width: 1200px) and (min-width: 992px) {
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-left">
+            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
+            <div class="nav-logo-text">TAKEDI</div>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+        <div class="menu-wrapper">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">GET A QUOTE</a>
+        </div>
+    </nav>
+
+    <header id="about">
+        <div class="hero-label">Precision & Quality</div>
+        <h1 class="company-name">ABOUT US</h1>
+        <div class="slogan">Modern Printers & Supply</div>
+    </header>
+
+    <main>
+        <section id="intro">
+            <div class="orange-header">Who We Are</div>
+            <div class="about-intro">
+                <h1>Precision Printing & Branding <span class="highlight">Since 2022</span></h1>
+                <p>TAKEDI Modern Printers & Supply is a proudly South African company founded in 2022 with a clear mission: to deliver <strong>high-quality, durable, and fast-turnaround</strong> digital printing and branding solutions.</p>
+                <p>We combine cutting-edge technology with hands-on craftsmanship to produce signage, vehicle branding, corporate apparel, and PPE that withstand harsh industrial environments.</p>
+                <p>From our base in <strong>Mokopane</strong>, we serve clients across South Africa with <strong>precision, speed, and reliability</strong>.</p>
+            </div>
+        </section>
+
+        <section id="values">
+            <div class="orange-header">Our Core Values</div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Precision</h3>
+                    <p>Every print is executed with meticulous attention to detail.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Speed</h3>
+                    <p>Fast results without compromising on our high standards.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Durability</h3>
+                    <p>Materials chosen to endure dust, UV, and weather.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Client-First</h3>
+                    <p>Long-term partnerships through honest communication.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission-vision">
+            <div class="orange-header">Commitment</div>
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Mission</h3>
+                    <p>To deliver fast, reliable, and cost-effective digital printing services that meet the evolving needs of our customers.</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-binoculars"></i>
+                    <h3>Vision</h3>
+                    <p>To be the leading digital printing company recognized for exceptional quality and innovation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="leadership">
+            <div class="orange-header">Our Leadership</div>
+            <div class="organogram-card">
+                <div class="org-box">DIRECTOR & LEAD DESIGNER<br><span style="font-weight: 300;">TAKEDI</span></div>
+                <div style="margin: 30px 0;"><i class="fas fa-chevron-down fa-2x" style="color: var(--primary);"></i></div>
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+                    <div class="org-box primary">CLIENT RELATIONS<br><span style="font-weight: 300;">Moshi Mapula</span></div>
+                    <div class="org-box primary">PRODUCTION SPECIALIST<br><span style="font-weight: 300;">Seshoka Johannes</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>TAKEDI</h4>
+                <p>Delivering fast, reliable, and cost-effective branding solutions across South Africa.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Based in Mokopane, Limpopo.</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 TAKEDI Modern Printers & Supply.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+        // Scroll effect for Navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+        
+        if (hamburger && navbar) {
+            hamburger.addEventListener('click', () => {
+                navbar.classList.toggle('expanded');
+                const icon = hamburger.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TAKEDI | Modern Printers & Supply</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
