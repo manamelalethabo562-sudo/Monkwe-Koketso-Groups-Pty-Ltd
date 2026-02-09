@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAKEDI | Modern Printers & Supply</title>
+    <title>Contact TAKEDI | Modern Printers & Supply</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -26,9 +26,8 @@
         }
         h1, h2, h3 { color: var(--primary); font-weight: 700; }
         p { color: #555; }
-        ul { list-style: disc; padding-left: 30px; }
         a { text-decoration: none; transition: var(--transition); }
-       
+
         /* ─── NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
@@ -116,6 +115,8 @@
         }
         nav ul li a:hover::after { width: 100%; }
         nav ul li a:hover { color: var(--accent); }
+        nav ul li a.active { color: var(--accent); }
+        nav ul li a.active::after { width: 100%; }
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -130,7 +131,8 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-        /* ─── Hero ──────────────────────────────────── */
+
+        /* ─── HERO ──────────────────────────────────── */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
                         url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
@@ -176,17 +178,18 @@
             color: rgba(255,255,255,0.95);
             margin-top: 25px;
             font-weight: 400;
-            max-width: 700px;
+            max-width: 800px;
             border-left: 5px solid var(--accent);
             padding-left: 25px;
             background: rgba(0,0,0,0.2);
             padding: 15px 25px;
             border-radius: 12px;
         }
-        /* ─── Sections ──────────────────────────────────── */
+
+        /* ─── SECTIONS ──────────────────────────────────── */
+        main { padding-top: 0; }
         section {
-            /* REDUCED PADDING HERE: Was 140px 8% */
-            padding: 60px 8%;
+            padding: 140px 8%;
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
@@ -194,7 +197,6 @@
             transition: all 1s ease-out;
         }
         section.visible { opacity: 1; transform: translateY(0); }
-       
         .orange-header {
             background: var(--accent);
             color: white;
@@ -202,7 +204,7 @@
             display: inline-block;
             font-size: 32px;
             font-weight: 800;
-            margin-bottom: 40px; /* Reduced from 70px */
+            margin-bottom: 70px;
             position: relative;
             box-shadow: 12px 12px 0px var(--primary);
             border-radius: 12px;
@@ -214,64 +216,144 @@
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 50px;
         }
-        .card {
+        .contact-card {
             background: white;
             border-radius: 28px;
             box-shadow: 0 12px 50px rgba(0,0,0,0.06);
             border: 1px solid rgba(0,0,0,0.04);
+            padding: 45px 35px;
             transition: var(--transition);
-            overflow: hidden;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            min-height: 420px;
+            min-height: 320px;
         }
-        .card:hover {
+        .contact-card:hover {
             transform: translateY(-20px);
             box-shadow: 0 30px 70px rgba(62,64,149,0.15);
         }
-        .card img {
+        .contact-card i {
+            font-size: 3.8rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+        .contact-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .contact-card p {
+            font-size: 16px;
+            margin: 12px 0;
+        }
+        .contact-card a {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* ─── FORM STYLING ──────────────────────────────────── */
+        .contact-form {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+            padding: 50px;
+            margin-top: 100px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: var(--transition);
+        }
+        .contact-form:hover {
+            box-shadow: 0 30px 70px rgba(62,64,149,0.15);
+        }
+        .contact-form h3 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 28px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 4px solid var(--accent);
-            flex-shrink: 0;
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
         }
-        .card-content {
-            padding: 30px 28px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(245,134,52,0.15);
         }
-        .card h3 { margin: 0 0 12px; font-size: 24px; }
-        .card p { margin: 0; font-size: 15px; color: #555; line-height: 1.6; }
-        .card i { font-size: 3.5rem; color: var(--accent); margin-bottom: 20px; }
-       
-        #portfolio .grid .card img { height: 280px; }
-        #portfolio .card { min-height: 480px; }
-        #portfolio .card-content { padding: 25px 28px; text-align: center; }
-       
-        #contact .card {
-            padding: 35px;
-            min-height: 320px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+        .form-group textarea {
+            min-height: 160px;
+            resize: vertical;
         }
-        #contact .card h3 { margin-bottom: 30px; }
-        #contact .card p {
-            margin: 16px 0;
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 17px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            margin: 30px auto 0;
+            box-shadow: 0 4px 15px rgba(245,134,52,0.3);
+        }
+        .submit-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(62,64,149,0.25);
+        }
+
+        /* ─── WHATSAPP FLOATING BUTTON ──────────────────────────────────── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            z-index: 9999;
             display: flex;
             align-items: center;
-            gap: 18px;
-            font-size: 16px;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
-        #contact i { font-size: 22px; width: 30px; }
-        /* ─── Footer ──────────────────────────────────── */
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20b058;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* ─── FOOTER ──────────────────────────────────── */
         footer {
             background: #0B0C1F;
             color: white;
-            /* REDUCED PADDING HERE: Was 120px 10% 60px */
-            padding: 60px 10% 40px;
+            padding: 120px 10% 60px;
         }
         .footer-grid {
             display: grid;
@@ -287,12 +369,13 @@
         .footer-column p { color: #B0B0C0; font-size: 16px; }
         .copyright {
             text-align: center;
-            margin-top: 70px; /* Reduced from 100px */
-            padding-top: 30px; /* Reduced from 50px */
+            margin-top: 100px;
+            padding-top: 50px;
             border-top: 1px solid rgba(255,255,255,0.08);
             font-size: 14px;
             color: #888;
         }
+
         /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
         @media (max-width: 991px) {
             nav {
@@ -309,7 +392,7 @@
                 height: auto;
                 border-radius: 16px;
                 padding-bottom: 25px;
-                background: white;
+                background: white; 
                 box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             }
             .nav-left {
@@ -318,7 +401,7 @@
                 align-items: center;
             }
             .hamburger { display: block; }
-           
+            
             .menu-wrapper {
                 width: 100%;
                 flex-direction: column;
@@ -331,7 +414,8 @@
                 transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
-           
+            
+            /* --- LINKS HORIZONTAL ON MOBILE --- */
             nav ul {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -346,6 +430,7 @@
                 padding: 5px 8px;
                 display: block;
             }
+
             .nav-cta {
                 font-size: 14px;
                 padding: 12px 30px;
@@ -367,236 +452,59 @@
             nav ul li:nth-child(3) { transition-delay: 0.20s; }
             nav ul li:nth-child(4) { transition-delay: 0.26s; }
             .nav-cta { transition-delay: 0.32s; }
+
+            /* Grid Adjustments */
+            .grid { grid-template-columns: 1fr; gap: 35px; }
+            section { padding: 80px 6%; }
+            .orange-header { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
+            .contact-form { padding: 35px 25px; margin-top: 60px; }
         }
+
+        /* ─── STRICT MOBILE (Phone) OPTIMIZATION ────────────────── */
         @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
             header {
-                padding: 150px 6% 80px;
-                background-attachment: scroll;
+                padding: 150px 6% 80px; 
+                background-attachment: scroll; 
                 background-position: center center;
             }
-            .company-name {
-                font-size: 42px;
-            }
-            .hero-label {
-                font-size: 13px;
-                letter-spacing: 3px;
-            }
-            .slogan {
-                font-size: 18px;
-                padding: 12px 18px;
-                border-left-width: 4px;
-            }
-            section {
-                /* REDUCED MOBILE PADDING: Was 60px 5% */
-                padding: 40px 5%;
-            }
-            #about {
-                /* REDUCED SPECIFIC PADDING: Was 100px (originally set higher) */
-                padding-top: 80px !important;
-            }
+            .company-name { font-size: 42px; }
+            .hero-label { font-size: 13px; letter-spacing: 3px; }
+            .slogan { font-size: 18px; padding: 12px 18px; border-left-width: 4px; }
+            
+            section { padding: 60px 5%; }
             .orange-header {
                 font-size: 22px;
                 padding: 12px 30px;
-                margin-bottom: 30px; /* Reduced from 40px */
+                margin-bottom: 40px;
                 box-shadow: 6px 6px 0px var(--primary);
             }
-            .card {
-                min-height: auto;
-            }
-            .card h3 { font-size: 22px; }
-            .card img { height: 200px; }
-            footer { padding: 50px 6% 30px; }
-            .footer-grid { gap: 40px; }
-            .copyright { margin-top: 40px; }
-        }
-
-        /* ─── MODERN MODAL STYLES (Optimized for Mobile) ──────────────── */
-        .modal {
-            display: none; /* JS toggles this to flex */
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto; /* Allows scrolling on small screens */
-            background-color: rgba(11, 12, 31, 0.75);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-            animation: fadeInOverlay 0.3s ease forwards;
-            padding: 10px; /* Prevents modal touching edges on small screens */
-            box-sizing: border-box;
-        }
-
-        .modal-content {
-            background-color: #ffffff;
-            margin: auto; /* Keeps it centered when flex is active */
-            padding: 40px 35px;
-            border: none;
-            width: 90%;
-            max-width: 480px;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            position: relative;
-            animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* Modal Header */
-        .modal-content h2 {
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 28px;
-            color: var(--primary);
-            text-align: center;
-        }
-
-        /* Close Button */
-        .close {
-            color: #999;
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 28px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #f4f4f4;
-            z-index: 10;
-        }
-        .close:hover {
-            color: var(--white);
-            background: var(--accent);
-            cursor: pointer;
-            transform: rotate(90deg);
-        }
-
-        /* Modern Form Styling */
-        form label {
-            display: block;
-            margin-top: 15px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 12px 15px;
-            margin-top: 0;
-            box-sizing: border-box;
-            background: #F5F5FA;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            color: #333;
-            transition: all 0.3s ease;
-        }
-
-        form input:focus, form textarea:focus {
-            outline: none;
-            background: #fff;
-            border-color: var(--accent);
-            box-shadow: 0 4px 15px rgba(245,134,52,0.1);
-        }
-        
-        form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        form input[type="submit"] {
-            background: linear-gradient(135deg, var(--accent), #FF6B6B);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            margin-top: 30px;
-            cursor: pointer;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            width: 100%;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        form input[type="submit"]:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(245, 134, 52, 0.4);
-        }
-
-        form input[type="submit"]:active {
-            transform: translateY(-1px);
-        }
-
-        /* STRICT MOBILE MODAL OPTIMIZATION */
-        @media (max-width: 600px) {
-            .modal-content {
-                width: 95%; /* Wider on small screens */
-                padding: 25px 20px; /* Reduced padding */
-                margin: 20px auto; /* Allows scrolling space */
+            
+            .contact-card { min-height: auto; padding: 35px 25px; }
+            .contact-card i { font-size: 3rem; }
+            .contact-card h3 { font-size: 22px; }
+            
+            .contact-form { padding: 30px 20px; }
+            .contact-form h3 { font-size: 24px; }
+            .form-group input,
+            .form-group textarea { padding: 12px 15px; }
+            .submit-btn { width: 100%; padding: 16px 20px; }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 34px;
+                bottom: 20px;
+                right: 20px;
             }
             
-            .modal-content h2 {
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-
-            .close {
-                top: 15px;
-                right: 15px;
-                width: 28px;
-                height: 28px;
-                font-size: 24px;
-                background: #eee;
-            }
-
-            form input, form textarea {
-                font-size: 16px; /* Prevents iOS auto-zoom */
-                padding: 12px 12px;
-            }
-
-            form input[type="submit"] {
-                padding: 12px 20px;
-                margin-top: 20px;
-                font-size: 15px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInOverlay {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUpModal {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            footer { padding: 60px 6% 40px; }
+            .footer-grid { gap: 40px; }
+            .copyright { margin-top: 50px; padding-top: 30px; }
         }
     </style>
 </head>
 <body>
+
     <nav id="navbar">
         <div class="nav-left">
             <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
@@ -605,124 +513,89 @@
         </div>
         <div class="menu-wrapper">
             <ul>
-                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
-            <a href="#" class="nav-cta" onclick="openModal()">GET A QUOTE</a>
+            <a href="#quote-form" class="nav-cta">GET A QUOTE</a>
         </div>
     </nav>
-    <header id="home">
-        <div class="hero-label">Excellence in Printing</div>
-        <h1 class="company-name">TAKEDI</h1>
-        <div class="slogan">Modern Printers & Supply </div>
+
+    <header>
+        <div class="hero-label">We're Here For You</div>
+        <h1 class="company-name">CONTACT US</h1>
+        <div class="slogan">Reach out today — let's bring your branding vision to life with precision and speed.</div>
     </header>
+
     <main>
-        <section id="about" style="padding-top: 110px;">
-            <div class="orange-header">About Company</div>
-            <div class="card">
-                <img src="https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp" alt="TAKEDI Printing Workshop" style="width:100%; border-radius: 28px 28px 0 0; height:300px; object-fit:cover;">
-                <div class="card-content">
-                    <p style="font-size: 20px; color: var(--primary);"><strong>Defining Professionalism Since 2022</strong></p>
-                    <p>Established by <b>TAKEDI</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
-                </div>
-            </div>
-        </section>
-        <section id="services">
-            <div class="orange-header">Our Expertise</div>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/large-format-printing-company-banner-design-template-727f9582aa274c9d8ebefa9d53315591_screen.jpg?ts=1737904166" alt="Large Format Printing">
-                    <div class="card-content">
-                        <h3>Large Format</h3>
-                        <p>High-visibility signage boards, reflective safety signs, and custom lightboxes designed for harsh industrial environments.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://equiptgraphics.com/wp-content/uploads/2022/05/IMG_6330-1080x675.png" alt="Vehicle Branding">
-                    <div class="card-content">
-                        <h3>Vehicle Branding</h3>
-                        <p>Strategic fleet branding and professional wrapping that turns every vehicle into a high-impact mobile billboard.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/26db4009-3e28-40ee-9b18-6ddf68bb7d91.__CR0,0,1940,1200_PT0_SX970_V1___.jpg" alt="Branding & PPE">
-                    <div class="card-content">
-                        <h3>Branding & PPE</h3>
-                        <p>Custom corporate apparel, premium embroidery, and SABS-standard PPE supply tailored to your brand identity.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="portfolio">
-            <div class="orange-header">Our Work Gallery</div>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://mksigns.com/cdn/shop/files/msdANilPKaf_1.png?v=1761281030&width=1946" alt="Custom Vinyl Banner">
-                    <div class="card-content">
-                        <h3>Industrial Signage</h3>
-                        <p>Durable large format prints for mining and construction sites.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://blog.wrapmate.com/wp-content/uploads/2023/10/Pest-Control-Small-Truck-Wrap-01-1024x576.jpg" alt="Vehicle Wrap Example">
-                    <div class="card-content">
-                        <h3>Fleet Vehicle Branding</h3>
-                        <p>Full-color wraps that boost brand visibility on the road.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.protoolreviews.com/wp-content/uploads/2022/02/Milwaukee-Branded-PPE.jpg" alt="Branded PPE">
-                    <div class="card-content">
-                        <h3>Custom Safety Gear</h3>
-                        <p>Branded helmets, vests, and apparel meeting safety standards.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://totallyyourstitch.com/cdn/shop/products/ladiespolologo.jpg?v=1720811173&width=1445" alt="Embroidered Apparel">
-                    <div class="card-content">
-                        <h3>Corporate Apparel</h3>
-                        <p>Premium embroidery on polos, jackets, and workwear.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://image.rolanddga.com/-/media/roland/images/applications/_related-products/uv.png?rev=b003869f46f2465a8d248409e4228ee9&la=en&h=533&w=800&hash=185C38C2ACA639200623A84B5732E821" alt="Large Format Printer">
-                    <div class="card-content">
-                        <h3>State-of-the-Art Equipment</h3>
-                        <p>Advanced printers for high-quality, fast-turnaround results.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.largeformatreview.com/wp-content/uploads/2018/04/La_Digital_Impser_002.jpg" alt="Printing Production">
-                    <div class="card-content">
-                        <h3>Production in Action</h3>
-                        <p>Precision printing for every project, big or small.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="contact">
+        <section id="contact-info">
             <div class="orange-header">Get In Touch</div>
             <div class="grid">
-                <div class="card" style="background: var(--primary); color: white; min-height: 340px;">
-                    <h3 style="color: white; margin-bottom: 30px;">Contact Details</h3>
-                    <p style="color: #eee;"><i class="fas fa-phone" style="color: var(--accent);"></i> 060 711 8356 / 015 004 0179</p>
-                    <p style="color: #eee;"><i class="fas fa-envelope" style="color: var(--accent);"></i> info@takedi.co.za</p>
-                    <p style="color: #eee;"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 15 Nelson Mandela Street, Mokopane</p>
+
+                <div class="contact-card">
+                    <i class="fas fa-phone-volume"></i>
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+27607118356">060 711 8356</a></p>
+                    <p><a href="tel:+27150040179">015 004 0179</a></p>
+                    <p style="margin-top: 20px; font-size: 15px;">
+                        Mon–Fri: 08:00 – 17:00<br>
+                        Saturday: 09:00 – 13:00
+                    </p>
                 </div>
-                <div class="card" style="min-height: 340px;">
-                    <h3>Business Hours</h3>
-                    <p><strong>Monday - Friday:</strong> 08:00 - 17:00</p>
-                    <p><strong>Saturday:</strong> 09:00 - 13:00</p>
-                    <p><strong>Sunday:</strong> Closed</p>
-                    <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid #eee; margin-top: auto;">
-                        <a href="#" onclick="openModal()" style="color: var(--accent); font-weight: 700; font-size: 18px;">REQUEST A QUOTE →</a>
-                    </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@takedi.co.za">info@takedi.co.za</a></p>
+                    <p style="margin-top: 20px;">
+                        For quotes, urgent orders,<br>
+                        design questions or general enquiries.
+                    </p>
+                    <p style="margin-top: 16px; font-size: 15px; color: #777;">
+                        We usually reply within 1–2 hours during business hours.
+                    </p>
                 </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p>15 Nelson Mandela Street<br>Mokopane, Limpopo<br>South Africa</p>
+                    <p style="margin-top: 24px;">
+                        <a href="https://maps.google.com/?q=15+Nelson+Mandela+Street,+Mokopane" target="_blank" rel="noopener">
+                            Get Directions →
+                        </a>
+                    </p>
+                </div>
+
             </div>
+
+            <div class="contact-form" id="quote-form">
+                <h3>Send Us a Message</h3>
+                <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="060 123 4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project or enquiry..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
         </section>
     </main>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -735,33 +608,17 @@
             </div>
         </div>
         <div class="copyright">
-            <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
+            <p>© 2026 TAKEDI<br>Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <div id="quoteModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Request a Quote</h2>
-            <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" placeholder="012 345 6789">
-                
-                <label for="message">Message Details</label>
-                <textarea id="message" name="message" placeholder="Describe what you need printed..." required></textarea>
-                
-                <input type="submit" value="Send Request">
-            </form>
-        </div>
-    </div>
+    <a href="https://wa.me/27607118356?text=Hi%20TAKEDI%2C%20I%27d%20like%20to%20discuss%20a%20printing%20or%20branding%20project..." 
+       class="whatsapp-float" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
+        // Existing observer and scroll logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -779,7 +636,6 @@
 
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
-       
         if (hamburger && navbar) {
             hamburger.addEventListener('click', () => {
                 navbar.classList.toggle('expanded');
@@ -788,20 +644,18 @@
                 icon.classList.toggle('fa-times');
             });
         }
+
+        // NEW LOGIC: Handle active state switching on click
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Remove active class from all nav links
+                navLinks.forEach(l => l.classList.remove('active'));
+                // Add active class to the clicked link
+                this.classList.add('active');
+            });
+        });
     </script>
-    <script>
-        function openModal() {
-            document.getElementById("quoteModal").style.display = "flex";
-        }
-        function closeModal() {
-            document.getElementById("quoteModal").style.display = "none";
-        }
-        window.onclick = function(event) {
-            var modal = document.getElementById("quoteModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+
 </body>
 </html>
