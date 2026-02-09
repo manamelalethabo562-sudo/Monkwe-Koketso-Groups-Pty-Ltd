@@ -28,7 +28,7 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; }
         a { text-decoration: none; transition: var(--transition); }
-       
+        
         /* ─── NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
@@ -114,8 +114,13 @@
             background: var(--accent);
             transition: var(--transition);
         }
-        nav ul li a:hover::after { width: 100%; }
-        nav ul li a:hover { color: var(--accent); }
+        /* ADDED: Active state styling */
+        nav ul li a:hover::after,
+        nav ul li a.active::after { width: 100%; }
+        
+        nav ul li a:hover,
+        nav ul li a.active { color: var(--accent); }
+        
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -194,7 +199,7 @@
             transition: all 1s ease-out;
         }
         section.visible { opacity: 1; transform: translateY(0); }
-       
+        
         .orange-header {
             background: var(--accent);
             color: white;
@@ -245,11 +250,11 @@
         .card h3 { margin: 0 0 12px; font-size: 24px; }
         .card p { margin: 0; font-size: 15px; color: #555; line-height: 1.6; }
         .card i { font-size: 3.5rem; color: var(--accent); margin-bottom: 20px; }
-       
+        
         #portfolio .grid .card img { height: 280px; }
         #portfolio .card { min-height: 480px; }
         #portfolio .card-content { padding: 25px 28px; text-align: center; }
-       
+        
         #contact .card {
             padding: 35px;
             min-height: 320px;
@@ -318,7 +323,7 @@
                 align-items: center;
             }
             .hamburger { display: block; }
-           
+            
             .menu-wrapper {
                 width: 100%;
                 flex-direction: column;
@@ -331,7 +336,7 @@
                 transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
-           
+            
             nav ul {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -606,9 +611,9 @@
         <div class="menu-wrapper">
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#" class="nav-cta" onclick="openModal()">GET A QUOTE</a>
         </div>
@@ -762,6 +767,7 @@
     </div>
 
     <script>
+        // Existing Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -771,15 +777,17 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
 
+        // Existing Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
+        // Existing Hamburger Logic
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
-       
+        
         if (hamburger && navbar) {
             hamburger.addEventListener('click', () => {
                 navbar.classList.toggle('expanded');
@@ -790,6 +798,7 @@
         }
     </script>
     <script>
+        // Existing Modal Logic
         function openModal() {
             document.getElementById("quoteModal").style.display = "flex";
         }
@@ -801,6 +810,40 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+    </script>
+    
+    <script>
+        // Select all sections (Header is home, plus other sections)
+        const sections = document.querySelectorAll('header, section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // 150px offset to trigger highlight slightly before section hits top
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+        
+        // Ensure "Home" is highlighted on initial load if at top
+        if(window.scrollY < 100) {
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if(a.getAttribute('href') === '#home') a.classList.add('active');
+            });
         }
     </script>
 </body>
