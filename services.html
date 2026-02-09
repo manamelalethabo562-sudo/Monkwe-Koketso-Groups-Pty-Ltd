@@ -27,6 +27,7 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; margin: 20px 0; }
         a { text-decoration: none; transition: var(--transition); }
+        
         /* ─── NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
@@ -130,6 +131,7 @@
             background: var(--primary);
             transform: scale(1.05);
         }
+
         /* ─── HERO ──────────────────────────────────── */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
@@ -183,9 +185,10 @@
             padding: 15px 25px;
             border-radius: 12px;
         }
+
         /* ─── SECTIONS ──────────────────────────────────── */
         section {
-            padding: 90px 8%;           /* ← reduced from 140px */
+            padding: 90px 8%;
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
@@ -200,13 +203,14 @@
             display: inline-block;
             font-size: 32px;
             font-weight: 800;
-            margin-bottom: 50px;        /* ← reduced from 70px */
+            margin-bottom: 50px;
             position: relative;
             box-shadow: 12px 12px 0px var(--primary);
             border-radius: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
         /* ─── SERVICES GRID ──────────────────────────────────── */
         .services-grid {
             display: grid;
@@ -264,9 +268,10 @@
             top: 3px;
             font-size: 1.3rem;
         }
+
         /* ─── GALLERY ──────────────────────────────────── */
         .gallery-section {
-            margin-top: 80px;           /* ← reduced from 140px */
+            margin-top: 80px;
             text-align: center;
         }
         .gallery-section h2 {
@@ -305,9 +310,10 @@
             object-fit: cover;
             border-bottom: 4px solid var(--accent);
         }
+
         /* ─── REFERENCES ──────────────────────────────────── */
         .references-section {
-            margin: 90px 8% 60px;       /* ← reduced from 140px 8% 80px */
+            margin: 90px 8% 60px;
             text-align: center;
             overflow: hidden;
             max-width: 1400px;
@@ -329,7 +335,7 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            margin-top: 50px;           /* ← reduced from 70px */
+            margin-top: 50px;
         }
         .references-container {
             display: flex;
@@ -359,13 +365,12 @@
             margin: 8px 0;
             font-size: 15px;
         }
-        .reference-card strong {
-            color: var(--accent);
-        }
+        .reference-card strong { color: var(--accent); }
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
         /* ─── FOOTER ──────────────────────────────────── */
         footer {
             background: #0B0C1F;
@@ -392,6 +397,125 @@
             font-size: 14px;
             color: #888;
         }
+
+        /* ─── MODAL STYLES ──────────────────────────────────────── */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background-color: rgba(11, 12, 31, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            animation: fadeInOverlay 0.3s ease forwards;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: auto;
+            padding: 40px 35px;
+            border: none;
+            width: 90%;
+            max-width: 480px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: var(--primary);
+            text-align: center;
+        }
+        .close {
+            color: #999;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f4f4f4;
+            z-index: 10;
+        }
+        .close:hover {
+            color: var(--white);
+            background: var(--accent);
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 0;
+            box-sizing: border-box;
+            background: #F5F5FA;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        form input:focus, form textarea:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 4px 15px rgba(245,134,52,0.1);
+        }
+        form textarea { resize: vertical; min-height: 100px; }
+        form input[type="submit"] {
+            background: linear-gradient(135deg, var(--accent), #FF6B6B);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            margin-top: 30px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        form input[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 134, 52, 0.4);
+        }
+        form input[type="submit"]:active { transform: translateY(-1px); }
+
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUpModal {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
         /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
         @media (max-width: 991px) {
             nav {
@@ -417,7 +541,7 @@
                 align-items: center;
             }
             .hamburger { display: block; }
-           
+            
             .menu-wrapper {
                 width: 100%;
                 flex-direction: column;
@@ -430,7 +554,7 @@
                 transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
-           
+            
             nav ul {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -466,15 +590,14 @@
             nav ul li:nth-child(3) { transition-delay: 0.20s; }
             nav ul li:nth-child(4) { transition-delay: 0.26s; }
             .nav-cta { transition-delay: 0.32s; }
-            /* Grid Adjustments */
+            
             .services-grid { grid-template-columns: 1fr; gap: 35px; }
             .gallery-grid { grid-template-columns: 1fr; gap: 35px; }
-            section { padding: 70px 6%; }          /* ← reduced from 80px */
+            section { padding: 70px 6%; }
             .orange-header { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
             .references-section h2 { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
             .reference-card { flex: 0 0 300px; }
         }
-        /* ─── STRICT MOBILE (Phone) OPTIMIZATION ────────────────── */
         @media (max-width: 768px) {
             header {
                 padding: 150px 6% 80px;
@@ -484,8 +607,7 @@
             .page-title { font-size: 42px; }
             .hero-label { font-size: 13px; letter-spacing: 3px; }
             .slogan { font-size: 18px; padding: 12px 18px; border-left-width: 4px; }
-           
-            section { padding: 50px 5%; }           /* ← reduced from 60px */
+            section { padding: 50px 5%; }
             .orange-header {
                 font-size: 22px;
                 padding: 12px 30px;
@@ -497,24 +619,31 @@
                 padding: 12px 30px;
                 box-shadow: 6px 6px 0px var(--primary);
             }
-           
             .service-card { min-height: auto; }
             .service-card i { margin: 30px 25px 15px; font-size: 3rem; }
             .service-card h3 { margin: 0 25px 15px; font-size: 22px; }
             .service-card p { margin: 0 25px 15px; }
             .service-card ul { margin: 0 25px 30px; }
-           
-            .gallery-section { margin-top: 60px; }    /* ← reduced from 80px */
+            .gallery-section { margin-top: 60px; }
             .gallery-section h2 { font-size: 28px; }
             .gallery-item img { height: 220px; }
-           
-            .references-section { margin: 60px 5% 40px; }  /* ← reduced from 80px */
+            .references-section { margin: 60px 5% 40px; }
             .references-wrapper { margin-top: 40px; }
             .reference-card { flex: 0 0 280px; padding: 25px; }
-           
             footer { padding: 60px 6% 40px; }
             .footer-grid { gap: 40px; }
             .copyright { margin-top: 50px; padding-top: 30px; }
+        }
+        /* Mobile Modal */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 95%;
+                padding: 25px 20px;
+                margin: 20px auto;
+            }
+            .modal-content h2 { font-size: 24px; margin-bottom: 20px; }
+            .close { top: 15px; right: 15px; background: #eee; }
+            form input, form textarea { font-size: 16px; padding: 12px 12px; }
         }
     </style>
 </head>
@@ -532,7 +661,7 @@
                 <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <a href="contact.html" class="nav-cta">GET A QUOTE</a>
+            <a href="#" class="nav-cta" onclick="openModal()">GET A QUOTE</a>
         </div>
     </nav>
     <header>
@@ -620,12 +749,10 @@
                 </div>
             </div>
         </section>
-        <!-- REFERENCES – Auto-scrolling -->
         <section class="references-section">
             <h2>References & Completed Projects</h2>
             <div class="references-wrapper">
                 <div class="references-container">
-                    <!-- First set -->
                     <div class="reference-card">
                         <h3>Rockafella Royalfarewell</h3>
                         <p><strong>Contact Person:</strong> Mr A. Seletela</p>
@@ -650,7 +777,6 @@
                         <p><strong>Tel:</strong> 064 527 7537</p>
                         <p><strong>Address:</strong> 16B Nelson Mandela Drive, Mokopane, Limpopo</p>
                     </div>
-                    <!-- Duplicate set for seamless loop -->
                     <div class="reference-card">
                         <h3>Rockafella Royalfarewell</h3>
                         <p><strong>Contact Person:</strong> Mr A. Seletela</p>
@@ -694,6 +820,29 @@
             <p>© 2026 Monkwe Koketso Groups (Pty) Ltd. Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Request a Quote</h2>
+            <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="012 345 6789">
+                
+                <label for="message">Message Details</label>
+                <textarea id="message" name="message" placeholder="Describe what you need printed..." required></textarea>
+                
+                <input type="submit" value="Send Request">
+            </form>
+        </div>
+    </div>
+
     <script>
         // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
@@ -702,12 +851,14 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
+        
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
+        
         // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
@@ -719,6 +870,27 @@
                 icon.classList.toggle('fa-times');
             });
         }
+
+        // ADDED: Modal Functions
+        function openModal() {
+            document.getElementById("quoteModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("quoteModal").style.display = "none";
+        }
+        
+        // Close on Click Outside
+        window.onclick = function(event) {
+            var modal = document.getElementById("quoteModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Close on Escape Key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeModal();
+        });
     </script>
 </body>
 </html>
