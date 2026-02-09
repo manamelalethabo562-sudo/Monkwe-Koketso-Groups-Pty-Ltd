@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About TAKEDI | Modern Printers & Supply</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css ">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300 ;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #3E4095;
@@ -28,7 +28,7 @@
         p { color: #555; }
         a { text-decoration: none; transition: var(--transition); }
 
-        /* ─── NAVBAR ────────────────────────────────────────────── */
+        /* ─── NAVBAR (Synchronized) ──────────────────────────────── */
         nav {
             position: fixed;
             top: 20px;
@@ -135,7 +135,7 @@
         /* ─── HERO ──────────────────────────────────── */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
-                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp ') center/cover no-repeat fixed;
+                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
             color: white;
             padding: 320px 10% 220px;
             position: relative;
@@ -352,29 +352,29 @@
             color: #888;
         }
 
-        /* ─── MODERN MODAL STYLES (Optimized for Mobile) ──────────────── */
+        /* ─── MODAL STYLES ──────────────────────────── */
         .modal {
-            display: none; /* JS toggles this to flex */
+            display: none;
             position: fixed;
             z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow-y: auto; /* Allows scrolling on small screens */
+            overflow-y: auto;
             background-color: rgba(11, 12, 31, 0.75);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
             animation: fadeInOverlay 0.3s ease forwards;
-            padding: 10px; /* Prevents modal touching edges on small screens */
+            padding: 10px;
             box-sizing: border-box;
         }
 
         .modal-content {
             background-color: #ffffff;
-            margin: auto; /* Keeps it centered when flex is active */
+            margin: auto;
             padding: 40px 35px;
             border: none;
             width: 90%;
@@ -385,7 +385,6 @@
             animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Modal Header */
         .modal-content h2 {
             margin-top: 0;
             margin-bottom: 25px;
@@ -394,7 +393,6 @@
             text-align: center;
         }
 
-        /* Close Button */
         .close {
             color: #999;
             position: absolute;
@@ -419,7 +417,6 @@
             transform: rotate(90deg);
         }
 
-        /* Modern Form Styling */
         form label {
             display: block;
             margin-top: 15px;
@@ -478,61 +475,6 @@
             box-shadow: 0 10px 20px rgba(245, 134, 52, 0.4);
         }
 
-        form input[type="submit"]:active {
-            transform: translateY(-1px);
-        }
-
-        /* STRICT MOBILE MODAL OPTIMIZATION */
-        @media (max-width: 600px) {
-            .modal-content {
-                width: 95%; /* Wider on small screens */
-                padding: 25px 20px; /* Reduced padding */
-                margin: 20px auto; /* Allows scrolling space */
-            }
-            
-            .modal-content h2 {
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-
-            .close {
-                top: 15px;
-                right: 15px;
-                width: 28px;
-                height: 28px;
-                font-size: 24px;
-                background: #eee;
-            }
-
-            form input, form textarea {
-                font-size: 16px; /* Prevents iOS auto-zoom */
-                padding: 12px 12px;
-            }
-
-            form input[type="submit"] {
-                padding: 12px 20px;
-                margin-top: 20px;
-                font-size: 15px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInOverlay {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUpModal {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
         /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
         @media (max-width: 991px) {
             nav {
@@ -572,7 +514,6 @@
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
             
-            /* --- LINKS HORIZONTAL ON MOBILE --- */
             nav ul {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -582,18 +523,13 @@
                 width: 100%;
                 margin-bottom: 10px;
             }
-            nav ul li a {
-                font-size: 14px;
-                padding: 5px 8px;
-                display: block;
-            }
+            nav ul li a { font-size: 14px; padding: 5px 8px; }
 
             .nav-cta {
                 font-size: 14px;
                 padding: 12px 30px;
                 width: 80%;
                 text-align: center;
-                margin-top: 0;
             }
             nav ul li, .nav-cta {
                 opacity: 0;
@@ -610,65 +546,27 @@
             nav ul li:nth-child(4) { transition-delay: 0.26s; }
             .nav-cta { transition-delay: 0.32s; }
 
-            /* Grid Adjustments */
             .values-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
             section { padding: 80px 6%; }
             .about-intro { padding: 40px 25px; }
             .orange-header { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
-            .organogram-card { padding: 50px 20px; }
-            .org-box { min-width: 200px; padding: 20px 30px; font-size: 15px; }
         }
 
-        /* ─── STRICT MOBILE (Phone) OPTIMIZATION ────────────────── */
         @media (max-width: 768px) {
-            header {
-                padding: 150px 6% 80px; 
-                background-attachment: scroll; 
-                background-position: center center;
-            }
+            header { padding: 150px 6% 80px; background-attachment: scroll; }
             .company-name { font-size: 42px; }
-            .hero-label { font-size: 13px; letter-spacing: 3px; }
-            .slogan { font-size: 18px; padding: 12px 18px; border-left-width: 4px; }
-            
-            section { padding: 60px 5%; }
-            .about-intro { padding: 30px 20px; }
-            .about-intro h1 { font-size: 32px; }
-            .about-intro p { font-size: 16px; }
-            
-            .orange-header {
-                font-size: 22px;
-                padding: 12px 30px;
-                margin-bottom: 40px;
-                box-shadow: 6px 6px 0px var(--primary);
-            }
-            
-            .values-grid { grid-template-columns: 1fr; gap: 25px; }
-            .value-card, .mission-card { padding: 35px 25px; }
-            .value-card i, .mission-card i { font-size: 3rem; }
-            
-            .organogram-card { padding: 40px 15px; border-radius: 24px; }
-            .org-box { 
-                min-width: auto; 
-                width: 90%; 
-                padding: 18px 20px; 
-                font-size: 14px;
-                margin: 10px 0;
-            }
-            
-            footer { padding: 60px 6% 40px; }
-            .footer-grid { gap: 40px; }
-            .copyright { margin-top: 50px; padding-top: 30px; }
+            .values-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 95%; padding: 25px 20px; }
         }
 
-        @media (max-width: 1200px) and (min-width: 992px) {
-            .values-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUpModal { from { opacity: 0; transform: translateY(40px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
     </style>
 </head>
 <body>
     <nav id="navbar">
         <div class="nav-left">
-            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png " alt="TAKEDI Logo" class="nav-avatar">
+            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
             <div class="nav-logo-text">TAKEDI</div>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         </div>
@@ -778,16 +676,12 @@
             <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                
                 <label for="phone">Phone</label>
                 <input type="tel" id="phone" name="phone" placeholder="012 345 6789">
-                
                 <label for="message">Message Details</label>
                 <textarea id="message" name="message" placeholder="Describe what you need printed..." required></textarea>
-                
                 <input type="submit" value="Send Request">
             </form>
         </div>
@@ -812,7 +706,6 @@
         // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
-        
         if (hamburger && navbar) {
             hamburger.addEventListener('click', () => {
                 navbar.classList.toggle('expanded');
@@ -823,17 +716,11 @@
         }
 
         // Modal Functions
-        function openModal() {
-            document.getElementById("quoteModal").style.display = "flex";
-        }
-        function closeModal() {
-            document.getElementById("quoteModal").style.display = "none";
-        }
+        function openModal() { document.getElementById("quoteModal").style.display = "flex"; }
+        function closeModal() { document.getElementById("quoteModal").style.display = "none"; }
         window.onclick = function(event) {
             var modal = document.getElementById("quoteModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+            if (event.target == modal) modal.style.display = "none";
         }
     </script>
 </body>
