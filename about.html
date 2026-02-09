@@ -28,7 +28,7 @@
         p { color: #555; }
         a { text-decoration: none; transition: var(--transition); }
 
-        /* ─── NAVBAR ─── */
+        /* ─── NAVBAR (Standardized to Index) ─── */
         nav {
             position: fixed;
             top: 20px;
@@ -118,7 +118,6 @@
         nav ul li a.active { color: var(--accent); }
         nav ul li a.active::after { width: 100%; }
         
-        /* ─── SHARED BUTTON SIZE & STYLE ─── */
         .nav-cta {
             background: var(--accent);
             color: white !important;
@@ -140,7 +139,7 @@
             box-shadow: 0 6px 20px rgba(62,64,149,0.2);
         }
 
-        /* ─── HERO ─── */
+        /* ─── HERO (Matching Index Layout) ─── */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
                         url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp') center/cover no-repeat fixed;
@@ -194,7 +193,7 @@
             border-radius: 12px;
         }
 
-        /* ─── SECTIONS ─── */
+        /* ─── SECTIONS (Index Spacing) ─── */
         main { padding-top: 0; }
         section {
             padding: 140px 8%;
@@ -242,7 +241,7 @@
         }
         .highlight { color: var(--accent); font-weight: 700; }
 
-        /* ─── VALUES & MISSION ─── */
+        /* ─── GRID SYSTEMS (Identical to Index) ─── */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -277,8 +276,8 @@
             line-height: 1.6;
         }
         .mission-vision-grid {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 50px;
             margin: 100px 0;
         }
@@ -308,7 +307,7 @@
         }
         .org-box.primary { background: var(--primary); }
 
-        /* ─── FOOTER ─── */
+        /* ─── FOOTER (Identical to Index) ─── */
         footer {
             background: #0B0C1F;
             color: white;
@@ -374,52 +373,21 @@
             border-radius: 12px;
             border: 1px solid #ddd;
             background: #f9f9f9;
+            font-family: inherit;
         }
         .modal-cta { width: 100%; margin-top: 10px; }
 
-        /* ─── MOBILE OPTIMIZATION (MATCHING INDEX) ─── */
+        /* ─── MOBILE OPTIMIZATION ─── */
         @media (max-width: 991px) {
-            nav {
-                width: 92%;
-                padding: 12px 20px;
-                border-radius: 18px;
-                flex-direction: column;
-                align-items: flex-start;
-                height: 70px;
-                overflow: hidden;
-                top: 15px;
-            }
-            nav.expanded {
-                height: auto;
-                padding-bottom: 30px;
-                background: white;
-            }
+            nav { width: 92%; padding: 12px 20px; border-radius: 18px; flex-direction: column; align-items: flex-start; height: 70px; overflow: hidden; top: 15px; }
+            nav.expanded { height: auto; padding-bottom: 30px; background: white; }
             .nav-left { width: 100%; justify-content: space-between; }
             .hamburger { display: block; }
-            .menu-wrapper {
-                width: 100%;
-                flex-direction: column;
-                opacity: 0;
-                visibility: hidden;
-                padding-top: 25px;
-            }
+            .menu-wrapper { width: 100%; flex-direction: column; opacity: 0; visibility: hidden; padding-top: 25px; }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                gap: 20px;
-            }
-            /* MOBILE BUTTON SIZE FIX */
-            .nav-cta {
-                width: 100%; 
-                max-width: 280px;
-                margin: 20px auto 0;
-                text-align: center;
-                padding: 16px 0;
-                font-size: 14px;
-            }
-            .values-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            nav ul { flex-direction: column; align-items: center; width: 100%; gap: 20px; }
+            .nav-cta { width: 100%; max-width: 280px; margin: 20px auto 0; text-align: center; }
+            .values-grid, .mission-vision-grid { grid-template-columns: 1fr; gap: 20px; }
             section { padding: 80px 6%; }
             .orange-header { font-size: 22px; padding: 12px 30px; }
             .about-intro { padding: 40px 20px; }
@@ -428,7 +396,6 @@
         @media (max-width: 768px) {
             header { padding: 180px 6% 100px; }
             .company-name { font-size: 40px; }
-            .values-grid { grid-template-columns: 1fr; }
             .org-box { min-width: 100%; margin: 10px 0; }
         }
     </style>
@@ -457,15 +424,9 @@
             <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
             <h2>Request a Quote</h2>
             <form class="quote-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Full Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="How can we help you?"></textarea>
-                </div>
+                <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                <div class="form-group"><textarea rows="4" placeholder="How can we help you?"></textarea></div>
                 <button type="submit" class="nav-cta modal-cta">SEND REQUEST</button>
             </form>
         </div>
@@ -532,6 +493,10 @@
             <div class="footer-column">
                 <h4>TAKEDI</h4>
                 <p>Delivering fast, reliable, and cost-effective branding solutions across South Africa.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <p><a href="services.html" style="color: #B0B0C0;">Our Services</a><br><a href="contact.html" style="color: #B0B0C0;">Contact Us</a></p>
             </div>
             <div class="footer-column">
                 <h4>Contact</h4>
