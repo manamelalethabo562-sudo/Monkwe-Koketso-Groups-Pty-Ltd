@@ -410,7 +410,7 @@
             .copyright { margin-top: 50px; }
         }
 
-        /* ─── NEW MODERN MODAL STYLES ────────────────────────── */
+        /* ─── MODERN MODAL STYLES (Optimized for Mobile) ──────────────── */
         .modal {
             display: none; /* JS toggles this to flex */
             position: fixed;
@@ -419,18 +419,20 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            background-color: rgba(11, 12, 31, 0.75); /* Darker, slightly blue tint */
-            backdrop-filter: blur(8px); /* Modern frosted glass effect */
+            overflow-y: auto; /* Allows scrolling on small screens */
+            background-color: rgba(11, 12, 31, 0.75);
+            backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            align-items: center; /* Centers content vertically */
-            justify-content: center; /* Centers content horizontally */
+            align-items: center;
+            justify-content: center;
             animation: fadeInOverlay 0.3s ease forwards;
+            padding: 10px; /* Prevents modal touching edges on small screens */
+            box-sizing: border-box;
         }
 
         .modal-content {
             background-color: #ffffff;
-            margin: 0;
+            margin: auto; /* Keeps it centered when flex is active */
             padding: 40px 35px;
             border: none;
             width: 90%;
@@ -466,6 +468,7 @@
             justify-content: center;
             border-radius: 50%;
             background: #f4f4f4;
+            z-index: 10;
         }
         .close:hover {
             color: var(--white);
@@ -535,6 +538,40 @@
 
         form input[type="submit"]:active {
             transform: translateY(-1px);
+        }
+
+        /* STRICT MOBILE MODAL OPTIMIZATION */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 95%; /* Wider on small screens */
+                padding: 25px 20px; /* Reduced padding */
+                margin: 20px auto; /* Allows scrolling space */
+            }
+            
+            .modal-content h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .close {
+                top: 15px;
+                right: 15px;
+                width: 28px;
+                height: 28px;
+                font-size: 24px;
+                background: #eee;
+            }
+
+            form input, form textarea {
+                font-size: 16px; /* Prevents iOS auto-zoom */
+                padding: 12px 12px;
+            }
+
+            form input[type="submit"] {
+                padding: 12px 20px;
+                margin-top: 20px;
+                font-size: 15px;
+            }
         }
 
         /* Animations */
@@ -750,7 +787,6 @@
     </script>
     <script>
         function openModal() {
-            // Using Flex to keep it centered
             document.getElementById("quoteModal").style.display = "flex";
         }
         function closeModal() {
