@@ -126,8 +126,8 @@
             font-size: 13px;
             box-shadow: 0 4px 15px rgba(245,134,52,0.3);
             letter-spacing: 1px;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
             display: inline-block;
         }
         .nav-cta:hover {
@@ -355,80 +355,85 @@
             color: #888;
         }
 
-        /* ─── QUOTE MODAL STYLES ────────────────────────── */
+        /* ─── MODAL STYLES ─── */
         .modal-overlay {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(11, 12, 31, 0.8);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 12, 31, 0.85);
             backdrop-filter: blur(10px);
-            z-index: 2000;
-            display: none; /* Hidden by default */
-            align-items: center;
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        
         .modal-content {
             background: var(--white);
-            width: 100%;
+            width: 90%;
             max-width: 550px;
-            border-radius: 30px;
             padding: 50px;
+            border-radius: 30px;
             position: relative;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
             transform: translateY(30px);
             transition: var(--transition);
         }
-        .modal-overlay.active { display: flex; }
         .modal-overlay.active .modal-content { transform: translateY(0); }
-        
+
         .close-modal {
             position: absolute;
-            top: 25px; right: 25px;
+            top: 25px;
+            right: 25px;
             font-size: 24px;
-            color: var(--primary);
+            color: #888;
             cursor: pointer;
             transition: var(--transition);
         }
         .close-modal:hover { color: var(--accent); transform: rotate(90deg); }
 
-        .modal-header { margin-bottom: 30px; }
-        .modal-header h2 { margin: 0; font-size: 28px; }
-        .modal-header p { margin: 5px 0 0; font-size: 14px; }
-
-        .quote-form { display: flex; flex-direction: column; gap: 18px; }
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-group label { font-size: 13px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
-        .form-group input, .form-group select, .form-group textarea {
-            padding: 14px 20px;
-            border-radius: 12px;
-            border: 1px solid #DDD;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            transition: var(--transition);
-            background: #F9F9FF;
+        .modal-content h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+        .form-group input, .form-group textarea {
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            background: #f9f9f9;
+            transition: var(--transition);
+        }
+        .form-group input:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--accent);
             background: white;
-            box-shadow: 0 0 10px rgba(245,134,52,0.1);
+            box-shadow: 0 5px 15px rgba(245,134,52,0.1);
         }
-        .submit-btn {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 1px;
-            cursor: pointer;
+        .modal-cta {
             margin-top: 10px;
-            box-shadow: 0 10px 20px rgba(245,134,52,0.2);
-            transition: var(--transition);
+            border: none;
+            width: 100%;
         }
-        .submit-btn:hover { background: var(--primary); transform: translateY(-3px); }
 
         /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
         @media (max-width: 991px) {
@@ -517,7 +522,8 @@
         @media (max-width: 768px) {
             header { padding: 150px 6% 80px; background-attachment: scroll; }
             .company-name { font-size: 42px; }
-            .modal-content { padding: 35px 25px; border-radius: 20px; }
+            .modal-content { padding: 40px 25px; }
+            .modal-content h2 { font-size: 22px; }
         }
     </style>
 </head>
@@ -535,42 +541,32 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="nav-cta" id="openModal">GET A QUOTE</button>
+            <button class="nav-cta open-quote-btn">GET A QUOTE</button>
         </div>
     </nav>
 
-    <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-overlay" id="quoteModal">
         <div class="modal-content">
-            <i class="fas fa-times close-modal" id="closeModal"></i>
-            <div class="modal-header">
-                <h2>Request a Quote</h2>
-                <p>Tell us about your project and we'll get back to you.</p>
-            </div>
+            <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
+            <h2>Request a Quote</h2>
             <form class="quote-form">
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Enter your name" required>
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter your full name" required>
                 </div>
                 <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="email@example.com" required>
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter your email address" required>
                 </div>
                 <div class="form-group">
-                    <label>Service Type</label>
-                    <select required>
-                        <option value="">Select a service</option>
-                        <option value="signage">Industrial Signage</option>
-                        <option value="vehicle">Vehicle Branding</option>
-                        <option value="apparel">Corporate Apparel</option>
-                        <option value="ppe">Custom PPE</option>
-                        <option value="other">Other Printing</option>
-                    </select>
+                    <label>Phone</label>
+                    <input type="tel" placeholder="Enter your phone number" required>
                 </div>
                 <div class="form-group">
-                    <label>Message / Requirements</label>
-                    <textarea rows="4" placeholder="How can we help?"></textarea>
+                    <label>Message Details</label>
+                    <textarea rows="4" placeholder="Describe what you need branded or printed..." required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">SEND REQUEST</button>
+                <button type="submit" class="nav-cta modal-cta">SEND REQUEST</button>
             </form>
         </div>
     </div>
@@ -665,26 +661,27 @@
 
     <script>
         // Modal Logic
-        const openModalBtn = document.getElementById('openModal');
+        const modal = document.getElementById('quoteModal');
+        const openModalBtns = document.querySelectorAll('.open-quote-btn');
         const closeModalBtn = document.getElementById('closeModal');
-        const modalOverlay = document.getElementById('modalOverlay');
 
-        openModalBtn.addEventListener('click', () => {
-            modalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Stop scroll
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Disable scroll when modal open
+            });
         });
 
-        closeModalBtn.addEventListener('click', () => {
-            modalOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Enable scroll
-        });
+        const hideModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
 
-        // Close on clicking outside the content
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                modalOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+        closeModalBtn.addEventListener('click', hideModal);
+        
+        // Close on clicking outside the white box
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
         });
 
         // Intersection Observer for animations
