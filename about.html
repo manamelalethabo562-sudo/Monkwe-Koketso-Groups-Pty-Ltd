@@ -186,10 +186,10 @@
             border-radius: 12px;
         }
 
-        /* ─── SECTIONS ──────────────────────────────────── */
+        /* ─── SECTIONS (Reduced Spacing) ──────────────── */
         main { padding-top: 0; }
         section {
-            padding: 140px 8%;
+            padding: 70px 8%; /* Reduced from 140px */
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
@@ -204,7 +204,7 @@
             display: inline-block;
             font-size: 32px;
             font-weight: 800;
-            margin-bottom: 70px;
+            margin-bottom: 40px; /* Reduced from 70px */
             position: relative;
             box-shadow: 12px 12px 0px var(--primary);
             border-radius: 12px;
@@ -216,7 +216,7 @@
             border-radius: 28px;
             box-shadow: 0 12px 50px rgba(0,0,0,0.06);
             padding: 60px;
-            margin-bottom: 100px;
+            margin-bottom: 30px; /* Reduced from 100px */
             border: 1px solid rgba(0,0,0,0.04);
             overflow: hidden;
         }
@@ -234,12 +234,12 @@
         }
         .highlight { color: var(--accent); font-weight: 700; }
 
-        /* ─── VALUES & MISSION ──────────────────────────────────── */
+        /* ─── VALUES & MISSION ────────────────────────── */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            margin: 100px 0;
+            margin: 40px 0; /* Reduced from 100px */
         }
         .value-card, .mission-card {
             background: white;
@@ -271,8 +271,8 @@
         #mission-vision .mission-vision-grid {
             display: flex;
             flex-direction: column;
-            gap: 50px;
-            margin: 100px 0;
+            gap: 30px; /* Reduced from 50px */
+            margin: 40px 0; /* Reduced from 100px */
         }
         .mission-card p, .mission-card ul { text-align: left; }
         .mission-card ul { list-style: none; padding-left: 0; }
@@ -295,7 +295,7 @@
         .organogram-card {
             background: white;
             border-radius: 36px;
-            padding: 80px 40px;
+            padding: 60px 40px; /* Reduced from 80px */
             text-align: center;
             box-shadow: 0 20px 55px rgba(0,0,0,0.07);
             border: 1px solid rgba(0,0,0,0.03);
@@ -329,7 +329,7 @@
         footer {
             background: #0B0C1F;
             color: white;
-            padding: 120px 10% 60px;
+            padding: 80px 10% 60px; /* Reduced top padding from 120px */
         }
         .footer-grid {
             display: grid;
@@ -345,7 +345,7 @@
         .footer-column p { color: #B0B0C0; font-size: 16px; }
         .copyright {
             text-align: center;
-            margin-top: 100px;
+            margin-top: 60px; /* Reduced from 100px */
             padding-top: 50px;
             border-top: 1px solid rgba(255,255,255,0.08);
             font-size: 14px;
@@ -547,7 +547,7 @@
             .nav-cta { transition-delay: 0.32s; }
 
             .values-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-            section { padding: 80px 6%; }
+            section { padding: 50px 6%; } /* Reduced from 80px */
             .about-intro { padding: 40px 25px; }
             .orange-header { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
         }
