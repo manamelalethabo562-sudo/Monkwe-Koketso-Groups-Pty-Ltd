@@ -308,14 +308,14 @@
         }
         /* ─── REFERENCES ──────────────────────────────────── */
         .references-section {
-            margin: 10px 8% 30px; /* REDUCED spacing here */
+            margin: 20px 8% 40px; /* Reduced top margin from 90px → 40px */
             text-align: center;
             overflow: hidden;
             max-width: 1400px;
         }
         .references-section h2 {
             font-size: 36px;
-            margin-bottom: 25px; /* reduced from 40px */
+            margin-bottom: 40px;
             color: var(--primary);
             display: inline-block;
             background: var(--accent);
@@ -330,7 +330,7 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            margin-top: 30px; /* reduced from 50px */
+            margin-top: 50px;
         }
         .references-container {
             display: flex;
@@ -341,7 +341,7 @@
         .reference-card {
             flex: 0 0 360px;
             background: white;
-            padding: 30px; /* slightly reduced from 35px */
+            padding: 35px;
             border-radius: 28px;
             box-shadow: 0 12px 50px rgba(0,0,0,0.06);
             border: 1px solid rgba(0,0,0,0.04);
@@ -353,11 +353,11 @@
             box-shadow: 0 30px 70px rgba(62,64,149,0.15);
         }
         .reference-card h3 {
-            margin: 0 0 12px; /* slightly reduced */
+            margin: 0 0 15px;
             font-size: 22px;
         }
         .reference-card p {
-            margin: 6px 0; /* slightly reduced from 8px */
+            margin: 8px 0;
             font-size: 15px;
         }
         .reference-card strong { color: var(--accent); }
@@ -389,4 +389,495 @@
             padding-top: 50px;
             border-top: 1px solid rgba(255,255,255,0.08);
             font-size: 14px;
-            color: #888
+            color: #888;
+        }
+        /* ─── MODAL STYLES ──────────────────────────────────────── */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background-color: rgba(11, 12, 31, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            animation: fadeInOverlay 0.3s ease forwards;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: auto;
+            padding: 40px 35px;
+            border: none;
+            width: 90%;
+            max-width: 480px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: var(--primary);
+            text-align: center;
+        }
+        .close {
+            color: #999;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f4f4f4;
+            z-index: 10;
+        }
+        .close:hover {
+            color: var(--white);
+            background: var(--accent);
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 0;
+            box-sizing: border-box;
+            background: #F5F5FA;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        form input:focus, form textarea:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 4px 15px rgba(245,134,52,0.1);
+        }
+        form textarea { resize: vertical; min-height: 100px; }
+        form input[type="submit"] {
+            background: linear-gradient(135deg, var(--accent), #FF6B6B);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            margin-top: 30px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        form input[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 134, 52, 0.4);
+        }
+        form input[type="submit"]:active { transform: translateY(-1px); }
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUpModal {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
+        @media (max-width: 991px) {
+            nav {
+                width: 90%;
+                padding: 12px 20px;
+                border-radius: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.45s ease;
+                height: 68px;
+                overflow: hidden;
+            }
+            nav.expanded {
+                height: auto;
+                border-radius: 16px;
+                padding-bottom: 25px;
+                background: white;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            }
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .hamburger { display: block; }
+          
+            .menu-wrapper {
+                width: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 15px;
+                padding: 20px 0 5px;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
+            }
+            nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
+          
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+                padding: 5px 8px;
+                display: block;
+            }
+            .nav-cta {
+                font-size: 14px;
+                padding: 12px 30px;
+                width: 80%;
+                text-align: center;
+                margin-top: 0;
+            }
+            nav ul li, .nav-cta {
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            nav.expanded ul li, nav.expanded .nav-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            nav ul li:nth-child(1) { transition-delay: 0.08s; }
+            nav ul li:nth-child(2) { transition-delay: 0.14s; }
+            nav ul li:nth-child(3) { transition-delay: 0.20s; }
+            nav ul li:nth-child(4) { transition-delay: 0.26s; }
+            .nav-cta { transition-delay: 0.32s; }
+          
+            .services-grid { grid-template-columns: 1fr; gap: 35px; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 35px; }
+            section { padding: 70px 6%; }
+            .orange-header { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
+            .references-section h2 { font-size: 24px; padding: 12px 30px; box-shadow: 6px 6px 0px var(--primary); }
+            .reference-card { flex: 0 0 300px; }
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 150px 6% 80px;
+                background-attachment: scroll;
+                background-position: center center;
+            }
+            .page-title { font-size: 42px; }
+            .hero-label { font-size: 13px; letter-spacing: 3px; }
+            .slogan { font-size: 18px; padding: 12px 18px; border-left-width: 4px; }
+            section { padding: 50px 5%; }
+            .orange-header {
+                font-size: 22px;
+                padding: 12px 30px;
+                margin-bottom: 40px;
+                box-shadow: 6px 6px 0px var(--primary);
+            }
+            .references-section h2 {
+                font-size: 22px;
+                padding: 12px 30px;
+                box-shadow: 6px 6px 0px var(--primary);
+            }
+            .service-card { min-height: auto; }
+            .service-card i { margin: 30px 25px 15px; font-size: 3rem; }
+            .service-card h3 { margin: 0 25px 15px; font-size: 22px; }
+            .service-card p { margin: 0 25px 15px; }
+            .service-card ul { margin: 0 25px 30px; }
+            .gallery-section { margin-top: 60px; }
+            .gallery-section h2 { font-size: 28px; }
+            .gallery-item img { height: 220px; }
+            .references-section { margin: 30px 5% 40px; } /* Also reduced for mobile */
+            .references-wrapper { margin-top: 40px; }
+            .reference-card { flex: 0 0 280px; padding: 25px; }
+            footer { padding: 60px 6% 40px; }
+            .footer-grid { gap: 40px; }
+            .copyright { margin-top: 50px; padding-top: 30px; }
+        }
+        /* Mobile Modal */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 95%;
+                padding: 25px 20px;
+                margin: 20px auto;
+            }
+            .modal-content h2 { font-size: 24px; margin-bottom: 20px; }
+            .close { top: 15px; right: 15px; background: #eee; }
+            form input, form textarea { font-size: 16px; padding: 12px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-left">
+            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
+            <div class="nav-logo-text">TAKEDI</div>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+        <div class="menu-wrapper">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="#" class="nav-cta" onclick="openModal()">GET A QUOTE</a>
+        </div>
+    </nav>
+    <header>
+        <div class="hero-label">Our Specialized Services</div>
+        <h1 class="page-title">OUR SERVICES</h1>
+        <div class="slogan">High-impact digital printing, vehicle branding, safety signage, custom PPE & apparel, embroidery, flags, and promotional solutions – tailored for mining, industrial, and commercial excellence in South Africa.</div>
+    </header>
+    <main>
+        <section id="services">
+            <div class="orange-header">Comprehensive Services</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Large Format Printing</h3>
+                    <p>Durable, high-visibility solutions engineered for tough environments.</p>
+                    <ul>
+                        <li>Signage boards & shop branding</li>
+                        <li>Mine signage (reflective & non-reflective)</li>
+                        <li>Lightboxes, correx boards & canvas</li>
+                        <li>Wallpaper, window film & frosting</li>
+                        <li>Pull-up banners, gazebos & wall banners</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car-side"></i>
+                    <h3>Vehicle Branding</h3>
+                    <p>Professional wraps and graphics that turn vehicles into powerful marketing tools.</p>
+                    <ul>
+                        <li>Full & partial vehicle wraps</li>
+                        <li>Fleet stickers & magnetic stickers</li>
+                        <li>Custom safety decals & branding</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hard-hat"></i>
+                    <h3>Safety Signage & PPE</h3>
+                    <p>Compliant, high-visibility signage and protective equipment for industrial safety.</p>
+                    <ul>
+                        <li>Reflective mine & hazard signage</li>
+                        <li>SABS-compliant PPE supply</li>
+                        <li>Custom safety labels & instructions</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Apparel & Embroidery</h3>
+                    <p>Custom branded clothing and professional embroidery for corporate identity.</p>
+                    <ul>
+                        <li>T-shirt printing & embroidery</li>
+                        <li>Name tags & corporate workwear</li>
+                        <li>Custom branding on apparel</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-flag"></i>
+                    <h3>Flags & Promotional Items</h3>
+                    <p>Event and retail-ready flags, stickers, and promotional materials.</p>
+                    <ul>
+                        <li>Teardrop & telescopic flags</li>
+                        <li>Label stickers, flyers & business cards</li>
+                        <li>Rubber stamps & bottle labels</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-store-alt"></i>
+                    <h3>Shop & Wall Branding</h3>
+                    <p>Complete interior/exterior branding to enhance business visibility.</p>
+                    <ul>
+                        <li>Shop branding & wall graphics</li>
+                        <li>Wallpaper & large wall banners</li>
+                        <li>Window manifestations & frosting</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="gallery-section">
+                <h2>Examples of Our Work</h2>
+                <p>Showcasing our precision in large format printing, vehicle branding, safety signage, apparel, and promotional materials.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="https://i.postimg.cc/8CjPWys4/Screenshot-2026-02-05-152521.png" alt="Product collage"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/NGRhXGnB/bradedcar.png" alt="Vehicle branding"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/KYccqkdt/signboard.png" alt="SignBoard"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/3RMSrmYJ/window-branding.png" alt="Window Branding"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/PrTXKfPN/Screenshot-2026-02-05-152459.png" alt="Teardrop Flag"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/wvNN5x3C/cloth.png" alt="Clothing branding"></div>
+                </div>
+            </div>
+        </section>
+        <section class="references-section">
+            <h2>References & Completed Projects</h2>
+            <div class="references-wrapper">
+                <div class="references-container">
+                    <div class="reference-card">
+                        <h3>Rockafella Royalfarewell</h3>
+                        <p><strong>Contact Person:</strong> Mr A. Seletela</p>
+                        <p><strong>Tel:</strong> 086 036 6400</p>
+                        <p><strong>Email:</strong> info@rockafellaroyalfarewell.co.za</p>
+                    </div>
+                    <div class="reference-card">
+                        <h3>Dr Kgomo Dental Care</h3>
+                        <p><strong>Contact Person:</strong> Mrs T.R. Kgomo</p>
+                        <p><strong>Tel:</strong> 082 082 1799</p>
+                        <p><strong>Address:</strong> 44 Ruiter Rd, Mokopane, 0601</p>
+                    </div>
+                    <div class="reference-card">
+                        <h3>Kgwathele Primary School</h3>
+                        <p><strong>Contact Person:</strong> Mr A. Kwakwa</p>
+                        <p><strong>Tel:</strong> 072 187 1480</p>
+                        <p><strong>Email:</strong> kgwatheleprimary@gmail.com</p>
+                    </div>
+                    <div class="reference-card">
+                        <h3>Point B Supplier</h3>
+                        <p><strong>Contact Person:</strong> Mr Nelson Maake</p>
+                        <p><strong>Tel:</strong> 064 527 7537</p>
+                        <p><strong>Address:</strong> 16B Nelson Mandela Drive, Mokopane, Limpopo</p>
+                    </div>
+                    <div class="reference-card">
+                        <h3>Rockafella Royalfarewell</h3>
+                        <p><strong>Contact Person:</strong> Mr A. Seletela</p>
+                        <p><strong>Tel:</strong> 086 036 6400</p>
+                        <p><strong>Email:</strong> info@rockafellaroyalfarewell.co.za</p>
+                    </div>
+                    <div class="reference-card">
+                        <h3>Dr Kgomo Dental Care</h3>
+                        <p><strong>Contact Person:</strong> Mrs T.R. Kgomo</p>
+                        <p><strong>Tel:</strong> 082 082 1799</p>
+                        <p><strong>Address:</strong> 44 Ruiter Rd, Mokopane, 0601</p>
+                    </div>
+                    <div class="reference-card">
+                        <h3>Kgwathele Primary School</h3>
+                        <p><strong>Contact Person:</strong> Mr A. Kwakwa</p>
+                        <p><strong>Tel:</strong> 072 187 1480</p>
+                        <p><strong>Email:</strong> kgwatheleprimary@gmail.com</p>
+                    </div>
+                    <div class="reference-card">
+                        <h3>Point B Supplier</h3>
+                        <p><strong>Contact Person:</strong> Mr Nelson Maake</p>
+                        <p><strong>Tel:</strong> 064 527 7537</p>
+                        <p><strong>Address:</strong> 16B Nelson Mandela Drive, Mokopane, Limpopo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>TAKEDI</h4>
+                <p>Fast, reliable, and high-quality digital printing and branding services throughout South Africa. Precision craftsmanship for every project.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Our Commitment</h4>
+                <p>To deliver industry-leading solutions through superior quality, innovation, sustainability, and dedicated client service.</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Monkwe Koketso Groups (Pty) Ltd. Takedi Modern Printers & Supply. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Request a Quote</h2>
+            <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+              
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+              
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="012 345 6789">
+              
+                <label for="message">Message Details</label>
+                <textarea id="message" name="message" placeholder="Describe what you need printed..." required></textarea>
+              
+                <input type="submit" value="Send Request">
+            </form>
+        </div>
+    </div>
+    <script>
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+      
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+      
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+        if (hamburger && navbar) {
+            hamburger.addEventListener('click', () => {
+                navbar.classList.toggle('expanded');
+                const icon = hamburger.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+        // ADDED: Modal Functions
+        function openModal() {
+            document.getElementById("quoteModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("quoteModal").style.display = "none";
+        }
+      
+        // Close on Click Outside
+        window.onclick = function(event) {
+            var modal = document.getElementById("quoteModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        // Close on Escape Key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeModal();
+        });
+    </script>
+</body>
+</html>
