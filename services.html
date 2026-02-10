@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAKEDI | Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css  ">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300  ;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css ">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300 ;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #3E4095;
@@ -27,7 +27,7 @@
         p { color: #555; }
         ul { list-style: disc; padding-left: 30px; margin: 20px 0; }
         a { text-decoration: none; transition: var(--transition); }
-        
+       
         /* ─── NAVBAR ────────────────────────────────────────────── */
         nav {
             position: fixed;
@@ -131,11 +131,10 @@
             background: var(--primary);
             transform: scale(1.05);
         }
-
         /* ─── HERO ──────────────────────────────────── */
         header {
             background: linear-gradient(to right, rgba(15, 15, 45, 0.88), rgba(15, 15, 45, 0.55)),
-                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp  ') center/cover no-repeat fixed;
+                        url('https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp ') center/cover no-repeat fixed;
             color: white;
             padding: 320px 10% 220px;
             position: relative;
@@ -185,7 +184,6 @@
             padding: 15px 25px;
             border-radius: 12px;
         }
-
         /* ─── SECTIONS ──────────────────────────────────── */
         section {
             padding: 30px 8%;
@@ -210,7 +208,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         /* ─── SERVICES GRID ──────────────────────────────────── */
         .services-grid {
             display: grid;
@@ -268,7 +265,6 @@
             top: 3px;
             font-size: 1.3rem;
         }
-
         /* ─── GALLERY ──────────────────────────────────── */
         .gallery-section {
             margin-top: 30px;
@@ -310,7 +306,6 @@
             object-fit: cover;
             border-bottom: 4px solid var(--accent);
         }
-
         /* ─── REFERENCES ──────────────────────────────────── */
         .references-section {
             margin: 30px 8% 40px;
@@ -370,7 +365,6 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-
         /* ─── FOOTER ──────────────────────────────────── */
         footer {
             background: #0B0C1F;
@@ -397,7 +391,6 @@
             font-size: 14px;
             color: #888;
         }
-
         /* ─── MODAL STYLES ──────────────────────────────────────── */
         .modal {
             display: none;
@@ -509,13 +502,11 @@
             box-shadow: 0 10px 20px rgba(245, 134, 52, 0.4);
         }
         form input[type="submit"]:active { transform: translateY(-1px); }
-
         @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUpModal {
             from { opacity: 0; transform: translateY(40px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
-
         /* ─── MOBILE OPTIMIZATION ──────────────────────────────────── */
         @media (max-width: 991px) {
             nav {
@@ -541,7 +532,7 @@
                 align-items: center;
             }
             .hamburger { display: block; }
-            
+           
             .menu-wrapper {
                 width: 100%;
                 flex-direction: column;
@@ -554,7 +545,7 @@
                 transition: opacity 0.4s ease 0.1s, visibility 0.4s ease 0.1s;
             }
             nav.expanded .menu-wrapper { opacity: 1; visibility: visible; }
-            
+           
             nav ul {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -590,7 +581,7 @@
             nav ul li:nth-child(3) { transition-delay: 0.20s; }
             nav ul li:nth-child(4) { transition-delay: 0.26s; }
             .nav-cta { transition-delay: 0.32s; }
-            
+           
             .services-grid { grid-template-columns: 1fr; gap: 25px; }
             .gallery-grid { grid-template-columns: 1fr; gap: 25px; }
             section { padding: 30px 6%; }
@@ -656,15 +647,15 @@
 <body>
     <nav id="navbar">
         <div class="nav-left">
-            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png  " alt="TAKEDI Logo" class="nav-avatar">
+            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
             <div class="nav-logo-text">TAKEDI</div>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         </div>
         <div class="menu-wrapper">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <a href="#" class="nav-cta" onclick="openModal()">GET A QUOTE</a>
@@ -746,12 +737,12 @@
                 <h2>Examples of Our Work</h2>
                 <p>Showcasing our precision in large format printing, vehicle branding, safety signage, apparel, and promotional materials.</p>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="https://i.postimg.cc/8CjPWys4/Screenshot-2026-02-05-152521.png  " alt="Product collage"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/NGRhXGnB/bradedcar.png  " alt="Vehicle branding"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/KYccqkdt/signboard.png  " alt="SignBoard"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/3RMSrmYJ/window-branding.png  " alt="Window Branding"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/PrTXKfPN/Screenshot-2026-02-05-152459.png  " alt="Teardrop Flag"></div>
-                    <div class="gallery-item"><img src="https://i.postimg.cc/wvNN5x3C/cloth.png  " alt="Clothing branding"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/8CjPWys4/Screenshot-2026-02-05-152521.png " alt="Product collage"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/NGRhXGnB/bradedcar.png " alt="Vehicle branding"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/KYccqkdt/signboard.png " alt="SignBoard"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/3RMSrmYJ/window-branding.png " alt="Window Branding"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/PrTXKfPN/Screenshot-2026-02-05-152459.png " alt="Teardrop Flag"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/wvNN5x3C/cloth.png " alt="Clothing branding"></div>
                 </div>
             </div>
         </section>
@@ -826,7 +817,6 @@
             <p>© 2026 Monkwe Koketso Groups (Pty) Ltd. Takedi Modern Printers & Supply. All Rights Reserved.</p>
         </div>
     </footer>
-
     <div id="quoteModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -834,21 +824,20 @@
             <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                
+               
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                
+               
                 <label for="phone">Phone</label>
                 <input type="tel" id="phone" name="phone" placeholder="012 345 6789">
-                
+               
                 <label for="message">Message Details</label>
                 <textarea id="message" name="message" placeholder="Describe what you need printed..." required></textarea>
-                
+               
                 <input type="submit" value="Send Request">
             </form>
         </div>
     </div>
-
     <script>
         // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
@@ -857,14 +846,14 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(s => observer.observe(s));
-        
+       
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
-        
+       
         // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
@@ -876,7 +865,6 @@
                 icon.classList.toggle('fa-times');
             });
         }
-
         // ADDED: Modal Functions
         function openModal() {
             document.getElementById("quoteModal").style.display = "flex";
@@ -884,7 +872,7 @@
         function closeModal() {
             document.getElementById("quoteModal").style.display = "none";
         }
-        
+       
         // Close on Click Outside
         window.onclick = function(event) {
             var modal = document.getElementById("quoteModal");
@@ -892,7 +880,6 @@
                 modal.style.display = "none";
             }
         }
-
         // Close on Escape Key
         window.addEventListener('keydown', (e) => {
             if (e.key === "Escape") closeModal();
