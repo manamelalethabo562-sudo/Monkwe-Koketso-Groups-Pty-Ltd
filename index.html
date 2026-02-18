@@ -1,551 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAKEDI | Modern Printers & Supply</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1A237E;
-            --accent: #FF5722;
-            --light-accent: #FFAB91;
-            --white: #FFFFFF;
-            --bg-light: #FAFAFA;
-            --text-dark: #212121;
-            --text-light: #757575;
-            --transition: all 0.3s ease;
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        h1, h2, h3 { color: var(--primary); font-weight: 700; }
-        p { color: var(--text-light); }
-        ul { list-style: none; padding: 0; }
-        a { text-decoration: none; transition: var(--transition); }
-        
-        /* ─── NAVBAR ────────────────────────────────────────────── */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 5%;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .nav-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-        }
-        .nav-logo-text {
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 1.8rem;
-            color: var(--text-dark);
-        }
-        nav ul {
-            display: flex;
-            gap: 30px;
-            margin: 0;
-        }
-        nav ul li a {
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 1rem;
-            position: relative;
-            padding-bottom: 5px;
-        }
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-        nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
-        nav ul li a:hover, nav ul li a.active { color: var(--accent); }
-        .nav-cta {
-            background: var(--accent);
-            color: var(--white);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 15px rgba(255,87,34,0.3);
-        }
-        .nav-cta:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* ─── NEW HERO DESIGN ──────────────────────────────────── */
-        header {
-            min-height: 100vh;
-            background: linear-gradient(135deg, rgba(26, 35, 126, 0.85) 0%, rgba(0, 0, 0, 0.4) 100%),
-                        url('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
-            color: var(--white);
-            padding: 0 10%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-container {
-            max-width: 850px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            padding: 60px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: heroFadeIn 1s ease-out;
-            border-left: 8px solid var(--accent);
-        }
-        @keyframes heroFadeIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        .hero-label {
-            display: inline-block;
-            background: var(--accent);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(255,87,34,0.4);
-        }
-        .company-name {
-            font-size: clamp(3.5rem, 8vw, 6rem);
-            font-weight: 900;
-            margin: 0;
-            line-height: 1;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            background: linear-gradient(to right, #fff, var(--light-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .slogan {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 400;
-            margin-top: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            border-left: 2px solid var(--light-accent);
-            padding-left: 20px;
-        }
-
-        /* ─── Sections ──────────────────────────────────── */
-        section {
-            padding: 80px 10%;
-            max-width: 1400px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        section.visible { opacity: 1; transform: translateY(0); }
-        .section-header {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-            padding: 10px 30px;
-            background: linear-gradient(135deg, var(--accent), var(--light-accent));
-            color: var(--white);
-            border-radius: 50px;
-            box-shadow: 0 5px 20px rgba(255,87,34,0.3);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(26,35,126,0.2);
-        }
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .card-content {
-            padding: 25px;
-            flex-grow: 1;
-        }
-        .card h3 {
-            font-size: 1.5rem;
-            margin: 0 0 10px;
-        }
-        .card p {
-            font-size: 1rem;
-            margin: 0;
-        }
-        #portfolio .grid .card img { height: 300px; }
-        #contact .grid {
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        }
-        #contact .card {
-            padding: 30px;
-        }
-        #contact i {
-            color: var(--accent);
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        /* ─── Footer ──────────────────────────────────── */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 50px 10%;
-            text-align: center;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-        .footer-column p { color: var(--light-accent); }
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 20px;
-            font-size: 0.9rem;
-        }
-        /* ─── MOBILE ──────────────────────────────────── */
-        @media (max-width: 991px) {
-            nav {
-                padding: 15px 5%;
-                flex-wrap: wrap;
-            }
-            .nav-right {
-                display: none;
-            }
-            .hamburger { display: block; }
-            nav.expanded .nav-right {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 20px;
-            }
-            nav ul {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .nav-cta { width: fit-content; margin: 20px auto 0; }
-            
-            header { padding: 0 5%; justify-content: center; text-align: center; }
-            .hero-container { padding: 40px 20px; border-left: none; border-top: 8px solid var(--accent); }
-            .slogan { border-left: none; padding-left: 0; }
-        }
-        @media (max-width: 768px) {
-            .section-header { font-size: 2rem; }
-            section { padding: 60px 5%; }
-            .card img { height: 200px; }
-        }
-        /* ─── MODAL ──────────────────────────────────── */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        form label {
-            font-weight: 600;
-            margin-bottom: 5px;
-            display: block;
-        }
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-        }
-        form input[type="submit"] {
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            cursor: pointer;
-            font-weight: 700;
-        }
-    </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>TAKEDI | Modern Printers & Supply</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <base target="_blank">
+   <style>
+       :root {
+           --color-bg: #000000;
+           --color-fg: #ffffff;
+           --color-accent: #ff8c00;
+           --color-accent-dark: #e67e00;
+           --color-accent-light: #ffa94d;
+           --color-muted: rgba(255, 255, 255, 0.6);
+           --color-muted-dark: rgba(255, 255, 255, 0.3);
+         
+           --font-display: 'Montserrat', sans-serif;
+           --font-body: 'Open Sans', sans-serif;
+         
+           --transition-fast: 0.2s ease;
+           --transition-medium: 0.4s ease;
+           --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+         
+           --grid-gap: 2px;
+       }
+       *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+       html { scroll-behavior: smooth; font-size: 16px; }
+       body {
+           font-family: var(--font-body);
+           background-color: var(--color-bg);
+           color: var(--color-fg);
+           line-height: 1.6;
+           overflow-x: hidden;
+           cursor: none;
+       }
+       .cursor {
+           width: 8px; height: 8px;
+           background: var(--color-accent);
+           border-radius: 50%;
+           position: fixed; pointer-events: none; z-index: 9999;
+           mix-blend-mode: difference;
+           transition: transform 0.1s ease;
+       }
+       .cursor-follower {
+           width: 40px; height: 40px;
+           border: 1px solid var(--color-accent);
+           border-radius: 50%;
+           position: fixed; pointer-events: none; z-index: 9998;
+           transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+       }
+       .cursor.hover { transform: scale(2); }
+       .cursor-follower.hover { width: 60px; height: 60px; border-color: var(--color-fg); }
+       @media (pointer: coarse) {
+           body { cursor: auto; }
+           .cursor, .cursor-follower { display: none; }
+       }
+       .grain-overlay {
+           position: fixed; top:0; left:0; width:100%; height:100%;
+           pointer-events: none; z-index: 9990; opacity: 0.04;
+           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+       }
+       ::selection { background: var(--color-accent); color: var(--color-bg); }
+       ::-webkit-scrollbar { width: 8px; }
+       ::-webkit-scrollbar-track { background: var(--color-bg); }
+       ::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 4px; }
+       ::-webkit-scrollbar-thumb:hover { background: var(--color-accent-light); }
+       .navigation {
+           position: fixed; top:0; left:0; width:100%;
+           padding: 1.5rem 3rem;
+           display: flex; justify-content: space-between; align-items: center;
+           z-index: 100;
+           transition: background var(--transition-medium), backdrop-filter var(--transition-medium);
+       }
+       .navigation.scrolled {
+           background: rgba(0,0,0,0.85);
+           backdrop-filter: blur(10px);
+       }
+       .nav-logo {
+           display: flex; align-items: baseline;
+       }
+       .logo-main { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; }
+       .logo-accent { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--color-accent); }
+       .nav-links {
+           display: flex; list-style: none; gap: 2.5rem;
+       }
+       .nav-links a {
+           font-family: var(--font-display); font-size: 0.875rem; font-weight: 500;
+           text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-fg);
+           text-decoration: none; position: relative; padding: 0.5rem 0;
+       }
+       .nav-links a::after {
+           content:''; position:absolute; bottom:0; left:0; width:0; height:1px;
+           background: var(--color-accent); transition: width var(--transition-medium);
+       }
+       .nav-links a:hover::after { width: 100%; }
+       .nav-cta {
+           font-family: var(--font-display); font-size: 0.875rem; font-weight: 600;
+           text-transform: uppercase; letter-spacing: 0.1em;
+           padding: 0.75rem 1.5rem; background: transparent;
+           border: 1px solid var(--color-accent); color: var(--color-accent);
+           cursor: pointer; transition: all var(--transition-medium);
+       }
+       .nav-cta:hover { background: var(--color-accent); color: var(--color-bg); }
+       .mobile-menu-btn { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:5px; }
+       .mobile-menu-btn span { display:block; width:25px; height:2px; background:var(--color-fg); transition:all var(--transition-medium); }
+       .mobile-menu-btn.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+       .mobile-menu-btn.active span:nth-child(2) { opacity:0; }
+       .mobile-menu-btn.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+       .mobile-menu {
+           position:fixed; top:0; left:0; width:100%; height:100vh;
+           background:var(--color-bg); z-index:99;
+           display:flex; align-items:center; justify-content:center;
+           opacity:0; visibility:hidden; transition:all var(--transition-medium);
+       }
+       .mobile-menu.active { opacity:1; visibility:visible; }
+       .mobile-nav-links { list-style:none; text-align:center; }
+       .mobile-nav-links li { margin:2rem 0; }
+       .mobile-nav-links a {
+           font-family:var(--font-display); font-size:2.5rem; font-weight:700;
+           color:var(--color-fg); text-decoration:none; transition:color var(--transition-fast);
+       }
+       .mobile-nav-links a:hover { color:var(--color-accent); }
+       .hero {
+           position:relative; height:100vh; width:100%; overflow:hidden;
+           display:flex; align-items:center; justify-content:center;
+       }
+       .hero-bg-image {
+           position:absolute; top:0; left:0; width:100%; height:100%;
+           background-image: url('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?q=80&w=2070&auto=format&fit=crop');
+           background-size:cover; background-position:center;
+           z-index:0; opacity:0.68;
+           will-change: transform; transform: translate3d(0,0,0);
+       }
+       .hero-grid {
+           position:absolute; top:0; left:0; width:100%; height:100%;
+           display:grid; grid-template-columns:repeat(8,1fr); grid-template-rows:repeat(6,1fr);
+           gap:var(--grid-gap); z-index:1;
+           will-change: transform; transform: translate3d(0,0,0);
+       }
+       .grid-cell {
+           background:var(--color-bg); position:relative; overflow:hidden;
+           transition: opacity 2.6s cubic-bezier(0.23,1,0.32,1);
+           will-change: opacity, transform; transform: translate3d(0,0,0);
+       }
+       .hero.loaded .grid-cell { opacity: 0.06; }
+       .hero.loaded .grid-cell.orange { opacity: 0.24; }
+       .grid-cell.orange { background:var(--color-accent); }
+       .grid-cell.orange::after {
+           content:''; position:absolute; top:50%; left:50%; width:20%; height:20%;
+           background:var(--color-bg); transform:translate(-50%,-50%) rotate(45deg);
+       }
+       .hero-content { position:relative; z-index:2; text-align:center; padding:2rem; }
+       .title-block {
+           display:inline-block; padding:1rem 2rem; margin:0.5rem;
+           background:var(--color-bg); border:2px solid var(--color-fg);
+       }
+       .title-block.title-right {
+           background:var(--color-accent); border-color:var(--color-accent);
+       }
+       .hero-title {
+           font-family:var(--font-display); font-size:clamp(3rem,12vw,10rem);
+           font-weight:900; letter-spacing:-0.05em; line-height:1; margin:0;
+       }
+       .hero-title.accent { color:var(--color-bg); }
+       .hero-subtitle {
+           font-family:var(--font-body); font-size:1.1rem; font-weight:400;
+           letter-spacing:0.25em; text-transform:uppercase; color:var(--color-muted);
+           margin-top:2.5rem; background:rgba(0,0,0,0.6); padding:0.6rem 1.2rem;
+           display:inline-block;
+       }
+       .hero-cta {
+           display:inline-block; margin-top:3.5rem; padding:1.2rem 3rem;
+           font-family:var(--font-display); font-size:0.95rem; font-weight:600;
+           text-transform:uppercase; letter-spacing:0.2em; color:var(--color-fg);
+           text-decoration:none; border:1px solid var(--color-fg);
+           position:relative; overflow:hidden; transition:all var(--transition-medium);
+           background:rgba(0,0,0,0.5);
+       }
+       .hero-cta::before {
+           content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+           background:var(--color-accent); transition:left var(--transition-medium); z-index:-1;
+       }
+       .hero-cta:hover { border-color:var(--color-accent); color:var(--color-bg); }
+       .hero-cta:hover::before { left:0; }
+       .scroll-indicator {
+           position:absolute; bottom:3rem; left:50%; transform:translateX(-50%);
+           display:flex; flex-direction:column; align-items:center; gap:1rem; z-index:2;
+       }
+       .scroll-text {
+           font-family:var(--font-display); font-size:0.625rem; font-weight:500;
+           letter-spacing:0.3em; text-transform:uppercase; color:var(--color-muted);
+       }
+       .scroll-line {
+           width:1px; height:60px;
+           background:linear-gradient(to bottom, var(--color-accent), transparent);
+           animation:scrollPulse 2s ease-in-out infinite;
+       }
+       @keyframes scrollPulse { 0%,100% { opacity:0.3; transform:scaleY(0.5); } 50% { opacity:1; transform:scaleY(1); } }
+       section { position:relative; padding:8rem 3rem; overflow:hidden; }
+       .section-header { margin-bottom:4rem; }
+       .section-label {
+           display:block; font-family:var(--font-display); font-size:0.75rem; font-weight:600;
+           letter-spacing:0.3em; text-transform:uppercase; color:var(--color-accent); margin-bottom:1rem;
+       }
+       .section-title {
+           font-family:var(--font-display); font-size:clamp(2rem,5vw,4.5rem);
+           font-weight:800; line-height:1.1; margin:0;
+       }
+       .title-main { display:block; color:var(--color-fg); }
+       .title-accent { display:block; color:var(--color-accent); }
+       .decorative-text {
+           position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+           font-family:var(--font-display); font-size:clamp(10rem,25vw,22rem);
+           font-weight:900; color:var(--color-fg); opacity:0.02; pointer-events:none;
+           white-space:nowrap; z-index:0; will-change:transform; transform:translate3d(-50%,-50%,0);
+       }
+       .services { min-height:100vh; }
+       .services-grid {
+           display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:2rem;
+       }
+       .service-card {
+           background:rgba(255,255,255,0.02); border:1px solid var(--color-muted-dark);
+           padding:2.5rem; transition:all var(--transition-medium);
+       }
+       .service-card:hover {
+           border-color:var(--color-accent); transform:translateY(-10px);
+       }
+       .service-icon {
+           font-size:3.5rem; color:var(--color-accent); margin-bottom:1.5rem;
+       }
+       .service-title { font-family:var(--font-display); font-size:1.5rem; font-weight:700; margin-bottom:1rem; }
+       .portfolio-grid {
+           display:grid; grid-template-columns:repeat(auto-fill,minmax(380px,1fr)); gap:1.5rem;
+       }
+       .portfolio-item {
+           aspect-ratio:4/3; overflow:hidden; position:relative;
+           background:rgba(255,255,255,0.03); border:1px solid var(--color-muted-dark);
+           transition:all var(--transition-medium);
+       }
+       .portfolio-item:hover { transform:scale(1.03); border-color:var(--color-accent); }
+       .portfolio-item img {
+           width:100%; height:100%; object-fit:cover; transition:transform var(--transition-slow);
+       }
+       .portfolio-item:hover img { transform:scale(1.08); }
+       .about { background:linear-gradient(to bottom, var(--color-bg), rgba(255,140,0,0.04)); }
+       .contact { min-height:80vh; }
+       .contact-content { display:grid; grid-template-columns:1fr 1fr; gap:5rem; max-width:1400px; margin:0 auto; }
+       .contact-form .form-group { margin-bottom:1.8rem; }
+       .contact-form input, .contact-form textarea {
+           width:100%; padding:1.2rem; background:rgba(255,255,255,0.03);
+           border:1px solid var(--color-muted-dark); color:var(--color-fg);
+           font-family:var(--font-body); font-size:1rem;
+       }
+       .contact-form input:focus, .contact-form textarea:focus { border-color:var(--color-accent); outline:none; }
+       .submit-btn {
+           background:var(--color-accent); color:var(--color-bg);
+           border:none; padding:1.2rem 3rem; font-family:var(--font-display);
+           font-size:1rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em;
+           cursor:pointer; transition:all var(--transition-medium);
+       }
+       .submit-btn:hover { background:var(--color-accent-light); transform:translateY(-3px); }
+       @media (max-width:1024px) {
+           .contact-content { grid-template-columns:1fr; }
+       }
+       @media (max-width:768px) {
+           .navigation { padding:1rem 1.5rem; }
+           .nav-links, .nav-cta { display:none; }
+           .mobile-menu-btn { display:flex; }
+           section { padding:5rem 1.5rem; }
+           .hero-grid { grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(8,1fr); }
+           .grid-cell:nth-child(n+33) { display:none; }
+       }
+       /* Parallax */
+       .hero-bg-image, .decorative-text, .grid-cell {
+           will-change: transform;
+           transform: translate3d(0,0,0);
+       }
+   </style>
 </head>
 <body>
-    <nav id="navbar">
-        <div class="nav-left">
-            <img src="https://i.postimg.cc/5yzF4Q9V/takedilogo.png" alt="TAKEDI Logo" class="nav-avatar">
-            <div class="nav-logo-text">TAKEDI</div>
-            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
-        </div>
-        <div class="nav-right">
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#" class="nav-cta" onclick="openModal()">GET A QUOTE</a>
-        </div>
-    </nav>
-
-    <header id="home">
-        <div class="hero-container">
-            <div class="hero-label">Excellence in Printing</div>
-            <h1 class="company-name">TAKEDI</h1>
-            <div class="slogan">Modern Printers & Supply </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="about">
-            <div class="section-header">About Company</div>
-            <div class="card">
-                <img src="https://www.dtflinko.com/wp-content/uploads/2024/07/LINKO_DTF_printer_production_workshop.webp" alt="TAKEDI Printing Workshop">
-                <div class="card-content">
-                    <p style="font-size: 1.2rem; color: var(--primary);"><strong>Defining Professionalism Since 2022</strong></p>
-                    <p>Established by <b>TAKEDI</b>, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.</p>
-                </div>
-            </div>
-        </section>
-        <section id="services">
-            <div class="section-header">Our Expertise</div>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/large-format-printing-company-banner-design-template-727f9582aa274c9d8ebefa9d53315591_screen.jpg?ts=1737904166" alt="Large Format Printing">
-                    <div class="card-content">
-                        <h3>Large Format</h3>
-                        <p>High-visibility signage boards, reflective safety signs, and custom lightboxes designed for harsh industrial environments.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://equiptgraphics.com/wp-content/uploads/2022/05/IMG_6330-1080x675.png" alt="Vehicle Branding">
-                    <div class="card-content">
-                        <h3>Vehicle Branding</h3>
-                        <p>Strategic fleet branding and professional wrapping that turns every vehicle into a high-impact mobile billboard.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/26db4009-3e28-40ee-9b18-6ddf68bb7d91.__CR0,0,1940,1200_PT0_SX970_V1___.jpg" alt="Branding & PPE">
-                    <div class="card-content">
-                        <h3>Branding & PPE</h3>
-                        <p>Custom corporate apparel, premium embroidery, and SABS-standard PPE supply tailored to your brand identity.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="portfolio">
-            <div class="section-header">Our Work Gallery</div>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://mksigns.com/cdn/shop/files/msdANilPKaf_1.png?v=1761281030&width=1946" alt="Custom Vinyl Banner">
-                    <div class="card-content">
-                        <h3>Industrial Signage</h3>
-                        <p>Durable large format prints for mining and construction sites.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://blog.wrapmate.com/wp-content/uploads/2023/10/Pest-Control-Small-Truck-Wrap-01-1024x576.jpg" alt="Vehicle Wrap Example">
-                    <div class="card-content">
-                        <h3>Fleet Vehicle Branding</h3>
-                        <p>Full-color wraps that boost brand visibility on the road.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.protoolreviews.com/wp-content/uploads/2022/02/Milwaukee-Branded-PPE.jpg" alt="Branded PPE">
-                    <div class="card-content">
-                        <h3>Custom Safety Gear</h3>
-                        <p>Branded helmets, vests, and apparel meeting safety standards.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://totallyyourstitch.com/cdn/shop/products/ladiespolologo.jpg?v=1720811173&width=1445" alt="Embroidered Apparel">
-                    <div class="card-content">
-                        <h3>Corporate Apparel</h3>
-                        <p>Premium embroidery on polos, jackets, and workwear.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://image.rolanddga.com/-/media/roland/images/applications/_related-products/uv.png?rev=b003869f46f2465a8d248409e4228ee9&la=en&h=533&w=800&hash=185C38C2ACA639200623A84B5732E821" alt="Large Format Printer">
-                    <div class="card-content">
-                        <h3>State-of-the-Art Equipment</h3>
-                        <p>Advanced printers for high-quality, fast-turnaround results.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://www.largeformatreview.com/wp-content/uploads/2018/04/La_Digital_Impser_002.jpg" alt="Printing Production">
-                    <div class="card-content">
-                        <h3>Production in Action</h3>
-                        <p>Precision printing for every project, big or small.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="contact">
-            <div class="section-header">Get In Touch</div>
-            <div class="grid">
-                <div class="card" style="background: var(--primary); color: var(--white);">
-                    <h3 style="color: var(--white);">Contact Details</h3>
-                    <p><i class="fas fa-phone"></i> 060 711 8356 / 015 004 0179</p>
-                    <p><i class="fas fa-envelope"></i> info@takedi.co.za</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 15 Nelson Mandela Street, Mokopane</p>
-                </div>
-                <div class="card">
-                    <h3>Business Hours</h3>
-                    <p><strong>Monday - Friday:</strong> 08:00 - 17:00</p>
-                    <p><strong>Saturday:</strong> 09:00 - 13:00</p>
-                    <p><strong>Sunday:</strong> Closed</p>
-                    <a href="#" onclick="openModal()" style="color: var(--accent); font-weight: 700; display: block; margin-top: 20px;">REQUEST A QUOTE →</a>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h4>TAKEDI</h4>
-                <p>Delivering fast, reliable, and cost-effective digital printing & branding services across South Africa. We bring your brand to life with precision and durability.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Our Mission</h4>
-                <p>To be the industry-leading printing company through exceptional quality, sustainable innovation, and community development.</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>© 2026 TAKEDI <br> Takedi Modern Printers & Supply. All Rights Reserved.</p>
-        </div>
-    </footer>
-    <div id="quoteModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Request a Quote</h2>
-            <form action="mailto:info@takedi.co.za" method="post" enctype="text/plain">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" placeholder="012 345 6789">
-                <label for="message">Message Details</label>
-                <textarea id="message" name="message" placeholder="Describe what you need printed..." required></textarea>
-                <input type="submit" value="Send Request">
-            </form>
-        </div>
-    </div>
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
-        const hamburger = document.getElementById('hamburger');
-        const navbar = document.getElementById('navbar');
-        if (hamburger && navbar) {
-            hamburger.addEventListener('click', () => {
-                navbar.classList.toggle('expanded');
-                hamburger.querySelector('i').classList.toggle('fa-bars');
-                hamburger.querySelector('i').classList.toggle('fa-times');
-            });
-        }
-        function openModal() {
-            document.getElementById("quoteModal").style.display = "flex";
-        }
-        function closeModal() {
-            document.getElementById("quoteModal").style.display = "none";
-        }
-        window.onclick = function(event) {
-            const modal = document.getElementById("quoteModal");
-            if (event.target == modal) modal.style.display = "none";
-        }
-        const sections = document.querySelectorAll('header, section');
-        const navLinks = document.querySelectorAll('nav ul li a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= (sectionTop - 100)) current = section.getAttribute('id');
-            });
-            navLinks.forEach(a => {
-                a.classList.remove('active');
-                if (a.href.includes(current)) a.classList.add('active');
-            });
-        });
-    </script>
+   <div class="cursor"></div>
+   <div class="cursor-follower"></div>
+   <div class="grain-overlay"></div>
+   <nav class="navigation">
+       <div class="nav-logo">
+           <span class="logo-main">TAKEDI</span>
+       </div>
+       <ul class="nav-links">
+           <li><a href="#services">Services</a></li>
+           <li><a href="#portfolio">Portfolio</a></li>
+           <li><a href="#about">About</a></li>
+           <li><a href="#contact">Contact</a></li>
+       </ul>
+       <button class="nav-cta">Get Quote</button>
+       <button class="mobile-menu-btn">
+           <span></span><span></span><span></span>
+       </button>
+   </nav>
+   <div class="mobile-menu">
+       <ul class="mobile-nav-links">
+           <li><a href="#services">Services</a></li>
+           <li><a href="#portfolio">Portfolio</a></li>
+           <li><a href="#about">About</a></li>
+           <li><a href="#contact">Contact</a></li>
+       </ul>
+   </div>
+   <section class="hero">
+       <div class="hero-bg-image"></div>
+       <div class="hero-grid">
+           <!-- Same grid cells as before – keeping the signature look -->
+           <div class="grid-cell"></div><div class="grid-cell orange"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell orange"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell orange"></div>
+           <div class="grid-cell orange"></div><div class="grid-cell"></div><div class="grid-cell orange"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell orange"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+           <!-- ... (you can keep or shorten the full 48 cells if you want) ... -->
+       </div>
+       <div class="hero-content">
+           <div class="title-block">
+               <h1 class="hero-title">TAKEDI</h1>
+           </div>
+           <div class="title-block title-right">
+               <h1 class="hero-title accent">MODERN PRINTERS</h1>
+           </div>
+           <p class="hero-subtitle">Modern Printers & Supply • Excellence in Printing</p>
+           <a href="#contact" class="hero-cta">Request a Quote</a>
+       </div>
+       <div class="scroll-indicator">
+           <span class="scroll-text">SCROLL</span>
+           <div class="scroll-line"></div>
+       </div>
+   </section>
+   <section id="services" class="services">
+       <div class="decorative-text">SERVICES</div>
+       <div class="section-header">
+           <span class="section-label">OUR EXPERTISE</span>
+           <h2 class="section-title">
+               <span class="title-main">Professional</span>
+               <span class="title-accent">Printing Solutions</span>
+           </h2>
+       </div>
+       <div class="services-grid">
+           <div class="service-card">
+               <div class="service-icon">🖨️</div>
+               <h3 class="service-title">Large Format</h3>
+               <p>High-visibility signage boards, reflective safety signs, and custom lightboxes designed for harsh industrial environments.</p>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🚗</div>
+               <h3 class="service-title">Vehicle Branding</h3>
+               <p>Strategic fleet branding and professional wrapping that turns every vehicle into a high-impact mobile billboard.</p>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🦺</div>
+               <h3 class="service-title">Branding & PPE</h3>
+               <p>Custom corporate apparel, premium embroidery, and SABS-standard PPE supply tailored to your brand identity.</p>
+           </div>
+       </div>
+   </section>
+   <section id="portfolio" class="portfolio" style="background:#111;">
+       <div class="decorative-text">PORTFOLIO</div>
+       <div class="section-header">
+           <span class="section-label">OUR WORK GALLERY</span>
+           <h2 class="section-title">
+               <span class="title-main">Our</span>
+               <span class="title-accent">Print Projects</span>
+           </h2>
+       </div>
+       <div class="portfolio-grid">
+           <!-- Replace with your real project images -->
+           <div class="portfolio-item"><img src="https://mksigns.com/cdn/shop/files/msdANilPKaf_1.png?v=1761281030&width=1946" alt="Industrial Signage"></div>
+           <div class="portfolio-item"><img src="https://blog.wrapmate.com/wp-content/uploads/2023/10/Pest-Control-Small-Truck-Wrap-01-1024x576.jpg" alt="Fleet Vehicle Branding"></div>
+           <div class="portfolio-item"><img src="https://www.protoolreviews.com/wp-content/uploads/2022/02/Milwaukee-Branded-PPE.jpg" alt="Custom Safety Gear"></div>
+           <div class="portfolio-item"><img src="https://totallyyourstitch.com/cdn/shop/products/ladiespolologo.jpg?v=1720811173&width=1445" alt="Corporate Apparel"></div>
+           <div class="portfolio-item"><img src="https://image.rolanddga.com/-/media/roland/images/applications/_related-products/uv.png?rev=b003869f46f2465a8d248409e4228ee9&la=en&h=533&w=800&hash=185C38C2ACA639200623A84B5732E821" alt="State-of-the-Art Equipment"></div>
+           <div class="portfolio-item"><img src="https://www.largeformatreview.com/wp-content/uploads/2018/04/La_Digital_Impser_002.jpg" alt="Production in Action"></div>
+       </div>
+   </section>
+   <section id="about" class="about">
+       <div class="decorative-text">ABOUT</div>
+       <div class="section-header">
+           <span class="section-label">OUR STORY</span>
+           <h2 class="section-title">
+               <span class="title-main">Defining</span>
+               <span class="title-accent">Professionalism</span>
+           </h2>
+       </div>
+       <p style="max-width:800px; margin:0 auto 4rem; font-size:1.2rem; color:var(--color-muted); text-align:center;">
+           Established by TAKEDI, we specialize in high-quality digital printing and branding solutions specifically engineered for the mining, industrial, and commercial sectors. Our commitment lies in precision engineering, rapid turnaround, and absolute client satisfaction.
+       </p>
+   </section>
+   <section id="contact" class="contact">
+       <div class="section-header">
+           <span class="section-label">GET IN TOUCH</span>
+           <h2 class="section-title">
+               <span class="title-main">Start Your</span>
+               <span class="title-accent">Project Today</span>
+           </h2>
+       </div>
+       <div class="contact-content">
+           <div>
+               <form class="contact-form">
+                   <div class="form-group">
+                       <input type="text" placeholder="Your Name" required>
+                   </div>
+                   <div class="form-group">
+                       <input type="email" placeholder="Email Address" required>
+                   </div>
+                   <div class="form-group">
+                       <input type="tel" placeholder="Phone Number">
+                   </div>
+                   <div class="form-group">
+                       <textarea rows="5" placeholder="Tell us about your printing project..."></textarea>
+                   </div>
+                   <button type="submit" class="submit-btn">Send Request</button>
+               </form>
+           </div>
+           <div style="display:flex; flex-direction:column; gap:2rem;">
+               <div>
+                   <strong style="color:var(--color-accent);">Email:</strong><br>
+                   <a href="mailto:info@takedi.co.za" style="color:var(--color-fg);">info@takedi.co.za</a>
+               </div>
+               <div>
+                   <strong style="color:var(--color-accent);">Phone:</strong><br>
+                   060 711 8356 / 015 004 0179
+               </div>
+               <div>
+                   <strong style="color:var(--color-accent);">Location:</strong><br>
+                   15 Nelson Mandela Street, Mokopane
+               </div>
+           </div>
+       </div>
+   </section>
+   <footer style="padding:4rem 3rem; text-align:center; border-top:1px solid var(--color-muted-dark); color:var(--color-muted); font-size:0.9rem;">
+       © 2026 TAKEDI Modern Printers & Supply. All Rights Reserved.
+   </footer>
+   <script>
+       // Cursor
+       const cursor = document.querySelector('.cursor');
+       const cursorFollower = document.querySelector('.cursor-follower');
+       let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0, followerX = 0, followerY = 0;
+       document.addEventListener('mousemove', e => {
+           mouseX = e.clientX; mouseY = e.clientY;
+       });
+       function animateCursor() {
+           cursorX += (mouseX - cursorX) * 0.2;
+           cursorY += (mouseY - cursorY) * 0.2;
+           followerX += (mouseX - followerX) * 0.1;
+           followerY += (mouseY - followerY) * 0.1;
+           cursor.style.left = cursorX - 4 + 'px';
+           cursor.style.top = cursorY - 4 + 'px';
+           cursorFollower.style.left = followerX - 20 + 'px';
+           cursorFollower.style.top = followerY - 20 + 'px';
+           requestAnimationFrame(animateCursor);
+       }
+       animateCursor();
+       document.querySelectorAll('a, button').forEach(el => {
+           el.addEventListener('mouseenter', () => {
+               cursor.classList.add('hover'); cursorFollower.classList.add('hover');
+           });
+           el.addEventListener('mouseleave', () => {
+               cursor.classList.remove('hover'); cursorFollower.classList.remove('hover');
+           });
+       });
+       // Mobile menu
+       document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+           document.querySelector('.mobile-menu-btn').classList.toggle('active');
+           document.querySelector('.mobile-menu').classList.toggle('active');
+       });
+       // Nav scroll effect
+       window.addEventListener('scroll', () => {
+           document.querySelector('.navigation').classList.toggle('scrolled', window.scrollY > 50);
+       });
+       // Smooth scroll
+       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+           anchor.addEventListener('click', e => {
+               e.preventDefault();
+               document.querySelector(anchor.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+           });
+       });
+       // Hero grid fade
+       window.addEventListener('load', () => {
+           setTimeout(() => document.querySelector('.hero').classList.add('loaded'), 650);
+       });
+       // Parallax
+       const parallaxLayers = [];
+       function addParallax(sel, speed) {
+           const el = document.querySelector(sel);
+           if (el) parallaxLayers.push({ element: el, speed });
+       }
+       addParallax('.hero-bg-image', 0.45);
+       addParallax('.decorative-text', -0.22);
+       document.querySelectorAll('.grid-cell').forEach((cell, i) => {
+           const offset = Math.sin(i) * 0.07;
+           parallaxLayers.push({ element: cell, speed: offset * 0.6 });
+       });
+       let ticking = false;
+       function updateParallax() {
+           const sy = window.scrollY;
+           parallaxLayers.forEach(({element, speed}) => {
+               const ty = sy * speed;
+               element.style.transform = `translate3d(0, ${ty}px, 0)`;
+           });
+           ticking = false;
+       }
+       window.addEventListener('scroll', () => {
+           if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+       });
+       window.addEventListener('load', () => setTimeout(updateParallax, 800));
+   </script>
 </body>
 </html>
